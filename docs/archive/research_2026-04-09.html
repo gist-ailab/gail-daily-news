@@ -448,7 +448,7 @@ footer .credit a:hover { text-decoration: underline; }
     <div class="subtitle">2026-04-09 — AI/Robotics 분야 최신 연구 큐레이션</div>
     <div class="stats">
       <span>50건 큐레이션</span>
-      <span>14개 소스</span>
+      <span>17개 소스</span>
       <span>중요도 기반 정렬</span>
     </div>
   </div>
@@ -456,12 +456,12 @@ footer .credit a:hover { text-decoration: underline; }
 
 <div class="container">
 
+<!-- 🧠 AI / ML -->
 <div class="section">
   <div class="section-header">
     <h2>🧠 AI / ML</h2>
     <span class="section-count">25건</span>
   </div>
-
 
   <div class="item highlight">
     <div class="item-top">
@@ -472,7 +472,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★★</span><span class="empty"></span></span>
       </div>
     </div>
-    <div class="item-summary">호스트 메모리에 파라미터를 저장하고 파이프라인 실행을 활용하여 단일 GPU에서 1000억 이상 파라미터 대규모 언어 모델(LLM)의 전정밀도(full-precision) 학습을 가능하게 하는 메모리 중심 시스템이다.</div>
+    <div class="item-summary">호스트 메모리에 파라미터를 저장하고 파이프라인 실행을 활용하는 메모리 중심 시스템으로, 단일 GPU에서 1000억 이상 파라미터(100B+ parameters) 모델의 풀 정밀도 학습(full-precision training)을 가능하게 했다.</div>
   </div>
 
   <div class="item highlight">
@@ -484,7 +484,127 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★★</span><span class="empty"></span></span>
       </div>
     </div>
-    <div class="item-summary">DISCO가 확산(Diffusion) 기반으로 임의 생체분자 주변의 단백질 서열과 3D 구조를 공동 설계하여 비생물학적 카르벤 전이(carbene transfer)를 촉매하는 새로운 헴 효소(heme enzyme)를 생성했다.</div>
+    <div class="item-summary">확산 모델(Diffusion)을 활용하여 임의의 생체 분자 주변에서 단백질 서열과 3D 구조를 동시 설계하는 DISCO 프레임워크로, 비생물학적 카르벤 전이(carbene transfer)를 위한 새로운 헴 효소(heme enzyme)를 생성했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05550" target="_blank" rel="noopener">AutoSOTA: End-to-End Automated Research System for State-of-the-Art AI Model Discovery</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cl</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">자동화된 엔드투엔드 연구 파이프라인을 통해 기존 방법을 능가하는 105개의 새로운 SOTA 모델을 자율적으로 발견한 멀티 에이전트(multi-agent) 아키텍처.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05355" target="_blank" rel="noopener">ETR: Entropy Trend Reward for Efficient Chain-of-Thought Reasoning</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ai</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">엔트로피 추세 보상(Entropy Trend Reward)을 통해 점진적 불확실성 감소를 유도하여 DeepSeek-R1-Distill-7B의 정확도를 9.9% 향상시키면서 사고 사슬(CoT) 길이를 67% 단축했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05424" target="_blank" rel="noopener">PRISM-MCTS: Learning from Reasoning Trajectories with Metacognitive Reflection</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ai</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">프로세스 보상 모델(Process Reward Model)과 휴리스틱을 포착하는 공유 메모리를 통합하여, GPQA에서 필요한 추론 궤적(trajectory)을 절반으로 줄이면서 기존 베이스라인을 초과 달성했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05134" target="_blank" rel="noopener">Reasoning Through Chess: How Reasoning Evolves from Data Through Fine-Tuning and RL</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_lg</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">체스 도메인에서 SFT와 강화학습(RL)을 통한 추론 진화를 연구 — RL은 불성실한 추론(unfaithful reasoning)을 유도하는 반면, 궤적 기반 학습(trajectory-based training)은 성실한 추론을 산출한다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05112" target="_blank" rel="noopener">Vintix II: Decision Pre-Trained Transformer is a Scalable In-Context Reinforcement Learner</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_lg</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">플로우 매칭(Flow Matching)을 활용하여 의사결정 사전학습 트랜스포머(Decision Pre-Trained Transformer)를 다중 도메인 환경으로 확장, 더 강력한 인컨텍스트 강화학습(in-context RL) 일반화를 입증했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05426" target="_blank" rel="noopener">ALTO: Adaptive LoRA Tuning and Orchestration for Heterogeneous Workloads</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_lg</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">손실 궤적 모니터링(loss trajectory monitoring)과 통합 그룹 GEMM(fused grouped GEMM)을 활용한 공동 설계 시스템으로, LoRA 하이퍼파라미터 튜닝을 13.8배 가속했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05730" target="_blank" rel="noopener">Controllable Image Generation with Composed Parallel Token Prediction</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_lg</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">이론적으로 뒷받침된 이산 생성 프로세스의 합성을 통해 CLEVR과 FFHQ에서 63.4% 오류 감소와 2.3~12배 속도 향상을 달성한 제어 가능한 이미지 생성(controllable image generation) 기법.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05688" target="_blank" rel="noopener">Attention Editing: Versatile Framework for Cross-Architecture Attention Conversion</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cl</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">점진적 증류(progressive distillation)를 통해 콜드스타트 오류를 방지하면서, 사전학습된 LLM을 재학습 없이 새로운 어텐션 아키텍처(attention architecture)로 변환하는 프레임워크.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05551" target="_blank" rel="noopener">FastDiSS: Few-step Diffusion Language Model on Sequence-to-Sequence Generation</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cl</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">확산 기반 텍스트 생성(diffusion-based text generation)에서 1단계 프레임워크와 경쟁하면서도 400배 빠른 추론(inference)을 달성한 새로운 학습 프레임워크.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05323" target="_blank" rel="noopener">VLA-InfoEntropy: Training-Free VLA Inference Acceleration</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cv</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">이미지 및 어텐션 엔트로피(entropy)를 활용한 동적 포커스로 비전-언어-행동 모델(VLA)의 추론을 가속하면서 로봇 조작 성능을 유지하는 학습 불요(training-free) 방법.</div>
   </div>
 
   <div class="item highlight">
@@ -497,127 +617,139 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">사전 RoPE 공간에서 Q/K 벡터 집중도를 활용한 KV 캐시 압축(KV cache compression)으로 전체 어텐션 정확도를 유지하면서 2.5배 높은 처리량(throughput)을 달성한다.</div>
+    <div class="item-summary">사전 RoPE 공간(pre-RoPE space)에서의 Q/K 벡터 집중을 활용한 KV 캐시 압축(KV cache compression)으로, 풀 어텐션(full attention) 정확도를 유지하면서 처리량(throughput)을 2.5배 향상시켰다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.05550" target="_blank" rel="noopener">AutoSOTA: End-to-End Automated Research System for State-of-the-Art AI Model Discovery</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_cl</span>
-        <span class="item-date">2026-04-08</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">자동화된 엔드투엔드(end-to-end) 연구 파이프라인을 통해 기존 방법을 능가하는 105개의 새로운 SOTA 모델을 자율적으로 발견한 멀티 에이전트(multi-agent) 아키텍처이다.</div>
-  </div>
-
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.05112" target="_blank" rel="noopener">Vintix II: Decision Pre-Trained Transformer is a Scalable In-Context Reinforcement Learner</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_lg</span>
-        <span class="item-date">2026-04-08</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">의사결정 사전학습 트랜스포머(Decision Pre-Trained Transformer)를 플로우 매칭(Flow Matching)으로 다중 도메인 환경에 확장하여 더 강력한 인컨텍스트 강화학습(In-Context RL) 일반화를 입증했다.</div>
-  </div>
-
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.05355" target="_blank" rel="noopener">ETR: Entropy Trend Reward for Efficient Chain-of-Thought Reasoning</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05081" target="_blank" rel="noopener">MedGemma 1.5 Technical Report</a></div>
       <div class="item-meta">
         <span class="badge">arxiv_ai</span>
         <span class="item-date">2026-04-08</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">엔트로피 추이 보상(Entropy Trend Reward)으로 DeepSeek-R1-Distill-7B의 정확도를 9.9% 향상시키면서 사고 연쇄(CoT) 길이를 67% 줄이는 점진적 불확실성 감소 기법이다.</div>
+    <div class="item-summary">고차원 의료 영상(medical imaging), 해부학적 위치 지정(anatomical localization), 다중 시점 분석(multi-timepoint analysis)을 통합하고 문서 이해 능력을 향상시킨 MedGemma 1.5 4B 모델.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.05424" target="_blank" rel="noopener">PRISM-MCTS: Learning from Reasoning Trajectories with Metacognitive Reflection</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05407" target="_blank" rel="noopener">CODESTRUCT: Code Agents over Structured Action Spaces</a></div>
       <div class="item-meta">
         <span class="badge">arxiv_ai</span>
         <span class="item-date">2026-04-08</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">프로세스 보상 모델(Process Reward Model)과 휴리스틱을 포착하는 공유 메모리를 통합하여 GPQA에서 궤적 요구량을 절반으로 줄이면서 기준선을 능가하는 메타인지 추론 프레임워크이다.</div>
+    <div class="item-summary">코드베이스를 명명된 AST 엔티티 기반의 구조화된 행동 공간(structured action space)으로 재구성하여, SWE-Bench에서 Pass@1을 1.2~5.0% 향상시키면서 토큰 사용을 12~38% 절감했다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.05134" target="_blank" rel="noopener">Reasoning Through Chess: How Reasoning Evolves from Data Through Fine-Tuning and RL</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05333" target="_blank" rel="noopener">Graph of Skills: Dependency-Aware Structural Retrieval for Massive Agent Skills</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ai</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">의존성 인식 검색(dependency-aware retrieval)을 갖춘 실행 가능한 스킬 그래프(skill graph)를 구축하여 보상을 43.6% 향상시키고 토큰을 37.8% 절감했다.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.04987" target="_blank" rel="noopener">Cactus: Accelerating Auto-Regressive Decoding with Constrained Acceptance</a></div>
       <div class="item-meta">
         <span class="badge">arxiv_lg</span>
         <span class="item-date">2026-04-08</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">체스 도메인에서 SFT와 강화학습(RL)을 통한 언어 모델(LM) 추론 진화를 연구하여, RL은 비충실한(unfaithful) 추론을, 궤적 기반 학습은 충실한(faithful) 추론을 생성함을 밝혔다.</div>
+    <div class="item-summary">검증기(verifier)로부터의 제어된 발산(controlled divergence)을 보장하면서 수용률(acceptance rate)을 높여 LLM 디코딩을 가속하는 제약 수용 투기적 샘플링(constrained acceptance speculative sampling) 기법.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.05426" target="_blank" rel="noopener">ALTO: Adaptive LoRA Tuning and Orchestration for Heterogeneous Workloads</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05217" target="_blank" rel="noopener">On the Geometry of Positional Encodings in Transformers</a></div>
       <div class="item-meta">
         <span class="badge">arxiv_lg</span>
         <span class="item-date">2026-04-08</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">손실 궤적 모니터링(loss trajectory monitoring)과 융합 그룹 GEMM(fused grouped GEMM)을 활용한 공동 설계 시스템으로 LoRA 하이퍼파라미터 튜닝에서 13.8배 속도 향상을 달성했다.</div>
+    <div class="item-summary">헬링거 거리(Hellinger distance) 기반 MDS를 활용하여 위치 인코딩(positional encoding)의 필요성, 분리 가능성, 최적성을 입증하는 수학적 이론을 정립했다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.05730" target="_blank" rel="noopener">Controllable Image Generation with Composed Parallel Token Prediction</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_lg</span>
-        <span class="item-date">2026-04-08</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">이산 생성 과정(discrete generative process)의 이론 기반 합성으로 CLEVR과 FFHQ에서 63.4% 오류 감소 및 2.3~12배 속도 향상을 달성했다.</div>
-  </div>
-
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.05688" target="_blank" rel="noopener">Attention Editing: Versatile Framework for Cross-Architecture Attention Conversion</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05643" target="_blank" rel="noopener">Graph-Based Chain-of-Thought Pruning for Reducing Redundant Reflections</a></div>
       <div class="item-meta">
         <span class="badge">arxiv_cl</span>
         <span class="item-date">2026-04-08</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">점진적 증류(progressive distillation)로 콜드스타트 오류를 방지하며 학습된 LLM을 재사전학습 없이 새로운 어텐션 아키텍처로 변환하는 프레임워크이다.</div>
+    <div class="item-summary">선형 사고 사슬(CoT)을 명시적 의존성을 가진 DAG(방향 비순환 그래프)로 변환하여, 정확도를 유지하거나 향상시키면서 추론 토큰을 42% 감소시켰다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.05551" target="_blank" rel="noopener">FastDiSS: Few-step Diffusion Language Model on Sequence-to-Sequence Generation</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05655" target="_blank" rel="noopener">LLM Reasoning as Trajectories: Step-Specific Representation Geometry</a></div>
       <div class="item-meta">
         <span class="badge">arxiv_cl</span>
         <span class="item-date">2026-04-08</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">확산 기반 텍스트 생성(diffusion-based text generation)에서 1단계 프레임워크와 동등한 성능을 유지하면서 400배 빠른 추론을 달성하는 새로운 학습 프레임워크이다.</div>
+    <div class="item-summary">사고 사슬(CoT) 생성을 표현 공간(representation space)에서의 구조화된 궤적으로 특성화하여, 추론 중간 단계에서 정확성을 0.87 AUC로 예측할 수 있게 했다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.05323" target="_blank" rel="noopener">VLA-InfoEntropy: Training-Free VLA Inference Acceleration</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05015" target="_blank" rel="noopener">Video-MME-v2: Next Stage Benchmarks for Comprehensive Video Understanding</a></div>
       <div class="item-meta">
         <span class="badge">arxiv_cv</span>
         <span class="item-date">2026-04-08</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">이미지 및 어텐션 엔트로피(entropy)를 활용한 동적 포커스로 VLA(Vision-Language-Action) 모델의 추론을 가속하면서 로봇 조작(manipulation) 성능을 유지한다.</div>
+    <div class="item-summary">점진적 3단계 계층 구조(progressive tri-level hierarchy)와 3,300 인시(human-hours)의 어노테이션을 포함한 종합 비디오 이해(video understanding) 벤치마크.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05449" target="_blank" rel="noopener">Not All Agents Matter: Risk-Prioritized Game Planning for Autonomous Driving</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cv</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">전략적 토폴로지 앵커링(strategic topology anchoring)과 미니맥스 어텐션(minimax attention)으로 위험 인식 게임 상호작용을 모델링하는 자율주행(autonomous driving) 계획 시스템 GameAD.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.04972" target="_blank" rel="noopener">RCP: Representation Consistency Pruner for Large Vision-Language Models</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cv</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">표현 일관성(representation consistency)을 유지하면서 대형 비전-언어 모델(LVLM)의 시각 토큰을 프루닝하여, 최소한의 정확도 손실로 88.9% 토큰 제거를 달성했다.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05182" target="_blank" rel="noopener">LSRM: High-Fidelity Object-Centric Reconstruction via Scaled Context Windows</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cv</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">확장된 트랜스포머 컨텍스트 윈도우(context window)를 활용한 대규모 희소 재구성 모델(Large Sparse Reconstruction Model)로 고충실도 3D 객체 재구성을 수행한다.</div>
   </div>
 
   <div class="item">
@@ -630,149 +762,16 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">하이브리드 선형-이차-선형 어텐션(hybrid linear-quadratic-linear attention)으로 50배 빠른 추론을 달성하나, 아키텍처 개선보다 데이터 스케일링(data scaling)이 성능에 더 큰 영향을 미친다.</div>
+    <div class="item-summary">하이브리드 선형-이차-선형 어텐션(hybrid linear-quadratic-linear attention)으로 낮은 퍼플렉시티 손실과 함께 50배 빠른 추론을 달성했지만, 데이터 스케일링(data scaling)이 아키텍처 개선보다 지배적인 효과를 보였다.</div>
   </div>
-
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.05081" target="_blank" rel="noopener">MedGemma 1.5 Technical Report</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_ai</span>
-        <span class="item-date">2026-04-08</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">고차원 의료 영상, 해부학적 위치 파악, 다중 시점 분석을 통합한 MedGemma 1.5 4B 도메인 특화 기반 모델(foundation model)로 문서 이해도 개선했다.</div>
-  </div>
-
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.05407" target="_blank" rel="noopener">CODESTRUCT: Code Agents over Structured Action Spaces</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_ai</span>
-        <span class="item-date">2026-04-08</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">코드베이스를 명명된 AST(Abstract Syntax Tree) 엔티티의 구조화된 행동 공간으로 재구성하여 SWE-Bench에서 Pass@1을 1.2~5.0% 향상시키면서 토큰을 12~38% 절감했다.</div>
-  </div>
-
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.05333" target="_blank" rel="noopener">Graph of Skills: Dependency-Aware Structural Retrieval for Massive Agent Skills</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_ai</span>
-        <span class="item-date">2026-04-08</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">실행 가능한 스킬 그래프(skill graph)를 구축하고 경계 제한 의존성 인식 검색으로 보상을 43.6% 향상시키면서 토큰을 37.8% 줄였다.</div>
-  </div>
-
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.04987" target="_blank" rel="noopener">Cactus: Accelerating Auto-Regressive Decoding with Constrained Acceptance</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_lg</span>
-        <span class="item-date">2026-04-08</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">제어된 발산(controlled divergence)을 보장하면서 수용률을 높이는 제약 수용 추측적 샘플링(constrained acceptance speculative sampling)으로 LLM 디코딩을 가속한다.</div>
-  </div>
-
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.05217" target="_blank" rel="noopener">On the Geometry of Positional Encodings in Transformers</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_lg</span>
-        <span class="item-date">2026-04-08</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">헬링거 거리(Hellinger distance) 기반 다차원 척도법(MDS)을 사용하여 위치 인코딩(positional encoding)의 필요성, 분리성, 최적성을 수학적으로 증명하는 이론 연구이다.</div>
-  </div>
-
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.05643" target="_blank" rel="noopener">Graph-Based Chain-of-Thought Pruning for Reducing Redundant Reflections</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_cl</span>
-        <span class="item-date">2026-04-08</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">선형 사고 연쇄(CoT)를 명시적 의존관계를 가진 DAG로 변환하여 정확도를 유지하거나 향상시키면서 추론 토큰을 42% 줄이는 그래프 기반 가지치기(pruning) 기법이다.</div>
-  </div>
-
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.05655" target="_blank" rel="noopener">LLM Reasoning as Trajectories: Step-Specific Representation Geometry</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_cl</span>
-        <span class="item-date">2026-04-08</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">사고 연쇄(CoT) 생성을 표현 공간(representation space)의 구조적 궤적으로 특성화하여 0.87 AUC로 추론 중간 정확도를 예측할 수 있게 한다.</div>
-  </div>
-
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.05015" target="_blank" rel="noopener">Video-MME-v2: Next Stage Benchmarks for Comprehensive Video Understanding</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_cv</span>
-        <span class="item-date">2026-04-08</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">3,300인시의 주석과 진행적 3단계 계층 구조를 갖춘 포괄적 비디오 이해(video understanding) 벤치마크이다.</div>
-  </div>
-
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.05449" target="_blank" rel="noopener">Not All Agents Matter: Risk-Prioritized Game Planning for Autonomous Driving</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_cv</span>
-        <span class="item-date">2026-04-08</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">전략적 토폴로지 앵커링(topology anchoring)과 미니맥스 어텐션(minimax attention)으로 위험 인식 게임 상호작용을 모델링하는 자율주행 계획(planning) 기법 GameAD이다.</div>
-  </div>
-
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.04972" target="_blank" rel="noopener">RCP: Representation Consistency Pruner for Large Vision-Language Models</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_cv</span>
-        <span class="item-date">2026-04-08</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">표현 일관성(representation consistency)을 유지하면서 대규모 비전-언어 모델(LVLM)의 시각 토큰을 88.9% 제거하되 정확도 손실을 최소화하는 프루닝 프레임워크이다.</div>
-  </div>
-
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.05182" target="_blank" rel="noopener">LSRM: High-Fidelity Object-Centric Reconstruction via Scaled Context Windows</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_cv</span>
-        <span class="item-date">2026-04-08</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">확장된 트랜스포머 컨텍스트 윈도우를 사용하는 대규모 희소 재구성 모델(Large Sparse Reconstruction Model)로 고충실도 3D 객체 재구성을 달성한다.</div>
-  </div>
-
 </div>
 
+<!-- 🤖 Robotics -->
 <div class="section">
   <div class="section-header">
     <h2>🤖 Robotics</h2>
     <span class="section-count">10건</span>
   </div>
-
 
   <div class="item highlight">
     <div class="item-top">
@@ -783,7 +782,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★★</span><span class="empty"></span></span>
       </div>
     </div>
-    <div class="item-summary">교체 가능한 백본-행동 헤드(backbone-action-head) 아키텍처와 통합 평가 파이프라인을 갖춘 오픈소스 모듈형 VLA(Vision-Language-Action) 프레임워크로, 로보틱스 기반 모델(foundation model) 연구의 핵심 인프라이다.</div>
+    <div class="item-summary">교체 가능한 백본-액션-헤드 아키텍처를 갖춘 오픈소스 모듈형 VLA(Vision-Language-Action) 프레임워크로, VLM과 월드 모델(world model) 백본을 지원하며 통합 평가 파이프라인을 제공한다.</div>
   </div>
 
   <div class="item highlight">
@@ -795,7 +794,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★★</span><span class="empty"></span></span>
       </div>
     </div>
-    <div class="item-summary">플로우 매칭(flow-matching) 지연 72% 감소, 백본 연산 76.6% 절감을 달성하는 예산 인식 적응형 추론(budget-aware adaptive inference) 기반의 완전 공개 오픈소스 VLA 모델이다.</div>
+    <div class="item-summary">예산 인식 적응형 추론(budget-aware adaptive inference)을 통해 플로우 매칭(flow-matching) 지연시간을 72%, 백본 연산량을 76.6% 절감한 완전 공개 오픈소스 VLA 모델.</div>
   </div>
 
   <div class="item highlight">
@@ -807,7 +806,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">공간적으로 비균일한 기계적 특성을 힘 맵(force map)으로 고려하고 접촉점별 임피던스 제어기(impedance controller)를 적용하는 파지 계획(grasp planning) 기법이다.</div>
+    <div class="item-summary">공간적으로 불균일한 기계적 특성을 힘 맵(force map)으로 반영하고 접촉점별 임피던스 제어기(impedance controller)를 적용하는 물리 기반 파지 계획(grasp planning) 시스템.</div>
   </div>
 
   <div class="item highlight">
@@ -819,7 +818,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">다중 주파수 계층적 행동 청킹(hierarchical action chunking)과 엔트로피 기반 실행으로 장기 계획(long-horizon planning)과 세밀한 제어(fine-grained control)를 균형 있게 결합한다.</div>
+    <div class="item-summary">다중 주파수에서의 계층적 행동 청킹(hierarchical action chunking)과 엔트로피 기반 실행(entropy-guided execution)으로 장기 계획(long-horizon planning)과 세밀한 제어를 균형 있게 달성한다.</div>
   </div>
 
   <div class="item highlight">
@@ -831,7 +830,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">강화학습(RL)으로 훈련된 센서모터 정책(sensorimotor policy)이 사전 갭 정보 없이 5cm 간극의 좁은 장애물을 통과하는 공격적 쿼드로터(quadrotor) 기동을 실현했다.</div>
+    <div class="item-summary">강화학습(RL)으로 훈련된 감각운동 정책(sensorimotor policy)으로 사전 갭 정보 없이 5cm 여유의 좁은 틈을 통과하는 공격적 쿼드로터(quadrotor) 기동을 수행한다.</div>
   </div>
 
   <div class="item highlight">
@@ -843,7 +842,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">3D 가우시안 스플래팅(Gaussian Splatting)과 대조 학습(contrastive learning)을 결합하여 강건한 시뮬-투-리얼(sim-to-real) 전이를 달성하는 자율 항공 비주모터 제어(visuomotor control) 기법이다.</div>
+    <div class="item-summary">3D 가우시안 스플래팅(Gaussian Splatting)과 대조 학습(contrastive learning)을 활용하여 강건한 시뮬-투-리얼(sim-to-real) 전이를 달성하는 자율 항공 시각운동 제어(visuomotor control) 시스템.</div>
   </div>
 
   <div class="item highlight">
@@ -855,7 +854,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">3D 재구성, 비주얼 생성, 물리 엔진을 통합하여 로봇의 시뮬-투-리얼(sim-to-real) 학습을 가속화하는 Genie Sim 3.0 시뮬레이션 플랫폼이다.</div>
+    <div class="item-summary">3D 재구성, 시각 생성, 물리 엔진을 통합하여 시뮬-투-리얼(sim-to-real) 로봇 학습을 가속하는 Genie Sim 3.0 시뮬레이션 플랫폼 출시.</div>
   </div>
 
   <div class="item highlight">
@@ -867,7 +866,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">수백 시간의 실세계 로봇 데이터와 계층적 주석(hierarchical annotation)을 포함한 오픈소스 이종(heterogeneous) 데이터셋으로 모방 학습(imitation learning)을 지원한다.</div>
+    <div class="item-summary">수백 시간의 실제 로봇 데이터와 계층적 어노테이션(hierarchical annotation)을 포함한 이종 데이터셋을 오픈소스로 공개하여 모방 학습(imitation learning)을 가속한다.</div>
   </div>
 
   <div class="item">
@@ -879,7 +878,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">행동 레이블 없이 비디오를 활용한 로봇 조작(manipulation) 학습에 대한 포괄적 서베이(survey)로 인터페이스 중심 분류 체계를 제안한다.</div>
+    <div class="item-summary">행동 레이블(action label) 없이 비디오를 활용한 로봇 조작(manipulation) 학습에 대한 종합 서베이로, 인터페이스 중심 분류 체계(interface-centric taxonomy)를 제안한다.</div>
   </div>
 
   <div class="item">
@@ -891,17 +890,16 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">IFR 최신 데이터에 따르면 서유럽이 직원 1만 명당 267대 로봇으로 북미(204대)와 아시아(131대)를 앞서는 로봇 밀도를 기록했다.</div>
+    <div class="item-summary">IFR 최신 데이터에 따르면 서유럽이 근로자 1만명당 267대로 선두이며, 북미(204대)와 아시아(131대)가 뒤를 잇는다.</div>
   </div>
-
 </div>
 
+<!-- 🎯 RL / Control -->
 <div class="section">
   <div class="section-header">
     <h2>🎯 RL / Control</h2>
     <span class="section-count">1건</span>
   </div>
-
 
   <div class="item highlight">
     <div class="item-top">
@@ -913,17 +911,16 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">4,650개 이지케비치(Izhikevich) 뉴런과 R-STDP를 사용하는 오픈소스 스파이킹 신경망(Spiking Neural Network)이 역전파(backprop)나 GPU 없이 사족 보행(quadruped locomotion)에서 PPO 대비 3.5배 성능을 달성했다.</div>
+    <div class="item-summary">4,650개의 이즈히케비치 뉴런(Izhikevich neuron)과 R-STDP를 사용한 오픈소스 스파이킹 신경망(spiking neural network)이 역전파(backprop)와 GPU 없이 사족보행 이동(quadruped locomotion)에서 PPO를 3.5배 능가했다.</div>
   </div>
-
 </div>
 
+<!-- 📄 Papers & Code -->
 <div class="section">
   <div class="section-header">
-    <h2>📄 Papers & Code</h2>
+    <h2>📄 Papers &amp; Code</h2>
     <span class="section-count">4건</span>
   </div>
-
 
   <div class="item highlight">
     <div class="item-top">
@@ -935,7 +932,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">2단계 GRPO 프레임워크로 LLM의 추론 문제 풀이와 답변 개선을 공동 최적화하여 초기 출력과 개선 출력 모두의 품질을 향상시킨다.</div>
+    <div class="item-summary">2단계 GRPO 프레임워크로 LLM의 추론 문제 해결과 답변 정제(self-refinement)를 공동 최적화하여, 초기 출력과 정제된 출력 모두의 품질을 향상시켰다.</div>
   </div>
 
   <div class="item highlight">
@@ -948,7 +945,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">확산 기반 대규모 언어 모델(Diffusion LLM)을 위한 최초의 정렬(alignment) 및 강화학습 프레임워크로, 비자기회귀(non-autoregressive) 언어 모델에서 RLHF 방식 학습을 가능하게 한다.</div>
+    <div class="item-summary">확산 LLM(diffusion LLM)을 위한 최초의 정렬 및 강화 프레임워크로, 비자기회귀(non-autoregressive) 언어 모델에 RLHF 스타일 학습을 가능하게 했다.</div>
   </div>
 
   <div class="item">
@@ -961,7 +958,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">비전-언어 모델(VLM)이 시각적·시간적 단서에 집중하도록 하는 시각 근거 기반 후속 학습(visually grounded post-training) 접근법으로 비디오 이해를 향상시킨다.</div>
+    <div class="item-summary">모델이 시각적·시간적 단서에 주의를 기울이도록 하는 시각 근거 기반 사후 훈련(visually grounded post-training) 접근법으로 VLM의 비디오 이해 능력을 향상시켰다.</div>
   </div>
 
   <div class="item">
@@ -974,17 +971,16 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">확산 언어 모델(Diffusion Language Model)에 전문가 선택 MoE 라우팅(expert-choice MoE routing)을 적용하여 병렬 텍스트 생성 중 토큰별 적응형 연산을 가능하게 한다.</div>
+    <div class="item-summary">확산 언어 모델(diffusion language model)에 전문가 선택 MoE 라우팅(expert-choice MoE routing)을 적용하여 병렬 텍스트 생성 중 토큰별 적응형 연산(adaptive computation)을 가능하게 했다.</div>
   </div>
-
 </div>
 
+<!-- 🔧 Models & Tools -->
 <div class="section">
   <div class="section-header">
-    <h2>🔧 Models & Tools</h2>
-    <span class="section-count">7건</span>
+    <h2>🔧 Models &amp; Tools</h2>
+    <span class="section-count">6건</span>
   </div>
-
 
   <div class="item highlight">
     <div class="item-top">
@@ -995,7 +991,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★★</span><span class="empty"></span></span>
       </div>
     </div>
-    <div class="item-summary">구글(Google)이 이미지-텍스트 멀티모달(multimodal) 지원 Gemma 4 31B 인스트럭션 튜닝(instruction-tuned) 모델을 오픈 웨이트(open weights)로 공개했다.</div>
+    <div class="item-summary">구글이 Gemma 4 31B 인스트럭션 튜닝(instruction-tuned) 모델을 공개 — 이미지-텍스트-투-텍스트(image-text-to-text) 지원 대형 오픈웨이트 멀티모달 모델.</div>
   </div>
 
   <div class="item highlight">
@@ -1007,7 +1003,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">GLM-5.1 대규모 언어 모델이 오픈 웨이트(open weights)로 공개된 새로운 텍스트 생성 모델이다.</div>
+    <div class="item-summary">GLM-5.1 대형 언어 모델 출시 — 새로운 오픈웨이트(open-weight) 텍스트 생성 모델.</div>
   </div>
 
   <div class="item highlight">
@@ -1019,7 +1015,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">넷플릭스(Netflix)가 비디오 생성 및 변환을 위한 비디오-투-비디오(video-to-video) 모델 void-model을 공개했다.</div>
+    <div class="item-summary">넷플릭스(Netflix)가 비디오-투-비디오(video-to-video) 모델을 공개 — 비디오 생성 및 변환을 위한 주목할 만한 산업계 릴리스.</div>
   </div>
 
   <div class="item highlight">
@@ -1031,20 +1027,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">구글(Google)의 Gemma 4 26B MoE(Mixture of Experts) 변형으로 활성 파라미터 4B의 효율적 멀티모달 모델이다.</div>
-  </div>
-
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://github.com/newton-physics/newton" target="_blank" rel="noopener">newton-physics/newton</a></div>
-      <div class="item-meta">
-        <span class="badge">github</span>
-        <span class="item-date">2026-04-09</span>
-        <span class="score">▲ 91</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">로보틱스 및 시뮬레이션 연구를 위한 GPU 가속 물리 시뮬레이션 엔진(physics simulation engine) 오픈소스 프로젝트이다.</div>
+    <div class="item-summary">Gemma 4 26B MoE 변형(활성 파라미터 4B) — 혼합 전문가(Mixture-of-Experts) 아키텍처의 효율적 멀티모달 모델.</div>
   </div>
 
   <div class="item">
@@ -1056,7 +1039,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">구글(Google) 최신 세대의 any-to-any 멀티모달 모델 Gemma 4 E4B 인스트럭션 튜닝(instruction-tuned) 버전이다.</div>
+    <div class="item-summary">Gemma 4 E4B 인스트럭션 튜닝 모델 — 구글 최신 세대의 애니-투-애니(any-to-any) 멀티모달 모델.</div>
   </div>
 
   <div class="item">
@@ -1069,17 +1052,16 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">구글(Google)의 온디바이스(on-device) 대규모 언어 모델(LLM) 효율적 추론을 위한 LiteRT 언어 모델 구현이다.</div>
+    <div class="item-summary">효율적인 온디바이스(on-device) LLM 추론을 위한 구글의 LiteRT 언어 모델 구현체.</div>
   </div>
-
 </div>
 
+<!-- 🏢 Industry Labs -->
 <div class="section">
   <div class="section-header">
     <h2>🏢 Industry Labs</h2>
     <span class="section-count">1건</span>
   </div>
-
 
   <div class="item highlight">
     <div class="item-top">
@@ -1090,17 +1072,16 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">GM이 고충실도 시뮬레이션과 강화학습(RL)을 활용하여 희귀 엣지 케이스를 실시간 대비 50,000배 속도로 자율주행(autonomous driving) 시스템을 학습시킨다.</div>
+    <div class="item-summary">GM이 고충실도 시뮬레이션과 강화학습(RL)을 활용하여 희귀 엣지 케이스(edge case)에 걸쳐 실시간 대비 50,000배 속도로 자율주행(autonomous driving) 시스템을 학습시킨다.</div>
   </div>
-
 </div>
 
+<!-- 🔥 Community -->
 <div class="section">
   <div class="section-header">
     <h2>🔥 Community</h2>
-    <span class="section-count">2건</span>
+    <span class="section-count">3건</span>
   </div>
-
 
   <div class="item highlight">
     <div class="item-top">
@@ -1112,7 +1093,20 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">메타(Meta)가 추론(reasoning)과 도구 사용(tool-use) 기능을 갖춘 개인 초지능(personal superintelligence) 멀티모달 AI 모델 Muse Spark를 공개했다.</div>
+    <div class="item-summary">메타(Meta)가 추론 및 도구 사용(tool-use) 능력을 갖춘 개인용 초지능(personal superintelligence) 멀티모달 AI 모델 Muse Spark를 발표했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://github.com/newton-physics/newton" target="_blank" rel="noopener">newton-physics/newton</a></div>
+      <div class="item-meta">
+        <span class="badge">github</span>
+        <span class="item-date">2026-04-09</span>
+        <span class="score">▲ 91</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">로보틱스 및 시뮬레이션 연구를 위해 설계된 GPU 가속 물리 시뮬레이션 엔진(physics simulation engine).</div>
   </div>
 
   <div class="item">
@@ -1125,16 +1119,15 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">CUDA 의존성 없는 순수 파이토치(PyTorch) 기반 Splatter Image의 최소 구현으로 단일 뷰 3D 재구성이 가능하다.</div>
+    <div class="item-summary">CUDA 의존성 없이 순수 PyTorch로 구현한 Splatter Image 기반 단일 뷰 3D 재구성(single-view 3D reconstruction)의 미니멀 구현체.</div>
   </div>
-
 </div>
 
 </div>
 
 <footer>
   <div class="footer-inner">
-    <div>2026-04-09 UTC 생성 · 14개 소스 · 50건 큐레이션</div>
+    <div>2026-04-09 UTC 생성 · 17개 소스 · 50건 큐레이션</div>
     <div class="divider"></div>
     <div class="credit">
       Made by <a href="https://github.com/SeongjuLee" target="_blank" rel="noopener">Seongju Lee</a> · Powered by ai-news-mcp
