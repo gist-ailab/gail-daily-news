@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI & Robotics Research Daily — 2026-04-09</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Noto+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Neumorphism Design System — Light */
+  --primary: #006666;
+  --primary-light: #008080;
+  --secondary: #F1F2F5;
+  --surface: #E7E5E4;
+  --surface-card: #E7E5E4;
+  --surface-highlight: #EDE9E3;
+  --text: #1E2938;
+  --text-secondary: #4A5568;
+  --text-tertiary: #8494A7;
+  --border: transparent;
+  --border-highlight: #006666;
+  --accent: #006666;
+  --accent-hover: #004D4D;
+  --star-filled: #FE9900;
+  --star-empty: #C4C4C4;
+  --badge-bg: #D9D7D5;
+  --badge-text: #006666;
+  --success: #00A63D;
+  --warning: #FE9900;
+  --danger: #FF2157;
+  --info: #006666;
+  --gradient-start: #006666;
+  --gradient-mid: #008080;
+  --gradient-end: #00A3A3;
+  --header-text: #F1F2F5;
+  --footer-bg: #1E2938;
+  --footer-text: #8494A7;
+  /* Neumorphic shadows */
+  --neu-light: rgba(255,255,255,0.7);
+  --neu-dark: rgba(0,0,0,0.15);
+  --shadow-raised: 6px 6px 12px var(--neu-dark), -6px -6px 12px var(--neu-light);
+  --shadow-raised-sm: 3px 3px 6px var(--neu-dark), -3px -3px 6px var(--neu-light);
+  --shadow-inset: inset 3px 3px 6px var(--neu-dark), inset -3px -3px 6px var(--neu-light);
+  --shadow-hover: 8px 8px 16px var(--neu-dark), -8px -8px 16px var(--neu-light);
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #00CCCC;
+    --primary-light: #33E0E0;
+    --secondary: #2D3748;
+    --surface: #1A202C;
+    --surface-card: #1A202C;
+    --surface-highlight: #222C3C;
+    --text: #E2E8F0;
+    --text-secondary: #A0AEC0;
+    --text-tertiary: #718096;
+    --border: transparent;
+    --border-highlight: #00CCCC;
+    --accent: #00CCCC;
+    --accent-hover: #33E0E0;
+    --star-filled: #FEB800;
+    --star-empty: #4A5568;
+    --badge-bg: #2D3748;
+    --badge-text: #00CCCC;
+    --gradient-start: #0D1117;
+    --gradient-mid: #1A202C;
+    --gradient-end: #004D4D;
+    --header-text: #E2E8F0;
+    --footer-bg: #0D1117;
+    --footer-text: #718096;
+    --neu-light: rgba(255,255,255,0.05);
+    --neu-dark: rgba(0,0,0,0.5);
+    --shadow-raised: 6px 6px 12px var(--neu-dark), -6px -6px 12px var(--neu-light);
+    --shadow-raised-sm: 3px 3px 6px var(--neu-dark), -3px -3px 6px var(--neu-light);
+    --shadow-inset: inset 3px 3px 6px var(--neu-dark), inset -3px -3px 6px var(--neu-light);
+    --shadow-hover: 8px 8px 16px var(--neu-dark), -8px -8px 16px var(--neu-light);
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Space Mono', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, monospace;
+  background: var(--surface);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Hero Header ── */
+.hero {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+  color: var(--header-text);
+  padding: 3.5rem 1.5rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 30%, rgba(255,255,255,0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+.hero .icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+.hero h1 {
+  font-family: 'Space Mono', monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+.hero .subtitle {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  font-weight: 400;
+}
+.hero .stats {
+  display: inline-flex;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+  opacity: 0.7;
+  font-weight: 400;
+}
+.hero .stats span {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* ── Container ── */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* ── Section ── */
+.section {
+  margin-bottom: 2.5rem;
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--badge-bg);
+}
+.section-header h2 {
+  font-family: 'Space Mono', 'Noto Sans KR', monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--primary);
+}
+.section-header .section-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  background: var(--badge-bg);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  box-shadow: var(--shadow-raised-sm);
+}
+
+/* ── Item Card (Neumorphic) ── */
+.item {
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 10px;
+  background: var(--surface-card);
+  border: none;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-raised);
+  transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+.item:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-1px);
+}
+.item.highlight {
+  background: var(--surface-highlight);
+  border-left: 3px solid var(--border-highlight);
+  box-shadow: var(--shadow-raised), inset 0 0 0 1px var(--border-highlight);
+}
+.item-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.item-title {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  flex: 1;
+  min-width: 200px;
+  line-height: 1.5;
+}
+.item-title a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.item-title a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+.item-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+.badge {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  font-weight: 500;
+  padding: 0.2rem 0.55rem;
+  border-radius: 8px;
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  box-shadow: var(--shadow-raised-sm);
+}
+.item-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+.score {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--primary);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.stars {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+.stars .filled { color: var(--star-filled); }
+.stars .empty { color: var(--star-empty); }
+.item.highlight .stars .filled { color: var(--danger); }
+@media (prefers-color-scheme: dark) {
+  .item.highlight .stars .filled { color: var(--star-filled); }
+}
+.item-summary {
+  margin-top: 0.6rem;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ── Theme Toggle (Neumorphic) ── */
+.theme-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--surface);
+  box-shadow: var(--shadow-raised);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  z-index: 100;
+}
+.theme-toggle:hover {
+  transform: scale(1.08);
+  box-shadow: var(--shadow-hover);
+}
+.theme-toggle:active {
+  box-shadow: var(--shadow-inset);
+  transform: scale(0.96);
+}
+.theme-toggle .icon-light,
+.theme-toggle .icon-dark { display: none; }
+
+html:not([data-theme]) .theme-toggle .icon-light { display: none; }
+html:not([data-theme]) .theme-toggle .icon-dark { display: none; }
+html:not([data-theme]) .theme-toggle::after { content: '🌓'; }
+
+html[data-theme="light"] .theme-toggle .icon-light { display: inline; }
+html[data-theme="light"] .theme-toggle .icon-dark { display: none; }
+html[data-theme="light"] .theme-toggle::after { content: none; }
+
+html[data-theme="dark"] .theme-toggle .icon-light { display: none; }
+html[data-theme="dark"] .theme-toggle .icon-dark { display: inline; }
+html[data-theme="dark"] .theme-toggle::after { content: none; }
+
+/* Force dark when data-theme="dark" */
+html[data-theme="dark"] {
+  --primary: #00CCCC;
+  --primary-light: #33E0E0;
+  --secondary: #2D3748;
+  --surface: #1A202C;
+  --surface-card: #1A202C;
+  --surface-highlight: #222C3C;
+  --text: #E2E8F0;
+  --text-secondary: #A0AEC0;
+  --text-tertiary: #718096;
+  --border: transparent;
+  --border-highlight: #00CCCC;
+  --accent: #00CCCC;
+  --accent-hover: #33E0E0;
+  --star-filled: #FEB800;
+  --star-empty: #4A5568;
+  --badge-bg: #2D3748;
+  --badge-text: #00CCCC;
+  --gradient-start: #0D1117;
+  --gradient-mid: #1A202C;
+  --gradient-end: #004D4D;
+  --header-text: #E2E8F0;
+  --footer-bg: #0D1117;
+  --footer-text: #718096;
+  --neu-light: rgba(255,255,255,0.05);
+  --neu-dark: rgba(0,0,0,0.5);
+  --shadow-raised: 6px 6px 12px var(--neu-dark), -6px -6px 12px var(--neu-light);
+  --shadow-raised-sm: 3px 3px 6px var(--neu-dark), -3px -3px 6px var(--neu-light);
+  --shadow-inset: inset 3px 3px 6px var(--neu-dark), inset -3px -3px 6px var(--neu-light);
+  --shadow-hover: 8px 8px 16px var(--neu-dark), -8px -8px 16px var(--neu-light);
+}
+html[data-theme="dark"] .item.highlight .stars .filled { color: #FEB800; }
+
+/* Force light when data-theme="light" */
+html[data-theme="light"] {
+  --primary: #006666;
+  --primary-light: #008080;
+  --secondary: #F1F2F5;
+  --surface: #E7E5E4;
+  --surface-card: #E7E5E4;
+  --surface-highlight: #EDE9E3;
+  --text: #1E2938;
+  --text-secondary: #4A5568;
+  --text-tertiary: #8494A7;
+  --border: transparent;
+  --border-highlight: #006666;
+  --accent: #006666;
+  --accent-hover: #004D4D;
+  --star-filled: #FE9900;
+  --star-empty: #C4C4C4;
+  --badge-bg: #D9D7D5;
+  --badge-text: #006666;
+  --gradient-start: #006666;
+  --gradient-mid: #008080;
+  --gradient-end: #00A3A3;
+  --header-text: #F1F2F5;
+  --footer-bg: #1E2938;
+  --footer-text: #8494A7;
+  --neu-light: rgba(255,255,255,0.7);
+  --neu-dark: rgba(0,0,0,0.15);
+  --shadow-raised: 6px 6px 12px var(--neu-dark), -6px -6px 12px var(--neu-light);
+  --shadow-raised-sm: 3px 3px 6px var(--neu-dark), -3px -3px 6px var(--neu-light);
+  --shadow-inset: inset 3px 3px 6px var(--neu-dark), inset -3px -3px 6px var(--neu-light);
+  --shadow-hover: 8px 8px 16px var(--neu-dark), -8px -8px 16px var(--neu-light);
+}
+html[data-theme="light"] .item.highlight .stars .filled { color: #FF2157; }
+
+/* ── Footer ── */
+footer {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  font-size: 0.75rem;
+}
+footer .footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+footer .divider {
+  width: 40px;
+  height: 2px;
+  background: var(--text-tertiary);
+  margin: 0.75rem auto;
+  opacity: 0.3;
+}
+footer .credit {
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+footer .credit a {
+  color: var(--footer-text);
+  text-decoration: none;
+  font-weight: 700;
+}
+footer .credit a:hover { text-decoration: underline; }
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .hero { padding: 2.5rem 1rem 2rem; }
+  .hero h1 { font-size: 1.4rem; letter-spacing: -0.06em; }
+  .hero .subtitle { font-size: 0.85rem; letter-spacing: -0.03em; }
+  .hero .icon { font-size: 2rem; }
+  .container { padding: 1.25rem 1rem; }
+  .item { padding: 1rem 1.1rem; border-radius: var(--radius-sm); }
+  .item-top { flex-direction: column; gap: 0.4rem; }
+  .item-title { font-size: 0.85rem; min-width: 0; }
+  .section-header h2 { font-size: 1rem; }
+  .theme-toggle { bottom: 16px; right: 16px; width: 40px; height: 40px; }
+
+  /* 모바일: item-meta를 타이틀 아래 가로 배치 */
+  .item-meta {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="icon">&#9749;</div>
+    <h1>AI & Robotics Research Daily</h1>
+    <div class="subtitle">2026-04-09 — AI/Robotics 분야 최신 연구 큐레이션</div>
+    <div class="stats">
+      <span>50건 큐레이션</span>
+      <span>17개 소스</span>
+      <span>중요도 기반 정렬</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- 🔧 Models & Tools -->
+<div class="section">
+  <div class="section-header">
+    <h2>🔧 Models &amp; Tools</h2>
+    <span class="section-count">6건</span>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/google/gemma-4-31B-it" target="_blank" rel="noopener">google/gemma-4-31B-it</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_models</span>
+        <span class="score">▲ 1457</span>
+        <span class="stars"><span class="filled">★★★★★</span></span>
+      </div>
+    </div>
+    <div class="item-summary">구글이 Gemma 4 31B 인스트럭션 튜닝(instruction-tuned) 멀티모달 모델을 오픈 가중치로 공개 — Gemma 패밀리의 새로운 플래그십 모델.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/google/gemma-4-26B-A4B-it" target="_blank" rel="noopener">google/gemma-4-26B-A4B-it</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_models</span>
+        <span class="score">▲ 536</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">Gemma 4 MoE 변형(총 26B, 활성 파라미터 4B) — 낮은 연산량으로 고품질 멀티모달 추론을 실현하는 효율적 모델.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/google/gemma-4-E4B-it" target="_blank" rel="noopener">google/gemma-4-E4B-it</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_models</span>
+        <span class="score">▲ 505</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">Gemma 4 any-to-any 멀티모달 모델 — 임의의 입출력 모달리티(modality) 조합을 처리할 수 있는 범용 모델.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/zai-org/GLM-5.1" target="_blank" rel="noopener">zai-org/GLM-5.1</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_models</span>
+        <span class="score">▲ 729</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">Zhipu AI의 GLM-5.1 오픈 가중치 텍스트 생성 모델 공개.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://github.com/newton-physics/newton" target="_blank" rel="noopener">newton-physics/newton</a></div>
+      <div class="item-meta">
+        <span class="badge">github</span>
+        <span class="score">▲ 91</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">로보틱스 연구자를 위한 GPU 가속 물리 시뮬레이션(physics simulation) 엔진 — 빠른 강체 역학(rigid-body dynamics) 연산 지원.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://github.com/google-ai-edge/LiteRT-LM" target="_blank" rel="noopener">google-ai-edge/LiteRT-LM</a></div>
+      <div class="item-meta">
+        <span class="badge">github</span>
+        <span class="score">▲ 501</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">구글의 경량 런타임(lightweight runtime)으로 온디바이스(on-device) LLM 추론을 가능하게 하는 엣지 배포 도구.</div>
+  </div>
+</div>
+
+<!-- 🧠 AI / ML -->
+<div class="section">
+  <div class="section-header">
+    <h2>🧠 AI / ML</h2>
+    <span class="section-count">24건</span>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05091" target="_blank" rel="noopener">MegaTrain: Full Precision Training of 100B+ Parameter LLMs on a Single GPU</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cl</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★★</span></span>
+      </div>
+    </div>
+    <div class="item-summary">호스트 메모리 파이프라이닝(host memory pipelining)을 활용한 메모리 중심 시스템으로, 단일 GPU에서 1000억+ 파라미터 모델의 풀 프리시전(full-precision) 학습을 가능하게 한다 — 대규모 모델 연구의 멀티 GPU 장벽을 제거.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05550" target="_blank" rel="noopener">AutoSOTA: End-to-End Automated Research System for State-of-the-Art AI Model Discovery</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cl</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★★</span></span>
+      </div>
+    </div>
+    <div class="item-summary">논문 읽기부터 재현 가능한 개선 모델까지 자동화하는 연구 파이프라인으로, 다양한 태스크에서 105개의 새로운 SOTA 결과를 발견.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05355" target="_blank" rel="noopener">ETR: Entropy Trend Reward for Efficient Chain-of-Thought Reasoning</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ai</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">추론 과정에서 점진적 불확실성 감소를 유도하는 엔트로피 추세 보상(entropy trend reward) — 표준 CoT 대비 뛰어난 정확도-효율성 트레이드오프 달성.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05336" target="_blank" rel="noopener">TRACE: Capability-Targeted Agentic Training</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ai</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">능력 결핍을 자동 식별하고, 맞춤형 훈련 환경을 합성한 뒤, 능력별 라우팅(routing)과 함께 RL로 LoRA 어댑터를 학습하는 에이전트 훈련 프레임워크.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05081" target="_blank" rel="noopener">MedGemma 1.5 Technical Report</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ai</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">구글의 MedGemma 1.5 4B 모델이 고차원 의료 영상, 해부학적 위치 추정, 다중 시점 분석을 통합하여 임상 AI를 구현.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05181" target="_blank" rel="noopener">General Multimodal Protein Design Enables DNA-Encoding of Chemistry</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_lg</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">DISCO 멀티모달 확산 모델(diffusion model)이 단백질 서열과 3D 구조를 동시 설계하여, 자연에 존재하지 않는 새로운 효소 카르벤 전이 반응(carbene-transfer reaction)을 가능하게 했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05112" target="_blank" rel="noopener">Vintix II: Decision Pre-Trained Transformer is a Scalable In-Context Reinforcement Learner</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_lg</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">Flow Matching을 활용하여 결정 사전학습 트랜스포머(Decision Pre-Trained Transformer)를 다중 도메인 환경으로 확장 — 인컨텍스트 강화학습(in-context RL) 일반화 향상.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05217" target="_blank" rel="noopener">On the Geometry of Positional Encodings in Transformers</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_lg</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">위치 인코딩(positional encoding)의 필요성을 수학적으로 증명하고, 다차원 스케일링(multidimensional scaling)을 통한 최적 정보 이론적 표현을 제시.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.04987" target="_blank" rel="noopener">Cactus: Accelerating Auto-Regressive Decoding with Constrained Acceptance Speculative Sampling</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_lg</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">검증기 분포로부터의 발산을 제어하면서 토큰 수락률(token acceptance rate)을 크게 높이는 제약 기반 투기적 샘플링(speculative sampling) 기법.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05688" target="_blank" rel="noopener">Attention Editing: Versatile Framework for Cross-Architecture Attention Conversion</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cl</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">점진적 증류(progressive distillation)를 이용해 사전학습된 LLM을 재학습 없이 새로운 어텐션 아키텍처로 변환 — 실용적인 아키텍처 마이그레이션 방법.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05551" target="_blank" rel="noopener">FastDiSS: Few-step Match Many-step Diffusion Language Model on Seq2Seq Generation</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cl</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">교란 신호(perturbing signal)로 셀프 컨디셔닝 오류를 처리하는 학습 프레임워크 — 확산 언어 모델(diffusion LM)의 추론 속도를 최대 400배 향상.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05643" target="_blank" rel="noopener">Graph-Based Chain-of-Thought Pruning for Reducing Redundant Reflections</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cl</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">선형 CoT 추론을 DAG(방향 비순환 그래프)로 변환하여 정확도를 유지하면서 추론 토큰을 42% 절감.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05192" target="_blank" rel="noopener">Faster Superword Tokenization</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cl</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">슈퍼머지(supermerge) 후보를 빈도별로 집계할 수 있음을 보여 BoundlessBPE 및 SuperBPE 토크나이저의 학습 속도를 600배 향상.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.04972" target="_blank" rel="noopener">RCP: Representation Consistency Pruner for Large Vision-Language Models</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cv</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">분포 이동(distribution shift)을 완화하면서 시각 토큰의 최대 88.9%를 제거하는 대규모 비전-언어 모델(LVLM) 프루닝 — 획기적인 효율성 향상.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05182" target="_blank" rel="noopener">LSRM: High-Fidelity Object-Centric Reconstruction via Scaled Context Windows</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cv</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">트랜스포머 컨텍스트 윈도우를 확장한 대규모 희소 복원 모델(Large Sparse Reconstruction Model)로 고품질 단일 객체 3D 복원 달성.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05212" target="_blank" rel="noopener">Boxer: Robust Lifting of Open-World 2D Bounding Boxes to 3D</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cv</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">트랜스포머 기반 BoxerNet이 2D 오픈 보캐블러리 검출 결과로부터 3D 바운딩 박스를 추정 — 2D와 3D 인식을 연결하는 브릿지 역할.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05323" target="_blank" rel="noopener">VLA-InfoEntropy: Training-Free Inference Acceleration for VLA Models</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cv</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">이미지 및 어텐션 엔트로피를 활용한 동적 포커스 전환으로 별도 학습 없이 VLA 모델의 연산 오버헤드를 절감.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05279" target="_blank" rel="noopener">Pressure, What Pressure? Sycophancy Disentanglement in Language Models via Reward Decomposition</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ai</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">다중 요소 GRPO 보상을 활용한 보상 분해(reward decomposition)로 아첨 행동(sycophancy)을 줄이는 최초의 접근법 — 핵심 정렬(alignment) 과제 해결.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05407" target="_blank" rel="noopener">CODESTRUCT: Code Agents over Structured Action Spaces</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ai</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">코드베이스를 구조화된 AST 액션 공간(action space)으로 재정의하여 코드 에이전트의 정확도를 높이고 토큰 소비를 절감.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05250" target="_blank" rel="noopener">DualDiffusion: A Speculative Decoding Strategy for Masked Diffusion Models</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_lg</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">마스크 확산 모델(Masked Diffusion Model)을 위한 빠른 드래프터 + 검증기 기반 투기적 디코딩(speculative decoding) — 품질-효율 트레이드오프 개선.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05730" target="_blank" rel="noopener">Controllable Image Generation with Composed Parallel Token Prediction</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_lg</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">이론적으로 근거 있는 이산 확률 과정 합성(composition)과 개념 가중치를 활용한 제어 가능한 이미지 생성.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05179" target="_blank" rel="noopener">Gradient-Controlled Decoding: Safety Guardrail for LLMs with Dual-Anchor Steering</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cl</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">수락 및 거부 앵커를 결합한 학습 불필요(training-free) 안전 가드레일 — GradSafe 대비 오탐률(false positive)을 52% 감소.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05015" target="_blank" rel="noopener">Video-MME-v2: Benchmarks for Comprehensive Video Understanding</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cv</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">점진적 3단계 벤치마크 체계와 그룹 기반 평가를 통한 엄밀한 비디오 이해(video understanding) 평가 프레임워크.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://reddit.com/r/MachineLearning/comments/1senzrn/r_hybrid_attention_for_small_code_models_50x/" target="_blank" rel="noopener">[R] Hybrid attention for small code models: 50x faster inference</a></div>
+      <div class="item-meta">
+        <span class="badge">reddit_ml</span>
+        <span class="item-date">2026-04-07</span>
+        <span class="score">▲ 17</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">선형 어텐션(linear attention)을 첫/마지막 레이어에, 이차 어텐션(quadratic attention)을 중간 레이어에 적용하는 하이브리드 방식 — 퍼플렉시티 저하 최소화하면서 추론 50배 가속.</div>
+  </div>
+</div>
+
+<!-- 🤖 Robotics -->
+<div class="section">
+  <div class="section-header">
+    <h2>🤖 Robotics</h2>
+    <span class="section-count">11건</span>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05014" target="_blank" rel="noopener">StarVLA: A Lego-like Codebase for Vision-Language-Action Model Developing</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ro</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★★</span></span>
+      </div>
+    </div>
+    <div class="item-summary">플러그 앤 플레이(plug-and-play) 백본과 액션 패러다임을 지원하는 오픈소스 모듈형 VLA 코드베이스 — 재현 가능한 로보틱스 연구를 위한 레고식 구조.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05672" target="_blank" rel="noopener">A1: Fully Transparent Open-Source Adaptive VLA Model</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ro</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★★</span></span>
+      </div>
+    </div>
+    <div class="item-summary">적응형 조기 종료(adaptive early termination)로 추론 지연 시간을 72% 줄이면서 태스크 성공률을 유지하는 완전 오픈소스 VLA 프레임워크.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05062" target="_blank" rel="noopener">GaussFly: Contrastive RL for Visuomotor Policies in 3D Gaussian Fields</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ro</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">3D 가우시안 스플래팅(Gaussian Splatting)을 활용한 시뮬레이션 재구성과 제로샷(zero-shot) 실환경 배포로 단안 카메라 기반 드론 제어 구현.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05828" target="_blank" rel="noopener">Precise Aggressive Aerial Maneuvers with Sensorimotor Policies</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ro</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">갭 위치에 대한 사전 지식 없이 5cm 간격의 좁은 틈을 통과하는 센서모터 정책(sensorimotor policy) — 인상적인 시뮬-투-리얼(sim-to-real) 전이 성과.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05697" target="_blank" rel="noopener">GraspSense: Physically Grounded Grasp and Grip Planning for Dexterous Hands</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ro</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">최대 허용 접촉 하중을 인코딩한 힘 맵(force map)을 활용하여 정교한 손(dexterous hand)의 파지 선택 및 힘 조절 계획 수립.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05108" target="_blank" rel="noopener">Differentiable Invariant Sets for Hybrid Limit Cycles with Application to Legged Robots</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_sy</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">도달 가능 집합(reachable set) 계산을 확장하여 이족 보행 로봇 리밋 사이클(limit cycle) 궤적 주변의 전방 불변 집합(forward-invariant set)을 검증.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://v.redd.it/4oqepxd1pxtg1" target="_blank" rel="noopener">LeRobot (Hugging Face) released 'Unfolding Robotics' - teaching a robot to fold clothes</a></div>
+      <div class="item-meta">
+        <span class="badge">reddit_robotics</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="score">▲ 123</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">데이터 수집부터 모델 훈련까지 전체 파이프라인을 오픈소스로 공개한 옷 접기 프로젝트 — 재현 가능한 변형 가능 객체(deformable object) 조작.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://www.therobotreport.com/agibot-introduces-genie-sim-3-0-simulation-platform-embodied-ai/" target="_blank" rel="noopener">AGIBOT introduces Genie Sim 3.0 simulation platform for embodied AI</a></div>
+      <div class="item-meta">
+        <span class="badge">robot_report</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">환경 생성, 데이터 확장성, 표준화된 평가를 통합한 구현체 AI(embodied AI) 훈련용 시뮬레이션 플랫폼.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.06150" target="_blank" rel="noopener">Delta6: A Low-Cost 6-DOF Force-Sensing Flexible End-Effector</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ro</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">길항 스프링(antagonistic spring) 구조의 3D 프린팅 6-DOF 힘/토크 엔드이펙터 — 풀스케일 오차 3.8%의 저비용 솔루션.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.05498" target="_blank" rel="noopener">JailWAM: Jailbreaking World Action Models in Robot Control</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ro</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">세계 행동 모델(World Action Model)에 대한 최초의 탈옥 공격(jailbreak) 프레임워크로 84.2% 성공률 달성 — 로봇 안전을 위한 방어 메커니즘도 포함.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://www.therobotreport.com/agibot-world-2026-dataset-open-source-accelerate-embodied-ai-development/" target="_blank" rel="noopener">AGIBOT WORLD 2026 dataset open-source for embodied AI development</a></div>
+      <div class="item-meta">
+        <span class="badge">robot_report</span>
+        <span class="item-date">2026-04-07</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">수백 시간 규모의 실세계 로봇 데이터를 포함한 이종 오픈소스 데이터셋으로 5가지 연구 경로를 지원.</div>
+  </div>
+</div>
+
+<!-- 🎯 RL / Control -->
+<div class="section">
+  <div class="section-header">
+    <h2>🎯 RL / Control</h2>
+    <span class="section-count">2건</span>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://reddit.com/r/reinforcementlearning/comments/1sf4l8p/mhflocke_is_now_open_source_spiking_neural/" target="_blank" rel="noopener">MH-FLOCKE: Spiking neural network beats PPO 3.5x on quadruped locomotion</a></div>
+      <div class="item-meta">
+        <span class="badge">reddit_rl</span>
+        <span class="item-date">2026-04-07</span>
+        <span class="score">▲ 13</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">4,650개의 Izhikevich 스파이킹 뉴런(spiking neuron)과 R-STDP로 PPO 대비 3.5배 성능을 달성한 사족 보행 — 역전파(backprop)도 GPU도 불필요. 오픈소스 공개.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://reddit.com/r/reinforcementlearning/comments/1sfw9k3/principled_analysis_of_deep_reinforcement/" target="_blank" rel="noopener">Principled Analysis of Deep RL Evaluation and Design Paradigms (AAAI 2026)</a></div>
+      <div class="item-meta">
+        <span class="badge">reddit_rl</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="score">▲ 2</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">AAAI 2026 논문으로 심층 강화학습(deep RL)의 원칙적 평가 방법론을 수립 — RL 벤치마킹의 재현성 위기(reproducibility crisis) 해결에 기여.</div>
+  </div>
+</div>
+
+<!-- 📄 Papers & Code -->
+<div class="section">
+  <div class="section-header">
+    <h2>📄 Papers &amp; Code</h2>
+    <span class="section-count">4건</span>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/papers/2604.01591" target="_blank" rel="noopener">ThinkTwice: Jointly Optimizing LLMs for Reasoning and Self-Refinement</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_papers</span>
+        <span class="item-date">2026-04-02</span>
+        <span class="score">▲ 32</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">2단계 GRPO 프레임워크로 LLM의 문제 해결과 답변 개선을 동시에 훈련 — 추론(reasoning)과 자기 수정(self-correction) 능력 모두 향상.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/papers/2604.04215" target="_blank" rel="noopener">DARE: Diffusion LLM Alignment and Reinforcement Executor</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_papers</span>
+        <span class="item-date">2026-04-05</span>
+        <span class="score">▲ 16</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">순차 생성 대신 반복적 디노이징(iterative denoising)을 사용하는 확산 언어 모델(diffusion LM)을 위한 최초의 정렬(alignment) 및 강화학습 프레임워크.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/papers/2604.04921" target="_blank" rel="noopener">TriAttention: Efficient Long Reasoning with Trigonometric KV Compression</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_trending_papers</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">사전 RoPE 공간에서의 Q/K 벡터 집중 현상을 활용하여 KV 캐시 메모리 병목을 해결 — 더 긴 추론 체인(reasoning chain) 생성 가능.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/papers/2504.08066" target="_blank" rel="noopener">The AI Scientist-v2: Workshop-Level Automated Scientific Discovery</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_trending_papers</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">자율적으로 가설을 제안하고 실험을 수행하며 논문을 작성 — 완전 AI 생성 논문이 학회에 최초 채택된 사례.</div>
+  </div>
+</div>
+
+<!-- 🏢 Industry Labs -->
+<div class="section">
+  <div class="section-header">
+    <h2>🏢 Industry Labs</h2>
+    <span class="section-count">1건</span>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://spectrum.ieee.org/gm-scalable-driving-ai" target="_blank" rel="noopener">Training Driving AI at 50,000x Real Time</a></div>
+      <div class="item-meta">
+        <span class="badge">ieee_spectrum</span>
+        <span class="item-date">2026-03-25</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">GM의 자율주행 훈련 접근법으로, 실시간 대비 50,000배 속도의 시뮬레이션으로 대규모 시뮬-투-리얼(sim-to-real) 전이를 실현.</div>
+  </div>
+</div>
+
+<!-- 🛡 Safety & Alignment -->
+<div class="section">
+  <div class="section-header">
+    <h2>🛡 Safety &amp; Alignment</h2>
+    <span class="section-count">1건</span>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://www.alignmentforum.org/posts/fJtELFKddJPfAxwKS/natural-emergent-misalignment-from-reward-hacking-in" target="_blank" rel="noopener">Natural emergent misalignment from reward hacking in production RL</a></div>
+      <div class="item-meta">
+        <span class="badge">alignment_forum</span>
+        <span class="item-date">2025-11-26</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">프로덕션 RL 환경에서 보상 해킹(reward hacking)을 통해 LLM이 자연스럽게 비정렬(misaligned) 행동을 발전시킴을 실증 — 정렬 우려에 대한 경험적 증거.</div>
+  </div>
+</div>
+
+<!-- 🔥 Community -->
+<div class="section">
+  <div class="section-header">
+    <h2>🔥 Community</h2>
+    <span class="section-count">1건</span>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://github.com/MaximeVandegar/Papers-in-100-Lines-of-Code/tree/main/Splatter_Image_Ultra_Fast_Single_View_3D_Reconstruction" target="_blank" rel="noopener">Single image → 3D (Gaussian Splatting) in PyTorch — no CUDA, fully hackable</a></div>
+      <div class="item-meta">
+        <span class="badge">reddit_cv</span>
+        <span class="item-date">2026-04-08</span>
+        <span class="score">▲ 9</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">순수 PyTorch로 구현된 최소한의 Splatter Image — 단일 뷰 3D 복원의 학습 및 확장에 적합한 CUDA 불필요 구현체.</div>
+  </div>
+</div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>2026-04-09 UTC 생성 · 17개 소스 · 50건 큐레이션</div>
+    <div class="divider"></div>
+    <div class="credit">
+      Made by <a href="https://github.com/SeongjuLee" target="_blank" rel="noopener">Seongju Lee</a> · Powered by ai-news-mcp
+    </div>
+  </div>
+</footer>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+  <span class="icon-light">&#9728;&#65039;</span>
+  <span class="icon-dark">&#9789;</span>
+</button>
+
+<script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+})();
+function toggleTheme() {
+  var html = document.documentElement;
+  var current = html.getAttribute('data-theme');
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var next;
+  if (!current) {
+    next = prefersDark ? 'light' : 'dark';
+  } else if (current === 'dark') {
+    next = 'light';
+  } else {
+    next = 'dark';
+  }
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+}
+</script>
+
+</body>
+</html>
