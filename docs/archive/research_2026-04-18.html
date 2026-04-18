@@ -459,7 +459,7 @@ footer .credit a:hover { text-decoration: underline; }
 <div class="section">
   <div class="section-header">
     <h2>🔧 Models & Tools</h2>
-    <span class="section-count">6건</span>
+    <span class="section-count">8건</span>
   </div>
 
   <div class="item highlight">
@@ -468,13 +468,13 @@ footer .credit a:hover { text-decoration: underline; }
       <div class="item-meta">
         <span class="badge">hf_models</span>
         <span class="score">▲ 704</span>
-        <span class="stars"><span class="filled">★★★★★</span></span>
+        <span class="stars"><span class="filled">★★★★★</span><span class="empty"></span></span>
       </div>
     </div>
-    <div class="item-summary">Qwen이 35B 규모의 MoE(Mixture of Experts) 모델(활성 파라미터 3B)을 공개했다. 이미지-텍스트 멀티모달 역량을 갖춘 주요 오픈 가중치 릴리스이다.</div>
+    <div class="item-summary">35B MoE(Mixture of Experts) 구조에서 3B만 활성화하는 효율적 프론티어 모델로, 멀티모달 이미지-텍스트 입력과 262K 네이티브 컨텍스트를 지원한다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://huggingface.co/MiniMaxAI/MiniMax-M2.7" target="_blank" rel="noopener">MiniMaxAI/MiniMax-M2.7</a></div>
       <div class="item-meta">
@@ -483,10 +483,10 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">MiniMax가 허깅페이스에서 가장 높은 커뮤니티 참여도를 기록한 오픈 가중치 텍스트 생성 모델 M2.7을 공개했다.</div>
+    <div class="item-summary">229B 파라미터 규모의 오픈 웨이트 모델로, 소프트웨어 엔지니어링과 에이전트 기반 태스크 자동화에서 뛰어난 성능을 보인다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://huggingface.co/tencent/HY-Embodied-0.5" target="_blank" rel="noopener">tencent/HY-Embodied-0.5</a></div>
       <div class="item-meta">
@@ -495,10 +495,10 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">텐센트가 비전-언어-행동(Vision-Language-Action) 작업을 위한 오픈 가중치 체화 AI(embodied AI) 모델을 공개하여 파운데이션 모델과 로봇 공학을 연결한다.</div>
+    <div class="item-summary">토큰 혼합(Mixture-of-Tokens) 아키텍처를 사용한 체화 AI(Embodied AI) 모델로, 시공간 인지와 로봇 제어를 위한 오픈 웨이트 파운데이션 모델이다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://huggingface.co/zai-org/GLM-5.1" target="_blank" rel="noopener">zai-org/GLM-5.1</a></div>
       <div class="item-meta">
@@ -507,10 +507,10 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">GLM 5.1 오픈 가중치 텍스트 생성 모델이 공개되어 높은 커뮤니티 관심을 받고 있다.</div>
+    <div class="item-summary">ZAI에서 출시한 GLM-5.1 대규모 언어 모델로, 다양한 벤치마크에서 경쟁력 있는 성능을 보인다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://huggingface.co/google/gemma-4-31B-it" target="_blank" rel="noopener">google/gemma-4-31B-it</a></div>
       <div class="item-meta">
@@ -519,10 +519,22 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">구글이 Gemma 4 31B 명령어 튜닝(instruction-tuned) 멀티모달 모델을 오픈 가중치로 공개했다.</div>
+    <div class="item-summary">구글의 31B 멀티모달 모델로 텍스트, 이미지 입력을 지원하며 256K 컨텍스트 윈도우를 제공하는 오픈 웨이트 파운데이션 모델이다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://github.com/z-lab/dflash" target="_blank" rel="noopener">z-lab/dflash</a></div>
+      <div class="item-meta">
+        <span class="badge">github</span>
+        <span class="score">▲ 287</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">투기적 디코딩(Speculative Decoding)을 위한 블록 확산(Block Diffusion) 기반 빠른 토큰 초안 생성 도구이다.</div>
+  </div>
+
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://huggingface.co/tencent/HY-World-2.0" target="_blank" rel="noopener">tencent/HY-World-2.0</a></div>
       <div class="item-meta">
@@ -531,15 +543,57 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">HY-World 2.0 이미지-3D 생성(image-to-3D generation) 모델의 오픈 가중치를 공개하여 재현 가능한 3D 월드 모델 연구를 지원한다.</div>
+    <div class="item-summary">텐센트의 3D 세계 모델로, 텍스트와 이미지로부터 3D 환경을 재구성하고 시뮬레이션하는 멀티모달 파운데이션 모델이다.</div>
   </div>
 
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://github.com/openai/openai-agents-python" target="_blank" rel="noopener">openai/openai-agents-python</a></div>
+      <div class="item-meta">
+        <span class="badge">github</span>
+        <span class="score">▲ 625</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">OpenAI의 공식 에이전트 프레임워크 파이썬 SDK로, AI 에이전트 개발을 위한 도구와 패턴을 제공한다.</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>🏢 Industry Labs</h2>
+    <span class="section-count">2건</span>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://spectrum.ieee.org/boston-dynamics-spot-google-deepmind" target="_blank" rel="noopener">Boston Dynamics and Google DeepMind Teach Spot to Reason</a></div>
+      <div class="item-meta">
+        <span class="badge">ieee_spectrum</span>
+        <span class="item-date">2026-04-14</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">Spot 로봇에 Gemini Robotics-ER 1.6을 탑재하여 계기 판독과 태스크 추론이 가능한 자율 점검 시스템을 구현했다.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://openai.com/index/introducing-gpt-rosalind" target="_blank" rel="noopener">Introducing GPT-Rosalind for life sciences research</a></div>
+      <div class="item-meta">
+        <span class="badge">openai_blog</span>
+        <span class="item-date">2026-04-16</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">약물 발견(Drug Discovery), 유전체학(Genomics), 단백질 추론에 특화된 OpenAI의 프론티어 추론 모델이다.</div>
+  </div>
 </div>
 
 <div class="section">
   <div class="section-header">
     <h2>🤖 Robotics</h2>
-    <span class="section-count">9건</span>
+    <span class="section-count">12건</span>
   </div>
 
   <div class="item highlight">
@@ -548,13 +602,13 @@ footer .credit a:hover { text-decoration: underline; }
       <div class="item-meta">
         <span class="badge">arxiv_ro</span>
         <span class="item-date">2026-04-17</span>
-        <span class="stars"><span class="filled">★★★★★</span></span>
+        <span class="stars"><span class="filled">★★★★★</span><span class="empty"></span></span>
       </div>
     </div>
-    <div class="item-summary">스킬 그래프(skill graph)를 활용한 계층적 다중 스킬 시스템으로 휴머노이드 로봇의 민첩한 행동 간 매끄러운 전환을 구현한다.</div>
+    <div class="item-summary">학습된 스킬 그래프(Skill Graph)와 온라인 그래프 탐색을 통해 휴머노이드 로봇의 끊김 없는 보행 스킬 전환을 가능하게 하는 시스템이다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://arxiv.org/abs/2604.14732" target="_blank" rel="noopener">World-Value-Action Model: Implicit Planning for Vision-Language-Action Systems</a></div>
       <div class="item-meta">
@@ -563,9 +617,10 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
+    <div class="item-summary">구조화된 잠재 궤적 표현(Latent Trajectory Representation)을 학습하여 VLA 시스템에서 암묵적 계획(Implicit Planning)을 통한 로봇 행동 생성을 구현한다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://arxiv.org/abs/2604.14944" target="_blank" rel="noopener">HRDexDB: A Large-Scale Dataset of Dexterous Human and Robotic Hand Grasps</a></div>
       <div class="item-meta">
@@ -574,9 +629,10 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
+    <div class="item-summary">인간과 다양한 로봇 손의 정교한 파지(Grasping) 시행을 시각, 운동학, 촉각 데이터로 수집한 대규모 벤치마크 데이터셋이다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://arxiv.org/abs/2604.15013" target="_blank" rel="noopener">DEX-Mouse: A Low-cost Universal Interface with Force Feedback for Dexterous Robotic Hands</a></div>
       <div class="item-meta">
@@ -587,7 +643,7 @@ footer .credit a:hover { text-decoration: underline; }
     </div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://arxiv.org/abs/2603.05493" target="_blank" rel="noopener">cuRoboV2: Dynamics-Aware Motion Generation with Depth-Fused Distance Fields for High-DoF Robots</a></div>
       <div class="item-meta">
@@ -600,7 +656,7 @@ footer .credit a:hover { text-decoration: underline; }
 
   <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://v.redd.it/ba4qikbdmivg1" target="_blank" rel="noopener">The Toyota CUE7 robot, a 7'2&quot; 74 kg wheeled humanoid, debuted during halftime at Japan's basketball game</a></div>
+      <div class="item-title"><a href="https://v.redd.it/ba4qikbdmivg1" target="_blank" rel="noopener">The Toyota CUE7 robot, a 7'2" 74 kg wheeled humanoid, debuted during halftime at Japan's basketball game</a></div>
       <div class="item-meta">
         <span class="badge">reddit_robotics</span>
         <span class="item-date">2026-04-16</span>
@@ -620,6 +676,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
+    <div class="item-summary">H1 휴머노이드 로봇이 조깅에서 달리기로 가속하는 보행 전환을 시연한다.</div>
   </div>
 
   <div class="item">
@@ -631,6 +688,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
+    <div class="item-summary">자기수용감각(Proprioception)과 외부수용감각(Exteroception)을 통합하여 복잡한 지형에서 안정적인 다리 보행을 달성하는 실용적 보행 제어기이다.</div>
   </div>
 
   <div class="item">
@@ -642,29 +700,53 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
+    <div class="item-summary">스프링 등 수동 요소(Passive Elements)를 활용한 모델 기반 RL로 리밋 사이클 역학을 통해 에너지 효율적인 이족 보행을 구현한다.</div>
   </div>
 
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.14678" target="_blank" rel="noopener">Energy-based Regularization for Learning Residual Dynamics in Neural MPC for Aerial Robots</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_sy</span>
+        <span class="item-date">2026-04-17</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">에너지 기반 정규화(Energy-based Regularization)를 적용하여 비행 로봇의 뉴럴 MPC에서 잔차 동역학 학습을 개선했다.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2509.09363" target="_blank" rel="noopener">BarrierBench: Evaluating LLMs for Safety Verification in Dynamical Systems</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_sy</span>
+        <span class="item-date">2026-04-17</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">동적 시스템의 안전 검증에 LLM을 평가하는 벤치마크로, 제어 장벽 함수(Control Barrier Function) 기반 검증 태스크를 포함한다.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2506.09685" target="_blank" rel="noopener">Bridging Continuous-time LQR and Reinforcement Learning via Gradient Flow</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_sy</span>
+        <span class="item-date">2026-04-17</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">경사 흐름(Gradient Flow)을 통해 연속 시간 LQR과 강화학습을 연결하는 이론적 프레임워크이다.</div>
+  </div>
 </div>
 
 <div class="section">
   <div class="section-header">
     <h2>🧠 AI / ML</h2>
-    <span class="section-count">26건</span>
+    <span class="section-count">19건</span>
   </div>
 
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://github.com/z-lab/dflash" target="_blank" rel="noopener">z-lab/dflash</a></div>
-      <div class="item-meta">
-        <span class="badge">github</span>
-        <span class="score">▲ 287</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">블록 확산(block diffusion)과 추측 디코딩(speculative decoding)을 결합하여 확산 모델 기반 생성의 추론 속도를 가속하는 DFlash를 공개했다.</div>
-  </div>
-
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://reddit.com/r/MachineLearning/comments/1sml5fo/failure_to_reproduce_modern_paper_claims_d/" target="_blank" rel="noopener">Failure to Reproduce Modern Paper Claims [D]</a></div>
       <div class="item-meta">
@@ -674,9 +756,10 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
+    <div class="item-summary">최근 7편의 논문 중 4편의 주장이 재현 불가능했으며 2편은 미해결 GitHub 이슈가 있었다. ML 연구자에게 중요한 재현성(Reproducibility) 논의이다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://reddit.com/r/MachineLearning/comments/1sn6b90/resbm_a_new_transformerbased_architecture_for/" target="_blank" rel="noopener">ResBM: a new transformer-based architecture for low-bandwidth pipeline-parallel training, achieving 128x activation compression [R]</a></div>
       <div class="item-meta">
@@ -686,9 +769,10 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
+    <div class="item-summary">잔차 병목 모델(Residual Bottleneck Model)로 128배 활성화 압축을 달성하여 저대역폭 파이프라인 병렬 학습의 병목을 해결한다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://arxiv.org/abs/2604.14419" target="_blank" rel="noopener">Equifinality in Mixture of Experts: Routing Topology Does Not Determine Language Modeling Quality</a></div>
       <div class="item-meta">
@@ -697,10 +781,10 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">MoE 라우팅 토폴로지(routing topology)가 언어 모델링 품질의 결정적 요인이 아님을 입증하여 기존 MoE 설계 가정에 의문을 제기한다.</div>
+    <div class="item-summary">통제된 실험을 통해 MoE 모델의 라우팅 토폴로지가 언어 모델링 성능의 주요 결정 요인이 아님을 보여주며, MoE 설계의 핵심 가정에 의문을 제기한다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://arxiv.org/abs/2604.14434" target="_blank" rel="noopener">Geometric Routing Enables Causal Expert Control in Mixture of Experts</a></div>
       <div class="item-meta">
@@ -709,10 +793,10 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">코사인 유사도 라우팅(cosine-similarity routing)으로 전문가 단의미성(monosemanticity)을 달성하여 인과적 개입이 가능해졌다.</div>
+    <div class="item-summary">기하학적 라우팅(Geometric Routing)을 통해 MoE의 전문가 특화가 인과적으로 의미 있음을 증명하고, 해석 가능한 전문가 수준의 조향을 가능하게 한다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://arxiv.org/abs/2604.14528" target="_blank" rel="noopener">Dissecting Failure Dynamics in Large Language Model Reasoning</a></div>
       <div class="item-meta">
@@ -721,10 +805,10 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">대규모 언어 모델의 추론 실패 역학을 분석하여 오류 패턴과 실패 모드의 체계적 분류를 제공한다.</div>
+    <div class="item-summary">LLM 추론 오류가 초기 전이에서 발생하여 지역적 일관성에도 불구하고 전역적으로 잘못된 행동을 전파하는 방식을 분석한다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://arxiv.org/abs/2604.14246" target="_blank" rel="noopener">Awakening Dormant Experts: Counterfactual Routing to Mitigate MoE Hallucinations</a></div>
       <div class="item-meta">
@@ -733,10 +817,10 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">전문가 과소활용(expert underutilization)에서 비롯되는 MoE 환각 취약성을 식별하고 반사실적 라우팅(counterfactual routing)으로 휴면 전문가를 활성화한다.</div>
+    <div class="item-summary">반사실적 라우팅(Counterfactual Routing)으로 희소 MoE 모델의 휴면 전문가(Dormant Expert)를 재활성화하여 사실 정확도를 평균 3.1% 개선했다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://arxiv.org/abs/2604.14265" target="_blank" rel="noopener">Reinforcement Learning via Value Gradient Flow</a></div>
       <div class="item-meta">
@@ -745,10 +829,10 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">가치 그래디언트 흐름(value gradient flow)을 활용한 새로운 행동 정규화 RL 접근법으로 정책 최적화의 새로운 이론적 기반을 제시한다.</div>
+    <div class="item-summary">행동 정규화 강화학습(Behavior-Regularized RL)을 최적 수송(Optimal Transport)으로 해석하여 명시적 정책 매개변수화를 제거하고 오프라인 RL에서 SOTA를 달성했다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://arxiv.org/abs/2604.14501" target="_blank" rel="noopener">On the Expressive Power and Limitations of Multi-Layer SSMs</a></div>
       <div class="item-meta">
@@ -757,10 +841,10 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">다층 상태 공간 모델(SSM)의 합성적 작업에 대한 근본적 한계를 증명하여 SSM과 트랜스포머 간 표현력 격차를 규명한다.</div>
+    <div class="item-summary">다층 SSM의 조합적 태스크에서의 근본적 한계를 밝히고, 온라인 CoT(Chain-of-Thought)가 표현력을 크게 증가시킴을 보여준다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://arxiv.org/abs/2604.14702" target="_blank" rel="noopener">Gating Enables Curvature: A Geometric Expressivity Gap in Attention</a></div>
       <div class="item-meta">
@@ -769,10 +853,10 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">어텐션(attention)의 기하학적 표현력 격차를 게이팅(gating)이 곡률(curvature)을 가능하게 함으로써 해소함을 보인다.</div>
+    <div class="item-summary">피셔-라오 기하학(Fisher-Rao Geometry)을 통해 어텐션을 모델링하여 게이팅 없는 어텐션은 평면 다양체로 제한됨을 보여주며, 곡률을 위해 게이팅이 필수적임을 증명한다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://arxiv.org/abs/2604.14722" target="_blank" rel="noopener">A Mechanistic Account of Attention Sinks in GPT-2</a></div>
       <div class="item-meta">
@@ -781,10 +865,10 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">GPT-2에서 어텐션 싱크(attention sink) 현상의 메커니즘적 설명을 제공한다.</div>
+    <div class="item-summary">어텐션 싱크(Attention Sink) 현상의 기계적 원인을 규명한다: 학습된 쿼리 편향, MLP 변환, 키 프로젝션 구조에서 기인한다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://arxiv.org/abs/2604.14191" target="_blank" rel="noopener">Attention to Mamba: A Recipe for Cross-Architecture Distillation</a></div>
       <div class="item-meta">
@@ -793,10 +877,10 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">트랜스포머 지식을 Mamba SSM 아키텍처로 증류하는 체계적 방법론으로 아키텍처 간 효율적 모델 압축을 구현한다.</div>
+    <div class="item-summary">트랜스포머(Transformer)에서 맘바 SSM 모델로의 교차 아키텍처 증류(Distillation)를 통해 메모리 감소와 처리량 향상을 달성했다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://arxiv.org/abs/2604.14430" target="_blank" rel="noopener">Three-Phase Transformer</a></div>
       <div class="item-meta">
@@ -805,10 +889,10 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">3단계 트랜스포머 아키텍처로 모델 효율성과 성능의 새로운 균형점을 제안한다.</div>
+    <div class="item-summary">히든 벡터를 주기적 채널로 분할하고 위상 존중 연산을 적용하는 새로운 잔차 스트림 구조적 사전(Structural Prior)을 표준 백본에 도입한다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://arxiv.org/abs/2604.14164" target="_blank" rel="noopener">How to Fine-Tune a Reasoning Model? Teacher-Student Cooperation Framework</a></div>
       <div class="item-meta">
@@ -817,10 +901,10 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">더 강한 모델의 데이터로 SFT하면 추론 모델이 오히려 성능 저하됨을 보이고, 교사-학생 협력(teacher-student cooperation)을 더 나은 패러다임으로 제안한다.</div>
+    <div class="item-summary">강한 모델의 합성 데이터가 약한 모델의 추론을 개선하지 못하는 이유를 규명하고, 교사-학생 협력 해법을 제안한다.</div>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://arxiv.org/abs/2604.14414" target="_blank" rel="noopener">The Autocorrelation Blind Spot: Why 42% of Turn-Level Findings in LLM Conversation Analysis May Be Spurious</a></div>
       <div class="item-meta">
@@ -829,51 +913,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-  </div>
-
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.14268" target="_blank" rel="noopener">HY-World 2.0: A Multi-Modal World Model for Reconstructing, Generating, and Simulating 3D Worlds</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_cv</span>
-        <span class="item-date">2026-04-17</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-  </div>
-
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.14568" target="_blank" rel="noopener">Learning Adaptive Reasoning Paths for Efficient Visual Reasoning</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_cv</span>
-        <span class="item-date">2026-04-17</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">추론 형식을 동적으로 선택하여 시각 작업의 정확도를 유지하면서 토큰 사용량을 50~90% 절감하는 AVR 프레임워크이다.</div>
-  </div>
-
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://openai.com/index/introducing-gpt-rosalind" target="_blank" rel="noopener">Introducing GPT-Rosalind for life sciences research</a></div>
-      <div class="item-meta">
-        <span class="badge">openai_blog</span>
-        <span class="item-date">2026-04-16</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://github.com/openai/openai-agents-python" target="_blank" rel="noopener">openai/openai-agents-python</a></div>
-      <div class="item-meta">
-        <span class="badge">github</span>
-        <span class="score">▲ 625</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
+    <div class="item-summary">66개 턴 수준 메트릭의 자기상관(Autocorrelation)을 특성화하여 LLM 평가 결과의 거의 절반이 통계적으로 가짜(Spurious)일 수 있음을 밝혔다.</div>
   </div>
 
   <div class="item">
@@ -897,6 +937,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
+    <div class="item-summary">독립적으로 최적화된 에이전트를 공유 트리 구조 탐색에서 결합하는 통합 프레임워크로, 코드 생성 성능을 향상시킨다.</div>
   </div>
 
   <div class="item">
@@ -908,6 +949,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
+    <div class="item-summary">텍스트에서 ASCII 레이아웃 구성을 학습하면 공간 추론(Spatial Reasoning) 능력이 크게 향상되며, 외부 벤치마크에도 전이된다.</div>
   </div>
 
   <div class="item">
@@ -919,7 +961,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">평균 흐름(mean flow) 기반 정책 최적화로 새로운 RL 학습 패러다임을 제시한다.</div>
+    <div class="item-summary">MeanFlow 소수 스텝 흐름 기반 생성 모델을 최대 엔트로피 RL 프레임워크에서 정책으로 활용하는 새로운 접근법이다.</div>
   </div>
 
   <div class="item">
@@ -931,6 +973,38 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
+    <div class="item-summary">응답 길이에 대한 정규화를 적용한 APO 방법으로, 성능 손실 없이 비용 효율적인 LLM 추론을 달성한다.</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>👁 Vision</h2>
+    <span class="section-count">4건</span>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.14268" target="_blank" rel="noopener">HY-World 2.0: A Multi-Modal World Model for Reconstructing, Generating, and Simulating 3D Worlds</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cv</span>
+        <span class="item-date">2026-04-17</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">텍스트, 이미지, 비디오로부터 시뮬레이션용 3D 세계 표현을 생성하는 멀티모달 월드 모델이다.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.14568" target="_blank" rel="noopener">Learning Adaptive Reasoning Paths for Efficient Visual Reasoning</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cv</span>
+        <span class="item-date">2026-04-17</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">동적 경로 선택(Dynamic Path Selection)을 통해 토큰 사용량을 50~90% 줄이면서도 정확도를 유지하는 적응형 시각 추론 기법이다.</div>
   </div>
 
   <div class="item">
@@ -942,6 +1016,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
+    <div class="item-summary">멀티모달 융합을 수동적 연결(Passive Concatenation)에서 모달리티 간 동적 오케스트레이션으로 전환하는 에이전트 프레임워크이다.</div>
   </div>
 
   <div class="item">
@@ -953,61 +1028,17 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
+    <div class="item-summary">스캔 순서 의존성을 제거하고 스펙트럴 도메인에서 동작하는 단순화된 커널의 스캔 프리 SSM으로, 비전 태스크에 적용된다.</div>
   </div>
-
-</div>
-
-<div class="section">
-  <div class="section-header">
-    <h2>📄 Papers & Code</h2>
-    <span class="section-count">3건</span>
-  </div>
-
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://huggingface.co/papers/2604.11707" target="_blank" rel="noopener">Representations Before Pixels: Semantics-Guided Hierarchical Video Prediction</a></div>
-      <div class="item-meta">
-        <span class="badge">hf_papers</span>
-        <span class="item-date">2026-04-12</span>
-        <span class="score">▲ 6</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-  </div>
-
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://huggingface.co/papers/2604.12966" target="_blank" rel="noopener">Boosting Visual Instruction Tuning with Self-Supervised Guidance</a></div>
-      <div class="item-meta">
-        <span class="badge">hf_papers</span>
-        <span class="item-date">2026-04-13</span>
-        <span class="score">▲ 5</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://huggingface.co/papers/2604.14914" target="_blank" rel="noopener">Beyond Prompts: Unconditional 3D Inversion for Out-of-Distribution Shapes</a></div>
-      <div class="item-meta">
-        <span class="badge">hf_papers</span>
-        <span class="item-date">2026-04-15</span>
-        <span class="score">▲ 4</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-  </div>
-
 </div>
 
 <div class="section">
   <div class="section-header">
     <h2>🎯 RL / Control</h2>
-    <span class="section-count">5건</span>
+    <span class="section-count">2건</span>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://arxiv.org/abs/2603.17378" target="_blank" rel="noopener">Efficient Exploration at Scale, Asghari et al. 2026</a></div>
       <div class="item-meta">
@@ -1017,6 +1048,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
+    <div class="item-summary">점진적 모델 업데이트와 정보 지향 탐색(Information-directed Exploration)으로 RLHF 데이터 효율을 10~1,000배 개선한 대규모 탐색 알고리즘이다.</div>
   </div>
 
   <div class="item">
@@ -1029,63 +1061,55 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
+    <div class="item-summary">무게중심 보간(Barycentric Interpolation)을 사용한 연속 상태/행동 공간의 정책 반복을 고병렬 CUDA로 구현한 실용적 RL 솔버이다.</div>
   </div>
-
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2604.14678" target="_blank" rel="noopener">Energy-based Regularization for Learning Residual Dynamics in Neural MPC for Aerial Robots</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_sy</span>
-        <span class="item-date">2026-04-17</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2509.09363" target="_blank" rel="noopener">BarrierBench: Evaluating LLMs for Safety Verification in Dynamical Systems</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_sy</span>
-        <span class="item-date">2026-04-17</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2506.09685" target="_blank" rel="noopener">Bridging Continuous-time LQR and Reinforcement Learning via Gradient Flow</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_sy</span>
-        <span class="item-date">2026-04-17</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-  </div>
-
 </div>
 
 <div class="section">
   <div class="section-header">
-    <h2>🏢 Industry Labs</h2>
-    <span class="section-count">1건</span>
+    <h2>📄 Papers & Code</h2>
+    <span class="section-count">3건</span>
   </div>
 
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://spectrum.ieee.org/boston-dynamics-spot-google-deepmind" target="_blank" rel="noopener">Boston Dynamics and Google DeepMind Teach Spot to Reason</a></div>
+      <div class="item-title"><a href="https://huggingface.co/papers/2604.11707" target="_blank" rel="noopener">Representations Before Pixels: Semantics-Guided Hierarchical Video Prediction</a></div>
       <div class="item-meta">
-        <span class="badge">ieee_spectrum</span>
-        <span class="item-date">2026-04-14</span>
+        <span class="badge">hf_papers</span>
+        <span class="item-date">2026-04-12</span>
+        <span class="score">▲ 6</span>
         <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">Spot 로봇에 Gemini Robotics-ER 1.6을 탑재하여 자율 점검을 시연한 파운데이션 모델의 실제 로봇 배치 사례이다.</div>
+    <div class="item-summary">의미론적 가이드를 활용한 계층적 비디오 예측(Hierarchical Video Prediction)으로, 픽셀 이전에 표현을 먼저 학습하는 접근법이다.</div>
   </div>
 
-</div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/papers/2604.12966" target="_blank" rel="noopener">Boosting Visual Instruction Tuning with Self-Supervised Guidance</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_papers</span>
+        <span class="item-date">2026-04-13</span>
+        <span class="score">▲ 5</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">자기지도 가이던스(Self-Supervised Guidance)를 활용하여 시각적 인스트럭션 튜닝의 성능을 향상시키는 기법이다.</div>
+  </div>
 
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/papers/2604.14914" target="_blank" rel="noopener">Beyond Prompts: Unconditional 3D Inversion for Out-of-Distribution Shapes</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_papers</span>
+        <span class="item-date">2026-04-15</span>
+        <span class="score">▲ 4</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">프롬프트 없이 분포 밖(Out-of-Distribution) 형상에 대한 무조건적 3D 역변환(Inversion)을 수행하는 방법이다.</div>
+  </div>
+</div>
 
 </div>
 
