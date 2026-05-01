@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI & Robotics Research Daily — 2026-04-29</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Noto+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Neumorphism Design System — Light */
+  --primary: #006666;
+  --primary-light: #008080;
+  --secondary: #F1F2F5;
+  --surface: #E7E5E4;
+  --surface-card: #E7E5E4;
+  --surface-highlight: #EDE9E3;
+  --text: #1E2938;
+  --text-secondary: #4A5568;
+  --text-tertiary: #8494A7;
+  --border: transparent;
+  --border-highlight: #006666;
+  --accent: #006666;
+  --accent-hover: #004D4D;
+  --star-filled: #FE9900;
+  --star-empty: #C4C4C4;
+  --badge-bg: #D9D7D5;
+  --badge-text: #006666;
+  --success: #00A63D;
+  --warning: #FE9900;
+  --danger: #FF2157;
+  --info: #006666;
+  --gradient-start: #006666;
+  --gradient-mid: #008080;
+  --gradient-end: #00A3A3;
+  --header-text: #F1F2F5;
+  --footer-bg: #1E2938;
+  --footer-text: #8494A7;
+  /* Neumorphic shadows */
+  --neu-light: rgba(255,255,255,0.7);
+  --neu-dark: rgba(0,0,0,0.15);
+  --shadow-raised: 6px 6px 12px var(--neu-dark), -6px -6px 12px var(--neu-light);
+  --shadow-raised-sm: 3px 3px 6px var(--neu-dark), -3px -3px 6px var(--neu-light);
+  --shadow-inset: inset 3px 3px 6px var(--neu-dark), inset -3px -3px 6px var(--neu-light);
+  --shadow-hover: 8px 8px 16px var(--neu-dark), -8px -8px 16px var(--neu-light);
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #00CCCC;
+    --primary-light: #33E0E0;
+    --secondary: #2D3748;
+    --surface: #1A202C;
+    --surface-card: #1A202C;
+    --surface-highlight: #222C3C;
+    --text: #E2E8F0;
+    --text-secondary: #A0AEC0;
+    --text-tertiary: #718096;
+    --border: transparent;
+    --border-highlight: #00CCCC;
+    --accent: #00CCCC;
+    --accent-hover: #33E0E0;
+    --star-filled: #FEB800;
+    --star-empty: #4A5568;
+    --badge-bg: #2D3748;
+    --badge-text: #00CCCC;
+    --gradient-start: #0D1117;
+    --gradient-mid: #1A202C;
+    --gradient-end: #004D4D;
+    --header-text: #E2E8F0;
+    --footer-bg: #0D1117;
+    --footer-text: #718096;
+    --neu-light: rgba(255,255,255,0.05);
+    --neu-dark: rgba(0,0,0,0.5);
+    --shadow-raised: 6px 6px 12px var(--neu-dark), -6px -6px 12px var(--neu-light);
+    --shadow-raised-sm: 3px 3px 6px var(--neu-dark), -3px -3px 6px var(--neu-light);
+    --shadow-inset: inset 3px 3px 6px var(--neu-dark), inset -3px -3px 6px var(--neu-light);
+    --shadow-hover: 8px 8px 16px var(--neu-dark), -8px -8px 16px var(--neu-light);
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Space Mono', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, monospace;
+  background: var(--surface);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Hero Header ── */
+.hero {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+  color: var(--header-text);
+  padding: 3.5rem 1.5rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 30%, rgba(255,255,255,0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+.hero .icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+.hero h1 {
+  font-family: 'Space Mono', monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+.hero .subtitle {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  font-weight: 400;
+}
+.hero .stats {
+  display: inline-flex;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+  opacity: 0.7;
+  font-weight: 400;
+}
+.hero .stats span {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* ── Container ── */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* ── Section ── */
+.section {
+  margin-bottom: 2.5rem;
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--badge-bg);
+}
+.section-header h2 {
+  font-family: 'Space Mono', 'Noto Sans KR', monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--primary);
+}
+.section-header .section-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  background: var(--badge-bg);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  box-shadow: var(--shadow-raised-sm);
+}
+
+/* ── Item Card (Neumorphic) ── */
+.item {
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 10px;
+  background: var(--surface-card);
+  border: none;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-raised);
+  transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+.item:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-1px);
+}
+.item.highlight {
+  background: var(--surface-highlight);
+  border-left: 3px solid var(--border-highlight);
+  box-shadow: var(--shadow-raised), inset 0 0 0 1px var(--border-highlight);
+}
+.item-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.item-title {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  flex: 1;
+  min-width: 200px;
+  line-height: 1.5;
+}
+.item-title a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.item-title a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+.item-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+.badge {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  font-weight: 500;
+  padding: 0.2rem 0.55rem;
+  border-radius: 8px;
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  box-shadow: var(--shadow-raised-sm);
+}
+.item-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+.score {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--primary);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.stars {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+.stars .filled { color: var(--star-filled); }
+.stars .empty { color: var(--star-empty); }
+.item.highlight .stars .filled { color: var(--danger); }
+@media (prefers-color-scheme: dark) {
+  .item.highlight .stars .filled { color: var(--star-filled); }
+}
+.item-summary {
+  margin-top: 0.6rem;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ── Theme Toggle (Neumorphic) ── */
+.theme-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--surface);
+  box-shadow: var(--shadow-raised);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  z-index: 100;
+}
+.theme-toggle:hover {
+  transform: scale(1.08);
+  box-shadow: var(--shadow-hover);
+}
+.theme-toggle:active {
+  box-shadow: var(--shadow-inset);
+  transform: scale(0.96);
+}
+.theme-toggle .icon-light,
+.theme-toggle .icon-dark { display: none; }
+
+html:not([data-theme]) .theme-toggle .icon-light { display: none; }
+html:not([data-theme]) .theme-toggle .icon-dark { display: none; }
+html:not([data-theme]) .theme-toggle::after { content: '🌓'; }
+
+html[data-theme="light"] .theme-toggle .icon-light { display: inline; }
+html[data-theme="light"] .theme-toggle .icon-dark { display: none; }
+html[data-theme="light"] .theme-toggle::after { content: none; }
+
+html[data-theme="dark"] .theme-toggle .icon-light { display: none; }
+html[data-theme="dark"] .theme-toggle .icon-dark { display: inline; }
+html[data-theme="dark"] .theme-toggle::after { content: none; }
+
+/* Force dark when data-theme="dark" */
+html[data-theme="dark"] {
+  --primary: #00CCCC;
+  --primary-light: #33E0E0;
+  --secondary: #2D3748;
+  --surface: #1A202C;
+  --surface-card: #1A202C;
+  --surface-highlight: #222C3C;
+  --text: #E2E8F0;
+  --text-secondary: #A0AEC0;
+  --text-tertiary: #718096;
+  --border: transparent;
+  --border-highlight: #00CCCC;
+  --accent: #00CCCC;
+  --accent-hover: #33E0E0;
+  --star-filled: #FEB800;
+  --star-empty: #4A5568;
+  --badge-bg: #2D3748;
+  --badge-text: #00CCCC;
+  --gradient-start: #0D1117;
+  --gradient-mid: #1A202C;
+  --gradient-end: #004D4D;
+  --header-text: #E2E8F0;
+  --footer-bg: #0D1117;
+  --footer-text: #718096;
+  --neu-light: rgba(255,255,255,0.05);
+  --neu-dark: rgba(0,0,0,0.5);
+  --shadow-raised: 6px 6px 12px var(--neu-dark), -6px -6px 12px var(--neu-light);
+  --shadow-raised-sm: 3px 3px 6px var(--neu-dark), -3px -3px 6px var(--neu-light);
+  --shadow-inset: inset 3px 3px 6px var(--neu-dark), inset -3px -3px 6px var(--neu-light);
+  --shadow-hover: 8px 8px 16px var(--neu-dark), -8px -8px 16px var(--neu-light);
+}
+html[data-theme="dark"] .item.highlight .stars .filled { color: #FEB800; }
+
+/* Force light when data-theme="light" */
+html[data-theme="light"] {
+  --primary: #006666;
+  --primary-light: #008080;
+  --secondary: #F1F2F5;
+  --surface: #E7E5E4;
+  --surface-card: #E7E5E4;
+  --surface-highlight: #EDE9E3;
+  --text: #1E2938;
+  --text-secondary: #4A5568;
+  --text-tertiary: #8494A7;
+  --border: transparent;
+  --border-highlight: #006666;
+  --accent: #006666;
+  --accent-hover: #004D4D;
+  --star-filled: #FE9900;
+  --star-empty: #C4C4C4;
+  --badge-bg: #D9D7D5;
+  --badge-text: #006666;
+  --gradient-start: #006666;
+  --gradient-mid: #008080;
+  --gradient-end: #00A3A3;
+  --header-text: #F1F2F5;
+  --footer-bg: #1E2938;
+  --footer-text: #8494A7;
+  --neu-light: rgba(255,255,255,0.7);
+  --neu-dark: rgba(0,0,0,0.15);
+  --shadow-raised: 6px 6px 12px var(--neu-dark), -6px -6px 12px var(--neu-light);
+  --shadow-raised-sm: 3px 3px 6px var(--neu-dark), -3px -3px 6px var(--neu-light);
+  --shadow-inset: inset 3px 3px 6px var(--neu-dark), inset -3px -3px 6px var(--neu-light);
+  --shadow-hover: 8px 8px 16px var(--neu-dark), -8px -8px 16px var(--neu-light);
+}
+html[data-theme="light"] .item.highlight .stars .filled { color: #FF2157; }
+
+/* ── Footer ── */
+footer {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  font-size: 0.75rem;
+}
+footer .footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+footer .divider {
+  width: 40px;
+  height: 2px;
+  background: var(--text-tertiary);
+  margin: 0.75rem auto;
+  opacity: 0.3;
+}
+footer .credit {
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+footer .credit a {
+  color: var(--footer-text);
+  text-decoration: none;
+  font-weight: 700;
+}
+footer .credit a:hover { text-decoration: underline; }
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .hero { padding: 2.5rem 1rem 2rem; }
+  .hero h1 { font-size: 1.4rem; letter-spacing: -0.06em; }
+  .hero .subtitle { font-size: 0.85rem; letter-spacing: -0.03em; }
+  .hero .icon { font-size: 2rem; }
+  .container { padding: 1.25rem 1rem; }
+  .item { padding: 1rem 1.1rem; border-radius: var(--radius-sm); }
+  .item-top { flex-direction: column; gap: 0.4rem; }
+  .item-title { font-size: 0.85rem; min-width: 0; }
+  .section-header h2 { font-size: 1rem; }
+  .theme-toggle { bottom: 16px; right: 16px; width: 40px; height: 40px; }
+
+  /* 모바일: item-meta를 타이틀 아래 가로 배치 */
+  .item-meta {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="icon">&#9749;</div>
+    <h1>AI & Robotics Research Daily</h1>
+    <div class="subtitle">2026-04-29 — AI/Robotics 분야 최신 연구 큐레이션</div>
+    <div class="stats">
+      <span>50건 큐레이션</span>
+      <span>11개 소스</span>
+      <span>중요도 기반 정렬</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- 🏢 Industry Labs -->
+<div class="section">
+  <div class="section-header">
+    <h2>🏢 Industry Labs</h2>
+    <span class="section-count">5건</span>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://openai.com/index/introducing-gpt-5-5" target="_blank" rel="noopener">Introducing GPT-5.5</a></div>
+      <div class="item-meta">
+        <span class="badge">openai_blog</span>
+        <span class="item-date">2026-04-23</span>
+        <span class="stars"><span class="filled">★★★★★</span><span class="empty"></span></span>
+      </div>
+    </div>
+    <div class="item-summary">OpenAI가 코딩, 리서치, 데이터 분석 능력을 강화한 GPT-5.5를 출시했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://spectrum.ieee.org/boston-dynamics-spot-google-deepmind" target="_blank" rel="noopener">Boston Dynamics and Google DeepMind Teach Spot to Reason</a></div>
+      <div class="item-meta">
+        <span class="badge">ieee_spectrum</span>
+        <span class="item-date">2026-04-14</span>
+        <span class="stars"><span class="filled">★★★★★</span><span class="empty"></span></span>
+      </div>
+    </div>
+    <div class="item-summary">Boston Dynamics와 DeepMind가 Spot에 Gemini Robotics-ER 1.6을 탑재하여 구현형 추론(embodied reasoning) 능력을 부여한 공동 연구 성과를 발표했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://openai.com/index/gpt-5-5-system-card" target="_blank" rel="noopener">GPT-5.5 System Card</a></div>
+      <div class="item-meta">
+        <span class="badge">openai_blog</span>
+        <span class="item-date">2026-04-23</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">GPT-5.5의 안전성 평가, 성능 벤치마크, 레드팀(red-teaming) 결과를 상세히 기술한 기술 시스템 카드(system card)다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://spectrum.ieee.org/ai-chip-design" target="_blank" rel="noopener">AI Agent Designs a RISC-V CPU Core From Scratch</a></div>
+      <div class="item-meta">
+        <span class="badge">ieee_spectrum</span>
+        <span class="item-date">2026-04-22</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">에이전트 AI 시스템이 RISC-V CPU 코어를 자율적으로 설계하여 1.5GHz 클럭 속도를 달성했다.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://spectrum.ieee.org/sparse-ai" target="_blank" rel="noopener">Better Hardware Could Turn Zeros into AI Heroes</a></div>
+      <div class="item-meta">
+        <span class="badge">ieee_spectrum</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">연산에서 0값을 활용하는 희소 AI(sparse AI) 하드웨어가 대규모 모델의 효율성을 획기적으로 개선할 수 있다는 분석이다.</div>
+  </div>
+</div>
+
+<!-- 🔧 Models & Tools -->
+<div class="section">
+  <div class="section-header">
+    <h2>🔧 Models & Tools</h2>
+    <span class="section-count">8건</span>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro" target="_blank" rel="noopener">deepseek-ai/DeepSeek-V4-Pro</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_models</span>
+        <span class="score">▲ 2976</span>
+        <span class="stars"><span class="filled">★★★★★</span><span class="empty"></span></span>
+      </div>
+    </div>
+    <div class="item-summary">DeepSeek이 차세대 오픈 웨이트(open-weight) 텍스트 생성 모델 V4-Pro를 공개했으며, 커뮤니티에서 대규모 채택이 이루어지고 있다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/Qwen/Qwen3.6-27B" target="_blank" rel="noopener">Qwen/Qwen3.6-27B</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_models</span>
+        <span class="score">▲ 931</span>
+        <span class="stars"><span class="filled">★★★★★</span><span class="empty"></span></span>
+      </div>
+    </div>
+    <div class="item-summary">Qwen이 27B 규모의 멀티모달(multimodal) 이미지-텍스트 모델 3.6을 공개하여 오픈 웨이트 비전-언어(vision-language) 역량을 강화했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash" target="_blank" rel="noopener">deepseek-ai/DeepSeek-V4-Flash</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_models</span>
+        <span class="score">▲ 796</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">DeepSeek V4 계열의 경량 변형 모델로, 높은 성능을 유지하면서 속도에 최적화되었다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/moonshotai/Kimi-K2.6" target="_blank" rel="noopener">moonshotai/Kimi-K2.6</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_models</span>
+        <span class="score">▲ 389</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">Moonshot AI가 이미지-텍스트 통합 처리를 지원하는 멀티모달(multimodal) 모델 Kimi-K2.6을 공개했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/Qwen/Qwen3.6-35B-A3B" target="_blank" rel="noopener">Qwen/Qwen3.6-35B-A3B</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_models</span>
+        <span class="score">▲ 311</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">Qwen 3.6의 MoE(Mixture of Experts) 변형으로, 총 35B 파라미터 중 3B만 활성화하여 효율적인 멀티모달 추론(inference)을 구현했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/inclusionAI/LLaDA2.0-Uni" target="_blank" rel="noopener">inclusionAI/LLaDA2.0-Uni</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_models</span>
+        <span class="score">▲ 216</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">임의의 입출력 모달리티(modality) 조합을 처리하는 any-to-any 멀티모달 생성 모델로, 통합 아키텍처를 발전시켰다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://github.com/microsoft/VibeVoice" target="_blank" rel="noopener">microsoft/VibeVoice</a></div>
+      <div class="item-meta">
+        <span class="badge">github</span>
+        <span class="score">▲ 1483</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">Microsoft가 음성 생성 및 이해를 위한 최첨단 오픈소스 음성 AI(voice AI) 시스템을 공개했다.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro" target="_blank" rel="noopener">XiaomiMiMo/MiMo-V2.5-Pro</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_models</span>
+        <span class="score">▲ 233</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">Xiaomi가 오픈 웨이트 추론 모델(reasoning model) MiMo-V2.5-Pro를 공개하여 LLM 경쟁 구도를 확장했다.</div>
+  </div>
+</div>
+
+<!-- 🧠 AI / ML -->
+<div class="section">
+  <div class="section-header">
+    <h2>🧠 AI / ML</h2>
+    <span class="section-count">13건</span>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.22709" target="_blank" rel="noopener">Thinking Without Words: Efficient Latent Reasoning with Abstract Chain-of-Thought</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cl</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★★★</span><span class="empty"></span></span>
+      </div>
+    </div>
+    <div class="item-summary">자연어 추론을 추상 토큰 시퀀스(abstract token sequence)로 대체하여 토큰 수를 11.6배 줄이면서 성능을 유지하는 잠재 추론(latent reasoning) 방법을 제안했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.22266" target="_blank" rel="noopener">Large Language Models Decide Early and Explain Later</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cl</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">LLM의 예측이 CoT(Chain-of-Thought) 초기에 이미 안정화되며, 이후 토큰은 사후적 정당화(post-hoc justification) 역할을 한다는 것을 입증했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.22345" target="_blank" rel="noopener">Incentivizing Neuro-symbolic Reasoning in VLMs via RL</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cl</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">VLM에 강화학습(RL)으로 훈련된 신경-기호 언어(neuro-symbolic language)를 도입하여 정확도를 높이면서 추론 토큰을 75% 감소시켰다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.22335" target="_blank" rel="noopener">Outcome Rewards Do Not Guarantee Verifiable or Causally Important Reasoning</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cl</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">검증 가능한 보상(verifiable reward)을 사용한 강화학습이 정확도는 높이지만, 추론 체인의 인과적 중요성(causal importance)을 안정적으로 개선하지는 못한다는 것을 보였다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.22778" target="_blank" rel="noopener">The Spectral Lifecycle of Transformer Training</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_lg</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">트랜스포머(Transformer) 사전학습 중 가중치 스펙트럼에서 일시적 압축 파동(compression wave)과 지속적 스펙트럼 기울기(spectral gradient)를 발견했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.22782" target="_blank" rel="noopener">Stochastic KV Routing: Enabling Adaptive Depth-Wise Cache Sharing</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_lg</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">학습 시 무작위 교차 레이어 어텐션(cross-layer attention)을 적용하여 성능 저하 없이 유연한 깊이별 KV 캐시 공유(depth-wise KV cache sharing)를 가능케 했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.22779" target="_blank" rel="noopener">KARL: Mitigating Hallucinations in LLMs via Knowledge-Boundary-Aware RL</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_lg</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">지식 경계 인식 강화학습(knowledge-boundary-aware RL)으로 LLM의 응답 보류(abstention)를 진화하는 지식 한계에 맞춰 환각(hallucination)을 줄였다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.22981" target="_blank" rel="noopener">Reward Models Are Secretly Value Functions: Temporally Coherent Reward Modeling</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_lg</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">보상 모델(reward model)을 가치 함수(value function)로 재해석하여, 토큰 수준 출력이 최종 보상의 조건부 기대값을 나타냄을 보였다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.23073" target="_blank" rel="noopener">RL Token: Bootstrapping Online RL with Vision-Language-Action Models</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_lg</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">소형 RL 토큰(RL token)으로 사전학습된 VLA 모델의 샘플 효율적 온라인 파인튜닝(online fine-tuning)을 구현하여 로보틱스에 적용했다.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.22127" target="_blank" rel="noopener">Where Should LoRA Go? Component-Type Placement in Hybrid Language Models</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cl</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">하이브리드 아키텍처에서 어텐션 경로(attention pathway)에 LoRA를 배치하는 것이 전체 모델 적용보다 효과적이며, 컴포넌트 토폴로지가 적응 패턴을 결정한다는 것을 밝혔다.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.22783" target="_blank" rel="noopener">Parameter Efficiency Is Not Memory Efficiency: LARS for On-Device LLM</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_lg</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">LARS는 활성화 부분 공간(activation subspace)을 제약하여 시퀀스 길이로부터 메모리를 분리함으로써 온디바이스(on-device) LLM 적응을 가능케 했다.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.23056" target="_blank" rel="noopener">On-Device Vision Training and Inference on a Thumb-Sized Microcontroller</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_lg</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">엄지손가락 크기의 마이크로컨트롤러(microcontroller)에서 CNN 학습과 추론을 포함한 전체 ML 파이프라인을 구동했다.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.22102" target="_blank" rel="noopener">Wiggle and Go! System Identification for Zero-Shot Dynamic Rope Manipulation</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ai</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">2단계 시스템 식별(system identification) 프레임워크로 변형 가능한 물체(deformable object)의 제로샷(zero-shot) 조작을 3.55cm 정확도로 달성했다.</div>
+  </div>
+</div>
+
+<!-- 🤖 Robotics -->
+<div class="section">
+  <div class="section-header">
+    <h2>🤖 Robotics</h2>
+    <span class="section-count">12건</span>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.22911" target="_blank" rel="noopener">RecoverFormer: End-to-End Contact-Aware Recovery for Humanoid Robots</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ro</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">휴머노이드 로봇 낙하 복구를 위한 종단간(end-to-end) 트랜스포머 정책으로, 접촉 인식(contact-aware) 행동 전환과 제로샷 시뮬-투-리얼(sim-to-real) 전이를 달성했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.23249" target="_blank" rel="noopener">BridgeACT: Bridging Human Demonstrations to Robot Actions via Unified Tool-Target Affordances</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ro</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">신체 구조에 무관한 어포던스(embodiment-agnostic affordance)를 통해 인간 비디오만으로 로봇 조작을 학습하여, 로봇 시연 데이터의 필요성을 제거했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.23609" target="_blank" rel="noopener">Tube Diffusion Policy: Reactive Visual-Tactile Policy Learning for Contact-rich Manipulation</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ro</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">확산 기반 정책 학습(diffusion-based policy learning)과 튜브 기반 피드백 제어(tube-based feedback control)를 결합하여 접촉 밀집(contact-rich) 조작 작업의 반응성을 높였다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.23960" target="_blank" rel="noopener">Multi-Robot Motions in Milliseconds: Vector-Accelerated Primitives for Planning</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ro</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">벡터 가속 기하학 프리미티브(vector-accelerated geometric primitive)를 활용하여 다중 로봇 동작 계획(motion planning)에서 1100배 속도 향상을 달성했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.23620" target="_blank" rel="noopener">M²-VLA: Boosting VLMs for Generalizable Manipulation via Layer Mixture</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ro</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">Mixture of Layers와 메타 스킬 모듈(Meta Skill Module)을 통해 VLM의 일반화 능력을 보존하면서 조작(manipulation)에 적응시켰다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.23570" target="_blank" rel="noopener">EgoLive: A Large-Scale Egocentric Dataset from Real-World Human Tasks</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ro</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">비제한적 실세계 작업 시연으로부터 수집한 최대 규모의 오픈소스 일인칭(egocentric) 데이터셋으로, 로봇 학습에 활용된다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://v.redd.it/giur7r2xfpxg1" target="_blank" rel="noopener">We're open-sourcing Asimov v1, a humanoid robot</a></div>
+      <div class="item-meta">
+        <span class="badge">reddit_robotics</span>
+        <span class="item-date">2026-04-27</span>
+        <span class="score">▲ 375</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">전신 오픈소스 휴머노이드 로봇(humanoid robot) Asimov v1의 기계 설계 파일 및 시뮬레이션 모델을 연구용으로 공개했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://v.redd.it/helygqczqyxg1" target="_blank" rel="noopener">MuscleMimic: Unlocking full-body musculoskeletal motor learning at scale</a></div>
+      <div class="item-meta">
+        <span class="badge">reddit_robotics</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="score">▲ 26</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">JAX 기반 전신 근골격(musculoskeletal) 운동 모방 벤치마크로, 대규모 모터 제어(motor control) 학습을 지원한다.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.23001" target="_blank" rel="noopener">Vision-Language-Action in Robotics: A Survey of Datasets, Benchmarks, and Data Engines</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ro</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">VLA 모델은 아키텍처 개선보다 데이터 인프라 강화가 더 필요하다고 주장하는 종합 서베이다.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://v.redd.it/0jmxn6d97pxg1" target="_blank" rel="noopener">An Open-Source Exoskeleton Project - OpenEXO</a></div>
+      <div class="item-meta">
+        <span class="badge">reddit_robotics</span>
+        <span class="item-date">2026-04-27</span>
+        <span class="score">▲ 168</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">웨어러블 로보틱스(wearable robotics) 연구를 위한 오픈소스 외골격(exoskeleton) 프로젝트로, 전체 기계 설계 및 개발 자료를 공개했다.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.23702" target="_blank" rel="noopener">QuietWalk: Physics-Informed RL for Ground Reaction Force-Aware Humanoid Locomotion</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ro</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">물리 정보 강화학습(physics-informed RL)으로 평균 A-가중 소음을 7.17dB 줄여 더 조용한 휴머노이드 보행(humanoid locomotion)을 구현했다.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.23761" target="_blank" rel="noopener">AWARE: Unleashing Agility of Wheeled-Legged Robots for High-Dynamic Obstacle Evasion</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ro</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">계층적 RL 프레임워크로 바퀴-다리 로봇(wheeled-legged robot)에서 전방 돌진, 측면 회피 등 창발적 민첩 행동(emergent agile behavior)을 생성했다.</div>
+  </div>
+</div>
+
+<!-- 👁 Computer Vision -->
+<div class="section">
+  <div class="section-header">
+    <h2>👁 Computer Vision</h2>
+    <span class="section-count">4건</span>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.22828" target="_blank" rel="noopener">MetaEarth3D: Unlocking World-scale 3D Generation with Spatially Scalable Generative Modeling</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cv</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">1천만 장의 지구 관측 이미지로부터 행성 규모에서 공간적으로 일관된 3D 생성을 수행하는 최초의 생성 기반 기초 모델(generative foundation model)이다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.22808" target="_blank" rel="noopener">FreqFormer: Hierarchical Frequency-Domain Attention for Long-Sequence Video Diffusion</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cv</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">주파수 인식 어텐션(frequency-aware attention)으로 장시퀀스 비디오 확산(video diffusion)의 연산량을 이차(quadratic)에서 서브이차(sub-quadratic)로 줄였다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.22875" target="_blank" rel="noopener">SketchVLM: Vision language models can annotate images to explain thoughts</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cv</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">학습 없는 SVG 오버레이 프레임워크로 VLM이 시각적으로 추론 과정을 설명할 수 있게 하여 정확도를 최대 28.5% 향상시켰다.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2604.22826" target="_blank" rel="noopener">Shape: A Self-Supervised 3D Geometry Foundation Model for Industrial CAD Analysis</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cv</span>
+        <span class="item-date">2026-04-28</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">산업용 CAD 메시(mesh)를 위한 자기지도(self-supervised) 3D 기초 모델로, 98.1% top-1 검색 정확도를 달성했다.</div>
+  </div>
+</div>
+
+<!-- 📄 Papers & Code -->
+<div class="section">
+  <div class="section-header">
+    <h2>📄 Papers & Code</h2>
+    <span class="section-count">6건</span>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/papers/2604.24764" target="_blank" rel="noopener">World-R1: Reinforcing 3D Constraints for Text-to-Video Generation</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_papers</span>
+        <span class="item-date">2026-04-26</span>
+        <span class="score">▲ 95</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">3D 기하학적 사전지식(geometric prior)을 강화학습(RL)으로 텍스트-비디오 생성에 주입하여 물리적으로 일관된 영상 합성을 구현했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/papers/2604.24763" target="_blank" rel="noopener">Tuna-2: Pixel Embeddings Beat Vision Encoders for Multimodal Understanding</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_papers</span>
+        <span class="item-date">2026-04-26</span>
+        <span class="score">▲ 43</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">사전학습된 비전 인코더(vision encoder) 의존성을 제거하고 픽셀 임베딩(pixel embedding)을 직접 사용하는 통합 멀티모달 모델을 제안했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/papers/2604.22554" target="_blank" rel="noopener">Why Fine-Tuning Encourages Hallucinations and How to Fix It</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_papers</span>
+        <span class="item-date">2026-04-23</span>
+        <span class="score">▲ 8</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">자기증류(self-distillation) 기반 SFT 방법으로 파인튜닝 시 출력 분포 드리프트(output-distribution drift)를 정규화하여 환각(hallucination)을 완화했다.</div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/papers/2604.24300" target="_blank" rel="noopener">Sapiens2</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_papers</span>
+        <span class="item-date">2026-04-26</span>
+        <span class="score">▲ 7</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">인간 중심 비전(human-centric vision)을 위한 고해상도 트랜스포머 계열로, 통합 마스크 재구성(masked reconstruction)과 대조 사전학습(contrastive pretraining)을 결합했다.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/papers/2604.22554" target="_blank" rel="noopener">How Much Is One Recurrence Worth? Iso-Depth Scaling Laws for Looped LMs</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_papers</span>
+        <span class="item-date">2026-04-23</span>
+        <span class="score">▲ 5</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">루프 트랜스포머(looped transformer)에서 재귀(recurrence)의 등가성을 정량화하여, 각 루프가 고유 블록의 약 47% 가치를 갖는다는 것을 밝혔다.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/papers/2604.23781" target="_blank" rel="noopener">Disentangled Robot Learning via Separate Forward and Inverse Dynamics</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_papers</span>
+        <span class="item-date">2026-04-25</span>
+        <span class="score">▲ 1</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">시각적 순방향(forward dynamics)과 역방향 동역학(inverse dynamics)의 사전학습을 분리하여, 각각의 데이터 소스를 효과적으로 활용하는 로봇 학습 방법이다.</div>
+  </div>
+</div>
+
+<!-- 🎯 RL / Control -->
+<div class="section">
+  <div class="section-header">
+    <h2>🎯 RL / Control</h2>
+    <span class="section-count">2건</span>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://reddit.com/r/reinforcementlearning/comments/1sxyr9b/" target="_blank" rel="noopener">Prompt-to-Policy: Agentic Engineering for Reinforcement Learning</a></div>
+      <div class="item-meta">
+        <span class="badge">reddit_rl</span>
+        <span class="item-date">2026-04-27</span>
+        <span class="score">▲ 72</span>
+        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">자연어로 행동을 기술하면 에이전트가 보상 함수(reward function)를 작성하고, 정책(policy)을 훈련한 뒤 LLM/VLM으로 평가하는 오픈소스 프레임워크다.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://v.redd.it/hn6j09dhdixg1" target="_blank" rel="noopener">UAV Swarm In Isaac Lab</a></div>
+      <div class="item-meta">
+        <span class="badge">reddit_rl</span>
+        <span class="item-date">2026-04-26</span>
+        <span class="score">▲ 3</span>
+        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">NVIDIA Isaac Lab에서 공기역학과 비행 제어를 포함한 완전한 UAV 군집(swarm) 시뮬레이션 스택을 구현했다.</div>
+  </div>
+</div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>2026-04-29 UTC 생성 · 11개 소스 · 50건 큐레이션</div>
+    <div class="divider"></div>
+    <div class="credit">
+      Made by <a href="https://github.com/SeongjuLee" target="_blank" rel="noopener">Seongju Lee</a> · Powered by ai-news-mcp
+    </div>
+  </div>
+</footer>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+  <span class="icon-light">&#9728;&#65039;</span>
+  <span class="icon-dark">&#9789;</span>
+</button>
+
+<script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+})();
+function toggleTheme() {
+  var html = document.documentElement;
+  var current = html.getAttribute('data-theme');
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var next;
+  if (!current) {
+    next = prefersDark ? 'light' : 'dark';
+  } else if (current === 'dark') {
+    next = 'light';
+  } else {
+    next = 'dark';
+  }
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+}
+</script>
+
+</body>
+</html>
