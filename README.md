@@ -15,7 +15,7 @@ docs/archive/
 
 ## Update Schedule
 
-The digest is intended to refresh daily around `09:00 KST` (`00:00 UTC`).
+Collection is intended to start daily around `08:00 KST`, and the public page is intended to refresh around `09:00 KST` (`00:00 UTC`).
 
 ## Importance
 
