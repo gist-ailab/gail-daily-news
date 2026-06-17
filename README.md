@@ -17,6 +17,10 @@ docs/archive/
 
 Collection is intended to start daily around `08:00 KST`, and the public page is intended to refresh around `09:00 KST` (`00:00 UTC`).
 
+## Recency
+
+The page shows items from the last `7 days` by default. Undated items are included only when they come from daily/trending feeds such as Hugging Face, GitHub, or Papers with Code.
+
 ## Importance
 
 Each item is rated by research impact:
