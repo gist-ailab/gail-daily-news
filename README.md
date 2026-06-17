@@ -19,7 +19,7 @@ Collection is intended to start daily around `08:00 KST`, and the public page is
 
 ## Recency
 
-The page shows items from the last `7 days` by default. Undated items are included only when they come from daily/trending feeds such as Hugging Face, GitHub, or Papers with Code.
+The page shows items from the last `14 days` by default. Undated items are included only when they come from daily/trending feeds such as Hugging Face, GitHub, or Papers with Code.
 
 ## Importance
 
