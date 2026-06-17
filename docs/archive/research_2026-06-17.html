@@ -180,6 +180,71 @@ body {
   padding: 2rem 1.5rem;
 }
 
+/* ── Feed Guide ── */
+.feed-guide {
+  margin-bottom: 2rem;
+  padding: 1rem 1.15rem;
+  border-radius: var(--radius-md);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-raised-sm);
+  color: var(--text-secondary);
+}
+.feed-guide summary {
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+.guide-body {
+  padding-top: 1rem;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.76rem;
+  line-height: 1.7;
+}
+.guide-title {
+  margin: 0.85rem 0 0.35rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.guide-title:first-child { margin-top: 0; }
+.importance-scale {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.45rem;
+}
+.importance-scale div {
+  min-width: 0;
+  padding: 0.55rem 0.6rem;
+  border-radius: 8px;
+  background: var(--badge-bg);
+  box-shadow: var(--shadow-raised-sm);
+}
+.importance-scale strong {
+  display: block;
+  color: var(--star-filled);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+.guide-source-row {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+  border-top: 1px solid rgba(132,148,167,0.24);
+}
+.guide-source-category {
+  color: var(--primary);
+  font-family: 'Space Mono', 'Noto Sans KR', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+.guide-source-list {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 /* ── Section ── */
 .section {
   margin-bottom: 2.5rem;
@@ -289,6 +354,7 @@ body {
   font-size: 0.75rem;
   letter-spacing: 1px;
   white-space: nowrap;
+  cursor: help;
 }
 .stars .filled { color: var(--star-filled); }
 .stars .empty { color: var(--star-empty); }
@@ -458,6 +524,9 @@ footer .credit a:hover { text-decoration: underline; }
   .hero .subtitle { font-size: 0.85rem; letter-spacing: -0.03em; }
   .hero .icon { font-size: 2rem; }
   .container { padding: 1.25rem 1rem; }
+  .feed-guide { padding: 0.9rem 1rem; }
+  .importance-scale { grid-template-columns: 1fr; }
+  .guide-source-row { grid-template-columns: 1fr; gap: 0.15rem; }
   .item { padding: 1rem 1.1rem; border-radius: var(--radius-sm); }
   .item-top { flex-direction: column; gap: 0.4rem; }
   .item-title { font-size: 0.85rem; min-width: 0; }
@@ -482,7 +551,7 @@ footer .credit a:hover { text-decoration: underline; }
     <div class="subtitle">2026-06-17 — AI/Robotics 분야 최신 연구 큐레이션</div>
     <div class="stats">
       <span>50건 큐레이션</span>
-      <span>12개 소스</span>
+      <span>22개 소스</span>
       <span>중요도 기반 정렬</span>
     </div>
   </div>
@@ -490,598 +559,657 @@ footer .credit a:hover { text-decoration: underline; }
 
 <div class="container">
 
+<details class="feed-guide">
+  <summary>중요도 기준과 수집 소스</summary>
+  <div class="guide-body">
+    <div class="guide-title">중요도</div>
+    <div class="importance-scale">
+      <div><strong>★★★★★</strong>패러다임 전환, 주요 SOTA 갱신, 대형 오픈소스 모델 공개</div>
+      <div><strong>★★★★</strong>의미 있는 기술 혁신, 주요 연구소 발표, 코드 공개 우수 논문</div>
+      <div><strong>★★★</strong>유용한 개선, 도구, 데이터셋, 벤치마크, 실용 응용</div>
+      <div><strong>★★</strong>니치하지만 해당 분야에서 참고할 만한 결과</div>
+      <div><strong>★</strong>관련성은 있지만 연구 임팩트가 제한적인 항목</div>
+    </div>
+    <div class="guide-title">수집 소스</div>
+      <div class="guide-source-row">
+        <div class="guide-source-category">🧠 AI / ML</div>
+        <div class="guide-source-list">arXiv AI, arXiv Machine Learning, arXiv Computation and Language, arXiv Computer Vision, r/MachineLearning</div>
+      </div>
+      <div class="guide-source-row">
+        <div class="guide-source-category">🤖 Robotics</div>
+        <div class="guide-source-list">arXiv Robotics, arXiv Systems and Control, r/robotics, The Robot Report</div>
+      </div>
+      <div class="guide-source-row">
+        <div class="guide-source-category">🦾 Physical AI</div>
+        <div class="guide-source-list">Physical Intelligence, Generalist AI, Figure AI, Skild AI, 1X, Agility Robotics, Apptronik, Sanctuary AI, Unitree, NEURA Robotics, Genesis AI</div>
+      </div>
+      <div class="guide-source-row">
+        <div class="guide-source-category">🏭 Robotics Labs</div>
+        <div class="guide-source-list">Google DeepMind Robotics, NVIDIA Robotics, Hugging Face LeRobot, Toyota Research Institute, Boston Dynamics</div>
+      </div>
+      <div class="guide-source-row">
+        <div class="guide-source-category">🎯 RL / Control</div>
+        <div class="guide-source-list">r/reinforcementlearning</div>
+      </div>
+      <div class="guide-source-row">
+        <div class="guide-source-category">📄 Papers &amp; Code</div>
+        <div class="guide-source-list">Papers with Code, Hugging Face Papers, The Gradient</div>
+      </div>
+      <div class="guide-source-row">
+        <div class="guide-source-category">🔧 Models &amp; Tools</div>
+        <div class="guide-source-list">Hugging Face Models, GitHub</div>
+      </div>
+      <div class="guide-source-row">
+        <div class="guide-source-category">🏢 Industry Labs</div>
+        <div class="guide-source-list">OpenAI Blog, Import AI, IEEE Spectrum</div>
+      </div>
+      <div class="guide-source-row">
+        <div class="guide-source-category">🛡 Safety &amp; Alignment</div>
+        <div class="guide-source-list">Alignment Forum</div>
+      </div>
+      <div class="guide-source-row">
+        <div class="guide-source-category">🔥 Community</div>
+        <div class="guide-source-list">Hacker News, r/computervision</div>
+      </div>
+  </div>
+</details>
+
 <div class="section">
   <div class="section-header">
     <h2>🧠 AI / ML</h2>
-    <span class="section-count">23건</span>
+    <span class="section-count">17건</span>
   </div>
   <div class="item highlight">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.15007" target="_blank" rel="noopener">Nemotron 3 Ultra: Open, Efficient Mixture-of-Experts Hybrid Mamba-Transformer Model for Agentic Reasoning</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.15007" target="_blank" rel="noopener">Nemotron 3 Ultra: Open, Efficient MoE Hybrid Mamba-Transformer Model for Agentic Reasoning</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cl</span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">20조(20T) 토큰으로 사전학습된 총 550B·활성 55B 파라미터 MoE 하이브리드 Mamba-Attention 오픈 모델로, 100만(1M) 컨텍스트와 에이전트 추론을 지원.</div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.17945" target="_blank" rel="noopener">Small Initialization Matters for Large Language Models</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ai</span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">초기화(initialization) 스케일을 줄이면 LLM 사전학습 성능이 일관되게 향상되며, 특히 추론(reasoning) 중심 과제에서 가장 큰 이득을 본다는 분석.</div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.17930" target="_blank" rel="noopener">How Inference Compute Shapes Frontier LLM Evaluation</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ai</span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">과제가 더 긴 추론 경로를 요구할수록 프런티어 모델의 벤치마크 평가가 추론 연산량(inference compute)에 크게 좌우됨을 분석.</div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.17847" target="_blank" rel="noopener">WallZero: Mastering the Game of WallGo with Strategic Analysis</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ai</span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">AlphaZero 기반 에이전트가 복잡한 전략 보드게임 WallGo에서 프로 기사를 이긴 사례 및 전략 분석.</div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.17574" target="_blank" rel="noopener">DeepInsight: A Unified Evaluation Infrastructure Across the Physical AI Stack</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ai</span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">파운데이션 모델부터 하위 연산자까지 이질성을 보존하며 Physical AI 스택 전체를 평가하는 통합 평가 인프라.</div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.17120" target="_blank" rel="noopener">Noise-Driven Escape from Metastable Phases explains Grokking in Deep Neural Networks</a></div>
       <div class="item-meta">
         <span class="badge">arxiv_lg</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★★★</span></span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">총 550B / 활성 55B 파라미터 규모의 전문가 혼합(Mixture-of-Experts) 하이브리드 Mamba-Attention 언어 모델을 20T 토큰·1M 컨텍스트로 사전학습하여 강력한 에이전트 추론 성능을 달성한 오픈 모델.</div>
+    <div class="item-summary">그로킹(grokking)을 SGD 노이즈가 준안정(metastable) 상태 간 에너지 장벽을 넘게 하는 현상으로 설명하고 Arrhenius 스케일링을 제시.</div>
   </div>
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.15079" target="_blank" rel="noopener">Ling and Ring 2.6 Technical Report: Efficient and Instant Agentic Intelligence at Trillion-Parameter Scale</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.17229" target="_blank" rel="noopener">Rift: A Conflict Signature for Deception in Language Models</a></div>
       <div class="item-meta">
-        <span class="badge">arxiv_cl</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★★★</span></span>
+        <span class="badge">arxiv_lg</span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">1조(Trillion) 파라미터 규모의 에이전트 지능 모델 패밀리 공개 — 즉시 응답에 최적화된 Ling-2.6과 심층 추론에 특화된 Ring-2.6의 기술 보고서.</div>
+    <div class="item-summary">기만적(deceptive) LLM 활성값이 단순 거짓보다 잔차 랭크(residual rank)가 2.1~2.3배 높음을 발견해 라벨 없이 거의 100% 기만 탐지를 달성.</div>
   </div>
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.15497" target="_blank" rel="noopener">Towards End-to-End Automation of AI Research</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.17399" target="_blank" rel="noopener">The Discrete-Log Clock: How a Transformer Learns Modular Multiplication</a></div>
       <div class="item-meta">
-        <span class="badge">arxiv_ai</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★★★</span></span>
+        <span class="badge">arxiv_lg</span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">연구 아이디어 도출부터 동료 평가(Peer Review)까지 전 과정을 자동화한 AI Scientist 시스템이 주요 ML 워크숍에서 1차 심사를 통과하는 논문을 생성함을 입증.</div>
+    <div class="item-summary">트랜스포머가 곱셈을 로그 공간 덧셈으로 바꾸는 이산로그 시계(discrete-log clock) 알고리즘으로 모듈러 곱셈을 학습하는 과정을 기계론적(mechanistic)으로 규명.</div>
   </div>
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.14997" target="_blank" rel="noopener">AI Engram: In Search of Memory Traces in Artificial Intelligence</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.17107" target="_blank" rel="noopener">Models Take Notes at Prefill: KV Cache Can Be Editable and Composable</a></div>
       <div class="item-meta">
-        <span class="badge">arxiv_ai</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+        <span class="badge">arxiv_lg</span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">신경망 내부의 분리 가능한 기억 흔적(Engram)을 식별하는 기하학적 프레임워크를 제안, 최적화 없이 선형 연산만으로 학습된 지식을 정밀 조작 가능.</div>
+    <div class="item-summary">KV 캐시를 재사용 가능한 결론으로 보고, 재계산 없이 위치 이동·편집·합성이 가능한 사전 컴파일된 스킬(precompiled skill)로 만드는 방법.</div>
   </div>
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.15385" target="_blank" rel="noopener">Reward Hacking in Language Model Agents: Revisiting AI Safety Gridworlds</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.17551" target="_blank" rel="noopener">Reversal Q-Learning</a></div>
       <div class="item-meta">
-        <span class="badge">arxiv_ai</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+        <span class="badge">arxiv_lg</span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">고전적 AI Safety Gridworlds를 텍스트 기반 평가 벤치마크로 재구성, 프론티어·중규모 모델에서 제로샷(Zero-Shot)으로 보상 해킹(Reward Hacking)이 발현됨을 입증.</div>
+    <div class="item-summary">가상 궤적 역전(virtual trajectory reversal)을 활용한 오프폴리시 플로우 기반 강화학습으로, 50개 시뮬레이션 로봇 매니퓰레이션 과제에서 최고 평균 오프라인 RL 성능 달성.</div>
   </div>
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.14961" target="_blank" rel="noopener">CoRA: Confidence-Rationale Alignment for Reliable Chain-of-Thought Reasoning</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_cl</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">GRPO 기반 강화학습(Reinforcement Learning)으로 정답률·확신 확률·루브릭 기반 근거 지지를 동시에 보상해 신뢰 가능한 사고연쇄(Chain-of-Thought) 추론을 달성.</div>
-  </div>
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://arxiv.org/abs/2606.15080" target="_blank" rel="noopener">AdaMame: A Training Recipe for Adaptive Multilingual Reasoning</a></div>
       <div class="item-meta">
         <span class="badge">arxiv_cl</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">다국어 LLM의 강화학습(RL) 훈련 중 발생하는 언어 붕괴(Language Collapse) 문제를 적응적 언어 충실도 보상과 코드 스위칭(Code-Switching) 방지로 해결하는 훈련 레시피.</div>
+    <div class="item-summary">대형 추론 모델(Large Reasoning Model)이 정확도 손해 없이 질의 언어로 추론하도록 만드는 적응형 다국어 추론(multilingual reasoning) 학습 레시피.</div>
   </div>
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.14875" target="_blank" rel="noopener">Context Compression Is Not One Thing: Readable Symbolic Re-expression vs. Coherent Summary</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.15070" target="_blank" rel="noopener">Stop When Further Reasoning Won&#x27;t Help: Attention-State Adaptive Generation in Reasoning Models</a></div>
       <div class="item-meta">
         <span class="badge">arxiv_cl</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">텔레그라프 영어(Telegraph English) 형식으로 본문을 엔티티-관계 구조로 재작성, 동일 토큰 예산 내 압축 베이스라인 대비 멀티홉 QA에서 13–20 F1 개선.</div>
-  </div>
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.14945" target="_blank" rel="noopener">Remember, Don&#x27;t Re-read: Stateful ReAct Agents for Token-Efficient Autonomous Experimentation</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_lg</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">자율 실험을 영속 상태를 유지하는 스테이트풀(Stateful) ReAct 에이전트로 재구성, 무상태 방식 대비 토큰 소비를 52–90% 감소.</div>
-  </div>
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.15048" target="_blank" rel="noopener">Temporal Difference Learning for Diffusion Models</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_lg</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">확산 모델(Diffusion Model)의 디노이징 경로 일관성을 시간차 학습(Temporal Difference Learning) 목적함수로 제약해 샘플 품질을 개선.</div>
-  </div>
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.14971" target="_blank" rel="noopener">FastMix: Fast Data Mixture Optimization via Gradient Descent</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_lg</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">사전·사후 학습 데이터 믹스 선택을 이중 레벨 최적화(Bilevel Optimization)로 정식화, 단일 프록시 모델로 경사 기반 비율 탐색 가능.</div>
-  </div>
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.15260" target="_blank" rel="noopener">Trust-Region Diffusion Policies for Massively Parallel On-Policy RL</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_lg</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">확산 정책(Diffusion Policy) 전체 궤적에 KL 발산 제약을 부여하는 신뢰영역(Trust-Region) 최적화를 통합, 대규모 병렬 온폴리시(On-Policy) 강화학습 구현.</div>
-  </div>
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.14752" target="_blank" rel="noopener">X-Tokenizer: A Multimodal Action Tokenizer for Vision-Language-Action Pretraining</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_cv</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">Semantic Residual Quantization으로 이산 행동 언어를 만들어 다양한 로봇 임바디먼트(Embodiment)에서 공유 가능한 VLA(Vision-Language-Action) 액션 토크나이저.</div>
-  </div>
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.14792" target="_blank" rel="noopener">Efficient Reinforcement for Visual-Textual Thinking with Discrete Diffusion Model</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_cv</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">이산 확산(Discrete Diffusion) 모델에 인수분해된 보상 할당의 강화학습 사후 훈련을 결합, 시각-텍스트 교차 추론(Interleaved Reasoning)을 효율적으로 학습.</div>
+    <div class="item-summary">추가 추론이 도움이 안 될 때 생성을 멈추는 어텐션 상태 기반 적응적 정지(attention-state adaptive stopping)로 추론 모델의 과도한 사고(overthinking)를 줄임.</div>
   </div>
   <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.15034" target="_blank" rel="noopener">OSGuard: A Benchmark for Safety in Computer-Use Agents</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_ai</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">컴퓨터 사용 에이전트(Computer-Use Agent)의 안전성을 행동 단위 가드레일 결정과 위험 증강 실행으로 평가하는 이중 단위 벤치마크 제안.</div>
-  </div>
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.15367" target="_blank" rel="noopener">S1-DeepResearch: Beyond Search, Toward Real-World Long-Horizon Research Agents</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_ai</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">폐쇄형 QA와 개방형 탐색을 통합하는 학습 궤적 구성 방식으로 지식 종합이 가능한 장기 호라이즌 딥리서치 에이전트(Deep Research Agent) 학습 프레임워크.</div>
-  </div>
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.15405" target="_blank" rel="noopener">T-Mem: Memory That Anticipates, Not Archives</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.15216" target="_blank" rel="noopener">Spokes: Optimizing for Diverse Pretraining Data Selection</a></div>
       <div class="item-meta">
         <span class="badge">arxiv_cl</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">과거 내용을 모두 보관하지 않고 미래 검색 수요를 예측하는 장기 대화 메모리 시스템으로 다중 세션 일관성 향상.</div>
+    <div class="item-summary">다양성(diversity)을 최적화해 중복을 줄임으로써 고정 데이터 예산에서 성능을 높이는 사전학습 데이터 선택(data selection) 기법.</div>
   </div>
   <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.15333" target="_blank" rel="noopener">Replay What Matters: Off-Policy Replay for Efficient LLM Reinforcement Unlearning</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_cl</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">LLM 언러닝(Unlearning)에 오프폴리시(Off-Policy) 최적화를 적용, 고가치 망각·유지 샘플을 우선 리플레이해 기존 온폴리시 RULE 대비 효율 개선.</div>
-  </div>
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.15157" target="_blank" rel="noopener">PolyKV: Heterogeneous Retention and Allocation for KV Cache Compression</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_lg</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">레이어별로 적합한 압축 정책과 비균일 예산을 할당해 LLM의 KV 캐시(KV Cache) 압축 효율을 일관되게 향상.</div>
-  </div>
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.15301" target="_blank" rel="noopener">Discovering Lattice Reduction Strategies via Self-Play</a></div>
-      <div class="item-meta">
-        <span class="badge">arxiv_lg</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">심층 강화학습 자기 대국(Self-Play)으로 LLL 알고리즘을 능가하는 격자 축소(Lattice Reduction) 전략을 발견, 새로운 모듈러스·고차원으로 제로샷 일반화.</div>
-  </div>
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.14841" target="_blank" rel="noopener">Multi-HMR 2: Multi-Person Camera-Centric Human Detection, Mesh Recovery and Tracking</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.17463" target="_blank" rel="noopener">WeaveLA: Event Driven Cross-Subtask Latent Memory Weaving for Repetitive Robot Manipulation</a></div>
       <div class="item-meta">
         <span class="badge">arxiv_cv</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">DETR 기반으로 카메라와 사람 메시(Mesh)를 일관 예측해 미터 단위 3D 위치 추정과 SAM2 메모리 기반 트래킹을 단일 프레임워크에 통합.</div>
+    <div class="item-summary">고정된(frozen) VLA 백본에 이벤트 기반 서브태스크 간 메모리 인터페이스를 추가해 반복 매니퓰레이션 성공률을 0%에서 47.8%로 향상.</div>
   </div>
   <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.14727" target="_blank" rel="noopener">FairGen: Preference-Aligned Diffusion for Demographically Equitable Medical Image Synthesis</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.17539" target="_blank" rel="noopener">Reinforcing Dual-Path Reasoning in Spatial Vision Language Models</a></div>
       <div class="item-meta">
         <span class="badge">arxiv_cv</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">병리 특징은 보존하면서 인구통계학적으로 균형 잡힌 의료 영상을 생성하는 공정성 인식(Fairness-Aware) 확산 모델 — 피부과·영상의학·뇌영상 적용.</div>
+    <div class="item-summary">언어 단독 추론과 탐지 후 추론(detect-then-reason) 경로를 강화학습(RL)으로 결합해 공간 VLM의 다단계 공간 추론을 강화한 SR-REAL.</div>
   </div>
   <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.14747" target="_blank" rel="noopener">MMLongEmbed: Benchmarking Multimodal Embedding Models in Long-Context Scenarios</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.17590" target="_blank" rel="noopener">TivTok: Broadcasting Time-Invariant Tokens for Scalable Video Tokenization</a></div>
       <div class="item-meta">
         <span class="badge">arxiv_cv</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">장기 컨텍스트 시나리오에서 멀티모달 임베딩(Multimodal Embedding) 모델을 평가하는 최초의 종합 벤치마크 — 4개 검색 태스크·다중 모달리티 포함.</div>
+    <div class="item-summary">시간 불변(time-invariant)·시간 가변 토큰을 분리하는 재사용 인지(reuse-aware) 비디오 토크나이저로 압축 효율을 2.91배 개선.</div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.17362" target="_blank" rel="noopener">DriveJudge: Rethinking Autonomous Driving Evaluation with Vision-Language Models</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_cv</span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">규칙 기반 지표와 VLM 추론을 결합한 자율주행 평가 에이전트로, 사람 주석 33,577개 샘플을 구축.</div>
   </div>
 </div>
 
 <div class="section">
   <div class="section-header">
     <h2>🤖 Robotics</h2>
-    <span class="section-count">11건</span>
+    <span class="section-count">8건</span>
   </div>
   <div class="item highlight">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.13886" target="_blank" rel="noopener">PhysVLA: Towards Physically-Grounded VLA for Embodied Robotic Manipulation</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.17200" target="_blank" rel="noopener">ACE-Ego-0: Unifying Egocentric Human and Robotic Data for VLA Pretraining</a></div>
       <div class="item-meta">
         <span class="badge">arxiv_ro</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">기존 VLA 백본을 동결한 채 유한 상태 기계(Finite-State Machine)와 다이내믹스 오라클로 물리 인지 보정을 추가하는 추론 시점 플러그앤플레이 프레임워크.</div>
+    <div class="item-summary">사람의 1인칭(egocentric) 영상과 로봇 데이터를 함께 활용해 신뢰도 기반(reliability-aware) 학습으로 VLA(Vision-Language-Action) 사전학습을 확장한 통합 프레임워크.</div>
   </div>
   <div class="item highlight">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.13877" target="_blank" rel="noopener">ContactWorld: What Matters in Vision-Tactile World Models for Contact-Rich Manipulation</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.17385" target="_blank" rel="noopener">EgoInfinity: A Web-Scale 4D Hand-Object Interaction Data Engine for Robot Retargeting</a></div>
       <div class="item-meta">
         <span class="badge">arxiv_ro</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">12종 접촉 중심 태스크에서 시각-촉각 월드 모델(Vision-Tactile World Model)을 평가하는 벤치마크와 실증 연구로, 공간 구조·멀티모달 호환성의 중요성 규명.</div>
+    <div class="item-summary">인터넷 영상을 4D 손-물체(hand-object) 복원과 모션 리타게팅(retargeting)으로 변환해 웹 스케일 로봇 학습 데이터를 생성하는 데이터 엔진.</div>
   </div>
   <div class="item highlight">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.14561" target="_blank" rel="noopener">ORCA: A Platform for Open-Source Dexterity Research</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.17846" target="_blank" rel="noopener">Qwen-RobotManip Technical Report: Alignment Unlocks Scale for Robotic Manipulation Foundation Models</a></div>
       <div class="item-meta">
         <span class="badge">arxiv_ro</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">제어·시뮬레이션·원격조작(Teleoperation)·리타게팅을 통합한 오픈소스 정교 조작(Dexterous Manipulation) 연구 플랫폼 — 주요 로봇 학습 프레임워크와 호환.</div>
+    <div class="item-summary">표현(representation)·모션·행동 차원을 아우르는 통합 정렬(alignment)로 확장성을 확보한 범용 로봇 매니퓰레이션 VLA 파운데이션 모델.</div>
   </div>
   <div class="item highlight">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.14218" target="_blank" rel="noopener">Universal Manipulation Exoskeleton: Learning Compliant Whole-body Policies with Real-time Torque Feedback</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2509.26633" target="_blank" rel="noopener">OmniRetarget: Interaction-Preserving Data Generation for Humanoid Whole-Body Loco-Manipulation</a></div>
       <div class="item-meta">
         <span class="badge">arxiv_ro</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">실시간 햅틱 토크 피드백을 제공하는 상지(Upper-Limb) 외골격으로 양손·전신·능동 컴플라이언트(Compliant) 조작 정책 학습 데이터 수집.</div>
+    <div class="item-summary">사람 동작을 키네매틱(kinematic) 레퍼런스로 리타게팅해 상호작용을 보존하는 휴머노이드 전신 로코-매니퓰레이션(loco-manipulation) 학습 데이터를 생성.</div>
   </div>
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.14255" target="_blank" rel="noopener">ReactVLA: Fast and Lightweight Reactive Robot Manipulation via Improved Mean Flow Action Generation</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.17418" target="_blank" rel="noopener">DexLink Hand: A Compact, Affordable, 16-DOF Linkage-Driven Hand with Human-Like Dexterity</a></div>
       <div class="item-meta">
         <span class="badge">arxiv_ro</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">개선된 Mean Flow 액션 생성기와 어텐션 잔차(Attention Residual)를 결합, 40ms 미만 지연으로 실시간 반응형 조작이 가능한 경량 VLA.</div>
+    <div class="item-summary">320g 무게·$400 비용으로 사람 수준 손재주를 구현한 16자유도(DOF) 링크 구동(linkage-driven) 컴팩트 의인화 로봇 손.</div>
   </div>
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.14409" target="_blank" rel="noopener">Hy-Embodied-0.5-VLA: From Vision-Language-Action Models to a Real-World Robot Learning Stack</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.17833" target="_blank" rel="noopener">HumanoidArena: Benchmarking Egocentric Hierarchical Whole-body Learning</a></div>
       <div class="item-meta">
         <span class="badge">arxiv_ro</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">데이터 수집·모델 설계·사전학습·지도학습(SFT)·강화학습·배포까지 아우르는 VLA 백본 기반의 실제 환경 엔드투엔드 로봇 학습 스택.</div>
+    <div class="item-summary">다리 의존적(leg-critical) 상호작용 과제를 포함한 1인칭(egocentric) 계층적 전신(whole-body) 휴머노이드 학습용 시뮬레이션 벤치마크.</div>
   </div>
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.15311" target="_blank" rel="noopener">Hamilton-Jacobi Reachability-Based Safe Reinforcement Learning for Emergency Collision Avoidance</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.17906" target="_blank" rel="noopener">WAM-RL: World-Action Model Reinforcement Learning with Reconstruction Rewards and Online Video SFT</a></div>
+      <div class="item-meta">
+        <span class="badge">arxiv_ro</span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">복원 보상(reconstruction reward)과 온라인 비디오 SFT로 월드 모델(World Model)과 액션 모델을 온라인 상호작용으로 함께 최적화하는 강화학습(RL) 프레임워크.</div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.17562" target="_blank" rel="noopener">Anywhere, Any-Stymie: Remote Activation of Trojan Malware on LiDAR with Modulated Signals</a></div>
       <div class="item-meta">
         <span class="badge">arxiv_sy</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+        <span class="item-date">2026-06-17</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">해밀턴-야코비(Hamilton-Jacobi) 도달 가능성 분석을 활용한 안전 강화학습으로, 극한 주행 조건에서의 긴급 충돌 회피 정책 학습.</div>
+    <div class="item-summary">변조 신호(modulated signal)로 자율주행 LiDAR 센서의 트로이목마(Trojan) 악성코드를 원격 활성화하는 새로운 공격 표면을 규명한 보안 연구.</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>🦾 Physical AI</h2>
+    <span class="section-count">7건</span>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://www.pi.website/blog/pi07" target="_blank" rel="noopener">pi0.7: a Steerable Model with Emergent Capabilities</a></div>
+      <div class="item-meta">
+        <span class="badge">physical_intelligence</span>
+        <span class="item-date">2026-04-16</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">일반화 성능이 크게 도약하고 창발적(emergent) 능력을 보이는 Physical Intelligence의 조향 가능(steerable) 로봇 파운데이션 모델 pi0.7.</div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://www.pi.website/research/rlt" target="_blank" rel="noopener">Precise Manipulation with Efficient Online RL</a></div>
+      <div class="item-meta">
+        <span class="badge">physical_intelligence</span>
+        <span class="item-date">2026-03-19</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">VLA 모델에서 RL 토큰을 추출해 빠른 온라인 강화학습(online RL)을 가능케 하고, 적은 데이터로 정밀 작업의 처리량을 높인 Physical Intelligence 연구.</div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://generalistai.com/blog/gen-1" target="_blank" rel="noopener">GEN-1 / Scaling Embodied Foundation Models to Mastery</a></div>
+      <div class="item-meta">
+        <span class="badge">generalist_ai</span>
+        <span class="item-date">2026-04-02</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">처음부터(from scratch) 학습된 Generalist AI의 임바디드 파운데이션 모델 GEN-1으로, 단순 물리 작업의 숙달을 달성한 로봇 학습 이정표.</div>
   </div>
   <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.14160" target="_blank" rel="noopener">GAIT: Legged Robot Proprioceptive State Estimation with Attention over Inertial-Leg Tokens</a></div>
+      <div class="item-title"><a href="https://www.figure.ai/news/project-go-big" target="_blank" rel="noopener">Project Go-Big: Internet-Scale Humanoid Pretraining and Direct Human-to-Robot Transfer</a></div>
       <div class="item-meta">
-        <span class="badge">arxiv_ro</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+        <span class="badge">figure_ai</span>
+        <span class="item-date">2025-09-18</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">관성-다리 토큰(Inertial-Leg Token)에 대한 어텐션 기반의 다족 로봇 자기 수용 감각(Proprioception) 상태 추정으로, 접촉 조건에 따른 측정 중요도를 학습.</div>
+    <div class="item-summary">인터넷 스케일 휴머노이드 사전학습으로 사람→로봇(human-to-robot) 직접 기술 전이를 가능케 한 Figure의 Project Go-Big.</div>
   </div>
   <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2606.15594" target="_blank" rel="noopener">Pixels to Proofs: Probabilistically-Safe Latent World Model Control via Parallel Conformal Robust MPC</a></div>
+      <div class="item-title"><a href="https://www.skild.ai/blogs/omni-bodied" target="_blank" rel="noopener">The case for an omni-bodied robot brain</a></div>
       <div class="item-meta">
-        <span class="badge">arxiv_sy</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+        <span class="badge">skild_ai</span>
+        <span class="item-date">2025-09-24</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">학습된 잠재 월드 모델 위에서 강건(Robust) MPC와 컨포멀 예측(Conformal Prediction)을 결합해 보정된 오차 경계를 갖는 비전 기반 안전 모션 플래닝.</div>
+    <div class="item-summary">시뮬레이션에서 10만 개의 서로 다른 로봇을 제어하도록 학습해 통합 지능을 지향하는 Skild AI의 옴니바디드(omni-bodied) 로봇 브레인 구상.</div>
   </div>
   <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://www.therobotreport.com/genesis-ai-launches-eno-general-purpose-robot/" target="_blank" rel="noopener">Genesis AI launches Eno general-purpose robot</a></div>
+      <div class="item-title"><a href="https://sanctuary.ai/news/sanctuary-ai-demonstrates-zero-shot-in-hand-manipulation-on-hydraulic-hand/" target="_blank" rel="noopener">Sanctuary AI Demonstrates Zero-Shot In-Hand Manipulation on Hydraulic Hand</a></div>
       <div class="item-meta">
-        <span class="badge">robot_report</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+        <span class="badge">sanctuary_ai</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">Genesis AI가 범용 로봇 Eno를 공개, 2026년 말까지 특정 고객 대상 양산·배치를 목표로 한 휴머노이드형 제너럴리스트 로봇 출시.</div>
+    <div class="item-summary">과제별 추가 학습 없이 유압식(hydraulic) 로봇 손에서 제로샷(zero-shot) 손안(in-hand) 조작을 시연한 Sanctuary AI 연구.</div>
   </div>
   <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://www.therobotreport.com/xlab-and-built-robotics-partner-to-advance-construction/" target="_blank" rel="noopener">Built Robotics and Penn xLAB to develop physical AI for construction</a></div>
+      <div class="item-title"><a href="https://www.1x.tech/discover/world-model-self-learning" target="_blank" rel="noopener">1X World Model: From Video to Action, A New Way Robots Learn</a></div>
       <div class="item-meta">
-        <span class="badge">robot_report</span>
-        <span class="item-date">2026-06-16</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+        <span class="badge">one_x</span>
+        <span class="item-date">2026-01-12</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">Built Robotics와 Penn xLAB가 건설 현장 데이터를 수집하고 안전 향상을 위한 피지컬 AI(Physical AI) 모델을 공동 개발하는 산학 협력 발표.</div>
+    <div class="item-summary">비디오 학습으로 미지의 작업까지 일반화·자율 수행하는 1X 휴머노이드 NEO의 인지 핵심(cognitive core)인 월드 모델(World Model).</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>🏭 Robotics Labs</h2>
+    <span class="section-count">5건</span>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://deepmind.google/models/gemini-robotics/" target="_blank" rel="noopener">Gemini Robotics</a></div>
+      <div class="item-meta">
+        <span class="badge">deepmind_robotics</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">지각·추론·도구 사용·환경 상호작용을 수행하는 Google DeepMind의 로보틱스 파운데이션 모델 Gemini Robotics.</div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/" target="_blank" rel="noopener">SIMA 2: An Agent That Plays, Reasons and Learns with You in Virtual 3D Worlds</a></div>
+      <div class="item-meta">
+        <span class="badge">deepmind_robotics</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">가상 3D 세계에서 사용자와 함께 플레이·추론·학습하는 범용 에이전트 SIMA 2 (Google DeepMind).</div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://bostondynamics.com/blog/training-a-humanoid-robot-for-hard-work/" target="_blank" rel="noopener">Training a Humanoid Robot for Hard Work</a></div>
+      <div class="item-meta">
+        <span class="badge">boston_dynamics</span>
+        <span class="item-date">2026-05-20</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">Boston Dynamics의 Atlas가 강화학습(RL)으로 전신 협응과 고유수용(proprioceptive) 적응을 학습해 소형 냉장고를 들어올리는 산업 작업을 시연.</div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://developer.nvidia.com/blog/building-generalist-humanoid-capabilities-with-nvidia-isaac-gr00t-n1-6-using-a-sim-to-real-workflow/" target="_blank" rel="noopener">Building Generalist Humanoid Capabilities with NVIDIA Isaac GR00T N1.6 Using a Sim-to-Real Workflow</a></div>
+      <div class="item-meta">
+        <span class="badge">nvidia_robotics</span>
+        <span class="item-date">2026-01-08</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">휴머노이드 지각·계획·전신 제어를 위한 NVIDIA Isaac GR00T N1.6 기반 sim-to-real 워크플로우.</div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://www.tri.global/news/robot-only-needs-single-ai-model-master-humanlike-movements" target="_blank" rel="noopener">This Robot Only Needs a Single AI Model to Master Humanlike Movements</a></div>
+      <div class="item-meta">
+        <span class="badge">tri_robotics</span>
+        <span class="item-date">2025-09-03</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">단일 통합 AI 모델로 로봇이 다양한 인간형 동작과 운동 제어를 습득하게 한 Toyota Research(TRI) 연구.</div>
   </div>
 </div>
 
 <div class="section">
   <div class="section-header">
     <h2>📄 Papers &amp; Code</h2>
-    <span class="section-count">10건</span>
+    <span class="section-count">5건</span>
   </div>
   <div class="item highlight">
     <div class="item-top">
-      <div class="item-title"><a href="https://huggingface.co/papers/2606.02800" target="_blank" rel="noopener">Cosmos 3: Omnimodal World Models for Physical AI</a></div>
-      <div class="item-meta">
-        <span class="badge">papers_with_code</span>
-        <span class="item-date">2026-06-01</span>
-        <span class="score">▲ 120</span>
-        <span class="stars"><span class="filled">★★★★★</span></span>
-      </div>
-    </div>
-    <div class="item-summary">다양한 데이터 타입을 동시 처리·생성하는 Mixture-of-Transformers 기반 옴니모달 월드 모델(World Model)로, 피지컬 AI(Physical AI)를 위한 차세대 시뮬레이션 백본 제안.</div>
-  </div>
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://huggingface.co/papers/2606.14667" target="_blank" rel="noopener">Memento: Reconstruct to Remember for Consistent Long Video Generation</a></div>
+      <div class="item-title"><a href="https://huggingface.co/papers/2606.17046" target="_blank" rel="noopener">Geometric Action Model for Robot Policy Learning</a></div>
       <div class="item-meta">
         <span class="badge">hf_papers</span>
-        <span class="item-date">2026-06-12</span>
-        <span class="score">▲ 11</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+        <span class="item-date">2026-06-14</span>
+        <span class="score">▲ 99</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">이력 메모리 검증을 통해 샷·시점·장면 전환 전반에 걸쳐 반복 등장 주체의 일관성을 유지하는 장편 영상 생성 모델.</div>
-  </div>
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://huggingface.co/papers/2606.17043" target="_blank" rel="noopener">Hierarchical Advantage Weighting for Online RL Fine-Tuning of VLAs from Sparse Episode Outcomes</a></div>
-      <div class="item-meta">
-        <span class="badge">hf_papers</span>
-        <span class="item-date">2026-06-15</span>
-        <span class="score">▲ 6</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">희소한 이진 에피소드 보상으로부터 계층적 어드밴티지 가중(Hierarchical Advantage Weighting)을 통해 트랜지션 단위 감독을 제공하는 VLA 온라인 강화학습 미세조정.</div>
+    <div class="item-summary">사전학습된 기하 파운데이션 모델(geometric foundation model)을 활용해 3D 물리 추론 기반 언어 조건부 매니퓰레이션을 수행하는 로봇 정책 모델.</div>
   </div>
   <div class="item highlight">
     <div class="item-top">
       <div class="item-title"><a href="https://huggingface.co/papers/2606.16993" target="_blank" rel="noopener">DreamX-World 1.0: A General-Purpose Interactive World Model</a></div>
       <div class="item-meta">
         <span class="badge">hf_papers</span>
-        <span class="item-date">2026-06-15</span>
-        <span class="score">▲ 5</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+        <span class="item-date">2026-06-14</span>
+        <span class="score">▲ 91</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">카메라 제어와 장면 영속성(Scene Persistence)을 지원하는 텍스트/이미지-비디오 인터랙티브 월드 모델(World Model).</div>
-  </div>
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://huggingface.co/papers/2606.17046" target="_blank" rel="noopener">Geometric Action Model for Robot Policy Learning</a></div>
-      <div class="item-meta">
-        <span class="badge">papers_with_code</span>
-        <span class="item-date">2026-06-15</span>
-        <span class="score">▲ 86</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">3D 환경의 언어 조건부 조작 정책을 위한 기하학(Geometric) 기반 파운데이션 모델로, 로봇 정책 학습의 새로운 백본 제안.</div>
-  </div>
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://huggingface.co/papers/2512.24601" target="_blank" rel="noopener">Recursive Language Models</a></div>
-      <div class="item-meta">
-        <span class="badge">papers_with_code</span>
-        <span class="item-date">2025-12-31</span>
-        <span class="score">▲ 96</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">컨텍스트 윈도우(Context Window)를 2배 자릿수(100배 이상) 초과하는 입력을 처리하도록 하는 재귀 LLM 추론 전략.</div>
-  </div>
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://huggingface.co/papers/2606.11926" target="_blank" rel="noopener">Toward Generalist Autonomous Research via Hypothesis-Tree Refinement</a></div>
-      <div class="item-meta">
-        <span class="badge">papers_with_code</span>
-        <span class="item-date">2026-06-10</span>
-        <span class="score">▲ 110</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">가설 트리 정제(Hypothesis-Tree Refinement)와 지식 트리로 가설 검증을 수행하는 일반화 자율 과학 연구 프레임워크 Arbor 제안.</div>
+    <div class="item-summary">카메라 내비게이션과 기존 영역 재방문을 지원하며 장기 시점 일관성을 유지하는 범용 인터랙티브 텍스트/이미지-비디오 월드 모델(World Model).</div>
   </div>
   <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://huggingface.co/papers/2606.12138" target="_blank" rel="noopener">Unstable Features, Reproducible Subspaces: Understanding Seed Dependence in Sparse Autoencoders</a></div>
+      <div class="item-title"><a href="https://huggingface.co/papers/2606.18023" target="_blank" rel="noopener">LoopCoder-v2: Only Loop Once for Efficient Test-Time Computation Scaling</a></div>
       <div class="item-meta">
         <span class="badge">hf_papers</span>
-        <span class="item-date">2026-06-10</span>
-        <span class="score">▲ 6</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+        <span class="item-date">2026-06-15</span>
+        <span class="score">▲ 76</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">희소 오토인코더(Sparse Autoencoder)에서 개별 특징은 시드(Seed)별로 달라지지만 기저 표현 부분공간은 재현 가능함을 입증한 안정성 연구.</div>
+    <div class="item-summary">단 한 번만 루프를 도는 루프드 트랜스포머(Looped Transformer)로 지연시간과 KV 캐시 메모리를 줄이며 테스트 타임 연산을 확장.</div>
   </div>
   <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://huggingface.co/papers/2606.14958" target="_blank" rel="noopener">MVEB: Massive Video Embedding Benchmark</a></div>
+      <div class="item-title"><a href="https://huggingface.co/papers/2606.17043" target="_blank" rel="noopener">Hierarchical Advantage Weighting for Online RL Fine-Tuning of VLAs from Sparse Episode Outcomes</a></div>
       <div class="item-meta">
         <span class="badge">hf_papers</span>
-        <span class="item-date">2026-06-12</span>
-        <span class="score">▲ 6</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+        <span class="item-date">2026-06-14</span>
+        <span class="score">▲ 7</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">분류·클러스터링·검색·QA 23개 태스크에 걸쳐 33개 모델을 평가하는 대규모 비디오 임베딩(Video Embedding) 벤치마크.</div>
+    <div class="item-summary">에피소드당 하나의 이진 결과만 주어지는 희소 보상에서 계층적 어드밴티지 가중(hierarchical advantage weighting)으로 전이별 지도를 만들어 VLA를 온라인 강화학습(RL)으로 미세조정.</div>
   </div>
   <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://huggingface.co/papers/2509.22186" target="_blank" rel="noopener">MinerU2.5: A Decoupled Vision-Language Model for Efficient High-Resolution Document Parsing</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2606.16140" target="_blank" rel="noopener">VibeThinker-3B: Exploring the Frontier of Verifiable Reasoning in Small Language Models</a></div>
       <div class="item-meta">
         <span class="badge">papers_with_code</span>
-        <span class="item-date">2025-09-26</span>
-        <span class="score">▲ 166</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">1.2B 파라미터의 문서 파싱 비전-언어 모델(VLM)로, 거친 단계에서 세밀한 단계로 진행하는 분리형(Decoupled) 전략으로 고해상도 처리 효율 달성.</div>
+    <div class="item-summary">특화 학습으로 검증 가능한 추론(verifiable reasoning) 과제에서 SOTA에 도달한 소형 3B 모델 VibeThinker-3B.</div>
   </div>
 </div>
 
 <div class="section">
   <div class="section-header">
     <h2>🔧 Models &amp; Tools</h2>
-    <span class="section-count">5건</span>
+    <span class="section-count">6건</span>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/zai-org/GLM-5.2" target="_blank" rel="noopener">zai-org/GLM-5.2</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_models</span>
+        <span class="score">▲ 791</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">오픈 웨이트(open-weight)로 공개된 GLM-5.2 — 선도적 오픈 웨이트 텍스트 생성 모델로 보고됨.</div>
   </div>
   <div class="item highlight">
     <div class="item-top">
       <div class="item-title"><a href="https://huggingface.co/google/diffusiongemma-26B-A4B-it" target="_blank" rel="noopener">google/diffusiongemma-26B-A4B-it</a></div>
       <div class="item-meta">
         <span class="badge">hf_models</span>
-        <span class="score">▲ 886</span>
-        <span class="stars"><span class="filled">★★★★★</span></span>
+        <span class="score">▲ 901</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary">구글의 Gemma 계열 멀티모달 확산 모델(Diffusion + Gemma) 26B(Active 4B) 인스트럭션 튜닝 버전 — 이미지·텍스트-텍스트 처리 오픈 웨이트 모델.</div>
+    <div class="item-summary">구글이 공개한 오픈 웨이트 확산 기반(diffusion-based) 멀티모달 Gemma 모델 diffusiongemma-26B-A4B (image-text-to-text).</div>
   </div>
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://huggingface.co/MiniMaxAI/MiniMax-M3" target="_blank" rel="noopener">MiniMaxAI/MiniMax-M3</a></div>
       <div class="item-meta">
         <span class="badge">hf_models</span>
-        <span class="score">▲ 858</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+        <span class="score">▲ 891</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">MiniMax의 멀티모달(이미지·텍스트-텍스트) 차세대 모델 M3 공개 — 오픈 웨이트로 제공되는 차세대 멀티모달 LLM.</div>
+    <div class="item-summary">오픈 웨이트로 공개된 멀티모달 image-text-to-text 모델 MiniMax-M3.</div>
   </div>
-  <div class="item highlight">
+  <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://huggingface.co/nvidia/LocateAnything-3B" target="_blank" rel="noopener">nvidia/LocateAnything-3B</a></div>
       <div class="item-meta">
         <span class="badge">hf_models</span>
-        <span class="score">▲ 328</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+        <span class="score">▲ 309</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">NVIDIA가 공개한 3B 파라미터의 비전-언어 그라운딩(Grounding) 모델로, 이미지 내 임의 객체에 대한 텍스트 기반 위치 지정 수행.</div>
-  </div>
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://huggingface.co/google/gemma-4-12B-it" target="_blank" rel="noopener">google/gemma-4-12B-it</a></div>
-      <div class="item-meta">
-        <span class="badge">hf_models</span>
-        <span class="score">▲ 198</span>
-        <span class="stars"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">구글 Gemma 4 패밀리의 12B 인스트럭션 튜닝 모델 — 임의 모달리티 간 변환(any-to-any)을 지원하는 차세대 오픈 웨이트 모델.</div>
+    <div class="item-summary">NVIDIA가 공개한 오픈 보캐뷸러리 시각 위치추정·그라운딩(grounding)용 오픈 웨이트 3B image-text-to-text 모델 LocateAnything-3B.</div>
   </div>
   <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://github.com/OpenBMB/VoxCPM" target="_blank" rel="noopener">OpenBMB/VoxCPM</a></div>
+      <div class="item-title"><a href="https://huggingface.co/nvidia/nemotron-3.5-asr-streaming-0.6b" target="_blank" rel="noopener">nvidia/nemotron-3.5-asr-streaming-0.6b</a></div>
       <div class="item-meta">
-        <span class="badge">github</span>
-        <span class="score">▲ 30116</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+        <span class="badge">hf_models</span>
+        <span class="score">▲ 161</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">다국어 음성 생성과 보이스 클로닝(Voice Cloning)을 지원하는 고급 TTS 시스템 — OpenBMB가 공개한 오픈소스 음성 합성 프로젝트.</div>
+    <div class="item-summary">NVIDIA가 공개한 오픈 웨이트 0.6B 스트리밍 자동음성인식(ASR, automatic speech recognition) 모델.</div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://github.com/google-research/timesfm" target="_blank" rel="noopener">google-research/timesfm</a></div>
+      <div class="item-meta">
+        <span class="badge">github</span>
+        <span class="score">▲ 84</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">구글 리서치가 공개한 시계열 예측용 오픈소스 사전학습 파운데이션 모델 TimesFM.</div>
   </div>
 </div>
 
 <div class="section">
   <div class="section-header">
     <h2>🏢 Industry Labs</h2>
-    <span class="section-count">1건</span>
+    <span class="section-count">2건</span>
   </div>
   <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://spectrum.ieee.org/robot-emotions-visual-language-models" target="_blank" rel="noopener">Visual Language Models Train Robots to Read Human Emotions</a></div>
+      <div class="item-title"><a href="https://spectrum.ieee.org/llm-training-energy-saving-trick" target="_blank" rel="noopener">Timing Trick Cuts Energy Used in LLM Training by Up to 14 Percent</a></div>
       <div class="item-meta">
         <span class="badge">ieee_spectrum</span>
-        <span class="item-date">2026-06-13</span>
-        <span class="stars"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+        <span class="item-date">2026-06-10</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary">비전-언어 모델(Vision Language Model)을 활용해 인간 감정을 읽도록 학습된 협동 로봇 사례로, 인간-로봇 상호작용 품질 개선 시연.</div>
+    <div class="item-summary">새로운 타이밍·스케줄링 기법으로 LLM 학습 에너지를 최대 14%까지 절감.</div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://openai.com/index/model-disproves-discrete-geometry-conjecture" target="_blank" rel="noopener">An OpenAI model has disproved a central conjecture in discrete geometry</a></div>
+      <div class="item-meta">
+        <span class="badge">openai_blog</span>
+        <span class="item-date">2026-05-20</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">OpenAI 모델이 80년 된 단위거리(unit distance) 문제를 풀어 이산기하학(discrete geometry)의 주요 추측을 반증한 AI-수학 성과.</div>
   </div>
 </div>
 
@@ -1089,7 +1217,7 @@ footer .credit a:hover { text-decoration: underline; }
 
 <footer>
   <div class="footer-inner">
-    <div>2026-06-17 UTC 생성 · 12개 소스 · 50건 큐레이션</div>
+    <div>2026-06-17 UTC 생성 · 22개 소스 · 50건 큐레이션</div>
     <div class="divider"></div>
     <div class="credit">
       Made by <a href="https://github.com/SeongjuLee" target="_blank" rel="noopener">Seongju Lee</a> · Powered by ai-news-mcp
