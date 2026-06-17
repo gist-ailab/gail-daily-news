@@ -13,6 +13,10 @@ docs/archive/
 - `research_latest.html` shows the latest daily research digest.
 - `docs/archive/` keeps previous daily digests.
 
+## Update Schedule
+
+The digest is intended to refresh daily around `09:00 KST` (`00:00 UTC`).
+
 ## Importance
 
 Each item is rated by research impact:
