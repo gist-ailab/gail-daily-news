@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI & Robotics Research Daily — 2026-06-18</title>
+<title>AI & Robotics Research Daily Digest — 2026-06-18</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Noto+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -85,12 +85,19 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Space Mono', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, monospace;
   background: var(--surface);
   color: var(--text);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 /* ── Hero Header ── */
@@ -100,6 +107,8 @@ body {
   padding: 3.5rem 1.5rem 3rem;
   text-align: center;
   position: relative;
+  width: 100%;
+  max-width: 100vw;
   overflow: hidden;
 }
 .lab-link {
@@ -142,6 +151,7 @@ body {
   max-width: 900px;
   margin: 0 auto;
   position: relative;
+  min-width: 0;
 }
 .hero .icon {
   font-size: 2.5rem;
@@ -153,11 +163,22 @@ body {
   font-weight: 700;
   letter-spacing: 0;
   margin-bottom: 0.5rem;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.hero h1 .title-line {
+  display: inline;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.hero h1 .title-line + .title-line::before {
+  content: ' ';
 }
 .hero .subtitle {
   font-size: 0.85rem;
   opacity: 0.8;
   font-weight: 400;
+  overflow-wrap: anywhere;
 }
 .hero .stats {
   display: inline-flex;
@@ -166,18 +187,23 @@ body {
   font-size: 0.75rem;
   opacity: 0.7;
   font-weight: 400;
+  max-width: 100%;
+  min-width: 0;
 }
 .hero .stats span {
   display: flex;
   align-items: center;
   gap: 0.35rem;
+  min-width: 0;
 }
 
 /* ── Container ── */
 .container {
+  width: 100%;
   max-width: 900px;
   margin: 0 auto;
   padding: 2rem 1.5rem;
+  min-width: 0;
 }
 
 /* ── Feed Guide ── */
@@ -277,6 +303,8 @@ body {
 
 /* ── Item Card (Neumorphic) ── */
 .item {
+  width: 100%;
+  min-width: 0;
   padding: 1.25rem 1.5rem;
   margin-bottom: 10px;
   background: var(--surface-card);
@@ -299,6 +327,7 @@ body {
   align-items: flex-start;
   gap: 0.75rem;
   flex-wrap: wrap;
+  min-width: 0;
 }
 .item-title {
   font-family: 'Noto Sans KR', sans-serif;
@@ -307,11 +336,13 @@ body {
   flex: 1;
   min-width: 200px;
   line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 .item-title a {
   color: var(--accent);
   text-decoration: none;
   transition: color 0.15s;
+  overflow-wrap: anywhere;
 }
 .item-title a:hover {
   color: var(--accent-hover);
@@ -368,6 +399,7 @@ body {
   font-size: 0.82rem;
   color: var(--text-secondary);
   line-height: 1.7;
+  overflow-wrap: anywhere;
 }
 
 /* ── Theme Toggle (Neumorphic) ── */
@@ -517,10 +549,15 @@ footer .credit a:hover { text-decoration: underline; }
   .lab-link {
     top: 0.6rem;
     right: 0.7rem;
+    max-width: calc(100% - 1.4rem);
     font-size: 0.62rem;
     padding: 0.3rem 0.6rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .hero h1 { font-size: 1.35rem; letter-spacing: 0; line-height: 1.35; }
+  .hero h1 .title-line { display: block; }
+  .hero h1 .title-line + .title-line::before { content: none; }
   .hero .subtitle { font-size: 0.78rem; letter-spacing: 0; line-height: 1.55; }
   .hero .icon { font-size: 2rem; }
   .hero .stats {
@@ -567,7 +604,7 @@ footer .credit a:hover { text-decoration: underline; }
   <a class="lab-link" href="https://sites.google.com/view/gistailab" target="_blank" rel="noopener">GIST AI Lab<span class="arrow">&#8599;</span></a>
   <div class="hero-inner">
     <div class="icon">&#9749;</div>
-    <h1>AI & Robotics Research Daily</h1>
+    <h1><span class="title-line">AI & Robotics Research</span><span class="title-line">Daily Digest</span></h1>
     <div class="subtitle">2026-06-18 — AI/Robotics 분야 최신 연구 큐레이션</div>
     <div class="stats">
       <span>50건 큐레이션</span>
@@ -599,39 +636,23 @@ footer .credit a:hover { text-decoration: underline; }
     <div class="guide-title">수집 소스</div>
       <div class="guide-source-row">
         <div class="guide-source-category">🧠 AI / ML</div>
-        <div class="guide-source-list">arXiv AI, arXiv Machine Learning, arXiv Computation and Language, arXiv Computer Vision, r/MachineLearning</div>
+        <div class="guide-source-list">arXiv AI, arXiv Machine Learning, arXiv Computation and Language, arXiv Computer Vision, r/MachineLearning, Hugging Face Papers</div>
       </div>
       <div class="guide-source-row">
-        <div class="guide-source-category">🤖 Robotics</div>
-        <div class="guide-source-list">arXiv Robotics, arXiv Systems and Control, r/robotics, The Robot Report</div>
-      </div>
-      <div class="guide-source-row">
-        <div class="guide-source-category">🦾 Physical AI</div>
-        <div class="guide-source-list">Physical Intelligence, Generalist AI, Figure AI, Skild AI, 1X, Agility Robotics, Apptronik, Sanctuary AI, Unitree, NEURA Robotics, Genesis AI</div>
-      </div>
-      <div class="guide-source-row">
-        <div class="guide-source-category">🏭 Robotics Labs</div>
-        <div class="guide-source-list">Google DeepMind Robotics, NVIDIA Robotics, Hugging Face LeRobot, Toyota Research Institute, Boston Dynamics</div>
+        <div class="guide-source-category">🤖 Physical AI &amp; Robotics</div>
+        <div class="guide-source-list">arXiv Robotics, arXiv Systems and Control, r/robotics, The Robot Report, Physical Intelligence, Generalist AI, Figure AI, Skild AI, 1X, Agility Robotics, Apptronik, Sanctuary AI, Unitree, NEURA Robotics, Genesis AI, Google DeepMind Robotics, NVIDIA Robotics, Hugging Face LeRobot, Toyota Research Institute, Boston Dynamics</div>
       </div>
       <div class="guide-source-row">
         <div class="guide-source-category">🎯 RL / Control</div>
         <div class="guide-source-list">r/reinforcementlearning</div>
       </div>
       <div class="guide-source-row">
-        <div class="guide-source-category">📄 Papers &amp; Code</div>
-        <div class="guide-source-list">Papers with Code, Hugging Face Papers, The Gradient</div>
-      </div>
-      <div class="guide-source-row">
         <div class="guide-source-category">🔧 Models &amp; Tools</div>
-        <div class="guide-source-list">Hugging Face Models, GitHub</div>
+        <div class="guide-source-list">Papers with Code, Hugging Face Models, GitHub</div>
       </div>
       <div class="guide-source-row">
-        <div class="guide-source-category">🏢 Industry Labs</div>
-        <div class="guide-source-list">OpenAI Blog, Import AI, IEEE Spectrum</div>
-      </div>
-      <div class="guide-source-row">
-        <div class="guide-source-category">🛡 Safety &amp; Alignment</div>
-        <div class="guide-source-list">Alignment Forum</div>
+        <div class="guide-source-category">🏢 Industry &amp; Analysis</div>
+        <div class="guide-source-list">OpenAI Blog, Import AI, IEEE Spectrum, The Gradient, Alignment Forum</div>
       </div>
       <div class="guide-source-row">
         <div class="guide-source-category">🔥 Community</div>
@@ -643,7 +664,7 @@ footer .credit a:hover { text-decoration: underline; }
 <div class="section">
   <div class="section-header">
     <h2>🧠 AI / ML</h2>
-    <span class="section-count">23건</span>
+    <span class="section-count">28건</span>
   </div>
   <div class="item highlight">
     <div class="item-top">
@@ -743,6 +764,30 @@ footer .credit a:hover { text-decoration: underline; }
       </div>
     </div>
     <div class="item-summary">LLM이 다중 에이전트를 조율하는 월드 모델(World Model)로 자율주행 비디오를 생성하는 OmniDrive.</div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/papers/2606.16993" target="_blank" rel="noopener">DreamX-World 1.0: A General-Purpose Interactive World Model</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_papers</span>
+        <span class="item-date">2026-06-14</span>
+        <span class="score">▲ 95</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">시뮬레이션과 임바디드 학습을 위한 범용 인터랙티브 월드 모델(Interactive World Model) DreamX-World 1.0.</div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/papers/2606.18216" target="_blank" rel="noopener">Zone of Proximal Policy Optimization: Teacher in Prompts, Not Gradients</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_papers</span>
+        <span class="item-date">2026-06-15</span>
+        <span class="score">▲ 40</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">그래디언트가 아닌 프롬프트로 교사가 지도하는 강화학습 기법 Zone of Proximal Policy Optimization.</div>
   </div>
   <div class="item">
     <div class="item-top">
@@ -898,12 +943,48 @@ footer .credit a:hover { text-decoration: underline; }
     </div>
     <div class="item-summary">비전-언어 모델(VLM)을 심판으로 활용해 자율주행 평가 방식을 재정립하는 DriveJudge.</div>
   </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/papers/2606.18023" target="_blank" rel="noopener">LoopCoder-v2: Only Loop Once for Efficient Test-Time Computation Scaling</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_papers</span>
+        <span class="item-date">2026-06-15</span>
+        <span class="score">▲ 113</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">단일 루프만으로 코드 생성의 테스트타임 연산 스케일링(Test-Time Computation Scaling)을 효율화하는 LoopCoder-v2.</div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/papers/2606.17861" target="_blank" rel="noopener">GameCraft-Bench: Can Agents Build Playable Games End-to-End in a Real Game Engine?</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_papers</span>
+        <span class="item-date">2026-06-15</span>
+        <span class="score">▲ 36</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">에이전트가 실제 게임 엔진에서 플레이 가능한 게임을 엔드투엔드로 제작할 수 있는지 평가하는 벤치마크.</div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/papers/2606.17628" target="_blank" rel="noopener">OPD-Evolver: Cultivating Holistic Agent Evolver via On-Policy Distillation</a></div>
+      <div class="item-meta">
+        <span class="badge">hf_papers</span>
+        <span class="item-date">2026-06-15</span>
+        <span class="score">▲ 21</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">온폴리시 증류(On-Policy Distillation)로 스스로 진화하는 에이전트를 구축하는 OPD-Evolver.</div>
+  </div>
 </div>
 
 <div class="section">
   <div class="section-header">
-    <h2>🤖 Robotics</h2>
-    <span class="section-count">10건</span>
+    <h2>🤖 Physical AI &amp; Robotics</h2>
+    <span class="section-count">12건</span>
   </div>
   <div class="item highlight">
     <div class="item-top">
@@ -982,6 +1063,17 @@ footer .credit a:hover { text-decoration: underline; }
     </div>
     <div class="item-summary">1인칭 시점의 계층적 전신(Whole-body) 휴머노이드 제어 학습을 평가하는 벤치마크 HumanoidArena.</div>
   </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://developer.nvidia.com/blog/pretrained-to-imagine-fine-tuned-to-act-the-rise-of-world-action-models/" target="_blank" rel="noopener">Pretrained to Imagine, Fine-Tuned to Act: The Rise of World-Action Models</a></div>
+      <div class="item-meta">
+        <span class="badge">nvidia_robotics</span>
+        <span class="item-date">2026-06-15</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">상상으로 사전학습 후 제어용으로 미세조정하는 월드-액션 모델(World-Action Model)을 정리한 NVIDIA 기술 글.</div>
+  </div>
   <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://arxiv.org/abs/2606.17292" target="_blank" rel="noopener">Robust Direct Data-Driven Hamiltonian for Safe Set Computation</a></div>
@@ -1015,13 +1107,6 @@ footer .credit a:hover { text-decoration: underline; }
     </div>
     <div class="item-summary">Genesis AI가 로봇 파운데이션 모델 기반의 범용 로봇 Eno를 공개.</div>
   </div>
-</div>
-
-<div class="section">
-  <div class="section-header">
-    <h2>🦾 Physical AI</h2>
-    <span class="section-count">1건</span>
-  </div>
   <div class="item">
     <div class="item-top">
       <div class="item-title"><a href="https://www.1x.com/discover/1x-world-model-lab" target="_blank" rel="noopener">The 1X World Model Lab | Est. 2026</a></div>
@@ -1037,104 +1122,8 @@ footer .credit a:hover { text-decoration: underline; }
 
 <div class="section">
   <div class="section-header">
-    <h2>🏭 Robotics Labs</h2>
-    <span class="section-count">1건</span>
-  </div>
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://developer.nvidia.com/blog/pretrained-to-imagine-fine-tuned-to-act-the-rise-of-world-action-models/" target="_blank" rel="noopener">Pretrained to Imagine, Fine-Tuned to Act: The Rise of World-Action Models</a></div>
-      <div class="item-meta">
-        <span class="badge">nvidia_robotics</span>
-        <span class="item-date">2026-06-15</span>
-        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">상상으로 사전학습 후 제어용으로 미세조정하는 월드-액션 모델(World-Action Model)을 정리한 NVIDIA 기술 글.</div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-header">
-    <h2>📄 Papers &amp; Code</h2>
-    <span class="section-count">6건</span>
-  </div>
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://huggingface.co/papers/2606.16993" target="_blank" rel="noopener">DreamX-World 1.0: A General-Purpose Interactive World Model</a></div>
-      <div class="item-meta">
-        <span class="badge">hf_papers</span>
-        <span class="item-date">2026-06-14</span>
-        <span class="score">▲ 95</span>
-        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">시뮬레이션과 임바디드 학습을 위한 범용 인터랙티브 월드 모델(Interactive World Model) DreamX-World 1.0.</div>
-  </div>
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://huggingface.co/papers/2606.18216" target="_blank" rel="noopener">Zone of Proximal Policy Optimization: Teacher in Prompts, Not Gradients</a></div>
-      <div class="item-meta">
-        <span class="badge">hf_papers</span>
-        <span class="item-date">2026-06-15</span>
-        <span class="score">▲ 40</span>
-        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">그래디언트가 아닌 프롬프트로 교사가 지도하는 강화학습 기법 Zone of Proximal Policy Optimization.</div>
-  </div>
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://huggingface.co/papers/2606.18023" target="_blank" rel="noopener">LoopCoder-v2: Only Loop Once for Efficient Test-Time Computation Scaling</a></div>
-      <div class="item-meta">
-        <span class="badge">hf_papers</span>
-        <span class="item-date">2026-06-15</span>
-        <span class="score">▲ 113</span>
-        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">단일 루프만으로 코드 생성의 테스트타임 연산 스케일링(Test-Time Computation Scaling)을 효율화하는 LoopCoder-v2.</div>
-  </div>
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://huggingface.co/papers/2606.17861" target="_blank" rel="noopener">GameCraft-Bench: Can Agents Build Playable Games End-to-End in a Real Game Engine?</a></div>
-      <div class="item-meta">
-        <span class="badge">hf_papers</span>
-        <span class="item-date">2026-06-15</span>
-        <span class="score">▲ 36</span>
-        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">에이전트가 실제 게임 엔진에서 플레이 가능한 게임을 엔드투엔드로 제작할 수 있는지 평가하는 벤치마크.</div>
-  </div>
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://huggingface.co/papers/2606.17628" target="_blank" rel="noopener">OPD-Evolver: Cultivating Holistic Agent Evolver via On-Policy Distillation</a></div>
-      <div class="item-meta">
-        <span class="badge">hf_papers</span>
-        <span class="item-date">2026-06-15</span>
-        <span class="score">▲ 21</span>
-        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">온폴리시 증류(On-Policy Distillation)로 스스로 진화하는 에이전트를 구축하는 OPD-Evolver.</div>
-  </div>
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://huggingface.co/papers/2606.14066" target="_blank" rel="noopener">FastContext: Training Efficient Repository Explorer for Coding Agents</a></div>
-      <div class="item-meta">
-        <span class="badge">papers_with_code</span>
-        <span class="item-date">2026-06-12</span>
-        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary">코딩 에이전트를 위해 저장소 맥락을 효율적으로 수집하는 탐색기를 학습하는 FastContext.</div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-header">
     <h2>🔧 Models &amp; Tools</h2>
-    <span class="section-count">7건</span>
+    <span class="section-count">8건</span>
   </div>
   <div class="item highlight">
     <div class="item-top">
@@ -1213,11 +1202,22 @@ footer .credit a:hover { text-decoration: underline; }
     </div>
     <div class="item-summary">UI-TARS 컴퓨터 사용 모델 기반의 ByteDance 데스크톱 GUI 에이전트 오픈소스.</div>
   </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/papers/2606.14066" target="_blank" rel="noopener">FastContext: Training Efficient Repository Explorer for Coding Agents</a></div>
+      <div class="item-meta">
+        <span class="badge">papers_with_code</span>
+        <span class="item-date">2026-06-12</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary">코딩 에이전트를 위해 저장소 맥락을 효율적으로 수집하는 탐색기를 학습하는 FastContext.</div>
+  </div>
 </div>
 
 <div class="section">
   <div class="section-header">
-    <h2>🏢 Industry Labs</h2>
+    <h2>🏢 Industry &amp; Analysis</h2>
     <span class="section-count">2건</span>
   </div>
   <div class="item">

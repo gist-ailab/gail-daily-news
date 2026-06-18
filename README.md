@@ -1,4 +1,4 @@
-# GAIL Daily News
+# AI & Robotics Research Daily Digest
 
 Public GitHub Pages site for GAIL daily AI and robotics research news.
 
@@ -36,3 +36,12 @@ Each item is rated by research impact:
 The digest tracks AI and robotics research from arXiv, Hugging Face, Papers with Code, GitHub, robotics news feeds, research lab blogs, and selected Physical AI company sources.
 
 Coverage includes AI/ML, robotics, robot foundation models, VLA/VLM-action systems, manipulation, RL/control, benchmarks, datasets, open-source models, and real robot deployment updates from sources such as Physical Intelligence, Generalist AI, Figure AI, Skild AI, Google DeepMind Robotics, NVIDIA Robotics, Hugging Face LeRobot, 1X, Agility Robotics, Apptronik, Sanctuary AI, Boston Dynamics, Toyota Research Institute, Unitree, NEURA Robotics, and Genesis AI.
+
+## Sections
+
+- `AI / ML`
+- `Physical AI & Robotics`
+- `RL / Control`
+- `Models & Tools`
+- `Industry & Analysis`
+- `Community`
