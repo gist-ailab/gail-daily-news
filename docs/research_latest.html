@@ -151,7 +151,7 @@ body {
   font-family: 'Space Mono', monospace;
   font-size: 2rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   margin-bottom: 0.5rem;
 }
 .hero .subtitle {
@@ -261,7 +261,7 @@ body {
   font-family: 'Space Mono', 'Noto Sans KR', monospace;
   font-size: 1.1rem;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   color: var(--primary);
 }
 .section-header .section-count {
@@ -520,9 +520,29 @@ footer .credit a:hover { text-decoration: underline; }
     font-size: 0.62rem;
     padding: 0.3rem 0.6rem;
   }
-  .hero h1 { font-size: 1.4rem; letter-spacing: -0.06em; }
-  .hero .subtitle { font-size: 0.85rem; letter-spacing: -0.03em; }
+  .hero h1 { font-size: 1.35rem; letter-spacing: 0; line-height: 1.35; }
+  .hero .subtitle { font-size: 0.78rem; letter-spacing: 0; line-height: 1.55; }
   .hero .icon { font-size: 2rem; }
+  .hero .stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-size: 0.68rem;
+    opacity: 0.86;
+  }
+  .hero .stats span {
+    flex: 0 1 auto;
+    max-width: 100%;
+    padding: 0.28rem 0.58rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    line-height: 1.25;
+    white-space: nowrap;
+  }
+  .hero .stats .desktop-stat { display: none; }
   .container { padding: 1.25rem 1rem; }
   .feed-guide { padding: 0.9rem 1rem; }
   .importance-scale { grid-template-columns: 1fr; }
@@ -551,10 +571,10 @@ footer .credit a:hover { text-decoration: underline; }
     <div class="subtitle">2026-06-18 — AI/Robotics 분야 최신 연구 큐레이션</div>
     <div class="stats">
       <span>50건 큐레이션</span>
-      <span>15개 소스</span>
-      <span>최근 14일 기준</span>
-      <span>매일 09:00 KST 전후 업데이트</span>
-      <span>중요도 기반 정렬</span>
+      <span class="desktop-stat">15개 소스</span>
+      <span>최근 14일</span>
+      <span>09:00 KST 업데이트</span>
+      <span class="desktop-stat">중요도 정렬</span>
     </div>
   </div>
 </div>
