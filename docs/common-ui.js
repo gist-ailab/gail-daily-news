@@ -4,6 +4,7 @@
   var SITE_ROOT = 'https://gist-ailab.github.io/gail-daily-news/';
   var REPOSITORY_URL = 'https://github.com/gist-ailab/gail-daily-news';
   var ARCHIVE_LIST_URL = REPOSITORY_URL + '/tree/main/docs/archive';
+  var ISSUES_URL = REPOSITORY_URL + '/issues/new/choose';
 
   function pageDate() {
     var pathMatch = window.location.pathname.match(/research_(\d{4}-\d{2}-\d{2})\.html$/);
@@ -30,8 +31,10 @@
       '.gail-secondary-links{display:flex;flex-wrap:wrap;gap:.45rem .9rem;margin-top:.7rem}',
       '.gail-text-link{color:var(--primary,#006666);font-size:.7rem}',
       '.gail-github-card{display:flex;flex-direction:column;justify-content:space-between;background:var(--surface-highlight,#ede9e3)}',
-      '.gail-github-button{width:100%;margin-top:.85rem;background:#24292f;color:#fff}',
+      '.gail-github-actions{display:grid;gap:.55rem;margin-top:.85rem}',
+      '.gail-github-button{width:100%;background:#24292f;color:#fff}',
       '.gail-github-button:hover{background:#32383f}',
+      '.gail-feedback-button{width:100%;background:var(--primary,#006666);color:var(--header-text,#f1f2f5)}',
       '.gail-visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}',
       '@media(max-width:640px){.gail-page-actions{grid-template-columns:1fr;gap:.8rem}.gail-action-card{padding:1rem}.gail-archive-controls{align-items:stretch}.gail-archive-date{width:100%}}'
     ].join('');
@@ -69,9 +72,12 @@
         '</div>' +
       '</div>' +
       '<aside class="gail-action-card gail-github-card">' +
-        '<div><h2>⭐ 이 프로젝트가 유용했나요?</h2>' +
-        '<p>공개 저장소에 Star를 남겨주시면 매일의 큐레이션을 이어가는 데 큰 힘이 됩니다.</p></div>' +
-        '<a class="gail-action-button gail-github-button" href="' + REPOSITORY_URL + '" target="_blank" rel="noopener">GitHub에서 Star 남기기 ↗</a>' +
+        '<div><h2>⭐ 함께 개선해 주세요</h2>' +
+        '<p>유용했다면 Star를 남겨주세요. 의견이나 불편한 점은 Issue로 알려주시면 더 좋은 큐레이션으로 개선하는 데 큰 도움이 됩니다.</p></div>' +
+        '<div class="gail-github-actions">' +
+          '<a class="gail-action-button gail-github-button" href="' + REPOSITORY_URL + '" target="_blank" rel="noopener">GitHub에서 Star 남기기 ↗</a>' +
+          '<a class="gail-action-button gail-feedback-button" href="' + ISSUES_URL + '" target="_blank" rel="noopener">피드백 Issue 남기기 ↗</a>' +
+        '</div>' +
       '</aside>';
 
     container.insertBefore(section, container.firstChild);
