@@ -4,6 +4,8 @@ Public GitHub Pages site for GAIL daily AI and robotics research news.
 
 ## Pages
 
+Live site: https://gist-ailab.github.io/gail-daily-news/
+
 ```text
 docs/index.html
 docs/research_latest.html
