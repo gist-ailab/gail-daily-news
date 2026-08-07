@@ -98,6 +98,21 @@
     applyLang(preferredLang());
   }
 
+
+  function BI(ko, en) {
+    return '<span class="i18n" data-ko="' + ko.replace(/"/g, '&quot;') +
+      '" data-en="' + en.replace(/"/g, '&quot;') + '">' + ko + '</span>';
+  }
+
+  function latestDigestDate() {
+    // Today in KST, which is the newest digest the site can have. Read from an
+    // archive page the document's own date would be its archive date, so the
+    // picker would refuse to move forward -- hence the clock rather than the
+    // page. Digests publish around 09:00 KST.
+    var now = new Date(Date.now() + 9 * 3600 * 1000);
+    return now.toISOString().slice(0, 10);
+  }
+
   function installActions() {
     var container = document.querySelector('.container');
     if (!container || document.getElementById('gail-common-ui')) return;
@@ -108,32 +123,46 @@
     if (legacyQuickNav) legacyQuickNav.remove();
 
     var currentDate = pageDate();
+    var latestDate = latestDigestDate();
     var isArchive = /\/archive\//.test(window.location.pathname);
     var section = document.createElement('section');
     section.id = 'gail-common-ui';
     section.className = 'gail-page-actions';
+    // The digest itself is bilingual, so this shared block has to be too:
+    // it is built here rather than in the template, so it carried no data-en.
     section.setAttribute('aria-label', '지난 기록과 GitHub');
     section.innerHTML =
       '<div class="gail-action-card">' +
-        '<h2>📚 지난 뉴스 보기</h2>' +
-        '<p>날짜를 선택해 그날의 AI &amp; Robotics Research Daily Digest를 확인하세요.</p>' +
+        '<h2>📚 ' + BI('지난 뉴스 보기', 'Past digests') + '</h2>' +
+        '<p>' + BI('날짜를 선택해 그날의 AI &amp; Robotics Research Daily Digest를 확인하세요.',
+                   'Pick a date to open that day\'s AI &amp; Robotics Research Daily Digest.') + '</p>' +
         '<form class="gail-archive-controls" id="gail-archive-form">' +
-          '<label class="gail-visually-hidden" for="gail-archive-date">날짜 선택</label>' +
-          '<input class="gail-archive-date" id="gail-archive-date" type="date" min="2026-04-07"' +
-            (currentDate ? ' value="' + currentDate + '"' : '') + ' required>' +
-          '<button class="gail-action-button" type="submit">기록 열기 ↗</button>' +
+          '<label class="gail-visually-hidden" for="gail-archive-date">' +
+            BI('날짜 선택', 'Choose a date') + '</label>' +
+          // The picker opens on the newest digest and refuses future dates,
+          // which have no archive page.
+          '<input class="gail-archive-date" id="gail-archive-date" type="date"' +
+            ' min="2026-04-07" max="' + latestDate + '"' +
+            ' value="' + (currentDate || latestDate) + '" required>' +
+          '<button class="gail-action-button" type="submit">' +
+            BI('기록 열기', 'Open') + ' ↗</button>' +
         '</form>' +
         '<div class="gail-secondary-links">' +
-          (isArchive ? '<a class="gail-text-link" href="' + SITE_ROOT + 'research_latest.html">최신 기록 보기 →</a>' : '') +
-          '<a class="gail-text-link" href="' + ARCHIVE_LIST_URL + '" target="_blank" rel="noopener">전체 아카이브 목록 →</a>' +
+          (isArchive ? '<a class="gail-text-link" href="' + SITE_ROOT + 'research_latest.html">' +
+            BI('최신 기록 보기', 'Latest digest') + ' →</a>' : '') +
+          '<a class="gail-text-link" href="' + ARCHIVE_LIST_URL + '" target="_blank" rel="noopener">' +
+            BI('전체 아카이브 목록', 'All archives') + ' →</a>' +
         '</div>' +
       '</div>' +
       '<aside class="gail-action-card gail-github-card">' +
-        '<div><h2>⭐ 함께 개선해 주세요</h2>' +
-        '<p>유용했다면 Star를 남겨주세요. 의견이나 불편한 점은 Issue로 알려주시면 더 좋은 큐레이션으로 개선하는 데 큰 도움이 됩니다.</p></div>' +
+        '<div><h2>⭐ ' + BI('함께 개선해 주세요', 'Help improve this') + '</h2>' +
+        '<p>' + BI('유용했다면 Star를 남겨주세요. 의견이나 불편한 점은 Issue로 알려주시면 더 좋은 큐레이션으로 개선하는 데 큰 도움이 됩니다.',
+                   'If this is useful, leave a Star. Opening an issue with feedback or problems genuinely helps improve the curation.') + '</p></div>' +
         '<div class="gail-github-actions">' +
-          '<a class="gail-action-button gail-github-button" href="' + REPOSITORY_URL + '" target="_blank" rel="noopener">GitHub에서 Star 남기기 ↗</a>' +
-          '<a class="gail-action-button gail-feedback-button" href="' + ISSUES_URL + '" target="_blank" rel="noopener">피드백 Issue 남기기 ↗</a>' +
+          '<a class="gail-action-button gail-github-button" href="' + REPOSITORY_URL + '" target="_blank" rel="noopener">' +
+            BI('GitHub에서 Star 남기기', 'Star on GitHub') + ' ↗</a>' +
+          '<a class="gail-action-button gail-feedback-button" href="' + ISSUES_URL + '" target="_blank" rel="noopener">' +
+            BI('피드백 Issue 남기기', 'Open a feedback issue') + ' ↗</a>' +
         '</div>' +
       '</aside>';
 

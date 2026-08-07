@@ -293,16 +293,12 @@ body {
   font-weight: 700;
   letter-spacing: 0;
   color: var(--primary);
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
-.section-header .section-count {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem;
-  font-weight: 500;
-  color: var(--text-tertiary);
-  background: var(--badge-bg);
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  box-shadow: var(--shadow-raised-sm);
+@media (max-width: 640px) {
+  /* Keep a track title on one line on a narrow screen. */
+  .section-header h2 { font-size: 0.95rem; }
 }
 .section-description {
   margin: -0.75rem 0 1.15rem;
@@ -320,8 +316,7 @@ body {
 .radar-section .section-header {
   border-bottom-color: var(--radar);
 }
-.radar-section .section-header h2,
-.radar-section .section-count {
+.radar-section .section-header h2 {
   color: var(--radar);
 }
 .radar-item {
@@ -705,10 +700,10 @@ footer .credit a:hover { text-decoration: underline; }
     <h1><span class="title-line">Robotics & Physical AI</span><span class="title-line">Daily Digest</span></h1>
     <div class="subtitle">2026-08-07 — <span class="i18n" data-ko="로봇 연구 중심, 핵심 AI 엄선 큐레이션" data-en="Robotics-first research, with selected frontier AI">로봇 연구 중심, 핵심 AI 엄선 큐레이션</span></div>
     <div class="stats">
-      <span>Robotics 35</span>
-      <span>Radar 9</span>
-      <span class="desktop-stat">16 <span class="i18n" data-ko="개 소스" data-en="sources">개 소스</span></span>
-      <span><span class="i18n" data-ko="최근" data-en="Last">최근</span> 7<span class="i18n" data-ko="일" data-en="d">일</span> · Radar 15<span class="i18n" data-ko="일" data-en="d">일</span></span>
+      <span>Robotics 45</span>
+      <span>Frontier AI 10</span>
+      <span class="desktop-stat">15 <span class="i18n" data-ko="개 소스" data-en="sources">개 소스</span></span>
+      <span><span class="i18n" data-ko="최근" data-en="Last">최근</span> 7<span class="i18n" data-ko="일" data-en="d">일</span> · Frontier AI 15<span class="i18n" data-ko="일" data-en="d">일</span></span>
       <span class="desktop-stat">Robotics-first</span>
       <span>09:00 KST <span class="i18n" data-ko="업데이트" data-en="update">업데이트</span></span>
       <span class="desktop-stat"><span class="i18n" data-ko="중요도 정렬" data-en="ranked by importance">중요도 정렬</span></span>
@@ -773,7 +768,7 @@ footer .credit a:hover { text-decoration: underline; }
         <div class="guide-source-list i18n" data-ko="로봇 연구에 직접 기여하는 공간지능·효율 추론·학습 인프라" data-en="Spatial intelligence, efficient inference, and learning infrastructure that directly enables robotics">로봇 연구에 직접 기여하는 공간지능·효율 추론·학습 인프라</div>
       </div>
       <div class="guide-source-row">
-        <div class="guide-source-category">🔭 Frontier AI Radar</div>
+        <div class="guide-source-category">🔭 Frontier AI</div>
         <div class="guide-source-list i18n" data-ko="언어 모델에 국한하지 않은 범용 파운데이션 모델의 주요 신규 공개" data-en="Major new releases of broadly reusable foundation models, not limited to language models">언어 모델에 국한하지 않은 범용 파운데이션 모델의 주요 신규 공개</div>
       </div>
     <div class="guide-title"><span class="i18n" data-ko="소스 원칙" data-en="Sourcing">소스 원칙</span></div>
@@ -784,31 +779,18 @@ footer .credit a:hover { text-decoration: underline; }
 <div class="section">
   <div class="section-header">
     <h2>🤖 VLA &amp; Embodied Foundation Models</h2>
-    <span class="section-count">12건</span>
   </div>
   <div class="item highlight">
     <div class="item-top">
-      <div class="item-title"><a href="https://www.therobotreport.com/google-deepmind-says-gemini-robotics-2-enables-full-body-control" target="_blank" rel="noopener">Google DeepMind says Gemini Robotics 2 enables full body control</a></div>
-      <div class="item-meta">
-        <span class="badge">The Robot Report</span>
-        <span class="item-date">2026-08-02</span>
-        <span class="stars" title="5/5: paradigm shift, major SOTA update, or large open model release" aria-label="5/5: paradigm shift, major SOTA update, or large open model release" tabindex="0"><span class="filled">★★★★★</span></span>
-      </div>
-    </div>
-    <div class="item-summary i18n" data-ko="구글 딥마인드(Google DeepMind)가 공개한 Gemini Robotics 2. 보행, 물체 조작, 다중 로봇 협업을 포함하는 지능형 전신 제어(Whole-Body Control)를 지원하며 온디바이스(On-Device) 로컬 실행이 가능한 로봇 파운데이션 모델(Robot Foundation Model)." data-en="Google DeepMind unveiled Gemini Robotics 2 enabling intelligent whole-body control for walking, object manipulation, and multi-robot collaboration, running locally on-device.">구글 딥마인드(Google DeepMind)가 공개한 Gemini Robotics 2. 보행, 물체 조작, 다중 로봇 협업을 포함하는 지능형 전신 제어(Whole-Body Control)를 지원하며 온디바이스(On-Device) 로컬 실행이 가능한 로봇 파운데이션 모델(Robot Foundation Model).</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">foundation model</span><span class="taxonomy-chip taxonomy-tag">whole body</span></div>
-  </div>
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2607.29172" target="_blank" rel="noopener">CLIFT: Turning Gemini Robotics On-Device into Humanoid Specialists</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.02326" target="_blank" rel="noopener">ChainVLA: Chaining Vision-Language-Action Queries through a Unified Execution State for Long-Horizon Manipulation</a></div>
       <div class="item-meta">
         <span class="badge">arXiv Robotics</span>
-        <span class="item-date">2026-07-31</span>
+        <span class="item-date">2026-08-03</span>
         <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="웨이트·그래디언트 접근 없이 프로프라이어터리 VLA API를 반복 파인튜닝하는 CLIFT 프레임워크. 폐루프 피드백을 지도 학습(Supervised Training) 신호로 변환해 Gemini Robotics On-Device를 휴머노이드 특화 정책으로 만들며 거의 완벽한 조작 성능 달성." data-en="Iteratively fine-tunes proprietary VLA APIs without weight/gradient access by converting closed-loop feedback into supervised training, achieving near-perfect humanoid manipulation from a base Gemini Robotics On-Device model.">웨이트·그래디언트 접근 없이 프로프라이어터리 VLA API를 반복 파인튜닝하는 CLIFT 프레임워크. 폐루프 피드백을 지도 학습(Supervised Training) 신호로 변환해 Gemini Robotics On-Device를 휴머노이드 특화 정책으로 만들며 거의 완벽한 조작 성능 달성.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Humanoid</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">imitation learning</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+    <div class="item-summary i18n" data-ko="장기-지평(long-horizon) 매니퓰레이션을 위해 통합 실행 상태(unified execution state)로 VLA(Vision-Language-Action) 쿼리를 연쇄하여 액션 청크 경계 문제를 완화하는 방법 제안." data-en="Chains VLA queries via a unified execution state carrying grounded progress and context to enable long-horizon manipulation without brittle action-chunk boundaries.">장기-지평(long-horizon) 매니퓰레이션을 위해 통합 실행 상태(unified execution state)로 VLA(Vision-Language-Action) 쿼리를 연쇄하여 액션 청크 경계 문제를 완화하는 방법 제안.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">imitation learning</span><span class="taxonomy-chip taxonomy-tag">planning</span></div>
   </div>
   <div class="item highlight">
     <div class="item-top">
@@ -819,8 +801,80 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="LeJEPA 기반 월드 크리틱(World Critic) 모델 WCM을 제안. 미래 잠재 상태와 가치를 동시에 예측해 시간 정보를 반영한 VLA 강화학습(Reinforcement Learning)을 가능하게 하며 149개 조작 태스크에서 일관된 성능 향상을 기록." data-en="Builds a LeJEPA-based world critic that jointly predicts future latent states and values for temporally-aware VLA RL, delivering consistent gains across 149 manipulation tasks.">LeJEPA 기반 월드 크리틱(World Critic) 모델 WCM을 제안. 미래 잠재 상태와 가치를 동시에 예측해 시간 정보를 반영한 VLA 강화학습(Reinforcement Learning)을 가능하게 하며 149개 조작 태스크에서 일관된 성능 향상을 기록.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">world model</span><span class="taxonomy-chip taxonomy-tag">RL</span></div>
+    <div class="item-summary i18n" data-ko="LeJEPA 기반 월드 크리틱(World Critic)이 미래 잠재 상태와 가치를 동시에 예측하도록 학습하여 149개 매니퓰레이션 태스크에서 VLA 강화학습(RL) 성능을 향상시킴." data-en="Builds a LeJEPA-based world critic that jointly predicts future latent states and values for temporally-aware VLA RL, with consistent gains across 149 manipulation tasks.">LeJEPA 기반 월드 크리틱(World Critic)이 미래 잠재 상태와 가치를 동시에 예측하도록 학습하여 149개 매니퓰레이션 태스크에서 VLA 강화학습(RL) 성능을 향상시킴.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">RL</span><span class="taxonomy-chip taxonomy-tag">world model</span></div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.05738" target="_blank" rel="noopener">In-Context VLA: Endowing Vision-Language-Action Models with Language via In-Context Post-Training and Agentic Tool Use</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-08-06</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="행동 복제(Behavior Cloning) 편향을 극복하기 위해 인컨텍스트(In-Context) 사후 학습과 에이전틱 도구 사용(Agentic Tool Use)을 결합해 VLA에 언어 능력을 부여하는 후처리 학습 방법 제안." data-en="Post-trains VLAs with in-context language conditioning and agentic tool use so a single generalist policy can follow richer instructions beyond pure behavior cloning.">행동 복제(Behavior Cloning) 편향을 극복하기 위해 인컨텍스트(In-Context) 사후 학습과 에이전틱 도구 사용(Agentic Tool Use)을 결합해 VLA에 언어 능력을 부여하는 후처리 학습 방법 제안.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">foundation model</span><span class="taxonomy-chip taxonomy-tag">imitation learning</span></div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.03052" target="_blank" rel="noopener">How Should Vision-Language-Action Models Use Proprioceptive State?</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-08-04</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="VLA에 로봇 자기감각(Proprioceptive State)을 통합하는 다양한 방식(텍스트 직렬화, 프로젝션 등)을 체계적으로 비교하고 폐루프 제어 성능을 개선하는 통합 방법론 제시." data-en="Systematic study of proprioception integration in VLAs, showing that current serialization/projection choices are inconsistent and providing recipes that improve closed-loop control.">VLA에 로봇 자기감각(Proprioceptive State)을 통합하는 다양한 방식(텍스트 직렬화, 프로젝션 등)을 체계적으로 비교하고 폐루프 제어 성능을 개선하는 통합 방법론 제시.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.05999" target="_blank" rel="noopener">Beyond Flat Policies: Hierarchical Post-Training for Embodied Agents in Robotic Manipulation</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-08-06</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="사전학습 비전-언어 모델(VLM) 위에 계층적 사후학습(Hierarchical Post-Training)을 도입하여 상위 임보디드(embodied) 플래닝과 하위 매니퓰레이션 제어를 분리 학습하는 VLA 개선안 제시." data-en="Introduces a hierarchical post-training recipe over pretrained VLMs that separates high-level embodied planning from low-level manipulation control for better long-horizon skill acquisition.">사전학습 비전-언어 모델(VLM) 위에 계층적 사후학습(Hierarchical Post-Training)을 도입하여 상위 임보디드(embodied) 플래닝과 하위 매니퓰레이션 제어를 분리 학습하는 VLA 개선안 제시.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">imitation learning</span></div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2607.29172" target="_blank" rel="noopener">CLIFT: Turning Gemini Robotics On-Device into Humanoid Specialists</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-07-31</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="웨이트/그래디언트 접근 없이 폐쇄형 VLA API(Gemini Robotics On-Device)의 폐루프 피드백을 지도학습 신호로 변환해 반복 파인튜닝(Fine-tuning)하여 휴머노이드 매니퓰레이션 성능을 극대화." data-en="Iteratively fine-tunes a closed proprietary VLA API without weight or gradient access by converting closed-loop feedback into supervised training, reaching near-perfect humanoid manipulation.">웨이트/그래디언트 접근 없이 폐쇄형 VLA API(Gemini Robotics On-Device)의 폐루프 피드백을 지도학습 신호로 변환해 반복 파인튜닝(Fine-tuning)하여 휴머노이드 매니퓰레이션 성능을 극대화.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Humanoid</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">foundation model</span><span class="taxonomy-chip taxonomy-tag">imitation learning</span></div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.06374" target="_blank" rel="noopener">DyPES-VLA: Learning Shared Dynamics Priors and Embodiment-Specific Control for Cross-Embodiment Manipulation</a></div>
+      <div class="item-meta">
+        <span class="badge">Hugging Face Papers</span>
+        <span class="item-date">2026-08-06</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="공유 다이나믹스 프라이어(Shared Dynamics Priors)와 임보디먼트별 전문가 혼합(Mixture-of-Experts) 제어를 결합해 크로스-임보디먼트(Cross-Embodiment) 매니퓰레이션에서 다중 벤치마크 SOTA를 달성." data-en="Learns shared dynamics priors plus embodiment-specific mixture-of-experts control to enable cross-embodiment robot manipulation with SOTA results across multiple benchmarks.">공유 다이나믹스 프라이어(Shared Dynamics Priors)와 임보디먼트별 전문가 혼합(Mixture-of-Experts) 제어를 결합해 크로스-임보디먼트(Cross-Embodiment) 매니퓰레이션에서 다중 벤치마크 SOTA를 달성.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">imitation learning</span></div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://developer.nvidia.com/blog/generate-trajectories-reasoning-traces-and-auto-labels-with-nvidia-alpamayo-2-super" target="_blank" rel="noopener">Generate Trajectories, Reasoning Traces, and Auto-Labels with NVIDIA Alpamayo 2 Super</a></div>
+      <div class="item-meta">
+        <span class="badge">NVIDIA Robotics</span>
+        <span class="item-date">2026-08-04</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="NVIDIA가 궤적 예측, 의도 추론, VQA, 2D 그라운딩, 자동 라벨링을 하나의 34B 자율주행 VLA(Cosmos 3 기반 32B VLM + 2.3B 확산 액션 전문가)로 통합한 Alpamayo 2 Super 공개." data-en="NVIDIA consolidates trajectory prediction, intent reasoning, VQA, 2D grounding, and auto-labeling into a single 34B autonomous-driving VLA built on Cosmos 3 with a 32B VLM and 2.3B diffusion action expert.">NVIDIA가 궤적 예측, 의도 추론, VQA, 2D 그라운딩, 자동 라벨링을 하나의 34B 자율주행 VLA(Cosmos 3 기반 32B VLM + 2.3B 확산 액션 전문가)로 통합한 Alpamayo 2 Super 공개.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Autonomous Vehicle</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">foundation model</span><span class="taxonomy-chip taxonomy-tag">open weights</span></div>
   </div>
   <div class="item highlight">
     <div class="item-top">
@@ -831,131 +885,104 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="허깅페이스(Hugging Face) LeRobot 팀이 공개한 4B 파라미터 로봇 파운데이션 모델(Robotics Foundation Model) eo1-base. 임바디드 러닝(Embodied Learning)을 위한 오픈 베이스 모델로 2026-08-05 공개." data-en="Newly released 4B-parameter robotics foundation model from the HuggingFace LeRobot team, published August 2026 as an open base model for embodied learning.">허깅페이스(Hugging Face) LeRobot 팀이 공개한 4B 파라미터 로봇 파운데이션 모델(Robotics Foundation Model) eo1-base. 임바디드 러닝(Embodied Learning)을 위한 오픈 베이스 모델로 2026-08-05 공개.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">foundation model</span><span class="taxonomy-chip taxonomy-tag">open weights</span><span class="taxonomy-chip taxonomy-tag">VLA</span></div>
-  </div>
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2608.02257" target="_blank" rel="noopener">Learning Panorama-Aware VLA for Mobile Manipulation with Whole-Body Teleoperation</a></div>
-      <div class="item-meta">
-        <span class="badge">GitHub</span>
-        <span class="item-date">2026-08-03</span>
-        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary i18n" data-ko="이동 매니퓰레이터(Mobile Manipulation)를 위한 파노라마 관측(Panoramic Observation) 인코딩 VLA 모델 PanoVLA. 전신 원격조작(Whole-Body Teleoperation) 데이터 파이프라인과 결합해 엔드투엔드 성공률 73.4% 달성." data-en="PanoVLA encodes panoramic observations for mobile bimanual manipulation and reaches 73.4% end-to-end success via a whole-body teleoperation data pipeline.">이동 매니퓰레이터(Mobile Manipulation)를 위한 파노라마 관측(Panoramic Observation) 인코딩 VLA 모델 PanoVLA. 전신 원격조작(Whole-Body Teleoperation) 데이터 파이프라인과 결합해 엔드투엔드 성공률 73.4% 달성.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Mobile Manipulator</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">bimanual</span><span class="taxonomy-chip taxonomy-tag">teleoperation</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
-  </div>
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2608.02326" target="_blank" rel="noopener">ChainVLA: Chaining Vision-Language-Action Queries through a Unified Execution State for Long-Horizon Manipulation</a></div>
-      <div class="item-meta">
-        <span class="badge">GitHub</span>
-        <span class="item-date">2026-08-03</span>
-        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary i18n" data-ko="장기 수평선(Long-Horizon) 조작을 위해 통합된 실행 상태(Execution State)를 사슬처럼 연결하는 1.2B VLA 모델 ChainVLA. RMBench에서 62.8% 성능 달성." data-en="1.2B VLA with joint execution state chaining for long-horizon manipulation, achieving 62.8% on RMBench.">장기 수평선(Long-Horizon) 조작을 위해 통합된 실행 상태(Execution State)를 사슬처럼 연결하는 1.2B VLA 모델 ChainVLA. RMBench에서 62.8% 성능 달성.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">benchmark</span></div>
-  </div>
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2608.03207" target="_blank" rel="noopener">DRIFT: Derailing Denoising Trajectories of Flow-Matching VLAs with Adversarial Patch Attack</a></div>
-      <div class="item-meta">
-        <span class="badge">Hugging Face Papers</span>
-        <span class="item-date">2026-08-04</span>
-        <span class="score">▲ 1</span>
-        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary i18n" data-ko="플로 매칭(Flow-Matching) VLA의 노이즈 제거 ODE를 겨냥한 범용 적대적 패치 공격 DRIFT. 첫 번째 디노이징 스텝만 공격해도 LIBERO에서 pi0/pi0.5가 붕괴하며 기존에 간과됐던 VLA 보안 취약점을 드러냄." data-en="Universal adversarial patch targeting the flow-matching VLA denoising ODE breaks pi0/pi0.5 on LIBERO suites by attacking only the first denoising step, revealing a previously overlooked VLA vulnerability.">플로 매칭(Flow-Matching) VLA의 노이즈 제거 ODE를 겨냥한 범용 적대적 패치 공격 DRIFT. 첫 번째 디노이징 스텝만 공격해도 LIBERO에서 pi0/pi0.5가 붕괴하며 기존에 간과됐던 VLA 보안 취약점을 드러냄.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">safety</span></div>
-  </div>
-  <div class="item highlight">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2608.00569" target="_blank" rel="noopener">Latency-Tolerant Cloud-Edge Collaborative Vision-Language-Action Models</a></div>
-      <div class="item-meta">
-        <span class="badge">arXiv Robotics</span>
-        <span class="item-date">2026-08-01</span>
-        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary i18n" data-ko="네트워크 지연(Latency)을 표현 학습(Representation Learning) 문제로 다루는 클라우드-엣지 협업 VLA 모델 CloudEdgeVLA. 40스텝 균일 지연 조건에서도 63.8~78% 성공률을 유지해 실배포 가능한 VLA 서빙 파이프라인을 제시." data-en="CloudEdgeVLA treats network latency as a representation-learning challenge and maintains 63.8–78% success under 40-step uniform delays in cloud-to-robot VLA deployments.">네트워크 지연(Latency)을 표현 학습(Representation Learning) 문제로 다루는 클라우드-엣지 협업 VLA 모델 CloudEdgeVLA. 40스텝 균일 지연 조건에서도 63.8~78% 성공률을 유지해 실배포 가능한 VLA 서빙 파이프라인을 제시.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">real robot</span><span class="taxonomy-chip taxonomy-tag">efficient inference</span></div>
-  </div>
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2608.03052" target="_blank" rel="noopener">How Should Vision-Language-Action Models Use Proprioceptive State?</a></div>
-      <div class="item-meta">
-        <span class="badge">arXiv Robotics</span>
-        <span class="item-date">2026-08-04</span>
-        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary i18n" data-ko="VLA에서 자기 감각(Proprioceptive State)을 어떻게 활용해야 하는지 체계적으로 분석. 사용 여부, 히스토리 길이, 백본(Backbone) vs 액션 모듈 진입 위치를 어블레이션(Ablation)해 VLA 설계 가이드 제공." data-en="Systematic study of proprioceptive state integration in VLAs: whether to use it, how much history to include, and where it should enter the model, with ablations on backbone vs. action module.">VLA에서 자기 감각(Proprioceptive State)을 어떻게 활용해야 하는지 체계적으로 분석. 사용 여부, 히스토리 길이, 백본(Backbone) vs 액션 모듈 진입 위치를 어블레이션(Ablation)해 VLA 설계 가이드 제공.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Survey / Analysis</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">imitation learning</span></div>
-  </div>
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2607.29596" target="_blank" rel="noopener">FibVLA: An Efficient Temporal Vision-Language-Action Model with Fibonacci Sampling</a></div>
-      <div class="item-meta">
-        <span class="badge">arXiv Robotics</span>
-        <span class="item-date">2026-07-31</span>
-        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary i18n" data-ko="로그 스케일 피보나치(Fibonacci) 힌트사이트 샘플링과 재귀 추론(Recurrent Inference)을 사용해 시간 의존성을 효율적으로 포착하면서도 실시간 반응성을 유지하는 VLA 모델 FibVLA." data-en="Uses logarithmic Fibonacci hindsight sampling and recurrent inference to capture temporal dependencies efficiently while maintaining real-time VLA responsiveness.">로그 스케일 피보나치(Fibonacci) 힌트사이트 샘플링과 재귀 추론(Recurrent Inference)을 사용해 시간 의존성을 효율적으로 포착하면서도 실시간 반응성을 유지하는 VLA 모델 FibVLA.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">efficient inference</span></div>
-  </div>
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2608.02197" target="_blank" rel="noopener">Look Where It Matters: Adaptive Visual Refinement for Vision-Language-Action Models</a></div>
-      <div class="item-meta">
-        <span class="badge">GitHub</span>
-        <span class="item-date">2026-08-03</span>
-        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary i18n" data-ko="레지스터 토큰(Register Token)과 불확실성 게이팅(Uncertainty-Gated) 국소 정제로 VLA 비전 인코더를 동적으로 재조준하는 AtVLA. 약 1.5배 연산 증가로 조작 정확도를 크게 향상." data-en="AtVLA uses register tokens and uncertainty-gated local refinement to dynamically refocus the VLA vision encoder, substantially improving manipulation accuracy at ~1.5× compute.">레지스터 토큰(Register Token)과 불확실성 게이팅(Uncertainty-Gated) 국소 정제로 VLA 비전 인코더를 동적으로 재조준하는 AtVLA. 약 1.5배 연산 증가로 조작 정확도를 크게 향상.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">VLA</span></div>
-  </div>
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2608.01381" target="_blank" rel="noopener">DreamTrajectory: Trajectory-Guided Action Generation with World Model Alignment for Mobile Manipulation</a></div>
-      <div class="item-meta">
-        <span class="badge">GitHub</span>
-        <span class="item-date">2026-08-02</span>
-        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary i18n" data-ko="말단 효과기(End-Effector) 궤적 예측과 월드 모델(World Model) 테스트타임 검증을 결합해 이동 매니퓰레이션에 활용하는 DreamTrajectory. MS-HAB에서 54.8% 성능 달성." data-en="Integrates end-effector trajectory prediction with world-model test-time validation for mobile manipulation, achieving 54.8% on MS-HAB.">말단 효과기(End-Effector) 궤적 예측과 월드 모델(World Model) 테스트타임 검증을 결합해 이동 매니퓰레이션에 활용하는 DreamTrajectory. MS-HAB에서 54.8% 성능 달성.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Mobile Manipulator</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">world model</span><span class="taxonomy-chip taxonomy-tag">benchmark</span></div>
+    <div class="item-summary i18n" data-ko="허깅페이스 LeRobot 팀이 임보디드 러닝 연구용 기반 모델로 4B 파라미터 로봇 파운데이션 모델(Robotics Foundation Model) &#x27;eo1-base&#x27;를 오픈 공개." data-en="HuggingFace LeRobot team releases eo1-base, an open 4B-parameter robotics foundation model intended as a base for embodied learning research.">허깅페이스 LeRobot 팀이 임보디드 러닝 연구용 기반 모델로 4B 파라미터 로봇 파운데이션 모델(Robotics Foundation Model) 'eo1-base'를 오픈 공개.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">foundation model</span><span class="taxonomy-chip taxonomy-tag">open weights</span></div>
   </div>
 </div>
 
 <div class="section">
   <div class="section-header">
     <h2>🖐 Manipulation &amp; Dexterity</h2>
-    <span class="section-count">1건</span>
   </div>
   <div class="item highlight">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2505.02915" target="_blank" rel="noopener">Zero-shot Sim2Real Transfer for Magnet-Based Tactile Sensor on Insertion Tasks</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.02014" target="_blank" rel="noopener">MANGO-Grasp: Mahalanobis Fields over Geometry-Oriented 3D Gaussians for Cross-Embodiment Dexterous Grasping</a></div>
       <div class="item-meta">
         <span class="badge">arXiv Robotics</span>
-        <span class="item-date">2026-08-06</span>
+        <span class="item-date">2026-08-03</span>
         <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="자석 기반 촉각 센서(Magnet-Based Tactile Sensor)를 위한 시뮬레이션-실물(Sim-to-Real) 전이 기법 GCS. 실제 데이터 파인튜닝 없이 3축 밀집 촉각 신호 기반 강화학습(RL) 정책을 페그 삽입(Peg Insertion) 태스크로 제로샷 전이." data-en="GCS sim-to-real technique enables zero-shot transfer of RL policies with dense 3-axis tactile readings for peg insertion, requiring no real-data fine-tuning.">자석 기반 촉각 센서(Magnet-Based Tactile Sensor)를 위한 시뮬레이션-실물(Sim-to-Real) 전이 기법 GCS. 실제 데이터 파인튜닝 없이 3축 밀집 촉각 신호 기반 강화학습(RL) 정책을 페그 삽입(Peg Insertion) 태스크로 제로샷 전이.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">tactile</span><span class="taxonomy-chip taxonomy-tag">sim2real</span><span class="taxonomy-chip taxonomy-tag">RL</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+    <div class="item-summary i18n" data-ko="기하 지향 3D 가우시안(Geometry-Oriented 3D Gaussians) 위의 마할라노비스 필드(Mahalanobis Fields)를 사용해 이종 다지 핸드(multi-finger hand) 간 크로스-임보디먼트 덱스터러스(Dexterous) 파지를 미세 튜닝 없이 합성." data-en="Uses Mahalanobis fields over geometry-oriented 3D Gaussians as a cross-embodiment representation to synthesize stable dexterous grasps across heterogeneous multi-fingered hands with little embodiment-specific tuning.">기하 지향 3D 가우시안(Geometry-Oriented 3D Gaussians) 위의 마할라노비스 필드(Mahalanobis Fields)를 사용해 이종 다지 핸드(multi-finger hand) 간 크로스-임보디먼트 덱스터러스(Dexterous) 파지를 미세 튜닝 없이 합성.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Dexterous Hand</span><span class="taxonomy-chip taxonomy-tag">dexterity</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.01733" target="_blank" rel="noopener">TWINS: A Tactile Wearable Isomorphic Arm Networked System for Contact-Rich Manipulation Learning</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-08-03</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="말단 이펙터 데이터 한계를 넘어 팔 전체의 접촉-풍부(Contact-Rich) 시연을 수집하도록 분산 촉각(tactile) 센싱을 통합한 웨어러블 등가 팔(Isomorphic Arm) 데이터 수집 시스템 TWINS 제안." data-en="Wearable isomorphic arm with distributed tactile sensing that captures whole-arm contact-rich demonstrations for scalable manipulation learning beyond end-effector data.">말단 이펙터 데이터 한계를 넘어 팔 전체의 접촉-풍부(Contact-Rich) 시연을 수집하도록 분산 촉각(tactile) 센싱을 통합한 웨어러블 등가 팔(Isomorphic Arm) 데이터 수집 시스템 TWINS 제안.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">System / Hardware</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">tactile</span><span class="taxonomy-chip taxonomy-tag">teleoperation</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.00554" target="_blank" rel="noopener">DexMani: Human-Derived Manipulability Guidance for Dexterous Rotation</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-08-01</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="인핸드(in-hand) 회전 문제를 순차적 접촉 결정 문제로 정형화하고 사람 손의 조작성(Manipulability) 프라이어를 활용해 접촉 구성과 물체 움직임을 동시 최적화하는 덱스터러스(Dexterous) 조작 방법." data-en="Casts in-hand rotation as a sequential contact problem and uses human-derived manipulability priors to jointly choose contact configurations and desired object motion.">인핸드(in-hand) 회전 문제를 순차적 접촉 결정 문제로 정형화하고 사람 손의 조작성(Manipulability) 프라이어를 활용해 접촉 구성과 물체 움직임을 동시 최적화하는 덱스터러스(Dexterous) 조작 방법.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Dexterous Hand</span><span class="taxonomy-chip taxonomy-tag">dexterity</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.00547" target="_blank" rel="noopener">Disentangling Visuo-Tactile Foresight: Oracle-Guided Interface Discovery for World Action Models</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-08-01</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="접촉-풍부(Contact-Rich) 매니퓰레이션에서 시각/촉각의 역할을 오라클 가이드로 분리하여 월드-액션 모델(World Action Model)이 안정적인 촉각-비주얼 예측(Visuo-Tactile Foresight)을 갖도록 학습." data-en="Oracle-guided interface discovery separates vision-dominated and tactile-dominated dynamics inside a world-action model to give reliable foresight in contact-rich manipulation.">접촉-풍부(Contact-Rich) 매니퓰레이션에서 시각/촉각의 역할을 오라클 가이드로 분리하여 월드-액션 모델(World Action Model)이 안정적인 촉각-비주얼 예측(Visuo-Tactile Foresight)을 갖도록 학습.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">tactile</span><span class="taxonomy-chip taxonomy-tag">world model</span><span class="taxonomy-chip taxonomy-tag">dexterity</span></div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.01102" target="_blank" rel="noopener">CAAT: Contact-Aware Attention Scaling and Tactile Masking for Data-Efficient Contact-Rich Manipulation</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-08-02</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="접촉이 시작될 때만 촉각(tactile) 신호가 활성화되도록 하는 접촉 인지 어텐션 스케일링(Contact-Aware Attention Scaling)과 마스킹을 사용해 접촉-풍부 매니퓰레이션에서 데이터 효율성을 개선." data-en="Contact-aware attention scaling and tactile masking route tactile signals only when contact begins, giving data-efficient policies for contact-rich manipulation with less demonstration data.">접촉이 시작될 때만 촉각(tactile) 신호가 활성화되도록 하는 접촉 인지 어텐션 스케일링(Contact-Aware Attention Scaling)과 마스킹을 사용해 접촉-풍부 매니퓰레이션에서 데이터 효율성을 개선.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">tactile</span><span class="taxonomy-chip taxonomy-tag">imitation learning</span></div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.01402" target="_blank" rel="noopener">Demystifying When and Why VLAs Fail in Contact-Rich Tasks and How to Fix Them</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-08-02</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="VLA가 접촉-풍부(Contact-Rich) 매니퓰레이션에서 실패하는 원인을 진단하고 각 실패 유형별 표적 개선책을 제시하여 정밀 물리 상호작용 태스크 성능을 회복." data-en="Diagnoses concrete failure modes of VLAs on contact-rich manipulation and provides targeted mitigations that recover performance on precise physical-interaction tasks.">VLA가 접촉-풍부(Contact-Rich) 매니퓰레이션에서 실패하는 원인을 진단하고 각 실패 유형별 표적 개선책을 제시하여 정밀 물리 상호작용 태스크 성능을 회복.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Survey / Analysis</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">tactile</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.05970" target="_blank" rel="noopener">SkillMemo: Expert-guided Skill Memory Framework for Compositional Embodied Manipulation</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-08-06</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="확산 정책(Diffusion Policy)과 VLA 백본에 전문가 가이드 스킬 메모리(Expert-guided Skill Memory)를 결합해 학습된 프리미티브를 조합해 새 매니퓰레이션 스킬을 생성하는 컴포지셔널 프레임워크." data-en="Adds an expert-guided skill memory around Diffusion Policy and VLA visuomotor backbones to compose learned primitives into new long-horizon manipulation behaviors.">확산 정책(Diffusion Policy)과 VLA 백본에 전문가 가이드 스킬 메모리(Expert-guided Skill Memory)를 결합해 학습된 프리미티브를 조합해 새 매니퓰레이션 스킬을 생성하는 컴포지셔널 프레임워크.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">imitation learning</span><span class="taxonomy-chip taxonomy-tag">VLA</span></div>
   </div>
 </div>
 
 <div class="section">
   <div class="section-header">
     <h2>🎯 Robot Learning, Control &amp; Planning</h2>
-    <span class="section-count">8건</span>
   </div>
   <div class="item highlight">
     <div class="item-top">
@@ -966,131 +993,164 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="행동 복제(Behavior Cloning)와 강화학습(RL)을 결합해 14개 태스크를 학습하는 근골격(Musculoskeletal) 트랜스포머(Transformer) 정책 Arnold. 휴머노이드와 팔 로봇 간 교차-임바디먼트(Cross-Embodiment) 전이를 지원." data-en="Transformer-based musculoskeletal policy mastering 14 tasks across embodiments using behavior cloning and RL; enables cross-embodiment transfer for humanoid and arm robots.">행동 복제(Behavior Cloning)와 강화학습(RL)을 결합해 14개 태스크를 학습하는 근골격(Musculoskeletal) 트랜스포머(Transformer) 정책 Arnold. 휴머노이드와 팔 로봇 간 교차-임바디먼트(Cross-Embodiment) 전이를 지원.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">imitation learning</span><span class="taxonomy-chip taxonomy-tag">RL</span></div>
+    <div class="item-summary i18n" data-ko="행동 복제(Behavior Cloning)와 강화학습(RL)을 결합해 근골격(musculoskeletal) 정책 트랜스포머(Transformer) 하나로 14개 태스크와 휴머노이드·팔 임보디먼트를 넘나드는 전이 학습을 실현." data-en="Transformer-based musculoskeletal policy masters 14 tasks across embodiments via behavior cloning and RL, enabling cross-embodiment transfer between humanoid and arm robots.">행동 복제(Behavior Cloning)와 강화학습(RL)을 결합해 근골격(musculoskeletal) 정책 트랜스포머(Transformer) 하나로 14개 태스크와 휴머노이드·팔 임보디먼트를 넘나드는 전이 학습을 실현.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">imitation learning</span><span class="taxonomy-chip taxonomy-tag">RL</span><span class="taxonomy-chip taxonomy-tag">foundation model</span></div>
   </div>
-  <div class="item">
+  <div class="item highlight">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2608.04612" target="_blank" rel="noopener">GASP: GPU-Accelerated Safe Planner for Real-Time Collision-Aware Motion Generation with Latent Trajectories</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.04612" target="_blank" rel="noopener">GASP: GPU-Accelerated Safe Planner for Real-Time Collision-Aware Motion Generation with Latent Trajectory Sampling</a></div>
       <div class="item-meta">
         <span class="badge">arXiv Robotics</span>
         <span class="item-date">2026-08-06</span>
-        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="B-스플라인 파라미터화와 신경망 예측을 결합한 GPU 가속 안전 모션 플래너(Safe Motion Planner) GASP. 로봇 팔의 충돌 회피 궤적을 밀리초 수준으로 생성." data-en="GPU-based motion planner using B-spline parameterization and neural prediction for near-millisecond collision-free trajectory generation for robot arms.">B-스플라인 파라미터화와 신경망 예측을 결합한 GPU 가속 안전 모션 플래너(Safe Motion Planner) GASP. 로봇 팔의 충돌 회피 궤적을 밀리초 수준으로 생성.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">planning</span><span class="taxonomy-chip taxonomy-tag">safety</span></div>
+    <div class="item-summary i18n" data-ko="B-스플라인(B-spline) 파라미터화와 신경망 예측을 결합한 GPU 가속 세이프 플래너(GPU-Accelerated Safe Planner)로 로봇 팔의 밀리초 수준 충돌 회피 궤적을 실시간 생성." data-en="GPU-based motion planner combining B-spline parameterization with neural prediction to generate near-millisecond collision-free trajectories for robot arms.">B-스플라인(B-spline) 파라미터화와 신경망 예측을 결합한 GPU 가속 세이프 플래너(GPU-Accelerated Safe Planner)로 로봇 팔의 밀리초 수준 충돌 회피 궤적을 실시간 생성.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">planning</span><span class="taxonomy-chip taxonomy-tag">safety</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
   </div>
-  <div class="item">
+  <div class="item highlight">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2605.09659" target="_blank" rel="noopener">SACK: Safe Active Continual Koopman Learning for Uncertain Systems with Contractive Guarantees</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.00793" target="_blank" rel="noopener">DynamicWAM: Dual-Path Motion Conditioning for World-Action Models in Dynamic Manipulation</a></div>
       <div class="item-meta">
         <span class="badge">arXiv Robotics</span>
-        <span class="item-date">2026-08-06</span>
-        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+        <span class="item-date">2026-08-01</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="MPC 기반 형식적 안전 보장을 가진 적응형 쿠프만(Koopman) 학습 프레임워크 SACK. 분포 이동(Distribution Shift) 상황에서도 로봇의 안전한 작동을 유지하며 수축성(Contractive) 적응을 보장." data-en="Framework for adaptive Koopman learning with contractive adaptation and formal safety guarantees via MPC; maintains safe robot operation under distribution shift.">MPC 기반 형식적 안전 보장을 가진 적응형 쿠프만(Koopman) 학습 프레임워크 SACK. 분포 이동(Distribution Shift) 상황에서도 로봇의 안전한 작동을 유지하며 수축성(Contractive) 적응을 보장.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">safety</span></div>
+    <div class="item-summary i18n" data-ko="이중 경로 모션 컨디셔닝(Dual-Path Motion Conditioning)을 도입한 월드-액션 모델(World-Action Model)이 실제 다이내믹 매니퓰레이션에서 46.7% 성공률(+22.9pp)을 달성." data-en="Dual-path motion conditioning for world-action models reaches 46.7% success on real-world dynamic manipulation, a 22.9 point gain over baselines.">이중 경로 모션 컨디셔닝(Dual-Path Motion Conditioning)을 도입한 월드-액션 모델(World-Action Model)이 실제 다이내믹 매니퓰레이션에서 46.7% 성공률(+22.9pp)을 달성.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">world model</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
   </div>
-  <div class="item">
+  <div class="item highlight">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2608.05047" target="_blank" rel="noopener">Exact Model-Free Policy Iteration for Co-safe LTL Planning</a></div>
-      <div class="item-meta">
-        <span class="badge">arXiv Systems and Control</span>
-        <span class="item-date">2026-08-06</span>
-        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary i18n" data-ko="유한 MDP에서 co-safe LTL 계획을 위한 2단계 모델 프리(Model-Free) 강화학습(RL). 할인된 서로게이트 클램프 식별 후 비할인 정책 반복(Policy Iteration)을 수행해 정확 해를 학습." data-en="Two-step model-free RL for co-safe LTL planning in finite MDPs, using a discounted surrogate clamp identification followed by undiscounted policy iteration.">유한 MDP에서 co-safe LTL 계획을 위한 2단계 모델 프리(Model-Free) 강화학습(RL). 할인된 서로게이트 클램프 식별 후 비할인 정책 반복(Policy Iteration)을 수행해 정확 해를 학습.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">planning</span><span class="taxonomy-chip taxonomy-tag">RL</span><span class="taxonomy-chip taxonomy-tag">safety</span></div>
-  </div>
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2608.01013" target="_blank" rel="noopener">RL Bootstrapping of OpenVLA-OFT for a Novel Robot Embodiment</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.01035" target="_blank" rel="noopener">WAM-Diff2: Hierarchical AR-to-Diffusion Distillation for Highly Efficient Autonomous Driving VLA</a></div>
       <div class="item-meta">
         <span class="badge">arXiv Robotics</span>
         <span class="item-date">2026-08-02</span>
-        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="케이블 구동 병렬 로봇 같은 새 임바디먼트에서 실증 없이 사전학습 VLA(OpenVLA-OFT)를 적응시키는 2단계 PPO→GRPO 강화학습(RL) 부트스트래핑." data-en="Two-stage PPO-to-GRPO reinforcement learning adapts a pretrained VLA to a cable-driven parallel robot without embodiment-specific demonstrations.">케이블 구동 병렬 로봇 같은 새 임바디먼트에서 실증 없이 사전학습 VLA(OpenVLA-OFT)를 적응시키는 2단계 PPO→GRPO 강화학습(RL) 부트스트래핑.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">RL</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
-  </div>
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2607.29687" target="_blank" rel="noopener">Diagnosing Compositional Generalization in Sequential Robot Tasks</a></div>
-      <div class="item-meta">
-        <span class="badge">GitHub</span>
-        <span class="item-date">2026-07-31</span>
-        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary i18n" data-ko="순차 로봇 태스크의 조합적 일반화(Compositional Generalization) 격차를 분해 분석. 의존성 인지 데이터 수집으로 25%의 구조화된 하위집합만으로도 OOD 성능을 회복함을 보임." data-en="Decomposes generalization gaps and shows 25% structured task subsets recover strong OOD performance via dependency-aware data collection for sequential robot manipulation.">순차 로봇 태스크의 조합적 일반화(Compositional Generalization) 격차를 분해 분석. 의존성 인지 데이터 수집으로 25%의 구조화된 하위집합만으로도 OOD 성능을 회복함을 보임.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Survey / Analysis</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">imitation learning</span><span class="taxonomy-chip taxonomy-tag">benchmark</span></div>
-  </div>
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2608.04692" target="_blank" rel="noopener">Suppression Sticks, Locality Is Fragile: A Closed-Loop Audit of Task-Vector Negation in VLA Policies</a></div>
-      <div class="item-meta">
-        <span class="badge">arXiv Robotics</span>
-        <span class="item-date">2026-08-06</span>
-        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary i18n" data-ko="다중 태스크 VLA 로봇 정책에서 태스크 벡터(Task-Vector) 뺄셈 방식이 스킬을 취약하고 일관되지 못하게 억제하며 상당한 부수 손상을 초래함을 보이는 폐루프(Closed-Loop) 감사 연구." data-en="Closed-loop audit shows task-vector subtraction in multitask VLA robot policies produces brittle, inconsistent skill suppression with substantial collateral damage.">다중 태스크 VLA 로봇 정책에서 태스크 벡터(Task-Vector) 뺄셈 방식이 스킬을 취약하고 일관되지 못하게 억제하며 상당한 부수 손상을 초래함을 보이는 폐루프(Closed-Loop) 감사 연구.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Survey / Analysis</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">safety</span></div>
-  </div>
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2608.04246" target="_blank" rel="noopener">SAFECAST: Robust Failure Detection for VLA Policies with Contrast-Set Training and Calibration</a></div>
-      <div class="item-meta">
-        <span class="badge">arXiv Robotics</span>
-        <span class="item-date">2026-08-06</span>
-        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary i18n" data-ko="대조 집합(Contrast-Set) 섭동과 함수형 컨포멀 예측(Functional Conformal Prediction)을 사용해 VLA 정책 실패를 검출하는 SAFECAST. 정책 안전 평가에서 ROC-AUC를 향상." data-en="Failure detection for VLA policies using contrast-set perturbations and functional conformal prediction; improved ROC-AUC for policy safety evaluation.">대조 집합(Contrast-Set) 섭동과 함수형 컨포멀 예측(Functional Conformal Prediction)을 사용해 VLA 정책 실패를 검출하는 SAFECAST. 정책 안전 평가에서 ROC-AUC를 향상.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">safety</span></div>
+    <div class="item-summary i18n" data-ko="대규모 자기회귀(Autoregressive) VLA를 계층적 확산 정책(Hierarchical Diffusion Policy)으로 증류(distillation)해 자율주행 종단(end-to-end) 플래닝의 추론 비용을 크게 절감." data-en="Distills a large autoregressive VLA into a hierarchical diffusion policy to cut inference cost for autonomous driving while preserving end-to-end planning quality.">대규모 자기회귀(Autoregressive) VLA를 계층적 확산 정책(Hierarchical Diffusion Policy)으로 증류(distillation)해 자율주행 종단(end-to-end) 플래닝의 추론 비용을 크게 절감.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Autonomous Vehicle</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">efficient inference</span></div>
   </div>
 </div>
 
 <div class="section">
   <div class="section-header">
     <h2>🦿 Locomotion &amp; Whole-Body Control</h2>
-    <span class="section-count">1건</span>
   </div>
   <div class="item highlight">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2608.03387" target="_blank" rel="noopener">RoboReact: Agentic Skill Distillation from Generated Egocentric Videos for Generalizable Whole-Body Humanoid Manipulation</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.02653" target="_blank" rel="noopener">Light-Loco-Parkour: Versatile Perceptive Whole-Body Locomotion via Multi-Skill Distillation</a></div>
       <div class="item-meta">
         <span class="badge">arXiv Robotics</span>
-        <span class="item-date">2026-08-04</span>
+        <span class="item-date">2026-08-01</span>
         <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="단일 자기중심(Egocentric) RGB-D 관측에서 비디오 생성 모델(Video Generative Model)로 전신 휴머노이드 조작 스킬을 합성하는 RoboReact. JD·칭화(Tsinghua)·CUHK·HKU 공동 연구." data-en="Synthesizes whole-body humanoid manipulation skills from a single egocentric RGB-D observation via video generative models; joint work of JD, Tsinghua, CUHK, and HKU.">단일 자기중심(Egocentric) RGB-D 관측에서 비디오 생성 모델(Video Generative Model)로 전신 휴머노이드 조작 스킬을 합성하는 RoboReact. JD·칭화(Tsinghua)·CUHK·HKU 공동 연구.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Humanoid</span><span class="taxonomy-chip taxonomy-tag">whole body</span><span class="taxonomy-chip taxonomy-tag">imitation learning</span><span class="taxonomy-chip taxonomy-tag">world model</span></div>
+    <div class="item-summary i18n" data-ko="다중 스킬 증류(Multi-Skill Distillation)로 지각 기반(Perceptive) 휴머노이드 전신 보행 정책을 학습해 어수선한 지형을 사람처럼 통과하는 파쿠르 급 이동을 실현." data-en="Distills multiple locomotion skills into one perceptive whole-body policy that traverses cluttered terrain with human-like adaptability while keeping references terrain-grounded.">다중 스킬 증류(Multi-Skill Distillation)로 지각 기반(Perceptive) 휴머노이드 전신 보행 정책을 학습해 어수선한 지형을 사람처럼 통과하는 파쿠르 급 이동을 실현.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Humanoid</span><span class="taxonomy-chip taxonomy-tag">locomotion</span><span class="taxonomy-chip taxonomy-tag">whole body</span><span class="taxonomy-chip taxonomy-tag">RL</span></div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.02069" target="_blank" rel="noopener">Open-DiffLoco: Open-Source Differentiable Learning for Deployable Blind Quadruped Locomotion</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Systems and Control</span>
+        <span class="item-date">2026-08-03</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="복잡한 보상 설계 없이 배포 가능한(deployable) 블라인드 사족(Quadruped) 보행 정책을 학습하는 오픈소스 미분가능 시뮬레이션(Differentiable Simulation) 스택 공개." data-en="Open-source differentiable simulation stack trains deployable blind quadruped locomotion without hand-tuned rewards or long conventional RL training.">복잡한 보상 설계 없이 배포 가능한(deployable) 블라인드 사족(Quadruped) 보행 정책을 학습하는 오픈소스 미분가능 시뮬레이션(Differentiable Simulation) 스택 공개.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Software / Tool</span><span class="taxonomy-chip taxonomy-platform">Legged</span><span class="taxonomy-chip taxonomy-tag">locomotion</span><span class="taxonomy-chip taxonomy-tag">sim2real</span><span class="taxonomy-chip taxonomy-tag">open source</span></div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://www.therobotreport.com/google-deepmind-says-gemini-robotics-2-enables-full-body-control" target="_blank" rel="noopener">Google DeepMind says Gemini Robotics 2 enables full body control</a></div>
+      <div class="item-meta">
+        <span class="badge">The Robot Report</span>
+        <span class="item-date">2026-08-02</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="Google DeepMind가 온디바이스(on-device)에서 동작하는 Gemini Robotics 2를 공개, 보행·물체 조작·다중 로봇 협업을 아우르는 지능형 전신(Whole-Body) 제어를 시연." data-en="Google DeepMind unveils Gemini Robotics 2 with intelligent whole-body control for walking, object manipulation, and multi-robot collaboration running locally on-device.">Google DeepMind가 온디바이스(on-device)에서 동작하는 Gemini Robotics 2를 공개, 보행·물체 조작·다중 로봇 협업을 아우르는 지능형 전신(Whole-Body) 제어를 시연.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Deployment</span><span class="taxonomy-chip taxonomy-platform">Humanoid</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">whole body</span><span class="taxonomy-chip taxonomy-tag">multi robot</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.00820" target="_blank" rel="noopener">LooperMuscle: Fast and Stable Learning of Humanoid Whole-Body Tracking via Structured Mixture-of-Experts</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-08-01</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="구조화된 전문가 혼합(Structured Mixture-of-Experts)을 도입해 FastSAC 수준의 학습 속도로 PPO급 휴머노이드 전신(whole-body) 트래킹 품질을 회복." data-en="Structured mixture-of-experts recovers PPO-level tracking quality at FastSAC-level wall-clock time, giving fast and stable humanoid whole-body tracking training.">구조화된 전문가 혼합(Structured Mixture-of-Experts)을 도입해 FastSAC 수준의 학습 속도로 PPO급 휴머노이드 전신(whole-body) 트래킹 품질을 회복.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Humanoid</span><span class="taxonomy-chip taxonomy-tag">whole body</span><span class="taxonomy-chip taxonomy-tag">RL</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.02385" target="_blank" rel="noopener">StableMimic: Smooth Human-Like Recovery for Humanoid Motion Tracking - Learning Beyond the Tracking Distribution for Structured Post-Fall Behavior</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-08-03</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="학습 분포 밖의 낮은 높이·접촉 상태로 넘어졌을 때도 사람 같은(structured) 회복 동작이 가능한 휴머노이드 모션 트래킹 정책을 학습하여 폐루프 안정성을 개선." data-en="Extends humanoid motion trackers with structured post-fall behavior so the robot recovers smoothly from low-height, contact-rich states outside the training distribution.">학습 분포 밖의 낮은 높이·접촉 상태로 넘어졌을 때도 사람 같은(structured) 회복 동작이 가능한 휴머노이드 모션 트래킹 정책을 학습하여 폐루프 안정성을 개선.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Humanoid</span><span class="taxonomy-chip taxonomy-tag">whole body</span><span class="taxonomy-chip taxonomy-tag">RL</span><span class="taxonomy-chip taxonomy-tag">safety</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.05647" target="_blank" rel="noopener">KILVO: Kinematic-Inertial-LiDAR-Visual Odometry with Robust Multimodal Adaptation for Humanoid Robots</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-08-06</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="휴머노이드 로봇 특성에 맞춰 운동학·관성·라이다·비전 신호를 강건 적응(robust adaptation)으로 결합하는 오도메트리(Odometry) 프레임워크 KILVO 제안." data-en="Tightly couples kinematic, inertial, LiDAR, and visual sensing with robust modality adaptation to give humanoid robots reliable state estimation in real-world complexity.">휴머노이드 로봇 특성에 맞춰 운동학·관성·라이다·비전 신호를 강건 적응(robust adaptation)으로 결합하는 오도메트리(Odometry) 프레임워크 KILVO 제안.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">System / Hardware</span><span class="taxonomy-chip taxonomy-platform">Humanoid</span><span class="taxonomy-chip taxonomy-tag">SLAM</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
   </div>
 </div>
 
 <div class="section">
   <div class="section-header">
     <h2>🧭 Mobility, Navigation &amp; Autonomy</h2>
-    <span class="section-count">4건</span>
   </div>
   <div class="item highlight">
     <div class="item-top">
-      <div class="item-title"><a href="https://huggingface.co/nvidia/Alpamayo2-Super" target="_blank" rel="noopener">NVIDIA Alpamayo 2 Super: Frontier Open Reasoning Model for Autonomous Vehicles</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.02257" target="_blank" rel="noopener">Learning Panorama-Aware VLA for Mobile Manipulation with Whole-Body Teleoperation</a></div>
       <div class="item-meta">
-        <span class="badge">Hugging Face Models</span>
-        <span class="item-date">2026-08-04</span>
-        <span class="score">▲ 73</span>
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-08-03</span>
         <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="NVIDIA가 공개한 34B 자율주행 VLA 모델 Alpamayo 2 Super(코스모스(Cosmos) 3 기반 32B VLM + 2.3B 디퓨전(Diffusion) 액션 전문가). 궤적 예측·VQA·2D 그라운딩·자동 라벨링을 지원하며 상업적 사용 가능." data-en="NVIDIA released Alpamayo 2 Super, a 34B autonomous-driving VLA (32B VLM + 2.3B diffusion action expert on Cosmos 3) supporting trajectory prediction, VQA, 2D grounding, and auto-labeling for commercial use.">NVIDIA가 공개한 34B 자율주행 VLA 모델 Alpamayo 2 Super(코스모스(Cosmos) 3 기반 32B VLM + 2.3B 디퓨전(Diffusion) 액션 전문가). 궤적 예측·VQA·2D 그라운딩·자동 라벨링을 지원하며 상업적 사용 가능.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Autonomous Vehicle</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">open weights</span><span class="taxonomy-chip taxonomy-tag">foundation model</span></div>
+    <div class="item-summary i18n" data-ko="전신(whole-body) 원격조작(Teleoperation) 데이터로 학습한 파노라마 인지 VLA(Panorama-Aware VLA)로 베이스와 팔을 동시에 제어하는 모바일 매니퓰레이션(Mobile Manipulation) 다단계 태스크 성능을 향상." data-en="Panorama-aware VLA trained from whole-body teleoperation lets mobile manipulators handle open-world multi-stage tasks that couple base and arm motion.">전신(whole-body) 원격조작(Teleoperation) 데이터로 학습한 파노라마 인지 VLA(Panorama-Aware VLA)로 베이스와 팔을 동시에 제어하는 모바일 매니퓰레이션(Mobile Manipulation) 다단계 태스크 성능을 향상.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Mobile Manipulator</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">teleoperation</span></div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.01381" target="_blank" rel="noopener">DreamTrajectory: Trajectory-Guided Action Generation with World Model Alignment for Mobile Manipulation</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-08-02</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="월드 모델(World Model)과 궤적 가이드 액션 생성을 정렬해 시점이 바뀌는 모바일 매니퓰레이션에서 베이스와 팔의 동시 제어를 학습." data-en="Aligns a world model to trajectory-guided action generation so a mobile manipulator can coordinate base and arm motion under continuously changing viewpoints and contacts.">월드 모델(World Model)과 궤적 가이드 액션 생성을 정렬해 시점이 바뀌는 모바일 매니퓰레이션에서 베이스와 팔의 동시 제어를 학습.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Mobile Manipulator</span><span class="taxonomy-chip taxonomy-tag">world model</span><span class="taxonomy-chip taxonomy-tag">imitation learning</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.00206" target="_blank" rel="noopener">Motion Planning for Mobile Manipulators Navigating Doorways via Model Predictive Control</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Systems and Control</span>
+        <span class="item-date">2026-07-31</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="모델 예측 제어(Model Predictive Control) 기반으로 이동 베이스와 매니퓰레이터의 협조 궤적을 계획하여 모바일 매니퓰레이터의 문 통과(Doorway Navigation) 문제를 해결." data-en="MPC-based coordinated base-plus-arm planner lets mobile manipulators pass through doorways, a common failure mode in human-scale indoor navigation.">모델 예측 제어(Model Predictive Control) 기반으로 이동 베이스와 매니퓰레이터의 협조 궤적을 계획하여 모바일 매니퓰레이터의 문 통과(Doorway Navigation) 문제를 해결.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Mobile Manipulator</span><span class="taxonomy-chip taxonomy-tag">planning</span><span class="taxonomy-chip taxonomy-tag">navigation</span></div>
   </div>
   <div class="item">
     <div class="item-top">
@@ -1101,118 +1161,188 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="생성 모델의 장점과 직접 정책 학습(Direct Policy Learning)을 결합해 실행 가능한 자율주행 제어 궤적을 생성하는 플로 매칭(Flow-Matching) 플래너." data-en="Flow-matching planner generating actionable control trajectories combining generative model advantages with direct policy learning for autonomous vehicles.">생성 모델의 장점과 직접 정책 학습(Direct Policy Learning)을 결합해 실행 가능한 자율주행 제어 궤적을 생성하는 플로 매칭(Flow-Matching) 플래너.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Autonomous Vehicle</span><span class="taxonomy-chip taxonomy-tag">imitation learning</span><span class="taxonomy-chip taxonomy-tag">planning</span></div>
-  </div>
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2608.04776" target="_blank" rel="noopener">NSF-HRPT: Neural Semantic Field meets Hierarchical Risk Perception Tree for Safety-Critical Scenario Analysis</a></div>
-      <div class="item-meta">
-        <span class="badge">arXiv AI</span>
-        <span class="item-date">2026-08-06</span>
-        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary i18n" data-ko="신경 시맨틱 필드(Neural Semantic Field)와 계층적 위험 인지 트리(Hierarchical Risk Perception Tree)를 결합해 단안 비전(Monocular Vision)만으로 자율주행 위험을 실시간 정량 평가하는 NSF-HRPT." data-en="NSF-HRPT combines a Neural Semantic Field and Hierarchical Risk Perception Tree for real-time quantitative autonomous-driving risk assessment from monocular vision.">신경 시맨틱 필드(Neural Semantic Field)와 계층적 위험 인지 트리(Hierarchical Risk Perception Tree)를 결합해 단안 비전(Monocular Vision)만으로 자율주행 위험을 실시간 정량 평가하는 NSF-HRPT.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Autonomous Vehicle</span><span class="taxonomy-chip taxonomy-tag">safety</span></div>
-  </div>
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://www.therobotreport.com/zoox-unveils-production-ready-robotaxi-for-u-s-expansion" target="_blank" rel="noopener">Zoox unveils production-ready robotaxi for U.S. expansion</a></div>
-      <div class="item-meta">
-        <span class="badge">The Robot Report</span>
-        <span class="item-date">2026-08-04</span>
-        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary i18n" data-ko="아마존 자회사 Zoox가 최종 양산 사양 로보택시(Robotaxi) 디자인을 공개하고 승객 편의를 개선한 재설계와 함께 미국 내 테스트를 확대." data-en="Amazon subsidiary Zoox unveiled its final production-ready robotaxi design and expanded testing following a redesign to improve rider comfort.">아마존 자회사 Zoox가 최종 양산 사양 로보택시(Robotaxi) 디자인을 공개하고 승객 편의를 개선한 재설계와 함께 미국 내 테스트를 확대.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Deployment</span><span class="taxonomy-chip taxonomy-platform">Autonomous Vehicle</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+    <div class="item-summary i18n" data-ko="플로우 매칭(Flow Matching) 기반 플래너를 이용해 자율주행 차량의 제어 궤적을 직접 생성하여 생성 모델의 장점과 직접 정책 학습(direct policy learning)을 결합." data-en="Flow-matching planner directly produces actionable control trajectories for autonomous vehicles, combining generative-model advantages with direct policy learning.">플로우 매칭(Flow Matching) 기반 플래너를 이용해 자율주행 차량의 제어 궤적을 직접 생성하여 생성 모델의 장점과 직접 정책 학습(direct policy learning)을 결합.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Autonomous Vehicle</span><span class="taxonomy-chip taxonomy-tag">planning</span><span class="taxonomy-chip taxonomy-tag">imitation learning</span></div>
   </div>
 </div>
 
 <div class="section">
   <div class="section-header">
     <h2>🚁 Aerial, Field, Marine &amp; Multi-Robot</h2>
-    <span class="section-count">3건</span>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.00635" target="_blank" rel="noopener">FlowPilot: Real-Time World-Action Modeling for Agile UAV Navigation</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-08-01</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="플로우 매칭(Flow Matching) 기반 월드-액션 모델(World-Action Model)로 깊이 씬과 실행 궤적을 동시에 예측하여 최대 5.5 m/s 실시간 UAV 온보드 항법을 실현." data-en="Flow-matching world-action model jointly predicts depth scenes and executable trajectories for real-time onboard UAV navigation at up to 5.5 m/s.">플로우 매칭(Flow Matching) 기반 월드-액션 모델(World-Action Model)로 깊이 씬과 실행 궤적을 동시에 예측하여 최대 5.5 m/s 실시간 UAV 온보드 항법을 실현.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Aerial / Drone</span><span class="taxonomy-chip taxonomy-tag">world model</span><span class="taxonomy-chip taxonomy-tag">navigation</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
   </div>
   <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2608.04723" target="_blank" rel="noopener">A Vision-based Control Framework for Real-time Autonomous UUV Operations</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2607.29393" target="_blank" rel="noopener">AquaJEPA: Action-Conditioned Multimodal Predictive Representations for Underwater Robot Dynamics</a></div>
       <div class="item-meta">
         <span class="badge">arXiv Robotics</span>
-        <span class="item-date">2026-08-06</span>
+        <span class="item-date">2026-07-31</span>
         <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="동적 환경에서 무인 수중 로봇(UUV, Underwater Unmanned Vehicle)의 실시간 위치 추정·내비게이션(Navigation)·3D 매핑을 지원하는 통합 비전 기반 제어 프레임워크." data-en="Integrated vision-based framework enabling real-time localization, navigation, and 3D mapping for underwater unmanned vehicles in dynamic environments.">동적 환경에서 무인 수중 로봇(UUV, Underwater Unmanned Vehicle)의 실시간 위치 추정·내비게이션(Navigation)·3D 매핑을 지원하는 통합 비전 기반 제어 프레임워크.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Marine</span><span class="taxonomy-chip taxonomy-tag">SLAM</span><span class="taxonomy-chip taxonomy-tag">navigation</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+    <div class="item-summary i18n" data-ko="RGB·소나·자기감각(proprioception)을 융합하고 센서 유효성을 명시적으로 처리하는 액션 조건부 예측 표현(Action-Conditioned Predictive Representations)으로 수중 로봇 다이나믹스를 학습." data-en="Multimodal predictive model fuses RGB, sonar, and proprioception with explicit sensor-validity handling for robust underwater robot navigation.">RGB·소나·자기감각(proprioception)을 융합하고 센서 유효성을 명시적으로 처리하는 액션 조건부 예측 표현(Action-Conditioned Predictive Representations)으로 수중 로봇 다이나믹스를 학습.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Marine</span><span class="taxonomy-chip taxonomy-tag">world model</span><span class="taxonomy-chip taxonomy-tag">navigation</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
   </div>
   <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2608.04721" target="_blank" rel="noopener">Enabling Urgency-aware Robot Swarm Intralogistics using Smart IoT Tags</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.01800" target="_blank" rel="noopener">Hybrid Impedance-Admittance Control with Multi-Link Aerial Robot for Contact-Rich Surface Sliding Task</a></div>
       <div class="item-meta">
-        <span class="badge">arXiv Robotics</span>
-        <span class="item-date">2026-08-06</span>
+        <span class="badge">arXiv Systems and Control</span>
+        <span class="item-date">2026-08-03</span>
         <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="BLE 브로드캐스트 긴급도 태그(Urgency Tag)를 활용한 분산 다중 로봇(Swarm) 물류 시스템. 실물 다중 로봇 실험에서 우선순위 정합도를 0.41에서 0.64로 향상." data-en="Decentralized swarm logistics system using BLE-broadcast urgency tags; improves priority alignment from 0.41 to 0.64 in physical multi-robot trials.">BLE 브로드캐스트 긴급도 태그(Urgency Tag)를 활용한 분산 다중 로봇(Swarm) 물류 시스템. 실물 다중 로봇 실험에서 우선순위 정합도를 0.41에서 0.64로 향상.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">System / Hardware</span><span class="taxonomy-chip taxonomy-platform">Multi-Robot</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
-  </div>
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2608.04121" target="_blank" rel="noopener">Interpretable Fuzzy Inference for UAV Target Tracking Using Bounding-Box Geometry</a></div>
-      <div class="item-meta">
-        <span class="badge">arXiv Robotics</span>
-        <span class="item-date">2026-08-06</span>
-        <span class="stars" title="2/5: niche but worth tracking for the relevant subfield" aria-label="2/5: niche but worth tracking for the relevant subfield" tabindex="0"><span class="filled">★★</span><span class="empty">☆☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary i18n" data-ko="YOLO 바운딩 박스에서 UAV의 요(Yaw)를 추정하는 해석 가능한 Takagi-Sugeno 퍼지(Fuzzy) 추론. 평균 절대 오차 0.140도로 데이터 효율적이고 실시간 동작이 가능." data-en="Interpretable Takagi-Sugeno fuzzy inference for UAV yaw estimation from YOLO bounding boxes, reaching 0.140-degree mean absolute error with data-efficient, real-time operation.">YOLO 바운딩 박스에서 UAV의 요(Yaw)를 추정하는 해석 가능한 Takagi-Sugeno 퍼지(Fuzzy) 추론. 평균 절대 오차 0.140도로 데이터 효율적이고 실시간 동작이 가능.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Aerial / Drone</span><span class="taxonomy-chip taxonomy-tag">navigation</span></div>
+    <div class="item-summary i18n" data-ko="다관절 공중 매니퓰레이터(Multi-Link Aerial Robot)가 표면 슬라이딩 접촉을 안정적으로 유지할 수 있도록 하이브리드 임피던스-어드미턴스(Impedance-Admittance) 제어기를 설계." data-en="Hybrid impedance-admittance controller lets a multi-link aerial manipulator maintain stable contact for surface sliding, a hard aerial-manipulation regime.">다관절 공중 매니퓰레이터(Multi-Link Aerial Robot)가 표면 슬라이딩 접촉을 안정적으로 유지할 수 있도록 하이브리드 임피던스-어드미턴스(Impedance-Admittance) 제어기를 설계.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Aerial / Drone</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
   </div>
 </div>
 
 <div class="section">
   <div class="section-header">
     <h2>📊 Data, Benchmarks, Simulation &amp; Tools</h2>
-    <span class="section-count">4건</span>
   </div>
   <div class="item highlight">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2608.03682" target="_blank" rel="noopener">PhyAI: Real-Time Physical AI at the Edge, Scalable Rollouts in the Cloud</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2607.29302" target="_blank" rel="noopener">BWM: A Low-Cost High-Fidelity World Simulator for Robot Learning</a></div>
       <div class="item-meta">
         <span class="badge">arXiv Robotics</span>
-        <span class="item-date">2026-08-05</span>
+        <span class="item-date">2026-07-31</span>
         <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="온보드·엣지·클라우드에서 VLA와 WAM(World Action Model)을 통합 서빙하는 추론 엔진 PhyAI. pi0, pi0.5, GR00T N1.7, MiniCPM-Robot 공식 구현 대비 1.40~4.65배 가속." data-en="Unified inference engine for VLA and WAM models across onboard/edge/cloud; 1.40×–4.65× speedup over official pi0, pi0.5, GR00T N1.7, and MiniCPM-Robot implementations.">온보드·엣지·클라우드에서 VLA와 WAM(World Action Model)을 통합 서빙하는 추론 엔진 PhyAI. pi0, pi0.5, GR00T N1.7, MiniCPM-Robot 공식 구현 대비 1.40~4.65배 가속.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Software / Tool</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">efficient inference</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+    <div class="item-summary i18n" data-ko="액션 조건부 월드 모델(Action-Conditioned World Model)로 저비용·고충실도 시각 시뮬레이션을 제공하는 로봇 학습용 시뮬레이터 BWM. WorldArena Challenge 1위, 오픈소스 툴링 공개." data-en="Action-conditioned world model gives low-cost high-fidelity visual simulation for robot learning; ranked first in the WorldArena Challenge with open-source tooling.">액션 조건부 월드 모델(Action-Conditioned World Model)로 저비용·고충실도 시각 시뮬레이션을 제공하는 로봇 학습용 시뮬레이터 BWM. WorldArena Challenge 1위, 오픈소스 툴링 공개.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Software / Tool</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">simulation</span><span class="taxonomy-chip taxonomy-tag">world model</span><span class="taxonomy-chip taxonomy-tag">open source</span></div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.01834" target="_blank" rel="noopener">Teleopit: A Full-Embodiment Humanoid Teleoperation System</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-08-03</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="휴머노이드 데이터 수집을 위해 전신 모션, 연속 덱스터러스(Dexterous) 손 제어, 시점 제어를 동시에 지원하는 풀-임보디먼트 원격조작(Full-Embodiment Teleoperation) 시스템 Teleopit 공개." data-en="Full-embodiment humanoid teleoperation stack for demonstration collection coordinates whole-body motion, continuous dexterous hand control, and viewpoint control.">휴머노이드 데이터 수집을 위해 전신 모션, 연속 덱스터러스(Dexterous) 손 제어, 시점 제어를 동시에 지원하는 풀-임보디먼트 원격조작(Full-Embodiment Teleoperation) 시스템 Teleopit 공개.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">System / Hardware</span><span class="taxonomy-chip taxonomy-platform">Humanoid</span><span class="taxonomy-chip taxonomy-tag">teleoperation</span><span class="taxonomy-chip taxonomy-tag">dexterity</span><span class="taxonomy-chip taxonomy-tag">whole body</span></div>
   </div>
   <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2608.00337" target="_blank" rel="noopener">Action Chunk Scheduling for Batched Robot Policy Serving</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.00959" target="_blank" rel="noopener">MixedComplementarityProblems.jl: A Fast, Batched, Open-Source Interior Point Solver for Mixed Complementarity Problems</a></div>
       <div class="item-meta">
-        <span class="badge">arXiv Robotics</span>
-        <span class="item-date">2026-08-01</span>
+        <span class="badge">arXiv Systems and Control</span>
+        <span class="item-date">2026-08-02</span>
         <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="이질적인 액션 소비율을 가진 여러 로봇에게 VLA 정책을 서빙하는 스케줄링 시스템 Armory. 다중 로봇 배포에서 처리량을 최대 18% 향상." data-en="Armory scheduling system serves VLA policies to multiple robots with heterogeneous action-consumption rates; improves throughput by up to 18% in multi-robot deployments.">이질적인 액션 소비율을 가진 여러 로봇에게 VLA 정책을 서빙하는 스케줄링 시스템 Armory. 다중 로봇 배포에서 처리량을 최대 18% 향상.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Software / Tool</span><span class="taxonomy-chip taxonomy-platform">Multi-Robot</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">efficient inference</span></div>
+    <div class="item-summary i18n" data-ko="로봇 접촉 다이나믹스와 다중 에이전트 최적화의 근간이 되는 혼합 상보성 문제(Mixed Complementarity Problem)를 GPU 배치 처리하는 오픈소스 내부점(Interior Point) 솔버." data-en="Fast, batched, GPU-friendly open-source interior-point solver for mixed complementarity problems that underlie robot contact dynamics and multi-agent optimization.">로봇 접촉 다이나믹스와 다중 에이전트 최적화의 근간이 되는 혼합 상보성 문제(Mixed Complementarity Problem)를 GPU 배치 처리하는 오픈소스 내부점(Interior Point) 솔버.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Software / Tool</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">simulation</span><span class="taxonomy-chip taxonomy-tag">open source</span><span class="taxonomy-chip taxonomy-tag">planning</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>🛠 Hardware, Sensing, Deployment &amp; Safety</h2>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.02809" target="_blank" rel="noopener">Toward Certified Functional Safety for Industrial Humanoid Robots: The Fail-Passive Gap and a Feasibility Study</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-08-03</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="산업용 휴머노이드의 실제 배포를 막는 요인은 이동·조작 능력이 아니라 기능 안전 인증(Functional Safety Certification)임을 분석하고, 페일-패시브(fail-passive) 설계의 실현 가능성을 검토." data-en="Diagnoses why functional-safety certification is the main blocker for industrial humanoids and studies the feasibility of a fail-passive design path for legged platforms.">산업용 휴머노이드의 실제 배포를 막는 요인은 이동·조작 능력이 아니라 기능 안전 인증(Functional Safety Certification)임을 분석하고, 페일-패시브(fail-passive) 설계의 실현 가능성을 검토.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Survey / Analysis</span><span class="taxonomy-chip taxonomy-platform">Humanoid</span><span class="taxonomy-chip taxonomy-tag">safety</span><span class="taxonomy-chip taxonomy-tag">whole body</span></div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.02080" target="_blank" rel="noopener">Toward Geometry-Scalable Whole-Body Touch for Humanoids: A 3D-Printed Conformal EIT Skin</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-08-03</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="밀집 택셀(taxel) 배열의 배선 문제 없이 대면적 휴머노이드에 촉각(Tactile) 감지를 확장할 수 있는 3D 프린팅 컨포멀 EIT(Electrical Impedance Tomography) 스킨 개발." data-en="3D-printed conformal EIT skin scales whole-body tactile sensing to large humanoid surfaces without the wiring explosion of dense taxel arrays.">밀집 택셀(taxel) 배열의 배선 문제 없이 대면적 휴머노이드에 촉각(Tactile) 감지를 확장할 수 있는 3D 프린팅 컨포멀 EIT(Electrical Impedance Tomography) 스킨 개발.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">System / Hardware</span><span class="taxonomy-chip taxonomy-platform">Humanoid</span><span class="taxonomy-chip taxonomy-tag">tactile</span><span class="taxonomy-chip taxonomy-tag">whole body</span><span class="taxonomy-chip taxonomy-tag">HRI</span></div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.03938" target="_blank" rel="noopener">Bimanual Manipulation Within an 8 GB Budget: Zero-Copy Sensing and Quantized ACT on an Entry-Level Jetson</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-08-04</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="제로카피(Zero-Copy) 센싱과 양자화 ACT를 결합해 8GB 엔트리 젯슨(Jetson)에서 양팔(Bimanual) 모방 학습 정책을 배포하는 저비용 임베디드 로보틱스 파이프라인 제시." data-en="Deploys quantized ACT bimanual imitation policies on an 8 GB Jetson using zero-copy sensing, closing the gap between imitation-learning research and low-cost embedded robotics.">제로카피(Zero-Copy) 센싱과 양자화 ACT를 결합해 8GB 엔트리 젯슨(Jetson)에서 양팔(Bimanual) 모방 학습 정책을 배포하는 저비용 임베디드 로보틱스 파이프라인 제시.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Deployment</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">bimanual</span><span class="taxonomy-chip taxonomy-tag">efficient inference</span><span class="taxonomy-chip taxonomy-tag">imitation learning</span></div>
   </div>
   <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2608.04896" target="_blank" rel="noopener">When Shared Rollouts Fail in Defensive Driving Evaluation: A NAVSIM Score Basis Audit</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.03677" target="_blank" rel="noopener">Active Stiffness Control of a Supportive Continuum Robot</a></div>
       <div class="item-meta">
-        <span class="badge">arXiv AI</span>
+        <span class="badge">arXiv Systems and Control</span>
+        <span class="item-date">2026-08-04</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="수술용·산업용 연속체 로봇(Continuum Robot)의 지지 팔에 능동 강성(Active Stiffness) 제어를 도입해 조작 팔의 부하 지지 능력을 동적으로 향상." data-en="Adds active stiffness control to a supportive continuum robot so it can dynamically stabilize an operative continuum arm and improve load-bearing capability.">수술용·산업용 연속체 로봇(Continuum Robot)의 지지 팔에 능동 강성(Active Stiffness) 제어를 도입해 조작 팔의 부하 지지 능력을 동적으로 향상.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">System / Hardware</span><span class="taxonomy-chip taxonomy-platform">Soft / Medical</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.03669" target="_blank" rel="noopener">Precision Specimen Positioning in Electron Microscopy through Hysteresis Compensation, Iterative Learning, and Vision-Based Sensing</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Systems and Control</span>
         <span class="item-date">2026-08-06</span>
         <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="NAVSIM v2.2의 수치적 불안정성이 참조 조건 방어운전 크레딧을 잘못 배분함을 밝히고, 벤치마크(Benchmark) 공시 규정과 안정성 시험 프로토콜을 제안하는 감사 연구." data-en="Audit reveals NAVSIM v2.2 numerical instability causes reference-conditioned forgiveness to misattribute defensive-driving credit, proposing benchmark disclosure and stability-test protocol.">NAVSIM v2.2의 수치적 불안정성이 참조 조건 방어운전 크레딧을 잘못 배분함을 밝히고, 벤치마크(Benchmark) 공시 규정과 안정성 시험 프로토콜을 제안하는 감사 연구.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Benchmark</span><span class="taxonomy-chip taxonomy-platform">Autonomous Vehicle</span><span class="taxonomy-chip taxonomy-tag">simulation</span></div>
+    <div class="item-summary i18n" data-ko="히스테리시스 보상, 반복 학습 제어(Iterative Learning Control), 비전 기반 센싱을 통합해 전자현미경 나노미터급 스테이지 위치 오차를 7~12배 감소시키는 정밀 위치 제어 프레임워크." data-en="Integrates feedforward hysteresis compensation, iterative learning control, and vision-based sensing for nanometer-scale microscopy stage positioning, cutting error by 7 to 12x.">히스테리시스 보상, 반복 학습 제어(Iterative Learning Control), 비전 기반 센싱을 통합해 전자현미경 나노미터급 스테이지 위치 오차를 7~12배 감소시키는 정밀 위치 제어 프레임워크.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">System / Hardware</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>🧠 Selected Robotics-Enabling AI</h2>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.04060" target="_blank" rel="noopener">SJEPA: Learning Elegant Latent Dynamics with Hybrid Symbolic-Neural Predictors</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Machine Learning</span>
+        <span class="item-date">2026-08-06</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="결합 임베딩 예측 구조(Joint-Embedding Predictive Architecture)에 심볼릭-신경 하이브리드 예측기를 결합해 해석 가능한 잠재 다이나믹스(Latent Dynamics)를 학습, 모델 기반 로봇 제어 활용성을 제시." data-en="Joint-embedding predictive architecture discovers compact symbolic latent dynamics with neural corrections, giving interpretable world modeling for model-based robot control.">결합 임베딩 예측 구조(Joint-Embedding Predictive Architecture)에 심볼릭-신경 하이브리드 예측기를 결합해 해석 가능한 잠재 다이나믹스(Latent Dynamics)를 학습, 모델 기반 로봇 제어 활용성을 제시.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">world model</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.04201" target="_blank" rel="noopener">Unscented KalmanNet: a hybrid deep learning filter with calibrated posterior covariance for nonlinear state estimation</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Machine Learning</span>
+        <span class="item-date">2026-08-06</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="무향 칼만 필터(Unscented Kalman Filter)에 학습형 노이즈·이득 모듈을 결합해 실제 비행 데이터에서 26~50% RMSE 감소와 교정된 사후 공분산을 얻는 하이브리드 딥러닝 필터." data-en="Augments the unscented Kalman filter with learned noise and gain modules and reports 26 to 50 percent RMSE reduction on real flight data with calibrated posterior covariance.">무향 칼만 필터(Unscented Kalman Filter)에 학습형 노이즈·이득 모듈을 결합해 실제 비행 데이터에서 26~50% RMSE 감소와 교정된 사후 공분산을 얻는 하이브리드 딥러닝 필터.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
   </div>
   <div class="item">
     <div class="item-top">
@@ -1223,46 +1353,26 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="생물 웻랩(Wet-Lab) 프로토콜을 로봇 실행 가능한 액션 시퀀스로 변환하는 ProtoAct. 검색-증강 스키마 매핑(Retrieval-Augmented Schema Mapping)을 사용하며 22개 세포 배양 프로토콜을 주석 처리한 데이터셋 포함." data-en="Converts biological wet-lab protocols into robot-executable action sequences via retrieval-augmented schema mapping, including an annotated dataset of 22 cell-culture protocols for embodied robotic systems.">생물 웻랩(Wet-Lab) 프로토콜을 로봇 실행 가능한 액션 시퀀스로 변환하는 ProtoAct. 검색-증강 스키마 매핑(Retrieval-Augmented Schema Mapping)을 사용하며 22개 세포 배양 프로토콜을 주석 처리한 데이터셋 포함.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Dataset</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span></div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-header">
-    <h2>🛠 Hardware, Sensing, Deployment &amp; Safety</h2>
-    <span class="section-count">2건</span>
+    <div class="item-summary i18n" data-ko="검색 증강(Retrieval-Augmented) 스키마 매핑으로 생물학 웻랩(Wet-Lab) 프로토콜을 로봇 실행 가능한 액션 시퀀스로 변환하고, 세포 배양 22개 프로토콜의 주석 데이터셋을 함께 공개." data-en="Retrieval-augmented schema mapping converts biological wet-lab protocols into robot-executable action sequences, with an annotated benchmark of 22 cell-culture protocols.">검색 증강(Retrieval-Augmented) 스키마 매핑으로 생물학 웻랩(Wet-Lab) 프로토콜을 로봇 실행 가능한 액션 시퀀스로 변환하고, 세포 배양 22개 프로토콜의 주석 데이터셋을 함께 공개.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Dataset</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">benchmark</span></div>
   </div>
   <div class="item">
     <div class="item-top">
-      <div class="item-title"><a href="https://www.therobotreport.com/avnet-and-weston-robot-partner-to-launch-edge-ai-inspection-platform" target="_blank" rel="noopener">Avnet and Weston Robot partner to launch edge AI inspection platform</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.03099" target="_blank" rel="noopener">What Language Does and What the Evidence Supports: A Functional Role Taxonomy and Evidence Audit of Language Grounding in Embodied Agents</a></div>
       <div class="item-meta">
-        <span class="badge">The Robot Report</span>
-        <span class="item-date">2026-08-05</span>
-        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
-      </div>
-    </div>
-    <div class="item-summary i18n" data-ko="AMD Ryzen AI(최대 50 TOPS)를 백팩 형태로 탑재한 유니트리(Unitree) 사족보행 자율 산업 검사 플랫폼. 열화상·시각 분석, 3D 라이다(LiDAR) 매핑, GPS 부재 환경 작동, 저지연 온보드 추론을 제공." data-en="Unitree quadruped backpack-mounted with AMD Ryzen AI (up to 50 TOPS) for autonomous industrial inspection: thermal/visual analytics, 3D lidar mapping, GPS-denied operation, and low-latency onboard inference.">AMD Ryzen AI(최대 50 TOPS)를 백팩 형태로 탑재한 유니트리(Unitree) 사족보행 자율 산업 검사 플랫폼. 열화상·시각 분석, 3D 라이다(LiDAR) 매핑, GPS 부재 환경 작동, 저지연 온보드 추론을 제공.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">System / Hardware</span><span class="taxonomy-chip taxonomy-platform">Legged</span><span class="taxonomy-chip taxonomy-tag">real robot</span><span class="taxonomy-chip taxonomy-tag">efficient inference</span></div>
-  </div>
-  <div class="item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://arxiv.org/abs/2608.04127" target="_blank" rel="noopener">Teaching Foundation Models to Read mmWave: Pose-Guided Kinematic Representation for Human Behavior Understanding</a></div>
-      <div class="item-meta">
-        <span class="badge">arXiv Computer Vision</span>
+        <span class="badge">arXiv Computation and Language</span>
         <span class="item-date">2026-08-06</span>
         <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="3D 포즈 감독을 통해 밀리미터파(mmWave) 레이더를 언어와 정렬하는 mmMind. 추론 시 포즈 없이도 제로샷 레이더-언어 이해(Radar-Language Understanding)로 인간 행동을 해석해 HRI/센싱에 활용 가능." data-en="mmMind aligns millimeter-wave radar with language via 3D pose supervision, enabling zero-shot radar-language understanding of human behavior without inference-time pose.">3D 포즈 감독을 통해 밀리미터파(mmWave) 레이더를 언어와 정렬하는 mmMind. 추론 시 포즈 없이도 제로샷 레이더-언어 이해(Radar-Language Understanding)로 인간 행동을 해석해 HRI/센싱에 활용 가능.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-tag">HRI</span></div>
+    <div class="item-summary i18n" data-ko="임보디드 에이전트에서 언어(Language Grounding)가 수행하는 다섯 가지 기능적 역할을 정의하고, 현행 로봇 시스템에서 그 근거가 실제로 뒷받침되는지 감사(evidence audit)한 서베이." data-en="Defines five functional roles that language can play for embodied agents and audits which are actually supported by evidence in current robotic systems.">임보디드 에이전트에서 언어(Language Grounding)가 수행하는 다섯 가지 기능적 역할을 정의하고, 현행 로봇 시스템에서 그 근거가 실제로 뒷받침되는지 감사(evidence audit)한 서베이.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Survey / Analysis</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">HRI</span></div>
   </div>
 </div>
 
 <div class="section radar-section">
   <div class="section-header">
-    <h2>🔭 Frontier AI Radar</h2>
-    <span class="section-count">9건</span>
+    <h2>🔭 Frontier AI</h2>
   </div>
     <p class="section-description i18n" data-ko="언어 모델에 국한하지 않은 범용 파운데이션 모델의 주요 신규 공개" data-en="Major new releases of broadly reusable foundation models, not limited to language models">언어 모델에 국한하지 않은 범용 파운데이션 모델의 주요 신규 공개</p>
   <div class="item highlight radar-item">
@@ -1274,20 +1384,20 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="radar-tier radar-tier-flagship" title="Flagship: top-end new model or family from a major frontier lab" aria-label="Flagship: top-end new model or family from a major frontier lab" tabindex="0">Flagship</span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="알리바바(Alibaba)의 2.4T 파라미터 전문가 혼합(MoE) 플래그십 모델(95B 활성). 1M 토큰 컨텍스트와 텍스트·이미지·비디오 멀티모달 입력을 지원하며 2026-08-03 유료 API로 공개됐고 오픈 웨이트(Open Weights)는 곧 배포 예정." data-en="Alibaba&#x27;s 2.4T-parameter MoE flagship (95B active) with 1M context and text/image/video input; launched via hosted API August 3, 2026 with open weights promised within days.">알리바바(Alibaba)의 2.4T 파라미터 전문가 혼합(MoE) 플래그십 모델(95B 활성). 1M 토큰 컨텍스트와 텍스트·이미지·비디오 멀티모달 입력을 지원하며 2026-08-03 유료 API로 공개됐고 오픈 웨이트(Open Weights)는 곧 배포 예정.</div>
+    <div class="item-summary i18n" data-ko="Alibaba가 2.4T 파라미터(활성 95B) MoE 플래그십 파운데이션 모델(Foundation Model) Qwen3.8-Max를 8월 3일 호스티드 API로 공개, 1M 컨텍스트와 텍스트·이미지·비디오 멀티모달 입력 지원." data-en="Alibaba launches Qwen3.8-Max, a 2.4T MoE (95B active) flagship with 1M context and multimodal text/image/video input via hosted API on August 3, 2026; open weights promised within days.">Alibaba가 2.4T 파라미터(활성 95B) MoE 플래그십 파운데이션 모델(Foundation Model) Qwen3.8-Max를 8월 3일 호스티드 API로 공개, 1M 컨텍스트와 텍스트·이미지·비디오 멀티모달 입력 지원.</div>
     <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-domain">Multimodal · Omni</span><span class="taxonomy-chip taxonomy-event">Public API</span><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-tag">foundation model</span></div>
   </div>
   <div class="item highlight radar-item">
     <div class="item-top">
-      <div class="item-title"><a href="https://huggingface.co/moonshotai/Kimi-K3" target="_blank" rel="noopener">moonshotai/Kimi-K3</a></div>
+      <div class="item-title"><a href="https://huggingface.co/moonshotai/Kimi-K3" target="_blank" rel="noopener">Kimi K3: Open Frontier Intelligence</a></div>
       <div class="item-meta">
         <span class="badge">Hugging Face Models</span>
         <span class="item-date">2026-07-27</span>
-        <span class="score">▲ 921</span>
+        <span class="score">▲ 899</span>
         <span class="radar-tier radar-tier-flagship" title="Flagship: top-end new model or family from a major frontier lab" aria-label="Flagship: top-end new model or family from a major frontier lab" tabindex="0">Flagship</span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="문샷 AI(Moonshot AI)의 2.8T 파라미터 전문가 혼합(MoE) 모델(활성 104B). 네이티브 비전(Vision)과 1M 토큰 컨텍스트를 지원하는 프런티어 추론 모델로 2026-07-27 오픈 웨이트(Open Weights)로 공개됨." data-en="Moonshot AI 2.8T-parameter MoE model with 104B active parameters, native vision, 1M-token context, and open weights released 2026-07-27.">문샷 AI(Moonshot AI)의 2.8T 파라미터 전문가 혼합(MoE) 모델(활성 104B). 네이티브 비전(Vision)과 1M 토큰 컨텍스트를 지원하는 프런티어 추론 모델로 2026-07-27 오픈 웨이트(Open Weights)로 공개됨.</div>
+    <div class="item-summary i18n" data-ko="Moonshot이 2026-07-27에 2.8T MoE, 1M 컨텍스트, 네이티브 비전, 에이전틱 도메인 강화학습(RL)을 갖춘 프론티어 오픈 모델 Kimi K3의 오픈 웨이트(Open Weights)를 공개." data-en="Moonshot releases Kimi K3 open weights on July 27, 2026: a 2.8T MoE with 1M context, native vision, and RL across agentic domains, delivering frontier-level reasoning as an open model.">Moonshot이 2026-07-27에 2.8T MoE, 1M 컨텍스트, 네이티브 비전, 에이전틱 도메인 강화학습(RL)을 갖춘 프론티어 오픈 모델 Kimi K3의 오픈 웨이트(Open Weights)를 공개.</div>
     <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-domain">Language · Code · Reasoning</span><span class="taxonomy-chip taxonomy-event">Open Weights</span><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-tag">foundation model</span><span class="taxonomy-chip taxonomy-tag">open weights</span></div>
   </div>
   <div class="item highlight radar-item">
@@ -1299,20 +1409,45 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="radar-tier radar-tier-flagship" title="Flagship: top-end new model or family from a major frontier lab" aria-label="Flagship: top-end new model or family from a major frontier lab" tabindex="0">Flagship</span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="블랙 포레스트 랩스(Black Forest Labs)의 새 플래그십 파운데이션 모델(Foundation Model) FLUX 3이 2026-07-23 얼리 액세스로 공개됨. 하나의 아키텍처에서 비디오·이미지·오디오를 동시 학습하며 API로 최대 20초 네이티브 오디오 비디오 생성 지원, 오픈 웨이트 Dev 버전도 예고." data-en="Black Forest Labs launches FLUX 3 (July 23, 2026 early access), a unified foundation model that jointly learns video, image, and audio generation in one architecture; generates up to 20-second videos with native audio via API and plans an open-weights FLUX 3 Dev.">블랙 포레스트 랩스(Black Forest Labs)의 새 플래그십 파운데이션 모델(Foundation Model) FLUX 3이 2026-07-23 얼리 액세스로 공개됨. 하나의 아키텍처에서 비디오·이미지·오디오를 동시 학습하며 API로 최대 20초 네이티브 오디오 비디오 생성 지원, 오픈 웨이트 Dev 버전도 예고.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-domain">Video · World Model</span><span class="taxonomy-chip taxonomy-event">New Model</span><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-tag">foundation model</span></div>
+    <div class="item-summary i18n" data-ko="Black Forest Labs가 2026-07-23 FLUX 3(초기 액세스)을 공개, 하나의 아키텍처로 비디오·이미지·오디오 생성을 학습하는 통합 파운데이션 모델(Foundation Model)로 최대 20초 비디오와 네이티브 오디오를 생성." data-en="Black Forest Labs launches FLUX 3 on July 23, 2026 (early access) as a unified multimodal foundation model that jointly learns video, image, and audio generation and produces up to 20-second videos with native audio.">Black Forest Labs가 2026-07-23 FLUX 3(초기 액세스)을 공개, 하나의 아키텍처로 비디오·이미지·오디오 생성을 학습하는 통합 파운데이션 모델(Foundation Model)로 최대 20초 비디오와 네이티브 오디오를 생성.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-domain">Multimodal · Omni</span><span class="taxonomy-chip taxonomy-event">New Model</span><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-tag">foundation model</span></div>
   </div>
   <div class="item highlight radar-item">
     <div class="item-top">
-      <div class="item-title"><a href="https://www.minimax.io/blog/minimax-h3" target="_blank" rel="noopener">MiniMax H3 (Hailuo 3.0): Open Omni-Modal Video Generation — 33B Params, 15s 2K Video with Native Audio</a></div>
+      <div class="item-title"><a href="https://arxiv.org/abs/2608.04505" target="_blank" rel="noopener">K-EXAONE 2.0 Technical Report</a></div>
       <div class="item-meta">
-        <span class="badge">MiniMax</span>
-        <span class="item-date">2026-08-03</span>
+        <span class="badge">arXiv Computation and Language</span>
+        <span class="item-date">2026-08-06</span>
         <span class="radar-tier radar-tier-major" title="Major: significant new model or substantial update in an established family" aria-label="Major: significant new model or substantial update in an established family" tabindex="0">Major</span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="미니맥스(MiniMax)의 33B 옴니모달(Omni-Modal) H3-Omni 트랜스포머(Transformer). 텍스트·이미지·비디오·오디오 입력으로 최대 15초 2K/24FPS 비디오와 네이티브 스테레오 오디오를 생성하며 2026-08-03 허깅페이스(Hugging Face)에서 오픈 웨이트로 공개." data-en="MiniMax&#x27;s 33B omni-modal H3-Omni Transformer generates up to 15s 2K video at 24FPS with native stereo audio from text/image/video/audio input; open weights released on Hugging Face 2026-08-03.">미니맥스(MiniMax)의 33B 옴니모달(Omni-Modal) H3-Omni 트랜스포머(Transformer). 텍스트·이미지·비디오·오디오 입력으로 최대 15초 2K/24FPS 비디오와 네이티브 스테레오 오디오를 생성하며 2026-08-03 허깅페이스(Hugging Face)에서 오픈 웨이트로 공개.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-domain">Video · World Model</span><span class="taxonomy-chip taxonomy-event">Open Weights</span><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-tag">foundation model</span><span class="taxonomy-chip taxonomy-tag">open weights</span></div>
+    <div class="item-summary i18n" data-ko="LG AI Research가 2026-08-06 750B MoE 다국어 파운데이션 모델(Foundation Model) K-EXAONE 2.0의 기술 보고서를 공개, 256K 컨텍스트·10개 언어 지원과 강화된 추론·안전성을 발표." data-en="LG AI Research publishes the K-EXAONE 2.0 technical report on August 6, 2026, describing a 750B MoE multilingual foundation model with 256K context, 10 languages, and enhanced reasoning and safety.">LG AI Research가 2026-08-06 750B MoE 다국어 파운데이션 모델(Foundation Model) K-EXAONE 2.0의 기술 보고서를 공개, 256K 컨텍스트·10개 언어 지원과 강화된 추론·안전성을 발표.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-domain">Language · Code · Reasoning</span><span class="taxonomy-chip taxonomy-event">Technical Report</span><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-tag">foundation model</span></div>
+  </div>
+  <div class="item highlight radar-item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones" target="_blank" rel="noopener">WeatherNext: AI model achieves breakthrough in forecasting cyclones</a></div>
+      <div class="item-meta">
+        <span class="badge">Google DeepMind</span>
+        <span class="item-date">2026-08-06</span>
+        <span class="radar-tier radar-tier-major" title="Major: significant new model or substantial update in an established family" aria-label="Major: significant new model or substantial update in an established family" tabindex="0">Major</span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="Google DeepMind가 2026-08-06 열대 사이클론과 전 지구 기상 예보용 파운데이션 모델(Foundation Model) 계열 WeatherNext(Cyclones, WeatherNext 2, WeatherNext 2-mini)를 오픈소스화, 기존 SOTA 대비 약 1일 예보 정확도 향상." data-en="Google DeepMind open-sources the WeatherNext family (Cyclones, WeatherNext 2, WeatherNext 2-mini) on August 6, 2026, adding roughly one day of advance predictive accuracy over prior SOTA weather models.">Google DeepMind가 2026-08-06 열대 사이클론과 전 지구 기상 예보용 파운데이션 모델(Foundation Model) 계열 WeatherNext(Cyclones, WeatherNext 2, WeatherNext 2-mini)를 오픈소스화, 기존 SOTA 대비 약 1일 예보 정확도 향상.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-domain">Scientific · Structured</span><span class="taxonomy-chip taxonomy-event">Open Weights</span><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-tag">foundation model</span><span class="taxonomy-chip taxonomy-tag">open weights</span></div>
+  </div>
+  <div class="item highlight radar-item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/MiniMaxAI/MiniMax-H3" target="_blank" rel="noopener">MiniMaxAI/MiniMax-H3</a></div>
+      <div class="item-meta">
+        <span class="badge">Hugging Face Models</span>
+        <span class="item-date">2026-08-03</span>
+        <span class="score">▲ 2597</span>
+        <span class="radar-tier radar-tier-major" title="Major: significant new model or substantial update in an established family" aria-label="Major: significant new model or substantial update in an established family" tabindex="0">Major</span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="MiniMax가 2026-08-01 33B 옴니모달(Omni-Modal) 모델 MiniMax-H3의 오픈 웨이트(Open Weights)를 공개, 텍스트·이미지·비디오·오디오 통합 문맥에서 24FPS·2K 15초 비디오와 네이티브 스테레오 오디오를 생성." data-en="MiniMax open-weights MiniMax-H3 on August 1, 2026: a 33B omni-modal model that generates up to 15s of 2K video at 24 FPS with native stereo audio from unified text/image/video/audio context.">MiniMax가 2026-08-01 33B 옴니모달(Omni-Modal) 모델 MiniMax-H3의 오픈 웨이트(Open Weights)를 공개, 텍스트·이미지·비디오·오디오 통합 문맥에서 24FPS·2K 15초 비디오와 네이티브 스테레오 오디오를 생성.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-domain">Multimodal · Omni</span><span class="taxonomy-chip taxonomy-event">Open Weights</span><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-tag">foundation model</span><span class="taxonomy-chip taxonomy-tag">open weights</span></div>
   </div>
   <div class="item highlight radar-item">
     <div class="item-top">
@@ -1323,8 +1458,8 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="radar-tier radar-tier-major" title="Major: significant new model or substantial update in an established family" aria-label="Major: significant new model or substantial update in an established family" tabindex="0">Major</span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="바이트댄스(ByteDance) Seed의 플래그십 비디오 생성 모델 Seedance 2.5가 2026-07-31 공개됨. 단일 샷 30초 비디오, 50개 이상 멀티모달 레퍼런스, 영역별 편집을 지원하며 지멍(Jimeng)·도우바오(Doubao)·BytePlus API로 제공." data-en="ByteDance Seed shipped Seedance 2.5 on 2026-07-31, its flagship video generation model supporting 30-second single-shot video, 50+ multimodal references, and region-level editing via Jimeng/Doubao and BytePlus API.">바이트댄스(ByteDance) Seed의 플래그십 비디오 생성 모델 Seedance 2.5가 2026-07-31 공개됨. 단일 샷 30초 비디오, 50개 이상 멀티모달 레퍼런스, 영역별 편집을 지원하며 지멍(Jimeng)·도우바오(Doubao)·BytePlus API로 제공.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-domain">Video · World Model</span><span class="taxonomy-chip taxonomy-event">New Model</span><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-tag">foundation model</span></div>
+    <div class="item-summary i18n" data-ko="ByteDance Seed가 2026-07-31 30초 단일 샷 비디오, 50+ 멀티모달 레퍼런스, 리전 단위 편집을 지원하는 플래그십 비디오 생성 모델 Seedance 2.5를 Jimeng/Doubao 및 BytePlus API로 공개." data-en="ByteDance Seed ships Seedance 2.5 on July 31, 2026, a flagship video generation model supporting 30-second single-shot video, 50+ multimodal references, and region-level editing via Jimeng/Doubao and BytePlus API.">ByteDance Seed가 2026-07-31 30초 단일 샷 비디오, 50+ 멀티모달 레퍼런스, 리전 단위 편집을 지원하는 플래그십 비디오 생성 모델 Seedance 2.5를 Jimeng/Doubao 및 BytePlus API로 공개.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-domain">Video · World Model</span><span class="taxonomy-chip taxonomy-event">Major Update</span><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-tag">foundation model</span></div>
   </div>
   <div class="item highlight radar-item">
     <div class="item-top">
@@ -1335,8 +1470,8 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="radar-tier radar-tier-major" title="Major: significant new model or substantial update in an established family" aria-label="Major: significant new model or substantial update in an established family" tabindex="0">Major</span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="xAI가 2026-07-29 공개한 음성-음성(Speech-to-Speech) 모델 Grok Voice Think Fast 2.0. 첫 오디오 응답 시간 0.70초, 아티피셜 애널리시스(Artificial Analysis) 음성 벤치마크 82.9%를 기록하며 분당 $0.08 API로 제공." data-en="xAI released Grok Voice Think Fast 2.0 on 2026-07-29: speech-to-speech model with 0.70s time-to-first-audio and 82.9% on the Artificial Analysis speech-to-speech benchmark, available via API at $0.08/min.">xAI가 2026-07-29 공개한 음성-음성(Speech-to-Speech) 모델 Grok Voice Think Fast 2.0. 첫 오디오 응답 시간 0.70초, 아티피셜 애널리시스(Artificial Analysis) 음성 벤치마크 82.9%를 기록하며 분당 $0.08 API로 제공.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-domain">Audio · Speech</span><span class="taxonomy-chip taxonomy-event">Public API</span><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-tag">foundation model</span></div>
+    <div class="item-summary i18n" data-ko="xAI가 2026-07-29 음성-음성(speech-to-speech) 파운데이션 모델 Grok Voice Think Fast 2.0을 공개, 첫 오디오까지 0.70초·Artificial Analysis 벤치마크 82.9% 성능을 API로 제공." data-en="xAI releases Grok Voice Think Fast 2.0 on July 29, 2026, a speech-to-speech model with 0.70s time-to-first-audio and 82.9% on the Artificial Analysis benchmark, available via API at $0.08/min.">xAI가 2026-07-29 음성-음성(speech-to-speech) 파운데이션 모델 Grok Voice Think Fast 2.0을 공개, 첫 오디오까지 0.70초·Artificial Analysis 벤치마크 82.9% 성능을 API로 제공.</div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-domain">Audio · Speech</span><span class="taxonomy-chip taxonomy-event">Major Update</span><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-tag">foundation model</span></div>
   </div>
   <div class="item highlight radar-item">
     <div class="item-top">
@@ -1348,19 +1483,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="radar-tier radar-tier-notable" title="Notable: smaller specialized or efficiency-oriented reusable model" aria-label="Notable: smaller specialized or efficiency-oriented reusable model" tabindex="0">Notable</span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="리퀴드 AI(Liquid AI)의 온디바이스(On-Device) 에이전틱(Agentic) 파운데이션 모델 LFM2.5-2.6B. Apple M5 Max에서 초당 220토큰으로 동작하며 도구 사용·명령 수행에서 4배 크기 모델에 필적하는 성능을 보이고 2026-08-04 오픈 웨이트(Open Weights)로 공개." data-en="Liquid AI&#x27;s 2.6B on-device agentic foundation model runs at 220 tok/s on Apple M5 Max and matches models 4× its size on tool use and instruction following; open weights released 2026-08-04.">리퀴드 AI(Liquid AI)의 온디바이스(On-Device) 에이전틱(Agentic) 파운데이션 모델 LFM2.5-2.6B. Apple M5 Max에서 초당 220토큰으로 동작하며 도구 사용·명령 수행에서 4배 크기 모델에 필적하는 성능을 보이고 2026-08-04 오픈 웨이트(Open Weights)로 공개.</div>
-    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-domain">Language · Code · Reasoning</span><span class="taxonomy-chip taxonomy-event">Open Weights</span><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-tag">foundation model</span><span class="taxonomy-chip taxonomy-tag">open weights</span><span class="taxonomy-chip taxonomy-tag">efficient inference</span></div>
-  </div>
-  <div class="item highlight radar-item">
-    <div class="item-top">
-      <div class="item-title"><a href="https://www.liquid.ai/blog/lfm2-5-encoders" target="_blank" rel="noopener">LFM2.5-Encoders: Fast at Long Context, Even on CPU</a></div>
-      <div class="item-meta">
-        <span class="badge">Liquid AI</span>
-        <span class="item-date">2026-07-28</span>
-        <span class="radar-tier radar-tier-notable" title="Notable: smaller specialized or efficiency-oriented reusable model" aria-label="Notable: smaller specialized or efficiency-oriented reusable model" tabindex="0">Notable</span>
-      </div>
-    </div>
-    <div class="item-summary i18n" data-ko="리퀴드 AI(Liquid AI)가 2026-07-28 공개한 양방향 인코더(Bidirectional Encoder) LFM2.5-Encoder-230M/-350M. 8,192 토큰 컨텍스트에서 ModernBERT-base 대비 3.7배 빠른 CPU 효율 NLU/분류(Classification) 파운데이션 모델로 허깅페이스(Hugging Face)에서 자유롭게 사용 가능." data-en="Liquid AI released two open-weight bidirectional encoders (LFM2.5-Encoder-230M and LFM2.5-Encoder-350M) on 2026-07-28: CPU-efficient NLU/classification foundation models running 3.7× faster than ModernBERT-base at 8,192-token context.">리퀴드 AI(Liquid AI)가 2026-07-28 공개한 양방향 인코더(Bidirectional Encoder) LFM2.5-Encoder-230M/-350M. 8,192 토큰 컨텍스트에서 ModernBERT-base 대비 3.7배 빠른 CPU 효율 NLU/분류(Classification) 파운데이션 모델로 허깅페이스(Hugging Face)에서 자유롭게 사용 가능.</div>
+    <div class="item-summary i18n" data-ko="Liquid AI가 2026-08-04 2.6B 온디바이스(On-Device) 에이전틱 파운데이션 모델(Foundation Model) LFM2.5-2.6B의 오픈 웨이트(Open Weights)를 공개, Apple M5 Max에서 220 tok/s로 자기보다 4배 큰 모델급 성능 달성." data-en="Liquid AI open-weights LFM2.5-2.6B on August 4, 2026, a 2.6B on-device agentic foundation model that runs at 220 tok/s on Apple M5 Max and matches models roughly 4x its size on tool use and instruction following.">Liquid AI가 2026-08-04 2.6B 온디바이스(On-Device) 에이전틱 파운데이션 모델(Foundation Model) LFM2.5-2.6B의 오픈 웨이트(Open Weights)를 공개, Apple M5 Max에서 220 tok/s로 자기보다 4배 큰 모델급 성능 달성.</div>
     <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-domain">Language · Code · Reasoning</span><span class="taxonomy-chip taxonomy-event">Open Weights</span><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-tag">foundation model</span><span class="taxonomy-chip taxonomy-tag">open weights</span><span class="taxonomy-chip taxonomy-tag">efficient inference</span></div>
   </div>
   <div class="item highlight radar-item">
@@ -1372,7 +1495,7 @@ footer .credit a:hover { text-decoration: underline; }
         <span class="radar-tier radar-tier-notable" title="Notable: smaller specialized or efficiency-oriented reusable model" aria-label="Notable: smaller specialized or efficiency-oriented reusable model" tabindex="0">Notable</span>
       </div>
     </div>
-    <div class="item-summary i18n" data-ko="마이크로소프트 리서치(Microsoft Research)가 2026-07-25 공개한 4B 코덱 네이티브(Codec-Native) 비전-언어 파운데이션 모델 Mage-VL. 선택적 코덱 패치 처리(Selective Codec-Patch Processing)로 토큰 75% 이상 절감과 3.5배 추론 속도 향상을 달성하며 Mage-ViT 인코더는 오픈 웨이트로 공개." data-en="Microsoft Research&#x27;s 4B codec-native vision-language model (2026-07-25) processes video/image with &gt;75% token reduction and 3.5× inference speedup via selective codec-patch processing; companion Mage-ViT encoder released open-weights.">마이크로소프트 리서치(Microsoft Research)가 2026-07-25 공개한 4B 코덱 네이티브(Codec-Native) 비전-언어 파운데이션 모델 Mage-VL. 선택적 코덱 패치 처리(Selective Codec-Patch Processing)로 토큰 75% 이상 절감과 3.5배 추론 속도 향상을 달성하며 Mage-ViT 인코더는 오픈 웨이트로 공개.</div>
+    <div class="item-summary i18n" data-ko="Microsoft Research가 4B 코덱 네이티브(Codec-Native) 스트리밍 비전-언어 파운데이션 모델(Foundation Model) Mage-VL 기술 보고서를 공개, 선택적 코덱-패치 처리로 토큰 75% 이상 감소·3.5배 추론 가속을 달성하며 Mage-ViT 인코더 오픈 웨이트도 함께 배포." data-en="Microsoft Research releases Mage-VL, a 4B codec-native streaming vision-language foundation model with over 75% token reduction and 3.5x inference speedup via selective codec-patch processing; companion Mage-ViT encoder open-weights on Hugging Face.">Microsoft Research가 4B 코덱 네이티브(Codec-Native) 스트리밍 비전-언어 파운데이션 모델(Foundation Model) Mage-VL 기술 보고서를 공개, 선택적 코덱-패치 처리로 토큰 75% 이상 감소·3.5배 추론 가속을 달성하며 Mage-ViT 인코더 오픈 웨이트도 함께 배포.</div>
     <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-domain">Multimodal · Omni</span><span class="taxonomy-chip taxonomy-event">Technical Report</span><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-tag">foundation model</span><span class="taxonomy-chip taxonomy-tag">efficient inference</span><span class="taxonomy-chip taxonomy-tag">open weights</span></div>
   </div>
 </div>
@@ -1381,7 +1504,7 @@ footer .credit a:hover { text-decoration: underline; }
 
 <footer>
   <div class="footer-inner">
-    <div><span class="i18n" data-ko="2026-08-07 KST 생성 · Robotics 7일 / Radar 15일 기준 · 매일 09:00 KST 전후 업데이트 · 16개 소스 · Robotics 35건 + Radar 9건" data-en="Generated 2026-08-07 KST · Robotics 7d / Radar 15d · updated around 09:00 KST daily · 16 sources · Robotics 35 + Radar 9">2026-08-07 KST 생성 · Robotics 7일 / Radar 15일 기준 · 매일 09:00 KST 전후 업데이트 · 16개 소스 · Robotics 35건 + Radar 9건</span></div>
+    <div><span class="i18n" data-ko="2026-08-07 KST 생성 · Robotics 7일 / Frontier AI 15일 기준 · 매일 09:00 KST 전후 업데이트 · 15개 소스 · Robotics 45건 + Frontier AI 10건" data-en="Generated 2026-08-07 KST · Robotics 7d / Frontier AI 15d · updated around 09:00 KST daily · 15 sources · Robotics 45 + Frontier AI 10">2026-08-07 KST 생성 · Robotics 7일 / Frontier AI 15일 기준 · 매일 09:00 KST 전후 업데이트 · 15개 소스 · Robotics 45건 + Frontier AI 10건</span></div>
     <div class="divider"></div>
     <div class="credit">
       Made by <a href="https://github.com/SeongjuLee" target="_blank" rel="noopener">Seongju Lee</a> · Powered by ai-news-mcp
