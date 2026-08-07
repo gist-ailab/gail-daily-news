@@ -36,9 +36,66 @@
       '.gail-github-button:hover{background:#32383f}',
       '.gail-feedback-button{width:100%;background:var(--primary,#006666);color:var(--header-text,#f1f2f5)}',
       '.gail-visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}',
+      '.gail-lang-toggle{position:fixed;bottom:24px;right:78px;height:44px;padding:0 .9rem;border:0;border-radius:999px;cursor:pointer;z-index:60;background:var(--surface-card,#e7e5e4);color:var(--text,#1e2938);box-shadow:var(--shadow-raised-sm,3px 3px 6px rgba(0,0,0,.15),-3px -3px 6px rgba(255,255,255,.7));font-family:"JetBrains Mono",monospace;font-size:.72rem;font-weight:700;letter-spacing:.04em;transition:transform .2s,box-shadow .2s}',
+      '.gail-lang-toggle:hover{transform:translateY(-1px);box-shadow:var(--shadow-hover)}',
+      '.gail-lang-toggle .gail-lang-on{color:var(--primary,#006666)}',
+      '.gail-lang-toggle .gail-lang-off{opacity:.45}',
+      '@media(max-width:640px){.gail-lang-toggle{right:72px;height:40px;padding:0 .7rem;font-size:.68rem}}',
       '@media(max-width:640px){.gail-page-actions{grid-template-columns:1fr;gap:.8rem}.gail-action-card{padding:1rem}.gail-archive-controls{align-items:stretch}.gail-archive-date{width:100%}}'
     ].join('');
     document.head.appendChild(style);
+  }
+
+
+  var LANG_KEY = 'gail-lang';
+  var LANGS = ['ko', 'en'];
+
+  function preferredLang() {
+    // A stored choice always wins. Otherwise fall back to what the browser
+    // asks for, and only then to Korean, which is this digest's default.
+    try {
+      var saved = window.localStorage.getItem(LANG_KEY);
+      if (LANGS.indexOf(saved) !== -1) return saved;
+    } catch (error) { /* private mode or blocked storage */ }
+    var candidates = navigator.languages || [navigator.language || ''];
+    for (var i = 0; i < candidates.length; i++) {
+      var tag = String(candidates[i]).toLowerCase();
+      if (tag.indexOf('ko') === 0) return 'ko';
+      if (tag.indexOf('en') === 0) return 'en';
+    }
+    return 'ko';
+  }
+
+  function applyLang(lang) {
+    var nodes = document.querySelectorAll('.i18n');
+    for (var i = 0; i < nodes.length; i++) {
+      var text = nodes[i].getAttribute('data-' + lang);
+      if (text !== null) nodes[i].textContent = text;
+    }
+    document.documentElement.setAttribute('lang', lang);
+    var button = document.getElementById('gail-lang-toggle');
+    if (button) {
+      button.innerHTML =
+        '<span class="gail-lang-' + (lang === 'ko' ? 'on' : 'off') + '">KOR</span>' +
+        '<span class="gail-lang-off"> / </span>' +
+        '<span class="gail-lang-' + (lang === 'en' ? 'on' : 'off') + '">ENG</span>';
+      button.setAttribute('aria-label', lang === 'ko' ? 'Switch to English' : '한국어로 전환');
+    }
+  }
+
+  function installLanguageToggle() {
+    if (document.getElementById('gail-lang-toggle')) return;
+    var button = document.createElement('button');
+    button.id = 'gail-lang-toggle';
+    button.type = 'button';
+    button.className = 'gail-lang-toggle';
+    button.addEventListener('click', function () {
+      var next = document.documentElement.getAttribute('lang') === 'ko' ? 'en' : 'ko';
+      try { window.localStorage.setItem(LANG_KEY, next); } catch (error) { /* ignore */ }
+      applyLang(next);
+    });
+    document.body.appendChild(button);
+    applyLang(preferredLang());
   }
 
   function installActions() {
@@ -92,8 +149,12 @@
 
   installStyles();
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', installActions);
+    document.addEventListener('DOMContentLoaded', function () {
+      installActions();
+      installLanguageToggle();
+    });
   } else {
     installActions();
+    installLanguageToggle();
   }
 })();
