@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robotics & Physical AI Research Daily Digest — 2026-10-30</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Noto+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Neumorphism Design System — Light */
+  --primary: #006666;
+  --primary-light: #008080;
+  --secondary: #F1F2F5;
+  --surface: #E7E5E4;
+  --surface-card: #E7E5E4;
+  --surface-highlight: #EDE9E3;
+  --text: #1E2938;
+  --text-secondary: #4A5568;
+  --text-tertiary: #8494A7;
+  --border: transparent;
+  --border-highlight: #006666;
+  --accent: #006666;
+  --accent-hover: #004D4D;
+  --star-filled: #FE9900;
+  --star-empty: #C4C4C4;
+  --badge-bg: #D9D7D5;
+  --badge-text: #006666;
+  --success: #00A63D;
+  --warning: #FE9900;
+  --danger: #FF2157;
+  --info: #006666;
+  --radar: #5B4BC4;
+  --radar-soft: rgba(91,75,196,0.10);
+  --gradient-start: #006666;
+  --gradient-mid: #008080;
+  --gradient-end: #00A3A3;
+  --header-text: #F1F2F5;
+  --footer-bg: #1E2938;
+  --footer-text: #8494A7;
+  /* Neumorphic shadows */
+  --neu-light: rgba(255,255,255,0.7);
+  --neu-dark: rgba(0,0,0,0.15);
+  --shadow-raised: 6px 6px 12px var(--neu-dark), -6px -6px 12px var(--neu-light);
+  --shadow-raised-sm: 3px 3px 6px var(--neu-dark), -3px -3px 6px var(--neu-light);
+  --shadow-inset: inset 3px 3px 6px var(--neu-dark), inset -3px -3px 6px var(--neu-light);
+  --shadow-hover: 8px 8px 16px var(--neu-dark), -8px -8px 16px var(--neu-light);
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #00CCCC;
+    --primary-light: #33E0E0;
+    --secondary: #2D3748;
+    --surface: #1A202C;
+    --surface-card: #1A202C;
+    --surface-highlight: #222C3C;
+    --text: #E2E8F0;
+    --text-secondary: #A0AEC0;
+    --text-tertiary: #718096;
+    --border: transparent;
+    --border-highlight: #00CCCC;
+    --accent: #00CCCC;
+    --accent-hover: #33E0E0;
+    --star-filled: #FEB800;
+    --star-empty: #4A5568;
+    --badge-bg: #2D3748;
+    --badge-text: #00CCCC;
+    --radar: #A99BFF;
+    --radar-soft: rgba(169,155,255,0.12);
+    --gradient-start: #0D1117;
+    --gradient-mid: #1A202C;
+    --gradient-end: #004D4D;
+    --header-text: #E2E8F0;
+    --footer-bg: #0D1117;
+    --footer-text: #718096;
+    --neu-light: rgba(255,255,255,0.05);
+    --neu-dark: rgba(0,0,0,0.5);
+    --shadow-raised: 6px 6px 12px var(--neu-dark), -6px -6px 12px var(--neu-light);
+    --shadow-raised-sm: 3px 3px 6px var(--neu-dark), -3px -3px 6px var(--neu-light);
+    --shadow-inset: inset 3px 3px 6px var(--neu-dark), inset -3px -3px 6px var(--neu-light);
+    --shadow-hover: 8px 8px 16px var(--neu-dark), -8px -8px 16px var(--neu-light);
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Space Mono', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, monospace;
+  background: var(--surface);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── Hero Header ── */
+.hero {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+  color: var(--header-text);
+  padding: 3.5rem 1.5rem 3rem;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+}
+.lab-link {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  z-index: 2;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--header-text);
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+.lab-link:hover {
+  background: rgba(255,255,255,0.22);
+  transform: translateY(-1px);
+}
+.lab-link .arrow {
+  margin-left: 0.3rem;
+  font-size: 0.7rem;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 30%, rgba(255,255,255,0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  min-width: 0;
+}
+.hero .icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+.hero h1 {
+  font-family: 'Space Mono', monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin-bottom: 0.5rem;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.hero h1 .title-line {
+  display: inline;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.hero h1 .title-line + .title-line::before {
+  content: ' ';
+}
+.hero .subtitle {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+.hero .stats {
+  display: inline-flex;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+  opacity: 0.7;
+  font-weight: 400;
+  max-width: 100%;
+  min-width: 0;
+}
+.hero .stats span {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+/* ── Container ── */
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  min-width: 0;
+}
+
+/* ── Feed Guide ── */
+.feed-guide {
+  margin-bottom: 2rem;
+  padding: 1rem 1.15rem;
+  border-radius: var(--radius-md);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-raised-sm);
+  color: var(--text-secondary);
+}
+.feed-guide summary {
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+.guide-body {
+  padding-top: 1rem;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.76rem;
+  line-height: 1.7;
+}
+.guide-title {
+  margin: 0.85rem 0 0.35rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.guide-title:first-child { margin-top: 0; }
+.importance-scale {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.45rem;
+}
+.importance-scale div {
+  min-width: 0;
+  padding: 0.55rem 0.6rem;
+  border-radius: 8px;
+  background: var(--badge-bg);
+  box-shadow: var(--shadow-raised-sm);
+}
+.importance-scale strong {
+  display: block;
+  color: var(--star-filled);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+.guide-source-row {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+  border-top: 1px solid rgba(132,148,167,0.24);
+}
+.guide-source-category {
+  color: var(--primary);
+  font-family: 'Space Mono', 'Noto Sans KR', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+.guide-source-list {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* ── Section ── */
+.section {
+  margin-bottom: 2.5rem;
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--badge-bg);
+}
+.section-header h2 {
+  font-family: 'Space Mono', 'Noto Sans KR', monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--primary);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 640px) {
+  /* Keep a track title on one line on a narrow screen. */
+  .section-header h2 { font-size: 0.95rem; }
+}
+.section-description {
+  margin: -0.75rem 0 1.15rem;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+}
+.radar-section {
+  margin-top: 3.25rem;
+  padding: 1.35rem;
+  border-radius: var(--radius-lg);
+  background: var(--radar-soft);
+  box-shadow: var(--shadow-inset);
+}
+.radar-section .section-header {
+  border-bottom-color: var(--radar);
+}
+.radar-section .section-header h2 {
+  color: var(--radar);
+}
+.radar-item {
+  border-left: 3px solid var(--radar);
+}
+/* Radar ranks on its own tier axis, so these badges replace the shared 1-5
+   stars rather than sitting beside them. */
+.radar-tier {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0.12rem 0.5rem;
+  border-radius: 999px;
+  cursor: help;
+}
+.radar-tier-flagship {
+  color: #fff;
+  background: var(--radar);
+}
+.radar-tier-major {
+  color: var(--radar);
+  background: transparent;
+  border: 1px solid var(--radar);
+}
+.radar-tier-notable {
+  color: var(--text-tertiary);
+  background: transparent;
+  border: 1px solid var(--text-tertiary);
+}
+
+/* ── Item Card (Neumorphic) ── */
+.item {
+  width: 100%;
+  min-width: 0;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 10px;
+  background: var(--surface-card);
+  border: none;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-raised);
+  transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+.item:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-1px);
+}
+.item.highlight {
+  background: var(--surface-highlight);
+  border-left: 3px solid var(--border-highlight);
+  box-shadow: var(--shadow-raised), inset 0 0 0 1px var(--border-highlight);
+}
+.item-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+.item-title {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  flex: 1;
+  min-width: 200px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.item-title a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.15s;
+  overflow-wrap: anywhere;
+}
+.item-title a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+.item-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+.badge {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  font-weight: 500;
+  padding: 0.2rem 0.55rem;
+  border-radius: 8px;
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  box-shadow: var(--shadow-raised-sm);
+}
+.item-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+.score {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--primary);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.stars {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  cursor: help;
+}
+.stars .filled { color: var(--star-filled); }
+.stars .empty { color: var(--star-empty); }
+.item.highlight .stars .filled { color: var(--danger); }
+@media (prefers-color-scheme: dark) {
+  .item.highlight .stars .filled { color: var(--star-filled); }
+}
+.item-summary {
+  margin-top: 0.6rem;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.item-taxonomy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.7rem;
+}
+.item-evidence {
+  margin-top: 0.65rem;
+  padding-left: 0.7rem;
+  border-left: 2px solid var(--border-highlight);
+  font-size: 0.76rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  overflow-wrap: anywhere;
+}
+.evidence-setting { font-weight: 600; }
+.evidence-row { margin-top: 0.22rem; }
+.evidence-row strong { color: var(--text-primary); }
+.evidence-source {
+  display: inline-block;
+  padding: 0.35rem 0;
+  color: var(--accent);
+  font-size: 0.7rem;
+  text-underline-offset: 0.18em;
+}
+.item-artifacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.65rem;
+}
+.artifact-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.4rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--accent);
+  border-radius: 0.5rem;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.artifact-link:hover { text-decoration: underline; }
+.artifact-link:focus-visible, .evidence-source:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.taxonomy-chip {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', 'Noto Sans KR', monospace;
+  font-size: 0.56rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  background: var(--badge-bg);
+  color: var(--text-secondary);
+  box-shadow: var(--shadow-raised-sm);
+}
+.taxonomy-contribution {
+  color: var(--primary);
+  font-weight: 700;
+}
+.taxonomy-platform {
+  color: var(--accent);
+  border: 1px solid var(--text-tertiary);
+}
+.taxonomy-tag {
+  color: var(--text-tertiary);
+}
+.taxonomy-domain {
+  color: var(--radar);
+  font-weight: 700;
+  border: 1px solid var(--radar);
+}
+.taxonomy-event {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* ── Theme Toggle (Neumorphic) ── */
+.theme-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--surface);
+  box-shadow: var(--shadow-raised);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  z-index: 100;
+}
+.theme-toggle:hover {
+  transform: scale(1.08);
+  box-shadow: var(--shadow-hover);
+}
+.theme-toggle:active {
+  box-shadow: var(--shadow-inset);
+  transform: scale(0.96);
+}
+.theme-toggle .icon-light,
+.theme-toggle .icon-dark { display: none; }
+
+html:not([data-theme]) .theme-toggle .icon-light { display: none; }
+html:not([data-theme]) .theme-toggle .icon-dark { display: none; }
+html:not([data-theme]) .theme-toggle::after { content: '🌓'; }
+
+html[data-theme="light"] .theme-toggle .icon-light { display: inline; }
+html[data-theme="light"] .theme-toggle .icon-dark { display: none; }
+html[data-theme="light"] .theme-toggle::after { content: none; }
+
+html[data-theme="dark"] .theme-toggle .icon-light { display: none; }
+html[data-theme="dark"] .theme-toggle .icon-dark { display: inline; }
+html[data-theme="dark"] .theme-toggle::after { content: none; }
+
+/* Force dark when data-theme="dark" */
+html[data-theme="dark"] {
+  --primary: #00CCCC;
+  --primary-light: #33E0E0;
+  --secondary: #2D3748;
+  --surface: #1A202C;
+  --surface-card: #1A202C;
+  --surface-highlight: #222C3C;
+  --text: #E2E8F0;
+  --text-secondary: #A0AEC0;
+  --text-tertiary: #718096;
+  --border: transparent;
+  --border-highlight: #00CCCC;
+  --accent: #00CCCC;
+  --accent-hover: #33E0E0;
+  --star-filled: #FEB800;
+  --star-empty: #4A5568;
+  --badge-bg: #2D3748;
+  --badge-text: #00CCCC;
+  --radar: #A99BFF;
+  --radar-soft: rgba(169,155,255,0.12);
+  --gradient-start: #0D1117;
+  --gradient-mid: #1A202C;
+  --gradient-end: #004D4D;
+  --header-text: #E2E8F0;
+  --footer-bg: #0D1117;
+  --footer-text: #718096;
+  --neu-light: rgba(255,255,255,0.05);
+  --neu-dark: rgba(0,0,0,0.5);
+  --shadow-raised: 6px 6px 12px var(--neu-dark), -6px -6px 12px var(--neu-light);
+  --shadow-raised-sm: 3px 3px 6px var(--neu-dark), -3px -3px 6px var(--neu-light);
+  --shadow-inset: inset 3px 3px 6px var(--neu-dark), inset -3px -3px 6px var(--neu-light);
+  --shadow-hover: 8px 8px 16px var(--neu-dark), -8px -8px 16px var(--neu-light);
+}
+html[data-theme="dark"] .item.highlight .stars .filled { color: #FEB800; }
+
+/* Force light when data-theme="light" */
+html[data-theme="light"] {
+  --primary: #006666;
+  --primary-light: #008080;
+  --secondary: #F1F2F5;
+  --surface: #E7E5E4;
+  --surface-card: #E7E5E4;
+  --surface-highlight: #EDE9E3;
+  --text: #1E2938;
+  --text-secondary: #4A5568;
+  --text-tertiary: #8494A7;
+  --border: transparent;
+  --border-highlight: #006666;
+  --accent: #006666;
+  --accent-hover: #004D4D;
+  --star-filled: #FE9900;
+  --star-empty: #C4C4C4;
+  --badge-bg: #D9D7D5;
+  --badge-text: #006666;
+  --radar: #5B4BC4;
+  --radar-soft: rgba(91,75,196,0.10);
+  --gradient-start: #006666;
+  --gradient-mid: #008080;
+  --gradient-end: #00A3A3;
+  --header-text: #F1F2F5;
+  --footer-bg: #1E2938;
+  --footer-text: #8494A7;
+  --neu-light: rgba(255,255,255,0.7);
+  --neu-dark: rgba(0,0,0,0.15);
+  --shadow-raised: 6px 6px 12px var(--neu-dark), -6px -6px 12px var(--neu-light);
+  --shadow-raised-sm: 3px 3px 6px var(--neu-dark), -3px -3px 6px var(--neu-light);
+  --shadow-inset: inset 3px 3px 6px var(--neu-dark), inset -3px -3px 6px var(--neu-light);
+  --shadow-hover: 8px 8px 16px var(--neu-dark), -8px -8px 16px var(--neu-light);
+}
+html[data-theme="light"] .item.highlight .stars .filled { color: #FF2157; }
+
+/* ── Footer ── */
+footer {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  font-size: 0.75rem;
+}
+footer .footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+footer .divider {
+  width: 40px;
+  height: 2px;
+  background: var(--text-tertiary);
+  margin: 0.75rem auto;
+  opacity: 0.3;
+}
+footer .credit {
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+footer .credit a {
+  color: var(--footer-text);
+  text-decoration: none;
+  font-weight: 700;
+}
+footer .credit a:hover { text-decoration: underline; }
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .hero { padding: 3rem 1rem 2rem; }
+  .lab-link {
+    top: 0.6rem;
+    right: 0.7rem;
+    max-width: calc(100% - 1.4rem);
+    font-size: 0.62rem;
+    padding: 0.3rem 0.6rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .hero h1 { font-size: 1.35rem; letter-spacing: 0; line-height: 1.35; }
+  .hero h1 .title-line { display: block; }
+  .hero h1 .title-line + .title-line::before { content: none; }
+  .hero .subtitle { font-size: 0.78rem; letter-spacing: 0; line-height: 1.55; }
+  .hero .icon { font-size: 2rem; }
+  .hero .stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-size: 0.68rem;
+    opacity: 0.86;
+  }
+  .hero .stats span {
+    flex: 0 1 auto;
+    max-width: 100%;
+    padding: 0.28rem 0.58rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    line-height: 1.25;
+    white-space: nowrap;
+  }
+  .hero .stats .desktop-stat { display: none; }
+  .container { padding: 1.25rem 1rem; }
+  .feed-guide { padding: 0.9rem 1rem; }
+  .importance-scale { grid-template-columns: 1fr; }
+  .guide-source-row { grid-template-columns: 1fr; gap: 0.15rem; }
+  .item { padding: 1rem 1.1rem; border-radius: var(--radius-sm); }
+  .item-top { flex-direction: column; gap: 0.4rem; }
+  .item-title { font-size: 0.85rem; min-width: 0; }
+  .section-header h2 { font-size: 1rem; }
+  .radar-section { margin-top: 2.5rem; padding: 1rem; }
+  .theme-toggle { bottom: 16px; right: 16px; width: 40px; height: 40px; }
+
+  /* 모바일: item-meta를 타이틀 아래 가로 배치 */
+  .item-meta {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <a class="lab-link" href="https://sites.google.com/view/gistailab" target="_blank" rel="noopener">GIST AI Lab<span class="arrow">&#8599;</span></a>
+  <div class="hero-inner">
+    <div class="icon">&#9749;</div>
+    <h1><span class="title-line">Robotics & Physical AI</span><span class="title-line">Daily Digest</span></h1>
+    <div class="subtitle">2026-10-30 — <span class="i18n" data-ko="로봇 연구 중심, 핵심 AI 엄선 큐레이션" data-en="Robotics-first research, with selected frontier AI">로봇 연구 중심, 핵심 AI 엄선 큐레이션</span></div>
+    <div class="stats">
+      <span>Robotics 48</span>
+      <span>Frontier AI 1</span>
+      <span class="desktop-stat i18n" data-ko="소스 5개" data-en="5 sources">소스 5개</span>
+      <span class="i18n" data-ko="Robotics 최근 7일 · Frontier AI 최근 15일" data-en="Robotics last 7 days · Frontier AI last 15 days">Robotics 최근 7일 · Frontier AI 최근 15일</span>
+      <span class="desktop-stat">Robotics-first</span>
+      <span class="i18n" data-ko="매일 09:00 KST 업데이트" data-en="Updated daily at 09:00 KST">매일 09:00 KST 업데이트</span>
+      <span class="desktop-stat"><span class="i18n" data-ko="중요도 정렬" data-en="ranked by importance">중요도 정렬</span></span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<details class="feed-guide">
+  <summary><span class="i18n" data-ko="분류·중요도·수집 기준" data-en="Taxonomy, importance, and sourcing">분류·중요도·수집 기준</span></summary>
+  <div class="guide-body">
+    <div class="guide-title"><span class="i18n" data-ko="업데이트" data-en="Schedule">업데이트</span></div>
+    <div><span class="i18n" data-ko="매일 08:00 KST 전후 수집을 시작하고, 09:00 KST 전후 공개 페이지에 새 연구 소식을 반영하는 것을 목표로 합니다." data-en="Collection starts around 08:00 KST and the public page aims to carry the new research by about 09:00 KST.">매일 08:00 KST 전후 수집을 시작하고, 09:00 KST 전후 공개 페이지에 새 연구 소식을 반영하는 것을 목표로 합니다.</span></div>
+    <div class="guide-title"><span class="i18n" data-ko="표시 범위" data-en="Window">표시 범위</span></div>
+    <div><span class="i18n" data-ko="로보틱스 본문은 최근 7일, 별도 Frontier AI 레인은 검증된 공개일 기준 최근 15일 이내 항목만 표시합니다. 본문의 날짜 없는 항목은 Hugging Face, GitHub, Papers with Code처럼 일일 트렌딩 피드에서 온 경우에만 포함합니다." data-en="The robotics digest shows the last 7 days; the separate Frontier AI lane shows the last 15 days by verified release date. Undated main-lane items appear only when they come from a daily trending feed such as Hugging Face, GitHub, or Papers with Code.">로보틱스 본문은 최근 7일, 별도 Frontier AI 레인은 검증된 공개일 기준 최근 15일 이내 항목만 표시합니다. 본문의 날짜 없는 항목은 Hugging Face, GitHub, Papers with Code처럼 일일 트렌딩 피드에서 온 경우에만 포함합니다.</span></div>
+    <div class="guide-title"><span class="i18n" data-ko="편집 비중" data-en="Editorial mix">편집 비중</span></div>
+    <div><span class="i18n" data-ko="로보틱스 본문은 최대 50건(핵심 로봇 약 38건, 직접 기여하는 AI 최대 12건), Frontier AI는 별도 최대 10건입니다. Radar는 LLM에 한정하지 않고 멀티모달·비전·공간 3D/4D·비디오/월드 모델·오디오·과학 모델의 중요한 공개를 다룹니다. 품질이 부족하면 억지로 채우지 않습니다." data-en="The robotics digest holds up to 50 items (about 38 core robotics, up to 12 directly enabling AI); the Frontier AI lane adds up to 10 more. Radar is not LLM-only: it covers multimodal, vision, spatial 3D/4D, video/world, audio, and scientific model releases. Neither lane is padded to reach its cap.">로보틱스 본문은 최대 50건(핵심 로봇 약 38건, 직접 기여하는 AI 최대 12건), Frontier AI는 별도 최대 10건입니다. Radar는 LLM에 한정하지 않고 멀티모달·비전·공간 3D/4D·비디오/월드 모델·오디오·과학 모델의 중요한 공개를 다룹니다. 품질이 부족하면 억지로 채우지 않습니다.</span></div>
+    <div><span class="i18n" data-ko="Frontier AI는 이미 소개한 공개 이벤트를 반복하지 않습니다. 같은 모델이라도 새로운 API 공개, 오픈 웨이트, 주요 업데이트처럼 검증된 새 이벤트가 있으면 다시 소개합니다." data-en="Frontier AI does not repeat a release event already covered. The same model may return for a verified new milestone, such as an API launch, open weights, or a major update.">Frontier AI는 이미 소개한 공개 이벤트를 반복하지 않습니다. 같은 모델이라도 새로운 API 공개, 오픈 웨이트, 주요 업데이트처럼 검증된 새 이벤트가 있으면 다시 소개합니다.</span></div>
+    <div class="guide-title"><span class="i18n" data-ko="중요도" data-en="Importance">중요도</span></div>
+    <div class="importance-scale">
+      <div><strong>★★★★★</strong><span class="i18n" data-ko="패러다임 전환, 주요 SOTA 갱신, 대형 오픈소스 모델 공개" data-en="Paradigm shift, major SOTA update, or large open model release">패러다임 전환, 주요 SOTA 갱신, 대형 오픈소스 모델 공개</span></div>
+      <div><strong>★★★★</strong><span class="i18n" data-ko="의미 있는 기술 혁신, 주요 연구소 발표, 코드 공개 우수 논문" data-en="Meaningful technical innovation, major lab result, or strong code-backed paper">의미 있는 기술 혁신, 주요 연구소 발표, 코드 공개 우수 논문</span></div>
+      <div><strong>★★★</strong><span class="i18n" data-ko="유용한 개선, 도구, 데이터셋, 벤치마크, 실용 응용" data-en="Useful improvement, tool, dataset, benchmark, or practical application">유용한 개선, 도구, 데이터셋, 벤치마크, 실용 응용</span></div>
+      <div><strong>★★</strong><span class="i18n" data-ko="니치하지만 해당 분야에서 참고할 만한 결과" data-en="Niche, but worth tracking in its subfield">니치하지만 해당 분야에서 참고할 만한 결과</span></div>
+      <div><strong>★</strong><span class="i18n" data-ko="관련성은 있지만 연구 임팩트가 제한적인 항목" data-en="Related, but limited research impact">관련성은 있지만 연구 임팩트가 제한적인 항목</span></div>
+    </div>
+    <div class="guide-title"><span class="i18n" data-ko="연구 분야" data-en="Research tracks">연구 분야</span></div>
+      <div class="guide-source-row">
+        <div class="guide-source-category">🤖 VLA &amp; Embodied Foundation Models</div>
+        <div class="guide-source-list i18n" data-ko="VLA/WAM, 로봇 파운데이션 모델, 체화 추론, cross-embodiment 정책" data-en="VLA/WAM, robot foundation models, embodied reasoning, cross-embodiment policies">VLA/WAM, 로봇 파운데이션 모델, 체화 추론, cross-embodiment 정책</div>
+      </div>
+      <div class="guide-source-row">
+        <div class="guide-source-category">🖐 Manipulation &amp; Dexterity</div>
+        <div class="guide-source-list i18n" data-ko="파지, 접촉·촉각 기반 정교 조작, 도구 사용, 양팔 협응" data-en="Grasping, contact-rich and tactile dexterity, tool use, bimanual coordination">파지, 접촉·촉각 기반 정교 조작, 도구 사용, 양팔 협응</div>
+      </div>
+      <div class="guide-source-row">
+        <div class="guide-source-category">🎯 Robot Learning, Control &amp; Planning</div>
+        <div class="guide-source-list i18n" data-ko="모방학습·강화학습, 정책 최적화, 작업/동작 계획, 제어, sim-to-real" data-en="Imitation and reinforcement learning, policy optimization, task/motion planning, control, sim-to-real">모방학습·강화학습, 정책 최적화, 작업/동작 계획, 제어, sim-to-real</div>
+      </div>
+      <div class="guide-source-row">
+        <div class="guide-source-category">🦿 Locomotion &amp; Whole-Body Control</div>
+        <div class="guide-source-list i18n" data-ko="보행, 균형, 휴머노이드 전신 제어, loco-manipulation" data-en="Walking, balance, humanoid whole-body control, loco-manipulation">보행, 균형, 휴머노이드 전신 제어, loco-manipulation</div>
+      </div>
+      <div class="guide-source-row">
+        <div class="guide-source-category">🧭 Mobility, Navigation &amp; Autonomy</div>
+        <div class="guide-source-list i18n" data-ko="이동 로봇·모바일 매니퓰레이션, 내비게이션, SLAM, 지상 자율주행" data-en="Mobile robots and mobile manipulation, navigation, SLAM, ground autonomy">이동 로봇·모바일 매니퓰레이션, 내비게이션, SLAM, 지상 자율주행</div>
+      </div>
+      <div class="guide-source-row">
+        <div class="guide-source-category">🚁 Aerial, Field, Marine &amp; Multi-Robot</div>
+        <div class="guide-source-list i18n" data-ko="드론/UAV, 필드·해양 로봇, 군집, 다중 로봇 협업" data-en="Drones/UAVs, field and marine robots, swarms, multi-robot coordination">드론/UAV, 필드·해양 로봇, 군집, 다중 로봇 협업</div>
+      </div>
+      <div class="guide-source-row">
+        <div class="guide-source-category">📊 Data, Benchmarks, Simulation &amp; Tools</div>
+        <div class="guide-source-list i18n" data-ko="로봇 데이터셋·데이터 엔진, 벤치마크, 시뮬레이터, 원격조작, 연구 도구" data-en="Robot datasets and data engines, benchmarks, simulators, teleoperation, research tooling">로봇 데이터셋·데이터 엔진, 벤치마크, 시뮬레이터, 원격조작, 연구 도구</div>
+      </div>
+      <div class="guide-source-row">
+        <div class="guide-source-category">🛠 Hardware, Sensing, Deployment &amp; Safety</div>
+        <div class="guide-source-list i18n" data-ko="로봇 하드웨어·센서, 실시간 시스템, 신뢰성, 안전, 인간-로봇 상호작용" data-en="Robot hardware and sensors, real-time systems, reliability, safety, human-robot interaction">로봇 하드웨어·센서, 실시간 시스템, 신뢰성, 안전, 인간-로봇 상호작용</div>
+      </div>
+      <div class="guide-source-row">
+        <div class="guide-source-category">🧠 Selected Robotics-Enabling AI</div>
+        <div class="guide-source-list i18n" data-ko="로봇 연구에 직접 기여하는 공간지능·효율 추론·학습 인프라" data-en="Spatial intelligence, efficient inference, and learning infrastructure that directly enables robotics">로봇 연구에 직접 기여하는 공간지능·효율 추론·학습 인프라</div>
+      </div>
+      <div class="guide-source-row">
+        <div class="guide-source-category">🔭 Frontier AI</div>
+        <div class="guide-source-list i18n" data-ko="언어 모델에 국한하지 않은 범용 파운데이션 모델의 주요 신규 공개" data-en="Major new releases of broadly reusable foundation models, not limited to language models">언어 모델에 국한하지 않은 범용 파운데이션 모델의 주요 신규 공개</div>
+      </div>
+    <div class="guide-title"><span class="i18n" data-ko="소스 원칙" data-en="Sourcing">소스 원칙</span></div>
+    <div><span class="i18n" data-ko="arXiv·공식 프로젝트/코드/데이터·모델 카드를 원문으로 삼고, GitHub 기반 일일·큐레이션 피드는 새 항목을 발견하는 보조 신호로 사용합니다. 동일 연구와 동시 공개는 canonical ID와 release event 기준 한 건으로 합칩니다." data-en="Canonical records come from arXiv, official project/code/data pages, and model cards. GitHub-based daily and curated feeds are discovery signals only. The same work seen through several feeds is merged into one card by canonical ID and release event.">arXiv·공식 프로젝트/코드/데이터·모델 카드를 원문으로 삼고, GitHub 기반 일일·큐레이션 피드는 새 항목을 발견하는 보조 신호로 사용합니다. 동일 연구와 동시 공개는 canonical ID와 release event 기준 한 건으로 합칩니다.</span></div>
+    <div class="guide-title"><span class="i18n" data-ko="연구 자료와 평가 근거" data-en="Artifacts and evaluation evidence">연구 자료와 평가 근거</span></div>
+    <div><span class="i18n" data-ko="원문에서 확인한 논문·코드·데이터·모델 링크가 있으면 카드에 표시합니다. 평가 환경, 주요 결과와 한계는 근거 페이지가 확인된 경우에만 덧붙이며, 미보고와 해당 없음을 구분합니다." data-en="Cards show paper, code, dataset, and model links when verified in a primary source. Evaluation setting, results, and limitations appear only with a supporting source; not reported and not applicable remain distinct.">원문에서 확인한 논문·코드·데이터·모델 링크가 있으면 카드에 표시합니다. 평가 환경, 주요 결과와 한계는 근거 페이지가 확인된 경우에만 덧붙이며, 미보고와 해당 없음을 구분합니다.</span></div>
+  </div>
+</details>
+
+<div class="section">
+  <div class="section-header">
+    <h2>🤖 VLA &amp; Embodied Foundation Models</h2>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.34105" target="_blank" rel="noopener">X-World: Transferring Video Priors to Variable-View Robot Control</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-25</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="사전학습 비디오 확산 모델(Video Diffusion Model)의 표현을 고정 길이 토큰과 공유 액션 전문가(Action Expert)로 넘겨, 카메라 1~3개와 서로 다른 행동 공간에서 로봇을 제어하는 프레임워크." data-en="X-World transfers a pretrained video-diffusion prior to robot control through a fixed-length token interface and a shared action expert, supporting one to three camera views across heterogeneous action spaces.">사전학습 비디오 확산 모델(Video Diffusion Model)의 표현을 고정 길이 토큰과 공유 액션 전문가(Action Expert)로 넘겨, 카메라 1~3개와 서로 다른 행동 공간에서 로봇을 제어하는 프레임워크.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇 + 시뮬레이션" data-en="Real robot + simulation">실물 로봇 + 시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="LIBERO 평균 98.5%, LIBERO-Plus 무적응 76.5%, 실제 양팔 과제 6개에서 평균 81.7%(과제당 20회). 저자 보고 수치이며 카메라·배경·노이즈 변화에서는 OpenVLA-OFT보다 약함." data-en="98.5% mean success on LIBERO and 76.5% zero-shot on LIBERO-Plus; 81.7% mean success on six dual-arm real-world tasks (20 trials each). Author-reported; weaker than OpenVLA-OFT under camera, background and noise shifts.">LIBERO 평균 98.5%, LIBERO-Plus 무적응 76.5%, 실제 양팔 과제 6개에서 평균 81.7%(과제당 20회). 저자 보고 수치이며 카메라·배경·노이즈 변화에서는 OpenVLA-OFT보다 약함.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.34105" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">world model</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.34593" target="_blank" rel="noopener">What Does World Modeling Actually Improve in Robot Action Learning?</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-25</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="FastWAM·OpenWAM에서 미래 영상 예측 손실(Future-Video Prediction Loss)만 바꾼 통제 실험으로, 월드 액션 모델(World Action Model)의 성능 향상이 어디서 오는지와 분포 변화(Distribution Shift)에서 유지되지 않음을 분석." data-en="Controlled ablations inside FastWAM and OpenWAM isolate what future-video prediction loss actually contributes to World Action Model policies, and show the gains do not reliably survive task and environment shifts.">FastWAM·OpenWAM에서 미래 영상 예측 손실(Future-Video Prediction Loss)만 바꾼 통제 실험으로, 월드 액션 모델(World Action Model)의 성능 향상이 어디서 오는지와 분포 변화(Distribution Shift)에서 유지되지 않음을 분석.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="시뮬레이션" data-en="Simulation">시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="깨끗한 조건의 학습 과제에서 예측 지도가 성공률을 FastWAM 24.38%p, OpenWAM 72.91%p 높였으나 미학습 과제·환경 변화에서는 모델별로 일관되지 않음." data-en="On seen tasks under clean conditions, predictive supervision raises success by 24.38 and 72.91 percentage points for FastWAM and OpenWAM; the benefit varies across models on unseen tasks and environmental shifts.">깨끗한 조건의 학습 과제에서 예측 지도가 성공률을 FastWAM 24.38%p, OpenWAM 72.91%p 높였으나 미학습 과제·환경 변화에서는 모델별로 일관되지 않음.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.34593" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Survey / Analysis</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">world model</span><span class="taxonomy-chip taxonomy-tag">VLA</span></div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.35832" target="_blank" rel="noopener">Profiling a Frontier Agent with EBench: From Direct Control to Harness with Policy</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-26</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="프런티어 멀티모달 LLM을 EBench에서 직접 웨이포인트 제어와 VLA·WAM 정책 호출 하네스(Harness) 두 방식으로 평가해, 사후학습 정책과 역량 경계를 비교한 기술 보고서." data-en="An EBench technical report profiling a frontier multimodal LLM as a robot controller, both with direct waypoint control and as a harness that calls post-trained VLA or WAM policies, under the same observation protocol as those policies.">프런티어 멀티모달 LLM을 EBench에서 직접 웨이포인트 제어와 VLA·WAM 정책 호출 하네스(Harness) 두 방식으로 평가해, 사후학습 정책과 역량 경계를 비교한 기술 보고서.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="시뮬레이션" data-en="Simulation">시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="직접 제어는 단기 과제에서 앞서지만 장기·정밀 접촉 과제에서 뒤처지며, VLA/WAM 호출 하네스는 토큰 비용을 줄이면서 최고 정책 수준까지 성공률을 끌어올림." data-en="Direct control is competitive overall and leads on short-horizon tasks but trails post-trained policies on long-horizon, tabletop and high-precision contact-rich tasks; calling a VLA/WAM lifts success to the best post-trained policy&#x27;s level at lower token cost.">직접 제어는 단기 과제에서 앞서지만 장기·정밀 접촉 과제에서 뒤처지며, VLA/WAM 호출 하네스는 토큰 비용을 줄이면서 최고 정책 수준까지 성공률을 끌어올림.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.35832" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-artifacts"><a class="artifact-link" href="https://github.com/InternRobotics/EBench" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="코드" data-en="Code">코드</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Survey / Analysis</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">benchmark</span><span class="taxonomy-chip taxonomy-tag">open source</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.33941" target="_blank" rel="noopener">TurboWAM: Learning What Matters for Fast World Action Models</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-24</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="행동 디노이징 상태에 맞는 월드 모델 레이어만 적응적으로 결합하고 표현을 캐싱해 월드 액션 모델(World Action Model)의 추론 지연(Inference Latency)을 줄이는 방법." data-en="TurboWAM speeds up World Action Models by fusing only the world-model layers relevant to the current action-denoising state and caching those representations across denoising steps.">행동 디노이징 상태에 맞는 월드 모델 레이어만 적응적으로 결합하고 표현을 캐싱해 월드 액션 모델(World Action Model)의 추론 지연(Inference Latency)을 줄이는 방법.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="시뮬레이션" data-en="Simulation">시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="여러 매니퓰레이션 벤치마크에서 최신 기법과 비슷한 성공률을 유지하면서 지연을 낮췄다고 보고. 초록에 구체 수치는 없음." data-en="Authors report lower inference latency at task success competitive with state-of-the-art methods on multiple manipulation benchmarks; the abstract gives no headline numbers.">여러 매니퓰레이션 벤치마크에서 최신 기법과 비슷한 성공률을 유지하면서 지연을 낮췄다고 보고. 초록에 구체 수치는 없음.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.33941" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">world model</span><span class="taxonomy-chip taxonomy-tag">efficient inference</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.33685" target="_blank" rel="noopener">EXE: Egocentric Cross-Embodiment Pretraining via Factorized Latent Actions for VLA Models</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-24</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="1인칭 인간 영상(Egocentric Video)에서 공유 조작 프리미티브와 인간 고유 운동학을 분리한 잠재 행동(Latent Action) 공간을 학습해, 그리퍼와 덱스터러스 핸드(Dexterous Hand) 모두에 전이되는 VLA 사전학습 프레임워크." data-en="EXE pretrains VLA policies on egocentric human video with a factorized latent-action space that separates shared manipulation primitives from human-specific kinematics, so one pretraining transfers to both grippers and dexterous hands.">1인칭 인간 영상(Egocentric Video)에서 공유 조작 프리미티브와 인간 고유 운동학을 분리한 잠재 행동(Latent Action) 공간을 학습해, 그리퍼와 덱스터러스 핸드(Dexterous Hand) 모두에 전이되는 VLA 사전학습 프레임워크.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇 + 시뮬레이션" data-en="Real robot + simulation">실물 로봇 + 시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="RoboTwin 2.0, RoboCasa GR1, 실제 매니퓰레이션에서 사전학습 없는 기준선 대비 일관된 향상(저자 보고, 초록에 수치 없음)." data-en="Consistent gains over a no-pretraining baseline on RoboTwin 2.0, RoboCasa GR1 and real-world manipulation tasks (author-reported, magnitudes not given in the abstract).">RoboTwin 2.0, RoboCasa GR1, 실제 매니퓰레이션에서 사전학습 없는 기준선 대비 일관된 향상(저자 보고, 초록에 수치 없음).</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.33685" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">dexterity</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.34108" target="_blank" rel="noopener">RoboDuo: Attempt, Check and Atomic Recovery through Code for Vision-Language-Action Models</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-25</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="코딩 에이전트(Coding Agent)가 완료 여부를 점검하고 실패 시 원자 스킬 VLA(Atomic VLA)로 남은 단계를 마무리해, 기존 VLA를 재학습하지 않고 장기 과제(Long-Horizon) 실패를 복구하는 이중 시스템." data-en="RoboDuo wraps a frozen full-task VLA with a coding agent that checks completion and hands unfinished steps to an atomic-skill VLA, recovering failed long-horizon rollouts without retraining the base policy.">코딩 에이전트(Coding Agent)가 완료 여부를 점검하고 실패 시 원자 스킬 VLA(Atomic VLA)로 남은 단계를 마무리해, 기존 VLA를 재학습하지 않고 장기 과제(Long-Horizon) 실패를 복구하는 이중 시스템.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇 + 시뮬레이션" data-en="Real robot + simulation">실물 로봇 + 시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="LIBERO·LIBERO-PRO에서 X-VLA와 π0.5를 일관되게 개선하고 장기 과제에서 효과가 가장 크며, 실제 로봇에서도 동결 VLA의 실패를 복구(저자 보고)." data-en="Consistently improves X-VLA and π0.5 on LIBERO and LIBERO-PRO, with the largest gains on long-horizon tasks, and recovers failed rollouts of a frozen VLA on a real robot (author-reported).">LIBERO·LIBERO-PRO에서 X-VLA와 π0.5를 일관되게 개선하고 장기 과제에서 효과가 가장 크며, 실제 로봇에서도 동결 VLA의 실패를 복구(저자 보고).</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.34108" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.32312" target="_blank" rel="noopener">MAST-VLA: Skill-Conditioned Adaptation with Trajectory-Affordance Priors for Multi-Skill Robot Manipulation</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-23</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="스킬 조건부 LoRA 전문가 혼합(LoRA-MoE) 어댑터와 궤적-어포던스(Trajectory-Affordance) 공간 사전을 VLA에 더해, 어떤 스킬을 어디서 수행할지를 함께 모델링하는 다중 스킬 정책 (CoRL 2026 채택)." data-en="MAST-VLA adds skill-conditioned LoRA mixture-of-experts adapters and a trajectory-affordance spatial prior to a VLA so one policy models both which skill to run and where to make contact.">스킬 조건부 LoRA 전문가 혼합(LoRA-MoE) 어댑터와 궤적-어포던스(Trajectory-Affordance) 공간 사전을 VLA에 더해, 어떤 스킬을 어디서 수행할지를 함께 모델링하는 다중 스킬 정책 (CoRL 2026 채택).</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇 + 시뮬레이션" data-en="Real robot + simulation">실물 로봇 + 시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="CALVIN ABC→D에서 평균 길이(Avg. Len) 4.65로 최고 성능, 실제 로봇 다중 스킬 시퀀스로 배포 가능성 확인." data-en="State-of-the-art average length of 4.65 on CALVIN ABC→D; real-robot multi-skill sequences are reported as validating deployability.">CALVIN ABC→D에서 평균 길이(Avg. Len) 4.65로 최고 성능, 실제 로봇 다중 스킬 시퀀스로 배포 가능성 확인.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.32312" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>🖐 Manipulation &amp; Dexterity</h2>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.34147" target="_blank" rel="noopener">PS-DLO: Property- and Spatially Aware Deformable Linear Object Manipulation Policy</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-25</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="대조 학습으로 얻은 물성 설명과 SAM3 마스크 기반 미래 관측 특징을 행동 전문가에 증류해, 케이블·끈 같은 변형 선형 물체(Deformable Linear Object)를 다루는 다중 과제 정책." data-en="PS-DLO conditions a deformable-linear-object policy on contrastively learned property descriptions and distills SAM3 mask features of future observations into the action expert, training one multi-task policy per embodiment.">대조 학습으로 얻은 물성 설명과 SAM3 마스크 기반 미래 관측 특징을 행동 전문가에 증류해, 케이블·끈 같은 변형 선형 물체(Deformable Linear Object)를 다루는 다중 과제 정책.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇" data-en="Real robot">실물 로봇</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="단일팔·양팔 실제 과제 9개에서 평균 성공률 68.9%로 최강 기준선보다 20.0%p 높고, 나비매듭 풀기의 시각 변화 7개 중 6개에서 우세." data-en="68.9% average success on nine real-world single-arm and bimanual tasks, 20.0 points above the strongest baseline; better than baseline in six of seven visual-shift conditions on butterfly-knot untying.">단일팔·양팔 실제 과제 9개에서 평균 성공률 68.9%로 최강 기준선보다 20.0%p 높고, 나비매듭 풀기의 시각 변화 7개 중 6개에서 우세.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.34147" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">bimanual</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.36961" target="_blank" rel="noopener">Keeping Contact: Task-Adaptive Friction Margins for Bimanual Non-Prehensile Manipulation</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-27</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="부호 마찰 거리(Signed Friction Distance)로 과제 적응형 마찰 여유를 정의하고 2차 원뿔 계획(SOCP)에 넣어, 양팔 비파지(Non-Prehensile) 기울이기에서 미끄러짐을 방지하는 접촉력 최적화 (RA-L 채택)." data-en="Derives a task-adaptive friction margin from signed friction distance and embeds it in a sequence of second-order cone programs, so bimanual non-prehensile tilting keeps contact forces away from the friction-cone boundary.">부호 마찰 거리(Signed Friction Distance)로 과제 적응형 마찰 여유를 정의하고 2차 원뿔 계획(SOCP)에 넣어, 양팔 비파지(Non-Prehensile) 기울이기에서 미끄러짐을 방지하는 접촉력 최적화 (RA-L 채택).</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇" data-en="Real robot">실물 로봇</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="물체 물성 변화와 모델 오차 상황에서 실제 양팔 기울이기에 성공했으며 고정 여유 방식은 실패했다고 보고. 초록에 시행 횟수는 없음." data-en="Real-world bimanual tilting succeeds under object-property variation and model mismatch, where fixed-margin baselines are reported to fail; trial counts are not given in the abstract.">물체 물성 변화와 모델 오차 상황에서 실제 양팔 기울이기에 성공했으며 고정 여유 방식은 실패했다고 보고. 초록에 시행 횟수는 없음.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.36961" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">bimanual</span><span class="taxonomy-chip taxonomy-tag">planning</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.36685" target="_blank" rel="noopener">RoboSTD: Zero-Shot Single-to-Dual Transfer via Sagittal Mirroring for Bimanual Learning</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-27</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="관측·고유수용감각·행동을 시상면 대칭(Sagittal Mirroring)으로 뒤집고 LLM이 만든 협응 제약을 더해, 단일팔 시연을 양팔(Bimanual) 학습 데이터로 바꾸는 제로샷 방법." data-en="RoboSTD turns single-arm demonstrations into bimanual training data by sagittal-plane mirroring of observations, proprioception and actions, with LLM-generated coordination constraints.">관측·고유수용감각·행동을 시상면 대칭(Sagittal Mirroring)으로 뒤집고 LLM이 만든 협응 제약을 더해, 단일팔 시연을 양팔(Bimanual) 학습 데이터로 바꾸는 제로샷 방법.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇 + 시뮬레이션" data-en="Real robot + simulation">실물 로봇 + 시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="RoboTwin과 실제 AgileX ALOHA에서 추가 양팔 시연 없이 컵 수집 수를 단일팔 기준선의 2.11배로 높임." data-en="On AgileX ALOHA in RoboTwin and the real world, raises the average number of cups collected to 2.11× the single-arm baseline without any extra bimanual demonstrations.">RoboTwin과 실제 AgileX ALOHA에서 추가 양팔 시연 없이 컵 수집 수를 단일팔 기준선의 2.11배로 높임.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.36685" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">bimanual</span><span class="taxonomy-chip taxonomy-tag">imitation learning</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.34893" target="_blank" rel="noopener">MMGNet: Multi-Modal 6-DoF Grasp Synthesis for Cluttered Scenes</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-26</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="다중 스케일 RGB 특징을 점군(Point Cloud) 표현 형성 전 과정에 주입하고 회전 파지성(Rotational Graspness)을 예측해, 복잡한 장면의 6자유도 파지(6-DoF Grasp) 생성을 개선." data-en="MMGNet injects multi-scale RGB features throughout point-cloud representation building and predicts rotational graspness to improve scene-level 6-DoF grasp synthesis in clutter.">다중 스케일 RGB 특징을 점군(Point Cloud) 표현 형성 전 과정에 주입하고 회전 파지성(Rotational Graspness)을 예측해, 복잡한 장면의 6자유도 파지(6-DoF Grasp) 생성을 개선.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇 + 시뮬레이션" data-en="Real robot + simulation">실물 로봇 + 시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="GraspNet-1Billion(RealSense) 평균 AP 60.34, 실제 적대적 물체에서 AnyGrasp 대비 파지 성공률 +8.46%p. 코드·모델은 게재 후 공개 예정." data-en="Mean AP 60.34 on GraspNet-1Billion (RealSense), and +8.46 points grasp success over AnyGrasp on real adversarial objects; code, models and data are promised upon publication, not yet released.">GraspNet-1Billion(RealSense) 평균 AP 60.34, 실제 적대적 물체에서 AnyGrasp 대비 파지 성공률 +8.46%p. 코드·모델은 게재 후 공개 예정.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.34893" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.33705" target="_blank" rel="noopener">Open-World Law-to-Action: Vision-Language Priors and Touch for Parts with Hidden Physics</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-24</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="VLM이 문·서랍·뚜껑의 운동 법칙과 잠김 가능성을 사전으로 제안하고, 촉각(Touch) 기반 베이지안 회귀로 이를 온라인 식별해 처음 보는 가정의 관절 물체를 조작하는 방법." data-en="Open-World Law-to-Action lets a VLM propose each movable part&#x27;s law of motion as a floored prior that touch can overturn, then identifies the law online by Bayesian regression to open unseen doors, drawers, lids and taps.">VLM이 문·서랍·뚜껑의 운동 법칙과 잠김 가능성을 사전으로 제안하고, 촉각(Touch) 기반 베이지안 회귀로 이를 온라인 식별해 처음 보는 가정의 관절 물체를 조작하는 방법.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="시뮬레이션" data-en="Simulation">시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="전부 시뮬레이션 결과: 새 주방에서 VLM 제안만으로 80%(모든 부품을 알 때 98%), 이동 로봇은 새 장면 요청 100건 중 70건 완료." data-en="All experiments are in simulation: 80% task completion in new kitchens from VLM proposals versus 98% with known parts, and 70 of 100 requests for a mobile robot in new scenes.">전부 시뮬레이션 결과: 새 주방에서 VLM 제안만으로 80%(모든 부품을 알 때 98%), 이동 로봇은 새 장면 요청 100건 중 70건 완료.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.33705" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Mobile Manipulator</span><span class="taxonomy-chip taxonomy-tag">tactile</span><span class="taxonomy-chip taxonomy-tag">planning</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>🎯 Robot Learning, Control &amp; Planning</h2>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.33863" target="_blank" rel="noopener">RoboLongR: Causally Consistent Rewards Teach Robots to Progressively Master Long-Horizon Manipulation</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-24</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="실행 이력에 근거해 선행 조건 충족 여부와 정렬된 인과적 일관 보상(Causally Consistent Reward)을 학습하고, 행동 복제(BC)에서 온라인 강화학습(RL)으로 장기 매니퓰레이션 정책을 개선." data-en="RoboLongR learns history-dependent, causally consistent progress rewards that align rewarded progress with satisfied prerequisites, guiding offline-to-online refinement from behavior cloning to RL on long-horizon manipulation.">실행 이력에 근거해 선행 조건 충족 여부와 정렬된 인과적 일관 보상(Causally Consistent Reward)을 학습하고, 행동 복제(BC)에서 온라인 강화학습(RL)으로 장기 매니퓰레이션 정책을 개선.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇 + 시뮬레이션" data-en="Real robot + simulation">실물 로봇 + 시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="보상 사전학습에서 제외된 RLBench 장기 과제 18개 평균 31.8%(최강 기준선 +9.2%p), 실제 로봇 과제 4개 57.5%(+32.5%p)." data-en="31.8% average success on 18 held-out long-horizon RLBench tasks (+9.2 points over the strongest baseline) and 57.5% on four real-robot tasks (+32.5 points).">보상 사전학습에서 제외된 RLBench 장기 과제 18개 평균 31.8%(최강 기준선 +9.2%p), 실제 로봇 과제 4개 57.5%(+32.5%p).</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.33863" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">RL</span><span class="taxonomy-chip taxonomy-tag">imitation learning</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.32941" target="_blank" rel="noopener">If at First You Don&#x27;t Succeed, Backtrack: Lightweight Recovery for Frozen VLAs</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-23</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="동결된 VLA 내부 표현에 작은 실패 예측 헤드를 붙여, 실패가 예상되면 팔 동작을 되돌리고(Backtrack) 같은 정책이 재시도하게 하는 경량 복구 기법." data-en="Backtrack adds a tiny failure-prediction head on a frozen VLA&#x27;s internal features; when failure is predicted it pauses, retraces recent arm motion and hands control back so the unchanged policy can retry.">동결된 VLA 내부 표현에 작은 실패 예측 헤드를 붙여, 실패가 예상되면 팔 동작을 되돌리고(Backtrack) 같은 정책이 재시도하게 하는 경량 복구 기법.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="시뮬레이션" data-en="Simulation">시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="파라미터 0.48~0.88% 추가로 LIBERO-Long에서 SmolVLA·π0.5·π0-FAST 실패율을 19~48% 줄임(성공률 최대 +7.4%p). 짧은 과제에서는 효과가 작음." data-en="Head adds 0.48–0.88% parameters; on LIBERO-Long it cuts failure rates of SmolVLA, π0.5 and π0-FAST by 19–48% (up to +7.4 points success), with smaller effects on shorter suites.">파라미터 0.48~0.88% 추가로 LIBERO-Long에서 SmolVLA·π0.5·π0-FAST 실패율을 19~48% 줄임(성공률 최대 +7.4%p). 짧은 과제에서는 효과가 작음.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.32941" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">safety</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.35604" target="_blank" rel="noopener">RoboDoctor: Training-Free Recursive Self-Improvement for Robot Policies</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-26</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="범용 로봇 정책과 언어 에이전트 사이 제어 배분·개입 시점·물리 방법 수정을 경험 기록(Experience Record)으로 축적하는 학습 불필요(Training-Free) 자기개선 하네스." data-en="RoboDoctor is a training-free harness that allocates control between a generalist robot policy and a language agent, decides when to intervene, and stores linked experience records for reuse across episodes.">범용 로봇 정책과 언어 에이전트 사이 제어 배분·개입 시점·물리 방법 수정을 경험 기록(Experience Record)으로 축적하는 학습 불필요(Training-Free) 자기개선 하네스.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="시뮬레이션" data-en="Simulation">시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="RoboDojo-Sim 54개 과제에서 5차원 평균 57.10, 성공률 49.44%. 에피소드 간 경험의 기여는 통제 실험이 더 필요하다고 저자가 명시." data-en="Five-dimension mean score 57.10 and native success 49.44% on 54 curated RoboDojo-Sim tasks; authors note controlled trials are still needed to isolate the cross-episode experience effect.">RoboDojo-Sim 54개 과제에서 5차원 평균 57.10, 성공률 49.44%. 에피소드 간 경험의 기여는 통제 실험이 더 필요하다고 저자가 명시.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.35604" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-artifacts"><a class="artifact-link" href="https://github.com/THUSI-Lab/RoboDoctor-Preview" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="코드" data-en="Code">코드</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">open source</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.35051" target="_blank" rel="noopener">VISTA: Active Exploration for Self-Improvement in Embodied Agents</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-26</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="정적 로그 회고 대신 메타 에이전트가 직접 새 롤아웃을 생성해 가설을 검증하고 하네스 그래프(Harness Graph)로 이력을 관리하며 체화 에이전트(Embodied Agent) 하네스를 개선." data-en="VISTA is a meta-agent that improves an embodied agent&#x27;s harness by actively generating new rollouts to test hypotheses, tracked in a harness graph, instead of reflecting only on static logs.">정적 로그 회고 대신 메타 에이전트가 직접 새 롤아웃을 생성해 가설을 검증하고 하네스 그래프(Harness Graph)로 이력을 관리하며 체화 에이전트(Embodied Agent) 하네스를 개선.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="시뮬레이션" data-en="Simulation">시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="LIBERO-Pro·RoboCasa·RoboTwin에서 정적 회고 대비 더 적은 롤아웃으로 더 높은 성공률 달성(저자 보고)." data-en="On LIBERO-Pro, RoboCasa and RoboTwin, success improves progressively and is reached with fewer simulator rollouts than static reflection (author-reported).">LIBERO-Pro·RoboCasa·RoboTwin에서 정적 회고 대비 더 적은 롤아웃으로 더 높은 성공률 달성(저자 보고).</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.35051" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-artifacts"><a class="artifact-link" href="https://github.com/AgenticEI/VISTA" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="코드" data-en="Code">코드</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">open source</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.33959" target="_blank" rel="noopener">I Won&#x27;t Know Until I Try: Interactive Information Gathering for Long-Horizon Manipulation</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-25</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="PDDLStream 기반 작업·동작 계획(TAMP)에 상호작용 정보 수집 행동을 넣어 낙관적으로 계획하고, 실행 결과를 확인해 무효화된 부분만 재계획하는 프레임워크." data-en="A PDDLStream-based TAMP framework that plans optimistically with interactive information-gathering actions, verifies their outcomes during execution, and replans only the parts of the plan that are invalidated.">PDDLStream 기반 작업·동작 계획(TAMP)에 상호작용 정보 수집 행동을 넣어 낙관적으로 계획하고, 실행 결과를 확인해 무효화된 부분만 재계획하는 프레임워크.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇 + 시뮬레이션" data-en="Real robot + simulation">실물 로봇 + 시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="물체 이동 가능 여부·펜 잉크·서랍 개폐 등을 시뮬레이션과 실제 로봇에서 시연. 초록에 종합 성공률은 없음." data-en="Demonstrated in simulation and on a real robot for tasks such as checking whether an object is movable, a pen has ink, or a drawer opens; no aggregate success rates in the abstract.">물체 이동 가능 여부·펜 잉크·서랍 개폐 등을 시뮬레이션과 실제 로봇에서 시연. 초록에 종합 성공률은 없음.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.33959" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">planning</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>🦿 Locomotion &amp; Whole-Body Control</h2>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.33446" target="_blank" rel="noopener">MOTIO: Agentic Skill Engineering for Reality-Grounded Humanoid Loco-Manipulation</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-24</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="인간 행동 영상·실측 3D 자산·기존 전신 제어 인터페이스를 에이전트가 조합해, 원격조작 시연 없이 휴머노이드 이동-조작(Loco-Manipulation) 프로그램을 만드는 스킬 엔지니어링 시스템." data-en="MOTIO is an agentic skill-engineering system that turns human-action videos, metric 3D assets and existing whole-body/IK/hand interfaces into executable humanoid loco-manipulation programs without teleoperated demonstrations.">인간 행동 영상·실측 3D 자산·기존 전신 제어 인터페이스를 에이전트가 조합해, 원격조작 시연 없이 휴머노이드 이동-조작(Loco-Manipulation) 프로그램을 만드는 스킬 엔지니어링 시스템.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇 + 시뮬레이션" data-en="Real robot + simulation">실물 로봇 + 시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="스캔한 사무실에서 실제 G1이 101.75초 연속 병 처리 수행, 나사 조임 잔차 76.0% 감소, 증류된 단일 정책이 시뮬레이션 과제 18개 완료." data-en="A continuous 101.75-second physical Unitree G1 bottle-disposal run in a scanned office; physical refinement cut screw-tightening residual by 76.0%; distilled policy completes 18 simulated tasks with one checkpoint.">스캔한 사무실에서 실제 G1이 101.75초 연속 병 처리 수행, 나사 조임 잔차 76.0% 감소, 증류된 단일 정책이 시뮬레이션 과제 18개 완료.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.33446" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Software / Tool</span><span class="taxonomy-chip taxonomy-platform">Humanoid</span><span class="taxonomy-chip taxonomy-tag">whole body</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.36825" target="_blank" rel="noopener">HC2Robot: Hyper-Connection Transformers with Predicted Foresight for Multi-Terrain Humanoid Parkour</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-27</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="배포 가능한 관측으로 다음 착지 시점·위치·지지 품질을 예측하는 모듈과 하이퍼커넥션 트랜스포머(Hyper-Connection Transformer)로, 특권 정보 격차를 줄인 휴머노이드 파쿠르 정책." data-en="HC2Robot predicts each foot&#x27;s next touchdown timing, location and support quality from deployable observations, giving the actor a learned stand-in for the critic&#x27;s privileged terrain information in humanoid parkour.">배포 가능한 관측으로 다음 착지 시점·위치·지지 품질을 예측하는 모듈과 하이퍼커넥션 트랜스포머(Hyper-Connection Transformer)로, 특권 정보 격차를 줄인 휴머노이드 파쿠르 정책.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="시뮬레이션" data-en="Simulation">시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="계단·틈·높은 단·경사에서 시뮬레이션 평균 통과율 97.60%, 안전 발판 비율도 기준선보다 높음." data-en="97.60% mean simulated traversal success across stairs, gaps, high platforms and slopes, with higher safe-foothold rates than perceptive locomotion baselines.">계단·틈·높은 단·경사에서 시뮬레이션 평균 통과율 97.60%, 안전 발판 비율도 기준선보다 높음.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.36825" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Humanoid</span><span class="taxonomy-chip taxonomy-tag">locomotion</span><span class="taxonomy-chip taxonomy-tag">whole body</span><span class="taxonomy-chip taxonomy-tag">RL</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.36507" target="_blank" rel="noopener">GRAFT: Geometry-Aware Residual Adaptation for Foundation Trackers</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-27</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="휴머노이드 행동 파운데이션 모델(Behavior Foundation Model)을 고정한 채 하체 목표에만 지형 조건 잔차 어댑터(Residual Adapter)를 더해 계단·틈·단상 보행을 가능하게 함." data-en="GRAFT keeps a humanoid behavior foundation model frozen and adds a lightweight depth-conditioned residual adapter on lower-body targets so flat-ground trackers handle stairs, gaps and platforms.">휴머노이드 행동 파운데이션 모델(Behavior Foundation Model)을 고정한 채 하체 목표에만 지형 조건 잔차 어댑터(Residual Adapter)를 더해 계단·틈·단상 보행을 가능하게 함.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇 + 시뮬레이션" data-en="Real robot + simulation">실물 로봇 + 시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="시뮬레이션에서 4개 트래커에 적용, 실제 Unitree G1에서 온보드 깊이로 지형 통과 확인." data-en="Instantiated on four frozen trackers in simulation; a real Unitree G1 with the adapted SONIC tracker traverses terrain using onboard depth and unmodified references.">시뮬레이션에서 4개 트래커에 적용, 실제 Unitree G1에서 온보드 깊이로 지형 통과 확인.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.36507" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Humanoid</span><span class="taxonomy-chip taxonomy-tag">locomotion</span><span class="taxonomy-chip taxonomy-tag">whole body</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.34370" target="_blank" rel="noopener">ThinkLocoManip: A Whole-Body Control Agentic Harness for Legged Loco-Manipulation</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-25</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="보행을 인지·내비게이션·조작과 함께 도구 영역으로 다루는 추론-행동 교차 에이전트 하네스로, 다리 로봇의 장기 이동-조작(Loco-Manipulation)을 수행." data-en="ThinkLocoManip is an interleaved reason-and-act agent harness that treats locomotion as a tool domain alongside perception, navigation and manipulation for long-horizon legged loco-manipulation.">보행을 인지·내비게이션·조작과 함께 도구 영역으로 다루는 추론-행동 교차 에이전트 하네스로, 다리 로봇의 장기 이동-조작(Loco-Manipulation)을 수행.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇" data-en="Real robot">실물 로봇</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="실제 장기 이동-조작 과제에서 성공률 77%로 최강 plan-then-act 기준선의 두 배 이상(저자 보고)." data-en="77% success on real-world long-horizon legged loco-manipulation tasks, more than twice the strongest plan-then-act baseline (author-reported).">실제 장기 이동-조작 과제에서 성공률 77%로 최강 plan-then-act 기준선의 두 배 이상(저자 보고).</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.34370" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Legged</span><span class="taxonomy-chip taxonomy-tag">whole body</span><span class="taxonomy-chip taxonomy-tag">planning</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.32909" target="_blank" rel="noopener">HoloBoxing: A Simple Recipe for Humanoid Boxing with 7 Minutes of Single-GPU Training</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-23</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="사전학습된 전신 제어기(Whole-Body Controller)를 고정하고 신체 목표점을 요청하는 작은 플래너만 학습해, 단일 GPU 약 7분 추가 학습으로 휴머노이드 복싱을 익히는 레시피." data-en="HoloBoxing reuses a frozen pretrained whole-body controller and trains only a compact planner over future body-point targets, learning humanoid boxing in about seven minutes of additional single-GPU training.">사전학습된 전신 제어기(Whole-Body Controller)를 고정하고 신체 목표점을 요청하는 작은 플래너만 학습해, 단일 GPU 약 7분 추가 학습으로 휴머노이드 복싱을 익히는 레시피.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="시뮬레이션" data-en="Simulation">시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="시뮬레이션 복싱에서만 평가했으며 7분에는 제어기 사전학습·데이터 준비가 포함되지 않음." data-en="Evaluated only in simulated boxing; the 7-minute figure excludes controller pretraining, data preparation, evaluation and search.">시뮬레이션 복싱에서만 평가했으며 7분에는 제어기 사전학습·데이터 준비가 포함되지 않음.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.32909" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Humanoid</span><span class="taxonomy-chip taxonomy-tag">whole body</span><span class="taxonomy-chip taxonomy-tag">RL</span><span class="taxonomy-chip taxonomy-tag">imitation learning</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>🧭 Mobility, Navigation &amp; Autonomy</h2>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.33794" target="_blank" rel="noopener">One Scan is Enough: Demonstration-Free Adaptation for Language-Guided Navigation</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-24</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="현장 원격조작 시연 대신 아이폰 스캔 한 번으로 학습 환경과 지시문을 자동 생성(Scan2Instruction)하고, 학습된 비평가 없이 정책을 적응(PRPT-KS)시키는 언어 지시 내비게이션 (NeurIPS 2026)." data-en="Replaces on-site teleoperated demonstrations with a single iPhone scan: Scan2Instruction compiles the scan into a training environment with grounded instructions, and PRPT-KS adapts the navigation policy without a learned critic or human labels.">현장 원격조작 시연 대신 아이폰 스캔 한 번으로 학습 환경과 지시문을 자동 생성(Scan2Instruction)하고, 학습된 비평가 없이 정책을 적응(PRPT-KS)시키는 언어 지시 내비게이션 (NeurIPS 2026).</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇" data-en="Real robot">실물 로봇</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="실제 환경 5곳에서 로봇 성공률 85%로, 인간 시연으로 사후학습한 기준선(49%)을 크게 앞섬." data-en="85% real-robot success across five real environments versus 49% for the same RealNav baseline post-trained on human demonstrations.">실제 환경 5곳에서 로봇 성공률 85%로, 인간 시연으로 사후학습한 기준선(49%)을 크게 앞섬.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.33794" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Deployment</span><span class="taxonomy-chip taxonomy-platform">Ground Mobile</span><span class="taxonomy-chip taxonomy-tag">navigation</span><span class="taxonomy-chip taxonomy-tag">sim2real</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.36837" target="_blank" rel="noopener">ExecDiffuser: Closing the Sample-to-Execution Gap in Diffusion Planning</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-27</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="확산 궤적 제안·실행 기반 선택·재계획을 하나로 묶어, 생성 후보의 품질과 실제로 실행되는 궤적 사이 격차(Sample-to-Execution Gap)를 줄인 자율주행 확산 플래너(Diffusion Planner)." data-en="ExecDiffuser couples diffusion trajectory proposals, execution-grounded selection and replanning through shared execution semantics, closing the gap between good samples and the single trajectory actually committed in closed-loop driving.">확산 궤적 제안·실행 기반 선택·재계획을 하나로 묶어, 생성 후보의 품질과 실제로 실행되는 궤적 사이 격차(Sample-to-Execution Gap)를 줄인 자율주행 확산 플래너(Diffusion Planner).</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="시뮬레이션" data-en="Simulation">시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="nuPlan·InterPlan·NAVSIM 5시드 평균 85.62점(Diffusion Planner 대비 +4.02), NAVSIM PDMS 92.6." data-en="Average score 85.62 over nuPlan, InterPlan and NAVSIM under a five-seed protocol (+4.02 over Diffusion Planner, +1.31 over FlowDrive) and 92.6 PDMS on NAVSIM.">nuPlan·InterPlan·NAVSIM 5시드 평균 85.62점(Diffusion Planner 대비 +4.02), NAVSIM PDMS 92.6.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.36837" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Autonomous Vehicle</span><span class="taxonomy-chip taxonomy-tag">planning</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.35670" target="_blank" rel="noopener">Continuous-Time Safe Planning and Control for Agile Quadrupeds</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-26</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="방향 결합 속도 제약을 가진 SE(2) 모델을 유지하고 복합 베른슈타인 다항식(Bernstein Polynomial)으로 전 구간 충돌 회피를 보장하는 4족 로봇 실시간 안전 계획·제어." data-en="A real-time quadruped planner that keeps the fully actuated SE(2) model with heading-coupled velocity bounds and uses composite Bernstein polynomials to certify collision avoidance over the whole horizon, not just at sample points.">방향 결합 속도 제약을 가진 SE(2) 모델을 유지하고 복합 베른슈타인 다항식(Bernstein Polynomial)으로 전 구간 충돌 회피를 보장하는 4족 로봇 실시간 안전 계획·제어.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇 + 시뮬레이션" data-en="Real robot + simulation">실물 로봇 + 시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="시뮬레이션과 실제 4족 로봇에서 미지의 움직이는 장애물 사이 주행으로 검증. 초록에 종합 수치 없음." data-en="Validated against ablations and baselines in simulation and in hardware on a quadruped navigating among unknown moving obstacles; no aggregate numbers in the abstract.">시뮬레이션과 실제 4족 로봇에서 미지의 움직이는 장애물 사이 주행으로 검증. 초록에 종합 수치 없음.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.35670" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Legged</span><span class="taxonomy-chip taxonomy-tag">planning</span><span class="taxonomy-chip taxonomy-tag">safety</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.36725" target="_blank" rel="noopener">On Shaky Ground: Characterising Non-Rigid Base Effects in Mobile Manipulation</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-27</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="경량 이동 매니퓰레이터(Mobile Manipulator)의 베이스 유연성이 샌딩 같은 지속 접촉 작업의 힘·공구 위치를 어떻게 왜곡하는지 시뮬레이션과 두 실험 플랫폼으로 분석 (ACRA 2026)." data-en="Characterizes how base compliance and motion on lightweight mobile manipulators distort force and motion at the tool during a sustained-contact sanding task, using simulation and two wheeled testbeds.">경량 이동 매니퓰레이터(Mobile Manipulator)의 베이스 유연성이 샌딩 같은 지속 접촉 작업의 힘·공구 위치를 어떻게 왜곡하는지 시뮬레이션과 두 실험 플랫폼으로 분석 (ACRA 2026).</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇" data-en="Real robot">실물 로봇</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="베이스-지면 저항이 낮을 때 100 N 명령의 54~70%만 전달되고 공구 끝 오차가 100 mm에 달함. 저항을 높이면 개선." data-en="Under low base-ground resistance only 54–70% of a 100 N command was realised and tool-centre-point errors reached 100 mm; raising base-ground resistance improved force realisation.">베이스-지면 저항이 낮을 때 100 N 명령의 54~70%만 전달되고 공구 끝 오차가 100 mm에 달함. 저항을 높이면 개선.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.36725" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Survey / Analysis</span><span class="taxonomy-chip taxonomy-platform">Mobile Manipulator</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.37632" target="_blank" rel="noopener">A heuristic for optimal coordination of autonomous vehicles: real-time algorithms</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Systems and Control</span>
+        <span class="item-date">2026-10-27</span>
+        <span class="stars" title="2/5: niche but worth tracking for the relevant subfield" aria-label="2/5: niche but worth tracking for the relevant subfield" tabindex="0"><span class="filled">★★</span><span class="empty">☆☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="acados의 알고리즘 미분(Algorithmic Differentiation)으로 차량별 최적제어 하위 문제의 민감도를 계산해, 비신호 교차로에서 통과 순서와 궤적을 실시간으로 함께 최적화." data-en="Computes the sensitivities of each vehicle&#x27;s optimal-control subproblem with algorithmic differentiation in acados to solve bi-level crossing-order and trajectory coordination for automated vehicles at unsignalized intersections in real time.">acados의 알고리즘 미분(Algorithmic Differentiation)으로 차량별 최적제어 하위 문제의 민감도를 계산해, 비신호 교차로에서 통과 순서와 궤적을 실시간으로 함께 최적화.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="시뮬레이션" data-en="Simulation">시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="수치 시뮬레이션으로만 검증." data-en="Validated in numerical simulation only.">수치 시뮬레이션으로만 검증.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.37632" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Autonomous Vehicle</span><span class="taxonomy-chip taxonomy-tag">planning</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>🚁 Aerial, Field, Marine &amp; Multi-Robot</h2>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.36968" target="_blank" rel="noopener">Omni-IGN: Onboard Image-Goal Navigation for Drones with Omnidirectional Vision</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-27</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="4개 어안 카메라(Quad-Fisheye)와 어텐션 기반 강화학습 정책, 충돌 인지 안전 계층을 결합해 별도 깊이 센서 없이 온보드로 동작하는 드론 이미지 목표 내비게이션(ImageNav)." data-en="Omni-IGN is a fully onboard image-goal navigation system for drones that fuses quad-fisheye views with an attention-based RL policy and a collision-aware safety layer, without a dedicated depth sensor.">4개 어안 카메라(Quad-Fisheye)와 어텐션 기반 강화학습 정책, 충돌 인지 안전 계층을 결합해 별도 깊이 센서 없이 온보드로 동작하는 드론 이미지 목표 내비게이션(ImageNav).</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇 + 시뮬레이션" data-en="Real robot + simulation">실물 로봇 + 시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="Habitat에서 연속 행동 기준선 중 최고, IsaacSim 비행 검증 후 실제 비행에 무조정 제로샷 전이. 코드는 채택 후 공개 예정." data-en="Best among continuous-action baselines on Habitat, validated in IsaacSim flight tests, and transferred zero-shot to real flight without fine-tuning or external localization; code and checkpoints promised upon acceptance.">Habitat에서 연속 행동 기준선 중 최고, IsaacSim 비행 검증 후 실제 비행에 무조정 제로샷 전이. 코드는 채택 후 공개 예정.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.36968" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Aerial / Drone</span><span class="taxonomy-chip taxonomy-tag">navigation</span><span class="taxonomy-chip taxonomy-tag">RL</span><span class="taxonomy-chip taxonomy-tag">sim2real</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.37535" target="_blank" rel="noopener">Predict the Swing, Match the Speed: Robotic Pipe Stabbing With Learned Stereo Vision and Residual Reinforcement Learning</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-27</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="스테레오 진자 칼만 필터와 키포인트 네트워크로 흔들리는 파이프를 추적하고, 롤러 헤드 팔과 잔차 강화학습(Residual RL)으로 같은 속도로 맞물리는 시추 현장용 파이프 스태빙 로봇." data-en="StabBot is a drilling-floor pipe-stabbing system that tracks the swinging pipe with a stereo pendulum Kalman filter and keypoint network, then meets it at matched velocity with a roller-head arm refined by residual RL.">스테레오 진자 칼만 필터와 키포인트 네트워크로 흔들리는 파이프를 추적하고, 롤러 헤드 팔과 잔차 강화학습(Residual RL)으로 같은 속도로 맞물리는 시추 현장용 파이프 스태빙 로봇.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="시뮬레이션" data-en="Simulation">시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="200회 모두 롤러 접촉만으로 안착(고정 가이드 74%), 접촉 속도 18.4→2.3 cm/s. 단, 1:4 축척 MuJoCo 모델 결과이며 실제 현장 검증은 아님." data-en="All 200 paired jobs seated with roller-only contact versus 74% for a fixed guide; median contact speed 18.4→2.3 cm/s; results come from a 1:4 Froude-scaled MuJoCo model, not field hardware.">200회 모두 롤러 접촉만으로 안착(고정 가이드 74%), 접촉 속도 18.4→2.3 cm/s. 단, 1:4 축척 MuJoCo 모델 결과이며 실제 현장 검증은 아님.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.37535" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">System / Hardware</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">RL</span><span class="taxonomy-chip taxonomy-tag">planning</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.33584" target="_blank" rel="noopener">HA-DiPO: Diffusion Policy Optimization for Heterogeneous Cooperative Transport</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-24</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="확산 기반 협응 정책과 기체별 운동 제어기를 계층화한 다중 에이전트 강화학습(MARL)으로, 이종 다리 로봇들이 통신 없이 국소 관측만으로 화물을 함께 운반." data-en="HA-DiPO is a hierarchical multi-agent RL framework in which diffusion coordination policies drive embodiment-specific motion controllers, letting heterogeneous legged robots carry a shared payload from local observations only.">확산 기반 협응 정책과 기체별 운동 제어기를 계층화한 다중 에이전트 강화학습(MARL)으로, 이종 다리 로봇들이 통신 없이 국소 관측만으로 화물을 함께 운반.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇 + 시뮬레이션" data-en="Real robot + simulation">실물 로봇 + 시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="시뮬레이션에서 기준선보다 높은 보상·속도 추종 성공률, 실제 4족-바퀴다리 및 인간-로봇 협력 운반 시연." data-en="Higher returns and velocity-tracking success than baselines in simulation; real-world quadrupedal–wheeled-legged and human–robot cooperative transport demonstrated.">시뮬레이션에서 기준선보다 높은 보상·속도 추종 성공률, 실제 4족-바퀴다리 및 인간-로봇 협력 운반 시연.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.33584" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-artifacts"><a class="artifact-link" href="https://github.com/ha-dipo/ha-dipo-sim2sim" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="코드" data-en="Code">코드</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Multi-Robot</span><span class="taxonomy-chip taxonomy-tag">RL</span><span class="taxonomy-chip taxonomy-tag">real robot</span><span class="taxonomy-chip taxonomy-tag">open source</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.32248" target="_blank" rel="noopener">Quadrotor Guidance for Tasks along Elliptical Boundary</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Systems and Control</span>
+        <span class="item-date">2026-10-23</span>
+        <span class="stars" title="2/5: niche but worth tracking for the relevant subfield" aria-label="2/5: niche but worth tracking for the relevant subfield" tabindex="0"><span class="filled">★★</span><span class="empty">☆☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="분기 이론(Bifurcation Theory) 기반 유도 법칙으로 쿼드로터가 타원 경계를 따라 시점 수렴·전환·등속 선회·구간 체류를 닫힌 형태 참조 궤적으로 수행하는 점검 방법." data-en="A bifurcation-theory guidance law for quadrotor inspection along an elliptical boundary that supports viewpoint convergence, switching, constant-speed circumnavigation and sector dwell constraints with closed-form references.">분기 이론(Bifurcation Theory) 기반 유도 법칙으로 쿼드로터가 타원 경계를 따라 시점 수렴·전환·등속 선회·구간 체류를 닫힌 형태 참조 궤적으로 수행하는 점검 방법.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="평가 환경 미보고" data-en="Evaluation setting not reported">평가 환경 미보고</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="안정성 해석으로 수렴을 보였고 기존 방법과는 정성 비교만 제시." data-en="Stability analysis proves convergence; comparison with existing methods is qualitative.">안정성 해석으로 수렴을 보였고 기존 방법과는 정성 비교만 제시.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.32248" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Aerial / Drone</span><span class="taxonomy-chip taxonomy-tag">planning</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>📊 Data, Benchmarks, Simulation &amp; Tools</h2>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.33807" target="_blank" rel="noopener">RoboWorM: Evaluating Movement Realism, Consistency and Acceleration Affects in Embodied Video World Models</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-24</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="로봇 운동학 트리와 고정 카메라 정보를 활용해 VLM 없이 운동학 안정성(KIVA)과 다시점 기하 일관성(RIGIS)을 측정하는 1,605개 에피소드 규모의 로봇 비디오 월드 모델(Video World Model) 벤치마크." data-en="RoboWorM is a deployment-aware benchmark of 1,605 episodes for robot video world models, using known kinematic trees and camera setups for VLM-free kinematic-stability and multi-view geometric-consistency metrics.">로봇 운동학 트리와 고정 카메라 정보를 활용해 VLM 없이 운동학 안정성(KIVA)과 다시점 기하 일관성(RIGIS)을 측정하는 1,605개 에피소드 규모의 로봇 비디오 월드 모델(Video World Model) 벤치마크.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="시뮬레이션" data-en="Simulation">시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="KIVA는 최강 VLM 대비 인간 판단과의 환각 탐지 일치도를 25.8% 높였고, 3개 모델·9개 가속 기법(2.9만+ 롤아웃) 감사에서 화질이 물리 제약 위반을 가릴 수 있음을 보임." data-en="KIVA improves hallucination-detection alignment with humans by 25.8% over the strongest frontier VLMs; an audit of 9 acceleration methods on 3 world models (29,000+ rollouts) finds visual quality can mask broken physical constraints.">KIVA는 최강 VLM 대비 인간 판단과의 환각 탐지 일치도를 25.8% 높였고, 3개 모델·9개 가속 기법(2.9만+ 롤아웃) 감사에서 화질이 물리 제약 위반을 가릴 수 있음을 보임.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.33807" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Benchmark</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">world model</span><span class="taxonomy-chip taxonomy-tag">bimanual</span></div>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.34452" target="_blank" rel="noopener">AuRA: From Atoms to Bits through Autonomous Robot Interaction</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-25</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="실행 인지 파지와 로봇 상태 기반 그리퍼 궤적으로 변형 물체의 물리 기반 디지털 트윈(Digital Twin) 재구성용 상호작용·데이터 준비를 자동화하는 시스템." data-en="AuRA automates the robot interaction and data preparation needed to reconstruct physics-informed digital twins of deformable objects, replacing human-collected manipulation with execution-aware grasping and state-derived gripper motion.">실행 인지 파지와 로봇 상태 기반 그리퍼 궤적으로 변형 물체의 물리 기반 디지털 트윈(Digital Twin) 재구성용 상호작용·데이터 준비를 자동화하는 시스템.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇" data-en="Real robot">실물 로봇</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="변형 물체 13개에서 자산당 사람 작업 88.5%, 수집 시간 55.4% 감소, 사람 수집 PhysTwin 대비 9개 지표 중 7개 개선." data-en="Across 13 deformable objects, cuts active human labor by 88.5% and wall-clock collection time by 55.4% per reconstructed asset, and beats the human-collected PhysTwin baseline on seven of nine prediction metrics.">변형 물체 13개에서 자산당 사람 작업 88.5%, 수집 시간 55.4% 감소, 사람 수집 PhysTwin 대비 9개 지표 중 7개 개선.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.34452" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-artifacts"><a class="artifact-link" href="https://github.com/Yoonkyo/AuRA" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="코드" data-en="Code">코드</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Software / Tool</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">simulation</span><span class="taxonomy-chip taxonomy-tag">real robot</span><span class="taxonomy-chip taxonomy-tag">open source</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.33718" target="_blank" rel="noopener">RoboJev: An Open Vision-Language Judge for Robot Success Detection</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-24</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="52,598개 에피소드로 LoRA 튜닝해 지시문과 영상 프레임으로 로봇 조작 성공 여부를 판정하는 오픈 웨이트(Open Weights) 비전-언어 판정 모델(VLM Judge)." data-en="RoboJev-27B is an open-weight vision-language judge, LoRA-tuned on 52,598 episodes, that predicts from a task instruction and video frames whether a robot manipulation attempt succeeded.">52,598개 에피소드로 LoRA 튜닝해 지시문과 영상 프레임으로 로봇 조작 성공 여부를 판정하는 오픈 웨이트(Open Weights) 비전-언어 판정 모델(VLM Judge).</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇" data-en="Real robot">실물 로봇</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="SO-101 보류 268건에서 균형 정확도 95.2%·AUROC 0.993, 미지의 랩·로봇 459건에서 AUROC 0.890(이 부분은 기반 모델 0.900). H100 1장 기준 에피소드당 0.26초." data-en="95.2% balanced accuracy and 0.993 AUROC on 268 held-out SO-101 episodes; AUROC 0.890 on 459 episodes from unseen labs/robots (base model 0.900 on that subset); 0.26 s per episode on one H100.">SO-101 보류 268건에서 균형 정확도 95.2%·AUROC 0.993, 미지의 랩·로봇 459건에서 AUROC 0.890(이 부분은 기반 모델 0.900). H100 1장 기준 에피소드당 0.26초.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.33718" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Software / Tool</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">benchmark</span><span class="taxonomy-chip taxonomy-tag">open weights</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.32776" target="_blank" rel="noopener">Predictive Long-Horizon Progress Modeling with Action-Aware Quantification</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-23</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="VLM으로 하위 과제를 나누고 행동 가중 진행도를 매기는 방식으로 800시간+ 진행도 데이터와 장기 과제 벤치마크 LOOM(1만9,618 프레임)을 만들고, 진행도 비평가(Progress Critic) NimCritic을 제안." data-en="Proposes action-aware progress quantification, builds an 800+ hour progress-labelled video set and the LOOM long-horizon benchmark (19,618 calibrated frames), and trains the NimCritic predictive progress critic.">VLM으로 하위 과제를 나누고 행동 가중 진행도를 매기는 방식으로 800시간+ 진행도 데이터와 장기 과제 벤치마크 LOOM(1만9,618 프레임)을 만들고, 진행도 비평가(Progress Critic) NimCritic을 제안.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="평가 해당 없음" data-en="Evaluation not applicable">평가 해당 없음</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="VPB·LOOM에서 기존 과정 보상 모델과 동등 이상, VPB 종료 성공 정확도 GVL 대비 약 65% 향상, RoboArena 성공 롤아웃 재현율 약 97%." data-en="NimCritic matches or beats prior process reward models on VPB and LOOM, about 65% higher terminal success accuracy than GVL on VPB, and ~97% recall of human-selected successful rollouts on RoboArena.">VPB·LOOM에서 기존 과정 보상 모델과 동등 이상, VPB 종료 성공 정확도 GVL 대비 약 65% 향상, RoboArena 성공 롤아웃 재현율 약 97%.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.32776" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Dataset</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">benchmark</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://huggingface.co/datasets/AetherLabs-AI/RobotAgentBench-assets" target="_blank" rel="noopener">RobotAgentBench simulation assets</a></div>
+      <div class="item-meta">
+        <span class="badge">Hugging Face Datasets</span>
+        <span class="item-date">2026-10-27</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="단기 18개·장기 8개 과제와 과제 발견·맥락 추론·실패 복구·강건성·개방형 가정 시나리오를 포함하는 RobotAgentBench의 Isaac Sim 자산·초기 상태·문항 은행 공개." data-en="Isaac Sim assets, initial states and question banks for RobotAgentBench, covering 18 short and 8 long tasks plus task discovery, context reasoning, failure recovery, robustness and open-ended household scenarios.">단기 18개·장기 8개 과제와 과제 발견·맥락 추론·실패 복구·강건성·개방형 가정 시나리오를 포함하는 RobotAgentBench의 Isaac Sim 자산·초기 상태·문항 은행 공개.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="시뮬레이션" data-en="Simulation">시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="자산 공개(수 GB)이며 카드에 기준 결과는 없음. Isaac Sim 등은 별도 설치 필요하고 자산은 별도 라이선스 조건." data-en="Asset release only (version 0.1.x, several GB); the card reports no baseline results. Isaac Sim and native SDK dependencies must be installed separately, and assets use custom license terms.">자산 공개(수 GB)이며 카드에 기준 결과는 없음. Isaac Sim 등은 별도 설치 필요하고 자산은 별도 라이선스 조건.</span></div><a class="evidence-source" href="https://huggingface.co/datasets/AetherLabs-AI/RobotAgentBench-assets" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-artifacts"><a class="artifact-link" href="https://huggingface.co/datasets/AetherLabs-AI/RobotAgentBench-assets" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="데이터" data-en="Dataset">데이터</span></a><a class="artifact-link" href="https://github.com/AetherLabsAI/RobotAgentBench" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="코드" data-en="Code">코드</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Benchmark</span><span class="taxonomy-chip taxonomy-platform">Mobile Manipulator</span><span class="taxonomy-chip taxonomy-tag">simulation</span><span class="taxonomy-chip taxonomy-tag">open source</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.35730" target="_blank" rel="noopener">SPECOLA: A Tool for Specification Driven Robot Evaluation</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-26</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="신호 시간 논리(Signal Temporal Logic) 명세로 시뮬레이션 속 로봇 행동을 평가해 성공률이 가리는 여유·위반·지속성을 측정하는 도구. Python API·CLI 제공." data-en="Specola is a tool that evaluates robot rollouts in simulation against Signal Temporal Logic specifications, managing monitors over simulator signals during policy execution with a Python API and CLI.">신호 시간 논리(Signal Temporal Logic) 명세로 시뮬레이션 속 로봇 행동을 평가해 성공률이 가리는 여유·위반·지속성을 측정하는 도구. Python API·CLI 제공.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="시뮬레이션" data-en="Simulation">시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="LIBERO·RoboCasa·Isaac Lab·RoboDojo 등 9개 환경 어댑터 제공. 정량 비교 대신 사례 연구로 제시." data-en="Ships adapters for nine simulators and benchmarks including LIBERO, RoboCasa, Isaac Lab and RoboDojo; evaluated through case studies rather than quantitative comparison.">LIBERO·RoboCasa·Isaac Lab·RoboDojo 등 9개 환경 어댑터 제공. 정량 비교 대신 사례 연구로 제시.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.35730" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-artifacts"><a class="artifact-link" href="https://github.com/specola-eval/specola" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="코드" data-en="Code">코드</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Software / Tool</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">benchmark</span><span class="taxonomy-chip taxonomy-tag">simulation</span><span class="taxonomy-chip taxonomy-tag">open source</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.32460" target="_blank" rel="noopener">CoCarry: Contact-Support-Structured Retargeting for Dual-Humanoid Cooperative Carrying</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-23</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="두 사람의 협동 운반 동작 220개 시퀀스 데이터셋과, 공유 물체 궤적을 기준으로 두 휴머노이드를 함께 리타게팅(Retargeting)하는 접촉-지지 구조 방법을 공개." data-en="CoCarry releases 220 synchronized two-person cooperative-carrying motion sequences and a contact-support-structured retargeting method that jointly refines two humanoids around a shared object trajectory.">두 사람의 협동 운반 동작 220개 시퀀스 데이터셋과, 공유 물체 궤적을 기준으로 두 휴머노이드를 함께 리타게팅(Retargeting)하는 접촉-지지 구조 방법을 공개.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇 + 시뮬레이션" data-en="Real robot + simulation">실물 로봇 + 시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="220개 시퀀스 전부 리타게팅 성공, 접촉 보존 0.9995, 관통 시간 GMR 대비 67.0% 감소. 실제 A3 휴머노이드 2대로 검증." data-en="0.9995 contact preservation and 100% retargeting success on all 220 sequences, with penetration duration cut 67.0% vs GMR and 71.0% vs OmniRetarget; validated on two physical A3 humanoids.">220개 시퀀스 전부 리타게팅 성공, 접촉 보존 0.9995, 관통 시간 GMR 대비 67.0% 감소. 실제 A3 휴머노이드 2대로 검증.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.32460" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Dataset</span><span class="taxonomy-chip taxonomy-platform">Humanoid</span><span class="taxonomy-chip taxonomy-tag">whole body</span><span class="taxonomy-chip taxonomy-tag">multi robot</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.35252" target="_blank" rel="noopener">Labference: Benchmarking the Reasoning-Action Connection in Robotic Laboratories</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-26</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="실험실 로봇 절차에서 관찰된 물리적 결과가 이후 선택을 올바르게 바꾸는지, 그 선택이 실제 동작으로 이어지는지를 분리 측정하는 벤치마크." data-en="Labference is a benchmark for robotic laboratory procedures that tests whether observed physical outcomes correctly change a robot&#x27;s subsequent choices and how those choices translate into lab actions.">실험실 로봇 절차에서 관찰된 물리적 결과가 이후 선택을 올바르게 바꾸는지, 그 선택이 실제 동작으로 이어지는지를 분리 측정하는 벤치마크.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="평가 환경 미보고" data-en="Evaluation setting not reported">평가 환경 미보고</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="초기 칭량 평가에서 VLA는 물체 이동은 하지만 대상 선택을 틀리고, GPT 기반 제어는 선택은 맞지만 실행 실패와 높은 비용을 보임." data-en="Initial weighing evaluations show tested VLAs transfer objects but pick wrong targets, while GPT-driven control selects correctly but fails in execution at high computation cost.">초기 칭량 평가에서 VLA는 물체 이동은 하지만 대상 선택을 틀리고, GPT 기반 제어는 선택은 맞지만 실행 실패와 높은 비용을 보임.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.35252" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Benchmark</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">VLA</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.37550" target="_blank" rel="noopener">Kinematic Constraint-Referenced Evaluation for Articulated Object Manipulation</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv AI</span>
+        <span class="item-date">2026-10-29</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="말단장치 트위스트를 관절 물체의 관절 축에 투영해 관절 방향 진행과 제약 밖 낭비를 분리, 이진 성공률이 숨기는 조작 전략 차이를 드러내는 평가 방법." data-en="Constraint-Referenced Strategy evaluation projects the commanded end-effector twist onto an articulated object&#x27;s joint axis, separating progress along the joint from off-constraint effort that binary success hides.">말단장치 트위스트를 관절 물체의 관절 축에 투영해 관절 방향 진행과 제약 밖 낭비를 분리, 이진 성공률이 숨기는 조작 전략 차이를 드러내는 평가 방법.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="시뮬레이션" data-en="Simulation">시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="시뮬레이션 관절 물체 74개에서 문으로 학습한 정책은 서랍을 110회 중 59회 열지만 축 밖 회전이 약 40배. 관절 축 오차 30°까지 판정 유지." data-en="On 74 simulated articulated objects, a door-trained BC policy opens drawers in 59 of 110 episodes but with about 40× the off-axis rotation of a drawer-trained policy; verdicts hold under joint-axis errors up to 30°.">시뮬레이션 관절 물체 74개에서 문으로 학습한 정책은 서랍을 110회 중 59회 열지만 축 밖 회전이 약 40배. 관절 축 오차 30°까지 판정 유지.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.37550" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Benchmark</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">simulation</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.33894" target="_blank" rel="noopener">WMEval: Evaluating Interactive World Models Grounded on Physical Simulations</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-24</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="Unity 물리 시뮬레이션을 정답으로 삼아 동일 행동 시퀀스를 비교, 인터랙티브 월드 모델(World Model)의 행동 제어성·운동학·유체·물리 인과성을 평가하는 벤치마크." data-en="WMEval scores interactive world models against matched Unity physics simulations, measuring action controllability, consistency, kinematics, fluids and physical causality rather than perceptual similarity alone.">Unity 물리 시뮬레이션을 정답으로 삼아 동일 행동 시퀀스를 비교, 인터랙티브 월드 모델(World Model)의 행동 제어성·운동학·유체·물리 인과성을 평가하는 벤치마크.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="시뮬레이션" data-en="Simulation">시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="9개 장면에서 최신 월드 모델이 지각 지표로는 드러나지 않는 물리·인과 차원에서 큰 격차를 보임(초록에 수치 없음)." data-en="Across 9 scenes, state-of-the-art world models show large gaps on physical-causal dimensions hidden by perceptual metrics (author-reported, no headline numbers in the abstract).">9개 장면에서 최신 월드 모델이 지각 지표로는 드러나지 않는 물리·인과 차원에서 큰 격차를 보임(초록에 수치 없음).</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.33894" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-artifacts"><a class="artifact-link" href="https://github.com/hao-ai-lab/WMEval" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="코드" data-en="Code">코드</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Benchmark</span><span class="taxonomy-chip taxonomy-tag">world model</span><span class="taxonomy-chip taxonomy-tag">simulation</span><span class="taxonomy-chip taxonomy-tag">open source</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>🛠 Hardware, Sensing, Deployment &amp; Safety</h2>
+  </div>
+  <div class="item highlight">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.37582" target="_blank" rel="noopener">EgoThumb: A Vision-Driven Supernumerary Robotic Thumb for Autonomous Grasp and Holding Assistance</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-27</span>
+        <span class="stars" title="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" aria-label="4/5: meaningful technical innovation, major lab result, or strong code-backed paper" tabindex="0"><span class="filled">★★★★</span><span class="empty">☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="힘줄 구동부를 전완으로 옮긴 경량 보조 로봇 엄지(Supernumerary Robotic Thumb)와 손바닥 카메라 영상으로 사용자 의도를 읽는 시각 모방학습 정책을 하드웨어·소프트웨어 모두 공개 (IROS 채택)." data-en="EgoThumb is a fully open-source supernumerary robotic thumb with forearm-relocated tendon actuation and a visual imitation policy that maps palm-camera images to joint positions, inferring user intent for hold-and-manipulate tasks.">힘줄 구동부를 전완으로 옮긴 경량 보조 로봇 엄지(Supernumerary Robotic Thumb)와 손바닥 카메라 영상으로 사용자 의도를 읽는 시각 모방학습 정책을 하드웨어·소프트웨어 모두 공개 (IROS 채택).</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇" data-en="Real robot">실물 로봇</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="사용자·환경 전반에 걸친 자율 파지 보조를 보고했으나 초록에 정량 성공률은 없음." data-en="Authors report robust autonomous grasp-and-hold assistance generalizing across users and environments; the abstract gives no quantitative success rates.">사용자·환경 전반에 걸친 자율 파지 보조를 보고했으나 초록에 정량 성공률은 없음.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.37582" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-artifacts"><a class="artifact-link" href="https://github.com/JayeFu/ego_thumb_firmware" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="코드" data-en="Code">코드</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">System / Hardware</span><span class="taxonomy-chip taxonomy-platform">Dexterous Hand</span><span class="taxonomy-chip taxonomy-tag">HRI</span><span class="taxonomy-chip taxonomy-tag">imitation learning</span><span class="taxonomy-chip taxonomy-tag">open source</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.37378" target="_blank" rel="noopener">VLA-Stem: A Lightweight Safety Mechanism for Vision-Language-Action Models via Reinforcement Learning</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-27</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="VLA를 미세조정하지 않고 행동 청크를 동작 참조로 변환한 뒤 강화학습(RL) 정책이 정적 제약과 동적 장애물에 맞춰 실행을 조정하는 경량 안전 계층." data-en="VLA-Stem is an RL safety layer that turns a frozen VLA&#x27;s action chunks into motion references and adapts execution to static constraints and dynamic obstacles without fine-tuning the VLA.">VLA를 미세조정하지 않고 행동 청크를 동작 참조로 변환한 뒤 강화학습(RL) 정책이 정적 제약과 동적 장애물에 맞춰 실행을 조정하는 경량 안전 계층.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇 + 시뮬레이션" data-en="Real robot + simulation">실물 로봇 + 시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="제약 시뮬레이션 6종에서 무충돌 성공률 52.8%(최강 안전 기준선 23.7%), 장애물 없는 상황 성능 유지, 실제 실험에서도 충돌 감소." data-en="52.8% average collision-free task success across six constrained simulation settings versus 23.7% for the strongest safety baseline, with base performance preserved; real-world runs show fewer collisions.">제약 시뮬레이션 6종에서 무충돌 성공률 52.8%(최강 안전 기준선 23.7%), 장애물 없는 상황 성능 유지, 실제 실험에서도 충돌 감소.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.37378" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">safety</span><span class="taxonomy-chip taxonomy-tag">RL</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.34358" target="_blank" rel="noopener">EAST: Embodied AI Safety Testing via Systematic Fault Injection in Digital Twins</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-25</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="문헌 기반 안전 위험을 인지·지시·환경·행동·타이밍에 걸친 디지털 트윈 결함 주입(Fault Injection) 시험으로 변환하고 실현 여부까지 검증하는 체화 AI 안전 시험 프레임워크." data-en="EAST converts literature-grounded safety hazards into executable fault-injection tests in digital twins across perception, instructions, environment, actions and timing, and checks that each fault was actually realized.">문헌 기반 안전 위험을 인지·지시·환경·행동·타이밍에 걸친 디지털 트윈 결함 주입(Fault Injection) 시험으로 변환하고 실현 여부까지 검증하는 체화 AI 안전 시험 프레임워크.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="시뮬레이션" data-en="Simulation">시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="RoboTwin 6개 과제·ACT/RDT에서 74개 조합 중 63개 유효 증거, 과제는 성공했지만 안전을 위반한 실행 82건을 발견." data-en="On six RoboTwin tasks with ACT and RDT, valid evidence for 63 of 74 admissible combinations, and 82 executions completed their task while violating safety — risks success-only metrics miss.">RoboTwin 6개 과제·ACT/RDT에서 74개 조합 중 63개 유효 증거, 과제는 성공했지만 안전을 위반한 실행 82건을 발견.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.34358" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Benchmark</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">safety</span><span class="taxonomy-chip taxonomy-tag">simulation</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.33317" target="_blank" rel="noopener">Active Reachability Learning for Humanoid Recoverability Monitoring</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-23</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="가치 학습과 불확실성 기반 도달-회피(Reach-Avoid) 탐색을 번갈아 휴머노이드의 넘어짐 회복 가능 영역을 학습하고, 불확실 영역은 회복 불가로 처리하는 런타임 모니터." data-en="Learns a humanoid&#x27;s recoverability envelope for a fallback policy by alternating value learning with uncertainty-guided reach-avoid exploration, treating remaining high-uncertainty states as unrecoverable to avoid optimistic monitors.">가치 학습과 불확실성 기반 도달-회피(Reach-Avoid) 탐색을 번갈아 휴머노이드의 넘어짐 회복 가능 영역을 학습하고, 불확실 영역은 회복 불가로 처리하는 런타임 모니터.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇 + 시뮬레이션" data-en="Real robot + simulation">실물 로봇 + 시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="확률적 벤치마크에서 커버리지·정확도 개선, 29자유도 Unitree G1 실기에 제로샷 전이(초록에 수치 없음)." data-en="Substantially better monitor coverage and accuracy on stochastic benchmarks and zero-shot transfer to a real 29-DoF Unitree G1 (author-reported; magnitudes not in the abstract).">확률적 벤치마크에서 커버리지·정확도 개선, 29자유도 Unitree G1 실기에 제로샷 전이(초록에 수치 없음).</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.33317" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Humanoid</span><span class="taxonomy-chip taxonomy-tag">safety</span><span class="taxonomy-chip taxonomy-tag">whole body</span><span class="taxonomy-chip taxonomy-tag">real robot</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.34151" target="_blank" rel="noopener">Execution Logs Sway VLM Judges of Robot Progress</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-25</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="로봇 영상 옆에 넣은 잘못된 실행 로그 한 줄이 VLM 판정(VLM Judge)의 진행도 평가를 뒤집으며, 로그가 틀릴 수 있다는 경고 한 줄로 대부분 막을 수 있음을 보임." data-en="Shows that a single misleading execution-log line beside robot video frames flips VLM judges&#x27; progress verdicts, and that a one-line warning about unreliable logs removes most of the effect.">로봇 영상 옆에 넣은 잘못된 실행 로그 한 줄이 VLM 판정(VLM Judge)의 진행도 평가를 뒤집으며, 로그가 틀릴 수 있다는 경고 한 줄로 대부분 막을 수 있음을 보임.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="평가 해당 없음" data-en="Evaluation not applicable">평가 해당 없음</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="Gemini·Qwen·GPT 판정에서 거짓 진행 로그가 중립 문장보다 10~35%p 더 자주 판정을 뒤집음. 거짓 완료 주장은 Qwen 정답 판정의 절반을 뒤집지만 Gemini엔 영향 없음." data-en="A false &#x27;making progress&#x27; line flips correct verdicts 10–35 points more often than a neutral line across Gemini, Qwen and GPT judges; fake &#x27;task complete&#x27; claims flip half of Qwen&#x27;s correct verdicts but have no detectable effect on Gemini.">Gemini·Qwen·GPT 판정에서 거짓 진행 로그가 중립 문장보다 10~35%p 더 자주 판정을 뒤집음. 거짓 완료 주장은 Qwen 정답 판정의 절반을 뒤집지만 Gemini엔 영향 없음.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.34151" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Survey / Analysis</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">safety</span><span class="taxonomy-chip taxonomy-tag">benchmark</span></div>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.32208" target="_blank" rel="noopener">Do VLAs Know They Will Fail? Interpretable Success and Failure Patterns in Physical AI Systems</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-23</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="OpenVLA 활성값의 희소 오토인코더(SAE) 특징으로 복구 불가 상태 이전에 실패를 예측하고, VLM으로 해당 특징이 나타내는 행동 패턴을 해석." data-en="Sparse-autoencoder features of OpenVLA activations predict task failure before the robot reaches an unrecoverable state, and a VLM pipeline describes the behaviors those features track.">OpenVLA 활성값의 희소 오토인코더(SAE) 특징으로 복구 불가 상태 이전에 실패를 예측하고, VLM으로 해당 특징이 나타내는 행동 패턴을 해석.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="평가 환경 미보고" data-en="Evaluation setting not reported">평가 환경 미보고</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="결과 예측 SAE 특징과 보류 구간 검증을 보고했으나 초록에 정확도 수치는 없음." data-en="Reports outcome-predictive SAE features and validated behavior descriptions on held-out intervals; the abstract gives no accuracy figures.">결과 예측 SAE 특징과 보류 구간 검증을 보고했으나 초록에 정확도 수치는 없음.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.32208" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Survey / Analysis</span><span class="taxonomy-chip taxonomy-platform">Manipulator</span><span class="taxonomy-chip taxonomy-tag">VLA</span><span class="taxonomy-chip taxonomy-tag">safety</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>🧠 Selected Robotics-Enabling AI</h2>
+  </div>
+  <div class="item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.33745" target="_blank" rel="noopener">POD-RoPE: Rotary Position Encoding over Physical Observation Distributions for Embodied AI</a></div>
+      <div class="item-meta">
+        <span class="badge">arXiv Robotics</span>
+        <span class="item-date">2026-10-24</span>
+        <span class="stars" title="3/5: useful improvement, tool, dataset, benchmark, or practical application" aria-label="3/5: useful improvement, tool, dataset, benchmark, or practical application" tabindex="0"><span class="filled">★★★</span><span class="empty">☆☆</span></span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="토큰의 관측 범위를 카메라 위치·시선 방향·시간에 대한 분포로 표현하는 회전 위치 인코딩(RoPE) 확장으로, 체화 인지를 위한 기하 인지 어텐션(Geometry-Aware Attention)을 효율적으로 구현." data-en="POD-RoPE encodes each token&#x27;s observation footprint as a distribution over camera centers, viewing directions and sampling times, giving geometry-aware rotary attention that reduces to standard RoPE for point observations.">토큰의 관측 범위를 카메라 위치·시선 방향·시간에 대한 분포로 표현하는 회전 위치 인코딩(RoPE) 확장으로, 체화 인지를 위한 기하 인지 어텐션(Geometry-Aware Attention)을 효율적으로 구현.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="실물 로봇 + 시뮬레이션" data-en="Real robot + simulation">실물 로봇 + 시뮬레이션</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="Fast-WAM에 적용 시 RoboTwin 2.0 50개 과제 평균 91.83→92.88%, 실제 로봇 2개 과제 32.5→52.5%. P-RoPE보다 1.91배 빠르고 표준 RoPE 대비 지연 17.4% 증가." data-en="In Fast-WAM, mean success rises from 91.83% to 92.88% over 50 RoboTwin 2.0 tasks and from 32.5% to 52.5% on two real-robot tasks; 1.91× faster than P-RoPE with 17.4% latency overhead over standard RoPE.">Fast-WAM에 적용 시 RoboTwin 2.0 50개 과제 평균 91.83→92.88%, 실제 로봇 2개 과제 32.5→52.5%. P-RoPE보다 1.91배 빠르고 표준 RoPE 대비 지연 17.4% 증가.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.33745" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-platform">Cross-Platform</span><span class="taxonomy-chip taxonomy-tag">world model</span><span class="taxonomy-chip taxonomy-tag">real robot</span><span class="taxonomy-chip taxonomy-tag">efficient inference</span></div>
+  </div>
+</div>
+
+<div class="section radar-section">
+  <div class="section-header">
+    <h2>🔭 Frontier AI</h2>
+  </div>
+    <p class="section-description i18n" data-ko="언어 모델에 국한하지 않은 범용 파운데이션 모델의 주요 신규 공개" data-en="Major new releases of broadly reusable foundation models, not limited to language models">언어 모델에 국한하지 않은 범용 파운데이션 모델의 주요 신규 공개</p>
+  <div class="item highlight radar-item">
+    <div class="item-top">
+      <div class="item-title"><a href="https://arxiv.org/abs/2610.36729" target="_blank" rel="noopener">Hy-Nomas: Towards Free-form Interactive World Generation</a></div>
+      <div class="item-meta">
+        <span class="badge">Tencent</span>
+        <span class="item-date">2026-10-27</span>
+        <span class="radar-tier radar-tier-major" title="Major: significant new model or substantial update in an established family" aria-label="Major: significant new model or substantial update in an established family" tabindex="0">Major</span>
+      </div>
+    </div>
+    <div class="item-summary i18n" data-ko="Tencent Hunyuan의 8B 확산 비디오 월드 모델(Video World Model) Hy-Nomas 기술 보고서. 여러 턴에 걸쳐 자유 형식 텍스트 지시와 연속 카메라 제어를 따르며, 가중치·코드·벤치마크를 공개." data-en="Tencent Hunyuan&#x27;s technical report for Hy-Nomas, an 8B diffusion video world model that follows free-form text instructions and continuous camera control across multi-turn interaction; weights, code and benchmarks are released.">Tencent Hunyuan의 8B 확산 비디오 월드 모델(Video World Model) Hy-Nomas 기술 보고서. 여러 턴에 걸쳐 자유 형식 텍스트 지시와 연속 카메라 제어를 따르며, 가중치·코드·벤치마크를 공개.</div>
+    <div class="item-evidence"><div class="evidence-setting"><span class="i18n" data-ko="평가 해당 없음" data-en="Evaluation not applicable">평가 해당 없음</span></div><div class="evidence-row"><strong><span class="i18n" data-ko="결과" data-en="Result">결과</span></strong> <span class="i18n" data-ko="기존 월드 모델 대비 인간 평가에서 우수하다고 보고. 초록에 독립 벤치마크 수치는 없음." data-en="Authors report superior human-evaluation results over existing world models; no independent benchmark numbers in the abstract.">기존 월드 모델 대비 인간 평가에서 우수하다고 보고. 초록에 독립 벤치마크 수치는 없음.</span></div><a class="evidence-source" href="https://arxiv.org/abs/2610.36729" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="평가 근거" data-en="Evidence">평가 근거</span></a></div>
+    <div class="item-artifacts"><a class="artifact-link" href="https://arxiv.org/abs/2610.36729" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="논문" data-en="Paper">논문</span></a><a class="artifact-link" href="https://huggingface.co/tencent/Hy-Nomas" target="_blank" rel="noopener noreferrer"><span class="i18n" data-ko="모델" data-en="Model">모델</span></a></div>
+    <div class="item-taxonomy"><span class="taxonomy-chip taxonomy-domain">Video · World Model</span><span class="taxonomy-chip taxonomy-event">Technical Report</span><span class="taxonomy-chip taxonomy-contribution">Model / Method</span><span class="taxonomy-chip taxonomy-tag">foundation model</span><span class="taxonomy-chip taxonomy-tag">world model</span><span class="taxonomy-chip taxonomy-tag">open weights</span><span class="taxonomy-chip taxonomy-tag">open source</span></div>
+  </div>
+</div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div><span class="i18n" data-ko="2026-10-30 KST 생성 · Robotics 7일 / Frontier AI 15일 기준 · 매일 09:00 KST 전후 업데이트 · 5개 소스 · Robotics 48건 + Frontier AI 1건" data-en="Generated 2026-10-30 KST · Robotics 7d / Frontier AI 15d · updated around 09:00 KST daily · 5 sources · Robotics 48 + Frontier AI 1">2026-10-30 KST 생성 · Robotics 7일 / Frontier AI 15일 기준 · 매일 09:00 KST 전후 업데이트 · 5개 소스 · Robotics 48건 + Frontier AI 1건</span></div>
+    <div class="divider"></div>
+    <div class="credit">
+      Made by <a href="https://github.com/SeongjuLee" target="_blank" rel="noopener">Seongju Lee</a> · Powered by ai-news-mcp
+    </div>
+  </div>
+</footer>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+  <span class="icon-light">&#9728;&#65039;</span>
+  <span class="icon-dark">&#9789;</span>
+</button>
+
+<script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+})();
+function toggleTheme() {
+  var html = document.documentElement;
+  var current = html.getAttribute('data-theme');
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var next;
+  if (!current) {
+    next = prefersDark ? 'light' : 'dark';
+  } else if (current === 'dark') {
+    next = 'light';
+  } else {
+    next = 'dark';
+  }
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+}
+</script>
+
+<script src="https://gist-ailab.github.io/gail-daily-news/common-ui.js" defer></script>
+</body>
+</html>
